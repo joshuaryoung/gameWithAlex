@@ -3,6 +3,4 @@ InputManager.preset
 Temp
 .DS_Store
 obj/Debug
-Library/Collab
-Library/StateCache
-Library/CrashedAssetImports.txt
+Library/
