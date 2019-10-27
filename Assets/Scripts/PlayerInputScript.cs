@@ -4,14 +4,10 @@ TODO: Completely rewrite controller polling and state updates
 
 Bugs
 
-Jump acts like you released the jump even when you continue to hold down jump. Happens 1 / 25 times. -Josh
--> Including a video in a folder called bugs that captures the bug
+- Kicking or punching repeatedly after connecting with enemy cancels recovery indefinitely (LIGHTNING LEGS EFFECT)
 
-Can't crouch with S key while blocking - attempts to save scene? -Alex
--> What key should we change crouch to then?
 
-Vaulting over the lip of a wall after wall jump seems to rely on the exact size of the "Wall" object in the scene.
-Changing the proportions of a wall makes the character behavior buggy.
+
 
 
 
