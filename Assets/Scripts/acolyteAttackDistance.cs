@@ -19,6 +19,7 @@ public class acolyteAttackDistance : MonoBehaviour {
 	public AudioClip punchSoundEffect;
 	// Use this for initialization
 	void Start () {
+		audioSrc = GetComponentInParent<AudioSource>();
 	}
 
 	void OnTriggerStay2D(Collider2D col2D)

@@ -860,6 +860,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
+        type: 3}
+      propertyPath: audioSrc
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 347ccad12011c2945bc08be236bad5bd, type: 3}
 --- !u!1001 &969632804
@@ -2024,6 +2029,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 114504737153347904, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: deathScreen
+      value: 
+      objectReference: {fileID: 226532694}
     - target: {fileID: 4087151271183574, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -154.5545
@@ -2068,11 +2078,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114504737153347904, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: deathScreen
-      value: 
-      objectReference: {fileID: 226532694}
     - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
         type: 3}
       propertyPath: punchSoundEffect
@@ -2088,6 +2093,11 @@ PrefabInstance:
       propertyPath: kickSoundEffect
       value: 
       objectReference: {fileID: 8300000, guid: 45faa29d78cc142fe92f55f4590b6d48, type: 3}
+    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: wallJumpMinXAxisCooldownMax
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 61047054372075774, guid: 117785b7cd429d342af78d659adcd96b,
         type: 3}
       propertyPath: m_Enabled

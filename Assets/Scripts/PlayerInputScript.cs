@@ -4,9 +4,14 @@ TODO: Completely rewrite controller polling and state updates
 
 Bugs
 
+<<<<<<< HEAD
 - Kicking or punching repeatedly after connecting with enemy cancels recovery indefinitely (LIGHTNING LEGS EFFECT)
 
 
+=======
+Can't crouch with S key while blocking - attempts to save scene? -Alex
+-> What key should we change crouch to then?
+>>>>>>> master
 
 
 
@@ -235,6 +240,9 @@ public class PlayerInputScript : MonoBehaviour {
 					playSoundEffect(punchSoundEffect);
 				}
 				anim.SetBool ("isKicking", (kickPressed && !sweepPressed && !grabPressed));
+				if(kickPressed && !sweepPressed  && !grabPressed) {
+					playSoundEffect(kickSoundEffect);
+				}
 				anim.SetBool ("isSweeping", sweepPressed);
 				anim.SetBool ("isUppercutting", uppercutPressed);
 			}
