@@ -14,6 +14,9 @@ public class PlayerHealth : MonoBehaviour {
 	public SpriteRenderer spriteR;
 	public Color spriteColor;
 	public Text deathScreen;
+	public GameObject playerCharacter;
+	public GameObject hitSparkObject;
+	public Animator hitSparkAnimator;
 	private cameraFollow cf;
 	private PlayerInputScript PIS;
 
@@ -26,6 +29,12 @@ public class PlayerHealth : MonoBehaviour {
 		invincibilityCooldown = 0;
 		cf = GameObject.FindGameObjectWithTag("MainCamera").gameObject.GetComponent<cameraFollow> ();
 		PIS = gameObject.GetComponent<PlayerInputScript> ();
+		if(!playerCharacter) {
+			playerCharacter = gameObject;
+		}
+		if(hitSparkObject) {
+			hitSparkAnimator = hitSparkObject.GetComponent<Animator>();
+		}
 	}
 
 	void Update()
@@ -59,6 +68,7 @@ public class PlayerHealth : MonoBehaviour {
 				currentHealth -= damage;
 				invincibilityCooldown = 100;
 				PIS.canAct = true;
+				hitSparkObject.SetActive(true);
 			}
 		}
 	}
