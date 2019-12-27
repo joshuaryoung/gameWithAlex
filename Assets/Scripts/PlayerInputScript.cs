@@ -227,6 +227,7 @@ public class PlayerInputScript : MonoBehaviour {
 
 		if (canCombo) {
 			if (punchPressed || kickPressed || sweepPressed || uppercutPressed) {
+				// AnimatorControllerParameter backupParams = anim.parameters;
 				foreach(AnimatorControllerParameter parameter in anim.parameters) {            
 					anim.SetBool(parameter.name, false);            
 				}
@@ -241,6 +242,7 @@ public class PlayerInputScript : MonoBehaviour {
 				}
 				anim.SetBool ("isSweeping", sweepPressed);
 				anim.SetBool ("isUppercutting", uppercutPressed);
+				anim.SetBool ("isGrounded", isGrounded);
 			}
 		}
 
