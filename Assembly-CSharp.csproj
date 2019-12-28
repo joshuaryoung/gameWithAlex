@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\cameraFollow.cs" />
      <Compile Include="Assets\Scripts\enemyPlayerDetection.cs" />
      <Compile Include="Assets\Scripts\groundCheck.cs" />
+     <Compile Include="Assets\Scripts\playerAnimationEvents.cs" />
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\PlayerInputScript.cs" />
      <Compile Include="Assets\Scripts\playerWallCollisionCheck.cs" />
