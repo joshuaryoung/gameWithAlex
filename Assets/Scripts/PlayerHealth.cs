@@ -16,9 +16,10 @@ public class PlayerHealth : MonoBehaviour {
 	public Text deathScreen;
 	public GameObject playerCharacter;
 	public GameObject hitSparkObject;
-	public Animator hitSparkAnimator;
+	public Animator animator;
 	private cameraFollow cf;
 	private PlayerInputScript PIS;
+	public bool InfiniteHealth;
 
 	// Use this for initialization
 	void Start ()
@@ -33,7 +34,7 @@ public class PlayerHealth : MonoBehaviour {
 			playerCharacter = gameObject;
 		}
 		if(hitSparkObject) {
-			hitSparkAnimator = hitSparkObject.GetComponent<Animator>();
+			animator = GetComponent<Animator>();
 		}
 	}
 
@@ -65,10 +66,12 @@ public class PlayerHealth : MonoBehaviour {
 
 			if (currentHealth - damage > 0)
 			{
-				currentHealth -= damage;
+				if(!InfiniteHealth)
+					currentHealth -= damage;
 				invincibilityCooldown = 100;
 				PIS.canAct = true;
 				hitSparkObject.SetActive(true);
+				animator.SetBool("isReeling", true);
 			}
 		}
 	}
