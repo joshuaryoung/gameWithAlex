@@ -1041,7 +1041,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 467d271694c7d47278dbdfd42b21244a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
 --- !u!1001 &1066610171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2030,6 +2029,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1743696013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743696005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb71fdadc3fe94009a23fc32a2596e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1001 &1917780178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2231,6 +2243,11 @@ PrefabInstance:
       propertyPath: hitSparkObject
       value: 
       objectReference: {fileID: 999187267}
+    - target: {fileID: 114504737153347904, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: InfiniteHealth
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3725956914877408559, guid: 117785b7cd429d342af78d659adcd96b,
         type: 3}
       propertyPath: m_Offset.y
