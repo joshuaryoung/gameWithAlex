@@ -20,7 +20,8 @@ public class acolyteBehavior : MonoBehaviour {
 	public Collider2D punchHitBox;
 	public int punchDamageValue;
 	public bool canAttack;
-	Animator anim;
+	Animator acolyteAnim;
+	public GameObject hitSparkObject;
 	public AudioSource audioSrc;
 	public AudioClip impactSoundEffect;
 	public int reelLength;
@@ -31,7 +32,7 @@ public class acolyteBehavior : MonoBehaviour {
 		audioSrc = GetComponent<AudioSource> ();
 		currentHealth = startHealth;
 		spriteR = GetComponent<SpriteRenderer> ();
-		anim = GetComponent<Animator> ();
+		acolyteAnim = GetComponent<Animator> ();
 		spriteColor = spriteR.color;
 		invincibilityCooldownCurrent = 0;
 		RB2D = GetComponent<Rigidbody2D> ();
@@ -70,7 +71,7 @@ public class acolyteBehavior : MonoBehaviour {
 		if (reelLength > 0) {
 			reelLength--;
 			if (reelLength == 0) {
-				anim.SetBool ("isReeling", false);
+				acolyteAnim.SetBool ("isReeling", false);
 			}
 		}
 	}
@@ -107,6 +108,8 @@ public class acolyteBehavior : MonoBehaviour {
 	public void enemyTakeDamage(int damage){
 		if (currentHealth > 0 && invincibilityCooldownCurrent == 0) {
 			currentHealth -= damage;
+			hitSparkObject.SetActive(true);
+			reelStateEnter();
 			if(currentHealth <= 0)
 				enemyDeath ();
 		} 
@@ -117,18 +120,18 @@ public class acolyteBehavior : MonoBehaviour {
 	{
 		pushBack (pushBackDistance);
 		if (invincibilityCooldownCurrent <= 0) {
-			anim.SetBool ("isReeling", true);
+			acolyteAnim.SetBool ("isReeling", true);
 		}
 	}
 
 	public void reelStateExit(){
-		anim.SetBool ("isReeling", false);
+		acolyteAnim.SetBool ("isReeling", false);
 		invincibilityCooldownCurrent = invincibilityCooldownPeriod;
 	}
 
 	public void enemyDeath ()
 	{
-		Destroy (gameObject);
+		gameObject.SetActive(false);
 	}
 
 	public void resetCanAttack ()

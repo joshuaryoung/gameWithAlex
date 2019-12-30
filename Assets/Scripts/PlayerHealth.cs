@@ -80,7 +80,7 @@ public class PlayerHealth : MonoBehaviour {
 	{
 		isDead = true;
 		deathScreen.enabled = true;
-		Destroy (gameObject);
+		gameObject.SetActive(false);
 		cf.enabled = !cf.enabled;
 	}
 }
