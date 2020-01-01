@@ -142,8 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 0}
-  startHealth: 50
-  currentHealth: 50
+  startHealth: 500
+  currentHealth: 500
   invincibilityCooldownPeriod: 0
   invincibilityCooldownCurrent: 0
   invincibilityCooldownFlash: 0
@@ -158,7 +158,7 @@ MonoBehaviour:
   audioSrc: {fileID: 0}
   impactSoundEffect: {fileID: 8300000, guid: dbe104ed0ce264aaf9745038e89e9243, type: 3}
   reelLength: 0
-  pushBackDistance: 3.5
+  pushBackDistance: 2
 --- !u!212 &212857715412243474
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -388,7 +388,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.19, y: 0}
   serializedVersion: 2
   m_Radius: 0.34
 --- !u!1 &1472227797893740
