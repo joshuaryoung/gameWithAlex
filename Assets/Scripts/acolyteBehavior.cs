@@ -68,12 +68,12 @@ public class acolyteBehavior : MonoBehaviour {
 				spriteR.color = spriteColor;
 			}
 		}
-		if (reelLength > 0) {
-			reelLength--;
-			if (reelLength == 0) {
-				acolyteAnim.SetBool ("isReeling", false);
-			}
-		}
+		//if (reelLength > 0) {
+			//reelLength--;
+			//if (reelLength == 0) {
+				//acolyteAnim.SetBool ("isReeling", false);
+			//}
+		//}
 	}
 
 	void flip ()
