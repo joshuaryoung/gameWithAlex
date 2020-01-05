@@ -186,10 +186,12 @@ public class PlayerInputScript : MonoBehaviour {
 			anim.SetBool ("isCrouching", isCrouching);
 			anim.SetBool ("isPunching", (punchPressed && !uppercutPressed && !grabPressed));
 			if(punchPressed && !uppercutPressed && !grabPressed) {
+				anim.Play("Punch", 0, 0.0f);
 				playSoundEffect(punchSoundEffect);
 			}
 			anim.SetBool ("isKicking", (kickPressed && !sweepPressed  && !grabPressed));
 			if(kickPressed && !sweepPressed  && !grabPressed) {
+				anim.Play("Kick", 0, 0.0f);
 				playSoundEffect(kickSoundEffect);
 			}
 			anim.SetBool ("isSweeping", sweepPressed);
@@ -234,10 +236,12 @@ public class PlayerInputScript : MonoBehaviour {
 				attackHasAlreadyHit = false;
 				anim.SetBool ("isPunching", (punchPressed && !uppercutPressed && !grabPressed));
 				if(punchPressed && !uppercutPressed && !grabPressed) {
+					anim.Play("Punch", 0, 0.0f);
 					playSoundEffect(punchSoundEffect);
 				}
 				anim.SetBool ("isKicking", (kickPressed && !sweepPressed && !grabPressed));
 				if(kickPressed && !sweepPressed  && !grabPressed) {
+					anim.Play("Kick", 0, 0.0f);
 					playSoundEffect(kickSoundEffect);
 				}
 				anim.SetBool ("isSweeping", sweepPressed);
