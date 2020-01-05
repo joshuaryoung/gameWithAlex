@@ -68,12 +68,6 @@ public class acolyteBehavior : MonoBehaviour {
 				spriteR.color = spriteColor;
 			}
 		}
-		if (reelLength > 0) {
-			reelLength--;
-			if (reelLength == 0) {
-				acolyteAnim.SetBool ("isReeling", false);
-			}
-		}
 	}
 
 	void flip ()
@@ -109,6 +103,7 @@ public class acolyteBehavior : MonoBehaviour {
 		if (currentHealth > 0 && invincibilityCooldownCurrent == 0) {
 			currentHealth -= damage;
 			hitSparkObject.SetActive(true);
+			pushBack (pushBackDistance);
 			reelStateEnter();
 			if(currentHealth <= 0)
 				enemyDeath ();
@@ -118,9 +113,12 @@ public class acolyteBehavior : MonoBehaviour {
 	//for the state that occurs right after receiving damage where acolyte is combo-able
 	public void reelStateEnter()
 	{
-		pushBack (pushBackDistance);
 		if (invincibilityCooldownCurrent <= 0) {
+			foreach(AnimatorControllerParameter parameter in acolyteAnim.parameters) {            
+				acolyteAnim.SetBool(parameter.name, false);            
+			}
 			acolyteAnim.SetBool ("isReeling", true);
+			acolyteAnim.Play("reel", 0, 0.0f);
 		}
 	}
 
