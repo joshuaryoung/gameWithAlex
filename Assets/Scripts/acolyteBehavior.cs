@@ -41,7 +41,7 @@ public class acolyteBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//if facing right
-		if (transform.localScale.x > 0) {
+		if (transform.localScale.x > 0 && acolyteAnim.GetBool("isReeling") == false) {
 			//if facing right, increment x axis
 			transform.position = new Vector3(
 				transform.position.x + (0.01f * enemyHorizontalSpeed),
@@ -50,7 +50,7 @@ public class acolyteBehavior : MonoBehaviour {
 		}
 
 		//if facing left
-		else if (transform.localScale.x < 0) {
+		else if (transform.localScale.x < 0 && acolyteAnim.GetBool("isReeling") == false) {
 			//if facing left, decrement x axis
 			transform.position = new Vector3(
 				transform.position.x - (0.01f * enemyHorizontalSpeed),
@@ -66,12 +66,6 @@ public class acolyteBehavior : MonoBehaviour {
 			if (invincibilityCooldownCurrent == 0){
 				spriteColor.a = (float)255;
 				spriteR.color = spriteColor;
-			}
-		}
-		if (reelLength > 0) {
-			reelLength--;
-			if (reelLength == 0) {
-				acolyteAnim.SetBool ("isReeling", false);
 			}
 		}
 	}
@@ -109,6 +103,7 @@ public class acolyteBehavior : MonoBehaviour {
 		if (currentHealth > 0 && invincibilityCooldownCurrent == 0) {
 			currentHealth -= damage;
 			hitSparkObject.SetActive(true);
+			pushBack (pushBackDistance);
 			reelStateEnter();
 			if(currentHealth <= 0)
 				enemyDeath ();
@@ -118,9 +113,12 @@ public class acolyteBehavior : MonoBehaviour {
 	//for the state that occurs right after receiving damage where acolyte is combo-able
 	public void reelStateEnter()
 	{
-		pushBack (pushBackDistance);
 		if (invincibilityCooldownCurrent <= 0) {
+			foreach(AnimatorControllerParameter parameter in acolyteAnim.parameters) {            
+				acolyteAnim.SetBool(parameter.name, false);            
+			}
 			acolyteAnim.SetBool ("isReeling", true);
+			acolyteAnim.Play("reel", 0, 0.0f);
 		}
 	}
 

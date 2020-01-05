@@ -48,6 +48,7 @@
      <Compile Include="Assets\Scripts\acolyteAttackDistance.cs" />
      <Compile Include="Assets\Scripts\acolyteBehavior.cs" />
      <Compile Include="Assets\Scripts\animationEvent.cs" />
+     <Compile Include="Assets\Scripts\BackgroundScroll.cs" />
      <Compile Include="Assets\Scripts\cameraFollow.cs" />
      <Compile Include="Assets\Scripts\enemyPlayerDetection.cs" />
      <Compile Include="Assets\Scripts\groundCheck.cs" />
