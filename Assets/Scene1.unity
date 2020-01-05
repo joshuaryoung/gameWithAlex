@@ -453,7 +453,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 29.48534, y: 19.90741}
+  m_Size: {x: 28.482746, y: 19.90741}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -467,7 +467,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 116391945}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -175.32999, y: -37.789993, z: 0}
+  m_LocalPosition: {x: -174.8288, y: -37.789993, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -527,6 +527,16 @@ PrefabInstance:
     - target: {fileID: 61885748786416078, guid: 8411a9ae29a3b604b8a5f2748572bdb5,
         type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 61885748786416078, guid: 8411a9ae29a3b604b8a5f2748572bdb5,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 5.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 61885748786416078, guid: 8411a9ae29a3b604b8a5f2748572bdb5,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 212320547349157750, guid: 8411a9ae29a3b604b8a5f2748572bdb5,
@@ -1995,6 +2005,11 @@ PrefabInstance:
     - target: {fileID: 4612835406874000, guid: 347ccad12011c2945bc08be236bad5bd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
+        type: 3}
+      propertyPath: pushBackDistance
+      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 347ccad12011c2945bc08be236bad5bd, type: 3}
