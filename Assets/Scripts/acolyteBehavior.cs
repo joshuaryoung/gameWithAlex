@@ -41,7 +41,7 @@ public class acolyteBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//if facing right
-		if (transform.localScale.x > 0 && acolyteAnim.GetBool("isReeling") == false) {
+		if (transform.localScale.x > 0 && acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isPunching") == false) {
 			//if facing right, increment x axis
 			transform.position = new Vector3(
 				transform.position.x + (0.01f * enemyHorizontalSpeed),
@@ -50,7 +50,7 @@ public class acolyteBehavior : MonoBehaviour {
 		}
 
 		//if facing left
-		else if (transform.localScale.x < 0 && acolyteAnim.GetBool("isReeling") == false) {
+		else if (transform.localScale.x < 0 && acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isPunching") == false) {
 			//if facing left, decrement x axis
 			transform.position = new Vector3(
 				transform.position.x - (0.01f * enemyHorizontalSpeed),
