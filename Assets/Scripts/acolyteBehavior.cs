@@ -70,7 +70,10 @@ public class acolyteBehavior : MonoBehaviour {
 		}
 	}
 
-	void flip ()
+void disableIsPunching () {
+	acolyteAnim.SetBool ("isPunching", false);
+}
+ 	void flip ()
 	{
 		Vector2 flipLocalScale = gameObject.transform.localScale;
 		flipLocalScale.x *= -1;
