@@ -527,7 +527,7 @@ MonoBehaviour:
   playerCharacter: {fileID: 0}
   hitSparkObject: {fileID: 999187267}
   animator: {fileID: 0}
-  InfiniteHealth: 1
+  InfiniteHealth: 0
 --- !u!50 &50374711187455098
 Rigidbody2D:
   serializedVersion: 4
