@@ -24,7 +24,7 @@ public class acolyteAttackDistance : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D col2D)
 	{
-		if (col2D.gameObject.tag == "PlayerCharacter" && AB.invincibilityCooldownCurrent <= 0) {
+		if (col2D.gameObject.tag == "PlayerCharacter" && AB.invincibilityCooldownCurrent <= 0 && AB.canAttack) {
 			AB.isWithinAttackDistance = true;
 			if (Random.Range (1, 10) == 5 && AB.canAttack) {
 				AB.canAttack = false;
@@ -38,11 +38,11 @@ public class acolyteAttackDistance : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerExit2D(Collider2D col2D)
-	{
-		if (col2D.gameObject.tag == "PlayerCharacter") {
-			AB.isWithinAttackDistance = false;
-			anim.SetBool ("isPunching", false);
-		}
-	}
+	// void OnTriggerExit2D(Collider2D col2D)
+	// {
+	// 	if (col2D.gameObject.tag == "PlayerCharacter") {
+	// 		AB.isWithinAttackDistance = false;
+	// 		anim.SetBool ("isPunching", false);
+	// 	}
+	// }
 }
