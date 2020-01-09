@@ -158,7 +158,7 @@ MonoBehaviour:
   audioSrc: {fileID: 0}
   impactSoundEffect: {fileID: 8300000, guid: dbe104ed0ce264aaf9745038e89e9243, type: 3}
   reelLength: 0
-  pushBackDistance: 3.5
+  pushBackDistance: 4
 --- !u!212 &212857715412243474
 SpriteRenderer:
   m_ObjectHideFlags: 0

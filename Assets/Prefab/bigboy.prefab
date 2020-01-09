@@ -54,8 +54,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 0}
-  startHealth: 13
-  currentHealth: 13
+  startHealth: 15
+  currentHealth: 15
   invincibilityCooldownPeriod: 0
   invincibilityCooldownCurrent: 0
   invincibilityCooldownFlash: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
   audioSrc: {fileID: 0}
   impactSoundEffect: {fileID: 8300000, guid: dbe104ed0ce264aaf9745038e89e9243, type: 3}
   reelLength: 0
-  pushBackDistance: 3.5
+  pushBackDistance: 5
 --- !u!212 &212857715412243474
 SpriteRenderer:
   m_ObjectHideFlags: 0
