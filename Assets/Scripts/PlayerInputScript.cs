@@ -172,6 +172,7 @@ public class PlayerInputScript : MonoBehaviour {
 			upperHurtBox.offset.Set (upperHurtBox.offset.x, 0.5f);
 			wallStickDurationCurrent = wallStickDurationMax;
 			RB2D.gravityScale = RBgravityScale;
+			attackHasAlreadyHit = false;
 		}
 
 		if (canAct) {
