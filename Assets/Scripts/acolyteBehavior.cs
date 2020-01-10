@@ -26,6 +26,7 @@ public class acolyteBehavior : MonoBehaviour {
 	public AudioClip impactSoundEffect;
 	public int reelLength;
 	public float pushBackDistance;
+	public bool infiniteHealth;
 
 	// Use this for initialization
 	void Start () {
@@ -104,7 +105,8 @@ void disableIsPunching () {
 
 	public void enemyTakeDamage(int damage){
 		if (currentHealth > 0 && invincibilityCooldownCurrent == 0) {
-			currentHealth -= damage;
+			if(!infiniteHealth)
+				currentHealth -= damage;
 			hitSparkObject.SetActive(true);
 			pushBack (pushBackDistance);
 			reelStateEnter();
