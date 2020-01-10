@@ -72,6 +72,8 @@ public class PlayerHealth : MonoBehaviour {
 				PIS.canAct = true;
 				hitSparkObject.SetActive(true);
 				animator.SetBool("isReeling", true);
+				animator.SetBool("isPunching", false);
+				animator.SetBool("isKicking", false);
 			}
 		}
 	}
