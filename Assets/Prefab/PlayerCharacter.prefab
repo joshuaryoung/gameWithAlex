@@ -461,7 +461,7 @@ MonoBehaviour:
   impactSoundEffect: {fileID: 8300000, guid: dbe104ed0ce264aaf9745038e89e9243, type: 3}
   audioPlayer: {fileID: 0}
   punchDamageValue: 1
-  jumpingPunchDamageValue: 2
+  jumpingPunchDamageValue: 3
   kickDamageValue: 2
   jumpingKickDamageValue: 2
   sweepDamageValue: 2
@@ -527,7 +527,7 @@ MonoBehaviour:
   playerCharacter: {fileID: 0}
   hitSparkObject: {fileID: 999187267}
   animator: {fileID: 0}
-  InfiniteHealth: 1
+  InfiniteHealth: 0
 --- !u!50 &50374711187455098
 Rigidbody2D:
   serializedVersion: 4
@@ -768,7 +768,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.15, y: -1.36}
+  m_Offset: {x: 1.15, y: -1}
   serializedVersion: 2
   m_Radius: 0.5
 --- !u!1 &1794639834159246
@@ -890,7 +890,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.98, y: 0.62}
+  m_Offset: {x: -1, y: 0.71}
   serializedVersion: 2
   m_Radius: 0.5
 --- !u!1 &1904211961834366
