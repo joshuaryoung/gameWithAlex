@@ -18,6 +18,7 @@ public class acolyteAttackDistance : MonoBehaviour {
 	public Animator anim;
 	public AudioSource audioSrc;
 	public AudioClip punchSoundEffect;
+	public int attackRNG;
 	// Use this for initialization
 	void Start () {
 		audioSrc = GetComponentInParent<AudioSource>();
@@ -27,14 +28,25 @@ public class acolyteAttackDistance : MonoBehaviour {
 	{
 		if (col2D.gameObject.tag == "PlayerCharacter" && AB.invincibilityCooldownCurrent <= 0 && AB.canAttack && !PIS.isDead) {
 			AB.isWithinAttackDistance = true;
-			if (Random.Range (1, 10) == 5 && AB.canAttack) {
+			attackRNG = Random.Range (1, 10);
+
+			if (attackRNG == 5 && AB.canAttack) {
 				AB.canAttack = false;
-				anim.SetBool ("isPunching", true);
+				anim.SetBool ("isLightPunching", true);
 				audioSrc.clip = punchSoundEffect;
 				audioSrc.Play();
-			} else {
-				if(AB.canAttack)
-					anim.SetBool ("isPunching", false);
+			} else if(attackRNG == 1 && AB.canAttack) {
+				AB.canAttack = false;
+				anim.SetBool ("isHeavyPunching", true);
+				audioSrc.clip = punchSoundEffect;
+				audioSrc.Play();
+			}
+			
+			else {
+				if(AB.canAttack) {
+					anim.SetBool ("isLightPunching", false);
+					anim.SetBool ("isHeavyPunching", false);
+				}
 			}
 		}
 	}

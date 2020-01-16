@@ -43,7 +43,7 @@ public class acolyteBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//if facing right
-		if (transform.localScale.x > 0 && acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isPunching") == false) {
+		if (transform.localScale.x > 0 && acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false) {
 			//if facing right, increment x axis
 			transform.position = new Vector3(
 				transform.position.x + (0.01f * enemyHorizontalSpeed),
@@ -52,7 +52,7 @@ public class acolyteBehavior : MonoBehaviour {
 		}
 
 		//if facing left
-		else if (transform.localScale.x < 0 && acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isPunching") == false) {
+		else if (transform.localScale.x < 0 && acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false) {
 			//if facing left, decrement x axis
 			transform.position = new Vector3(
 				transform.position.x - (0.01f * enemyHorizontalSpeed),
@@ -73,7 +73,8 @@ public class acolyteBehavior : MonoBehaviour {
 	}
 
 void disableIsPunching () {
-	acolyteAnim.SetBool ("isPunching", false);
+	acolyteAnim.SetBool ("isLightPunching", false);
+	acolyteAnim.SetBool ("isHeavyPunching", false);
 }
  	void flip ()
 	{
@@ -148,7 +149,7 @@ void disableIsPunching () {
 		/*if (hit.GetComponent<Collider>().tag == "Player") {
 			playerObject.GetComponent<PlayerHealth> ().playerTakeDamage (1);
 		}*/
-		if (acolyteAnim.GetBool("isPunching") == false && acolyteAnim.GetBool("isReeling") == false && col2D.transform.position.y + col2D.collider.bounds.extents.y > transform.position.y - (spriteR.bounds.size.y / 2) && col2D.gameObject.layer != 2) {
+		if (acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isReeling") == false && col2D.transform.position.y + col2D.collider.bounds.extents.y > transform.position.y - (spriteR.bounds.size.y / 2) && col2D.gameObject.layer != 2) {
 			if(col2D.gameObject.tag == "PlayerCharacter" && !PIS.isDead) {
 				return;
 			}
