@@ -55,7 +55,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75029784f7a9a4444b2fede220ac1fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObject: {fileID: 0}
+  playerObject: {fileID: 1587651397913248, guid: 117785b7cd429d342af78d659adcd96b,
+    type: 3}
+  PIS: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
   startHealth: 6
   currentHealth: 6
   invincibilityCooldownPeriod: 0
@@ -377,9 +379,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AB: {fileID: 114011634407126842}
+  PIS: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
   anim: {fileID: 95403900325448564}
   audioSrc: {fileID: 0}
   punchSoundEffect: {fileID: 0}
+  attackRNG: 0
 --- !u!1 &1616001421199328
 GameObject:
   m_ObjectHideFlags: 0
