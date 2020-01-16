@@ -20,6 +20,7 @@ public class PlayerHealth : MonoBehaviour {
 	public Animator animator;
 	private cameraFollow cf;
 	private PlayerInputScript PIS;
+	public Rigidbody2D RB2D;
 	public bool InfiniteHealth;
 
 	// Use this for initialization
@@ -31,6 +32,7 @@ public class PlayerHealth : MonoBehaviour {
 		invincibilityCooldown = 0;
 		cf = GameObject.FindGameObjectWithTag("MainCamera").gameObject.GetComponent<cameraFollow> ();
 		PIS = gameObject.GetComponent<PlayerInputScript> ();
+		RB2D = gameObject.GetComponent<Rigidbody2D> ();
 		if(!playerCharacter) {
 			playerCharacter = gameObject;
 		}
@@ -89,6 +91,7 @@ public class PlayerHealth : MonoBehaviour {
 	{
 		isDying = false;
 		animator.SetBool("isDying", isDying);
+		RB2D.simulated = false;
 
 		isDead = true;
 		deathScreen.enabled = true;

@@ -14,6 +14,7 @@ using UnityEngine;
 
 public class acolyteAttackDistance : MonoBehaviour {
 	public acolyteBehavior AB;
+	public PlayerInputScript PIS;
 	public Animator anim;
 	public AudioSource audioSrc;
 	public AudioClip punchSoundEffect;
@@ -24,7 +25,7 @@ public class acolyteAttackDistance : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D col2D)
 	{
-		if (col2D.gameObject.tag == "PlayerCharacter" && AB.invincibilityCooldownCurrent <= 0 && AB.canAttack) {
+		if (col2D.gameObject.tag == "PlayerCharacter" && AB.invincibilityCooldownCurrent <= 0 && AB.canAttack && !PIS.isDead) {
 			AB.isWithinAttackDistance = true;
 			if (Random.Range (1, 10) == 5 && AB.canAttack) {
 				AB.canAttack = false;

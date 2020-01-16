@@ -8,6 +8,7 @@ public class acolyteBehavior : MonoBehaviour {
 	Rigidbody2D RB2D;
 
 	public GameObject playerObject;
+	public PlayerInputScript PIS;
 	public int startHealth;
 	public int currentHealth;
 	public int invincibilityCooldownPeriod;
@@ -147,8 +148,11 @@ void disableIsPunching () {
 		/*if (hit.GetComponent<Collider>().tag == "Player") {
 			playerObject.GetComponent<PlayerHealth> ().playerTakeDamage (1);
 		}*/
-		if (acolyteAnim.GetBool("isPunching") == false && acolyteAnim.GetBool("isReeling") == false && col2D.transform.position.y + col2D.collider.bounds.extents.y > transform.position.y - (spriteR.bounds.size.y / 2)  && col2D.gameObject.tag != "PlayerCharacter" && col2D.gameObject.layer != 2) {
-			Debug.Log("tag != PlayerCharacter");
+		if (acolyteAnim.GetBool("isPunching") == false && acolyteAnim.GetBool("isReeling") == false && col2D.transform.position.y + col2D.collider.bounds.extents.y > transform.position.y - (spriteR.bounds.size.y / 2) && col2D.gameObject.layer != 2) {
+			if(col2D.gameObject.tag == "PlayerCharacter" && !PIS.isDead) {
+				return;
+			}
+			
 			flip ();
 		}
 		// if (col2D.gameObject.tag == "PlayerCharacter" && invincibilityCooldownCurrent <= 0) {
