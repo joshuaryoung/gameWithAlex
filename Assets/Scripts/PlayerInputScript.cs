@@ -21,6 +21,7 @@ using UnityEngine;
 public class PlayerInputScript : MonoBehaviour {
 
 	Animator anim;
+	public bool isDead;
 	public AnimationClip punchAnimationClip;
 	public AnimationClip kickAnimationClip;
 	public float jumpForce = 200.0f;
@@ -108,6 +109,10 @@ public class PlayerInputScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		if(isDead) {
+			return;
+		}
+		
 		yVelo = RB2D.velocity.y;
 		xVelo = RB2D.velocity.x;
 
