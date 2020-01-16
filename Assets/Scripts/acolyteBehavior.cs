@@ -147,7 +147,7 @@ void disableIsPunching () {
 		/*if (hit.GetComponent<Collider>().tag == "Player") {
 			playerObject.GetComponent<PlayerHealth> ().playerTakeDamage (1);
 		}*/
-		if (acolyteAnim.GetBool("isPunching") == false && col2D.transform.position.y + col2D.collider.bounds.extents.y > transform.position.y - (spriteR.bounds.size.y / 2)  && col2D.gameObject.tag != "PlayerCharacter" && col2D.gameObject.layer != 2) {
+		if (acolyteAnim.GetBool("isPunching") == false && acolyteAnim.GetBool("isReeling") == false && col2D.transform.position.y + col2D.collider.bounds.extents.y > transform.position.y - (spriteR.bounds.size.y / 2)  && col2D.gameObject.tag != "PlayerCharacter" && col2D.gameObject.layer != 2) {
 			Debug.Log("tag != PlayerCharacter");
 			flip ();
 		}
