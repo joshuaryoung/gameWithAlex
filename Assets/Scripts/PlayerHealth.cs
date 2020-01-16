@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour {
 	public int invincibilityCooldown;
 	public int invincibilityCooldownFlash = 0;
 	public bool isDead = false;
+	public bool isDying;
 	public SpriteRenderer spriteR;
 	public Color spriteColor;
 	public Text deathScreen;
@@ -61,7 +62,7 @@ public class PlayerHealth : MonoBehaviour {
 		{
 			if (currentHealth - damage <= 0) {
 				currentHealth -= damage;
-				death ();
+				dying ();
 			}
 
 			if (currentHealth - damage > 0)
@@ -78,11 +79,20 @@ public class PlayerHealth : MonoBehaviour {
 		}
 	}
 
+	void dying()
+	{
+		PIS.isDead = true;
+		isDying = true;
+		animator.SetBool("isDying", isDying);
+	}
 	void death()
 	{
+		isDying = false;
+		animator.SetBool("isDying", isDying);
+
 		isDead = true;
 		deathScreen.enabled = true;
-		gameObject.SetActive(false);
+		animator.SetBool("isDead", isDead);
 		cf.enabled = !cf.enabled;
 	}
 }
