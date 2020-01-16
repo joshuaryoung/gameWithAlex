@@ -61,7 +61,7 @@ MonoBehaviour:
   invincibilityCooldownPeriod: 0
   invincibilityCooldownCurrent: 0
   invincibilityCooldownFlash: 0
-  enemyHorizontalSpeed: 4
+  enemyHorizontalSpeed: 3
   spriteR: {fileID: 212857715412243474}
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   isWithinAttackDistance: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   audioSrc: {fileID: 0}
   impactSoundEffect: {fileID: 8300000, guid: dbe104ed0ce264aaf9745038e89e9243, type: 3}
   reelLength: 0
-  pushBackDistance: 5
+  pushBackDistance: 4
   infiniteHealth: 0
 --- !u!212 &212857715412243474
 SpriteRenderer:

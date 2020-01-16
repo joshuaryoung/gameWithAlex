@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BigboyWalk
+  m_Name: witchWalk
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -30,7 +30,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.5833333
+        time: 0.26666668
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -39,14 +39,14 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.0833334
+        time: 0.73333335
         value: 1
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -57,15 +57,19 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 76c530df232a6ce4fadd528ff01441af, type: 3}
-    - time: 0.41666666
-      value: {fileID: 21300000, guid: 54356e662dab4474392ccf3fcfd43138, type: 3}
-    - time: 0.5833333
-      value: {fileID: 21300000, guid: 3b5c2615eb11ae2468b539fc423ea9db, type: 3}
-    - time: 0.9166667
-      value: {fileID: 21300000, guid: 54356e662dab4474392ccf3fcfd43138, type: 3}
-    - time: 1.0833334
-      value: {fileID: 21300000, guid: 76c530df232a6ce4fadd528ff01441af, type: 3}
+      value: {fileID: 21300000, guid: b19dd6d507d286f46b77ccc6ef81e0ed, type: 3}
+    - time: 0.15
+      value: {fileID: 21300000, guid: 188588d2daa857c46a790592f8d96822, type: 3}
+    - time: 0.26666668
+      value: {fileID: 21300000, guid: fed6bb491b02af642a313312ca8a1710, type: 3}
+    - time: 0.36666667
+      value: {fileID: 21300000, guid: 7c39a8a314e05374588d7428a0606539, type: 3}
+    - time: 0.51666665
+      value: {fileID: 21300000, guid: 3498b4a009499314fb3daf6731d8bde4, type: 3}
+    - time: 0.6333333
+      value: {fileID: 21300000, guid: 565fcd80d9e98fa4f9d5c3c91ddd20ed, type: 3}
+    - time: 0.73333335
+      value: {fileID: 21300000, guid: b19dd6d507d286f46b77ccc6ef81e0ed, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -92,17 +96,19 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 76c530df232a6ce4fadd528ff01441af, type: 3}
-    - {fileID: 21300000, guid: 54356e662dab4474392ccf3fcfd43138, type: 3}
-    - {fileID: 21300000, guid: 3b5c2615eb11ae2468b539fc423ea9db, type: 3}
-    - {fileID: 21300000, guid: 54356e662dab4474392ccf3fcfd43138, type: 3}
-    - {fileID: 21300000, guid: 76c530df232a6ce4fadd528ff01441af, type: 3}
+    - {fileID: 21300000, guid: b19dd6d507d286f46b77ccc6ef81e0ed, type: 3}
+    - {fileID: 21300000, guid: 188588d2daa857c46a790592f8d96822, type: 3}
+    - {fileID: 21300000, guid: fed6bb491b02af642a313312ca8a1710, type: 3}
+    - {fileID: 21300000, guid: 7c39a8a314e05374588d7428a0606539, type: 3}
+    - {fileID: 21300000, guid: 3498b4a009499314fb3daf6731d8bde4, type: 3}
+    - {fileID: 21300000, guid: 565fcd80d9e98fa4f9d5c3c91ddd20ed, type: 3}
+    - {fileID: 21300000, guid: b19dd6d507d286f46b77ccc6ef81e0ed, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.1
+    m_StopTime: 0.75
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -131,7 +137,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.5833333
+        time: 0.26666668
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -140,14 +146,14 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.0833334
+        time: 0.73333335
         value: 1
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
