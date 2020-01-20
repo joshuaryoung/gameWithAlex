@@ -86,6 +86,7 @@ public class PlayerHealth : MonoBehaviour {
 		PIS.isDead = true;
 		isDying = true;
 		animator.SetBool("isDying", isDying);
+		
 	}
 	void death()
 	{
