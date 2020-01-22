@@ -160,7 +160,7 @@ MonoBehaviour:
   canAttack: 1
   hitSparkObject: {fileID: 7838519832701570912}
   audioSrc: {fileID: 0}
-  impactSoundEffect: {fileID: 8300000, guid: dbe104ed0ce264aaf9745038e89e9243, type: 3}
+  impactSoundEffect: {fileID: 8300000, guid: c33d06a25edb11445b640a985ec7711f, type: 3}
   reelLength: 0
   pushBackDistance: 4
   infiniteHealth: 0
@@ -527,7 +527,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.1}
+  m_Size: {x: 0.99, y: 1.1}
   m_EdgeRadius: 0
 --- !u!1 &1881226787504032
 GameObject:

@@ -63,7 +63,7 @@ MonoBehaviour:
   invincibilityCooldownPeriod: 0
   invincibilityCooldownCurrent: 0
   invincibilityCooldownFlash: 0
-  enemyHorizontalSpeed: 4
+  enemyHorizontalSpeed: 4.1
   spriteR: {fileID: 212857715412243474}
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   isWithinAttackDistance: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   canAttack: 1
   hitSparkObject: {fileID: 3149539633743059270}
   audioSrc: {fileID: 0}
-  impactSoundEffect: {fileID: 8300000, guid: dbe104ed0ce264aaf9745038e89e9243, type: 3}
+  impactSoundEffect: {fileID: 8300000, guid: c2f3fc01000f54548923139ae754f49a, type: 3}
   reelLength: 0
   pushBackDistance: 4
   infiniteHealth: 0
@@ -353,7 +353,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.3670648, y: 0}
+  m_Offset: {x: -0.29385474, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -364,7 +364,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2658704, y: 1}
+  m_Size: {x: 0.41229048, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &114313281030698670
 MonoBehaviour:
@@ -445,7 +445,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.009367228, y: 0.14999998}
+  m_Offset: {x: 0.009367228, y: 0.1414275}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -456,7 +456,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6187345, y: 1}
+  m_Size: {x: 0.56, y: 1.0171449}
   m_EdgeRadius: 0
 --- !u!1 &1881226787504032
 GameObject:

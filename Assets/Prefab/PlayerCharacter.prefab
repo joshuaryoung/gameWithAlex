@@ -445,6 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f763975a64cf32a4d8516ba13891098a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDead: 0
   punchAnimationClip: {fileID: 7400000, guid: 149e301081590af4cb14918cdfd7f88a, type: 2}
   kickAnimationClip: {fileID: 7400000, guid: 67bab586c6682ee4ca01f464cadbb6d1, type: 2}
   jumpForce: 10.44
@@ -459,14 +460,14 @@ MonoBehaviour:
   throwHitBox: {fileID: 0}
   punchSoundEffect: {fileID: 8300000, guid: 60983f774c0f6486693dae581ff31e60, type: 3}
   kickSoundEffect: {fileID: 8300000, guid: 45faa29d78cc142fe92f55f4590b6d48, type: 3}
-  impactSoundEffect: {fileID: 8300000, guid: dbe104ed0ce264aaf9745038e89e9243, type: 3}
+  impactSoundEffect: {fileID: 8300000, guid: c33d06a25edb11445b640a985ec7711f, type: 3}
   audioPlayer: {fileID: 0}
   punchDamageValue: 1
   jumpingPunchDamageValue: 3
   kickDamageValue: 2
   jumpingKickDamageValue: 2
   sweepDamageValue: 2
-  uppercutDamageValue: 2
+  uppercutDamageValue: 3
   walkVelocity: 7
   runVelocity: 12
   crouchVelocity: 3.5
@@ -522,12 +523,14 @@ MonoBehaviour:
   invincibilityCooldown: 0
   invincibilityCooldownFlash: 0
   isDead: 0
+  isDying: 0
   spriteR: {fileID: 0}
   spriteColor: {r: 0, g: 0, b: 0, a: 0}
   deathScreen: {fileID: 0}
   playerCharacter: {fileID: 0}
   hitSparkObject: {fileID: 999187267}
   animator: {fileID: 0}
+  RB2D: {fileID: 0}
   InfiniteHealth: 0
 --- !u!50 &50374711187455098
 Rigidbody2D:
@@ -885,15 +888,15 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894077155629768}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1, y: 0.71}
+  m_Offset: {x: -1.27, y: 0.75}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.39887345
 --- !u!1 &1904211961834366
 GameObject:
   m_ObjectHideFlags: 0
