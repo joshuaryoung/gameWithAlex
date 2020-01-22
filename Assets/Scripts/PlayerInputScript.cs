@@ -186,7 +186,7 @@ public class PlayerInputScript : MonoBehaviour {
 			if ((isGrounded || isWallClimbing) && jumpCoolDown == 0)
 			{
 				if(jumpPressed && !blockPressed)
-					jump ();
+					jump();
 			}
 			anim.SetBool ("isBlocking", blockPressed);
 			anim.SetBool ("isCrouching", isCrouching);
