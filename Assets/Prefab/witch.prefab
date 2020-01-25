@@ -72,9 +72,9 @@ MonoBehaviour:
   canAttack: 1
   hitSparkObject: {fileID: 3149539633743059270}
   audioSrc: {fileID: 0}
-  impactSoundEffect: {fileID: 8300000, guid: c2f3fc01000f54548923139ae754f49a, type: 3}
+  impactSoundEffect: {fileID: 8300000, guid: 0c7cc4d9504c947418f93cf12213c4c2, type: 3}
   reelLength: 0
-  pushBackDistance: 4
+  pushBackDistance: 3
   infiniteHealth: 0
 --- !u!212 &212857715412243474
 SpriteRenderer:
