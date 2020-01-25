@@ -67,7 +67,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.33333334
+        time: 0.23333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -93,8 +93,6 @@ AnimationClip:
     - time: 0.15
       value: {fileID: 21300000, guid: ecbe7e1c641ed384b992e5e109817485, type: 3}
     - time: 0.23333333
-      value: {fileID: 21300000, guid: 7b941946f1e3bcd4db8dd564cdcc5b56, type: 3}
-    - time: 0.33333334
       value: {fileID: 21300000, guid: 7b941946f1e3bcd4db8dd564cdcc5b56, type: 3}
     attribute: m_Sprite
     path: 
@@ -133,7 +131,6 @@ AnimationClip:
     - {fileID: 21300000, guid: fed6bb491b02af642a313312ca8a1710, type: 3}
     - {fileID: 21300000, guid: 3f8c3f40e67dad14593b9095802cf2e2, type: 3}
     - {fileID: 21300000, guid: ecbe7e1c641ed384b992e5e109817485, type: 3}
-    - {fileID: 21300000, guid: 7b941946f1e3bcd4db8dd564cdcc5b56, type: 3}
     - {fileID: 21300000, guid: 7b941946f1e3bcd4db8dd564cdcc5b56, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
@@ -206,7 +203,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.33333334
+        time: 0.23333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
