@@ -464,7 +464,7 @@ MonoBehaviour:
   audioPlayer: {fileID: 0}
   punchDamageValue: 1
   jumpingPunchDamageValue: 3
-  kickDamageValue: 2
+  kickDamageValue: 1
   jumpingKickDamageValue: 2
   sweepDamageValue: 2
   uppercutDamageValue: 3
