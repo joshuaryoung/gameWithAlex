@@ -151,7 +151,7 @@ MonoBehaviour:
   invincibilityCooldownPeriod: 0
   invincibilityCooldownCurrent: 0
   invincibilityCooldownFlash: 0
-  enemyHorizontalSpeed: 3.5
+  enemyHorizontalSpeed: 3.75
   spriteR: {fileID: 212857715412243474}
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   isWithinAttackDistance: 0

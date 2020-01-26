@@ -58,12 +58,12 @@ MonoBehaviour:
   playerObject: {fileID: 1587651397913248, guid: 117785b7cd429d342af78d659adcd96b,
     type: 3}
   PIS: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
-  startHealth: 15
-  currentHealth: 15
+  startHealth: 16
+  currentHealth: 16
   invincibilityCooldownPeriod: 0
   invincibilityCooldownCurrent: 0
   invincibilityCooldownFlash: 0
-  enemyHorizontalSpeed: 3.3
+  enemyHorizontalSpeed: 3.5
   spriteR: {fileID: 212857715412243474}
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   isWithinAttackDistance: 0

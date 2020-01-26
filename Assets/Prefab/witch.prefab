@@ -58,12 +58,12 @@ MonoBehaviour:
   playerObject: {fileID: 1587651397913248, guid: 117785b7cd429d342af78d659adcd96b,
     type: 3}
   PIS: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
-  startHealth: 6
-  currentHealth: 6
+  startHealth: 7
+  currentHealth: 7
   invincibilityCooldownPeriod: 0
   invincibilityCooldownCurrent: 0
   invincibilityCooldownFlash: 0
-  enemyHorizontalSpeed: 4.1
+  enemyHorizontalSpeed: 4.5
   spriteR: {fileID: 212857715412243474}
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   isWithinAttackDistance: 0
@@ -804,7 +804,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.09992683, y: 0}
+  m_Offset: {x: -0.012277037, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -815,7 +815,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6262078, y: 1}
+  m_Size: {x: 1.2369294, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &5938491454887205459
 MonoBehaviour:
