@@ -63,7 +63,7 @@ public class PlayerHealth : MonoBehaviour {
 		if (invincibilityCooldown == 0 && !PIS.blockPressed)
 		{
 			if (currentHealth - damage <= 0) {
-				currentHealth -= damage;
+				currentHealth = 0;
 				dying ();
 			}
 
