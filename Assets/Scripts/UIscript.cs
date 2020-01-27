@@ -17,7 +17,7 @@ public class UIscript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (!isDeadLast){
-			healthBar.sprite = hBarSprite [pHealth.currentHealth];
+			healthBar.sprite = hBarSprite [pHealth.currentHealth <= hBarSprite.Length - 1 ? pHealth.currentHealth : hBarSprite.Length - 1];
 			isDeadLast = pHealth.isDead;
 		}
 	}

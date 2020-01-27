@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour {
 	public Text deathScreen;
 	public GameObject playerCharacter;
 	public GameObject hitSparkObject;
+	public GameObject blockSparkObject;
 	public Animator animator;
 	private cameraFollow cf;
 	private PlayerInputScript PIS;
@@ -37,6 +38,9 @@ public class PlayerHealth : MonoBehaviour {
 			playerCharacter = gameObject;
 		}
 		if(hitSparkObject) {
+			animator = GetComponent<Animator>();
+		}
+		if(blockSparkObject) {
 			animator = GetComponent<Animator>();
 		}
 	}
@@ -63,7 +67,7 @@ public class PlayerHealth : MonoBehaviour {
 		if (invincibilityCooldown == 0 && !PIS.blockPressed)
 		{
 			if (currentHealth - damage <= 0) {
-				currentHealth -= damage;
+				currentHealth = 0;
 				dying ();
 			}
 
@@ -75,9 +79,16 @@ public class PlayerHealth : MonoBehaviour {
 				PIS.canAct = true;
 				hitSparkObject.SetActive(true);
 				animator.SetBool("isReeling", true);
+				animator.SetBool("isBlockingAnAttack", false);
 				animator.SetBool("isPunching", false);
 				animator.SetBool("isKicking", false);
 			}
+		} else if(invincibilityCooldown == 0 && PIS.blockPressed) {
+			blockSparkObject.SetActive(true);
+			animator.SetBool("isReeling", false);
+			animator.SetBool("isBlockingAnAttack", true);
+			animator.SetBool("isPunching", false);
+			animator.SetBool("isKicking", false);
 		}
 	}
 

@@ -8,7 +8,7 @@ public class acolyteBehavior : MonoBehaviour {
 	Rigidbody2D RB2D;
 
 	public GameObject playerObject;
-	public PlayerInputScript PIS;
+	PlayerInputScript PIS;
 	public int startHealth;
 	public int currentHealth;
 	public int invincibilityCooldownPeriod;
@@ -25,12 +25,14 @@ public class acolyteBehavior : MonoBehaviour {
 	public GameObject hitSparkObject;
 	public AudioSource audioSrc;
 	public AudioClip impactSoundEffect;
+	public AudioClip blockSoundEffect;
 	public int reelLength;
 	public float pushBackDistance;
 	public bool infiniteHealth;
 
 	// Use this for initialization
 	void Start () {
+		PIS = GameObject.Find("PlayerCharacter").GetComponent<PlayerInputScript> ();
 		audioSrc = GetComponent<AudioSource> ();
 		currentHealth = startHealth;
 		spriteR = GetComponent<SpriteRenderer> ();
@@ -96,7 +98,8 @@ void disableIsPunching () {
 
 		if ( cols.Length > 0 ) 
 		{
-			audioSrc.clip = impactSoundEffect;
+			Debug.Log("PIS.blockPressed " + (PIS.blockPressed ? "true" : "false"));
+			audioSrc.clip = PIS.blockPressed ? blockSoundEffect : impactSoundEffect;
 			audioSrc.Play();
 			foreach (Collider2D c in cols) 
 			{
@@ -149,7 +152,7 @@ void disableIsPunching () {
 		/*if (hit.GetComponent<Collider>().tag == "Player") {
 			playerObject.GetComponent<PlayerHealth> ().playerTakeDamage (1);
 		}*/
-		if (acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isReeling") == false && col2D.transform.position.y + col2D.collider.bounds.extents.y > transform.position.y - (spriteR.bounds.size.y / 2) && col2D.gameObject.layer != 2) {
+		if (acolyteAnim.GetBool("isHeavyPunching") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isReeling") == false && col2D.transform.position.y + col2D.collider.bounds.extents.y > transform.position.y - (spriteR.bounds.size.y / 2) && col2D.gameObject.layer != 2) {
 			if(col2D.gameObject.tag == "PlayerCharacter" && !PIS.isDead) {
 				return;
 			}
