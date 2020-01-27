@@ -282,6 +282,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 216a602d06062234b9e3fa84990e3137,
+        type: 3}
+      propertyPath: PIS
+      value: 
+      objectReference: {fileID: 740876698}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 216a602d06062234b9e3fa84990e3137, type: 3}
 --- !u!1001 &79424099
@@ -3778,6 +3783,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &740876698 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2041147546}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f763975a64cf32a4d8516ba13891098a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &785557004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3833,6 +3850,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
+        type: 3}
+      propertyPath: PIS
+      value: 
+      objectReference: {fileID: 740876698}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 347ccad12011c2945bc08be236bad5bd, type: 3}
 --- !u!1001 &803483921
@@ -5600,6 +5622,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 216a602d06062234b9e3fa84990e3137,
+        type: 3}
+      propertyPath: PIS
+      value: 
+      objectReference: {fileID: 740876698}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 216a602d06062234b9e3fa84990e3137, type: 3}
 --- !u!1 &1077220527
@@ -6004,6 +6031,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 17943721003ec0e44bac1eaa1219b4f2,
+        type: 3}
+      propertyPath: PIS
+      value: 
+      objectReference: {fileID: 740876698}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17943721003ec0e44bac1eaa1219b4f2, type: 3}
 --- !u!1 &1166657086
@@ -9607,6 +9639,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 216a602d06062234b9e3fa84990e3137,
+        type: 3}
+      propertyPath: PIS
+      value: 
+      objectReference: {fileID: 740876698}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 216a602d06062234b9e3fa84990e3137, type: 3}
 --- !u!1 &1793172722
@@ -10515,10 +10552,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 999187267, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1587651397913248, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
@@ -10567,31 +10600,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: attackHasAlreadyHit
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 114504737153347904, guid: 117785b7cd429d342af78d659adcd96b,
         type: 3}
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 226532694}
-    - target: {fileID: 114504737153347904, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: InfiniteHealth
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114504737153347904, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: currentHealth
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114504737153347904, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: startHealth
-      value: 9
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
 --- !u!1001 &2071630519

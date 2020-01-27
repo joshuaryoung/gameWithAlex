@@ -161,6 +161,7 @@ MonoBehaviour:
   hitSparkObject: {fileID: 7838519832701570912}
   audioSrc: {fileID: 0}
   impactSoundEffect: {fileID: 8300000, guid: c33d06a25edb11445b640a985ec7711f, type: 3}
+  blockSoundEffect: {fileID: 8300000, guid: dbe104ed0ce264aaf9745038e89e9243, type: 3}
   reelLength: 0
   pushBackDistance: 4
   infiniteHealth: 0
@@ -762,6 +763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 467d271694c7d47278dbdfd42b21244a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnimator: {fileID: 0}
 --- !u!95 &5263788996454897237
 Animator:
   serializedVersion: 3
