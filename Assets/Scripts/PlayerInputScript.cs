@@ -189,6 +189,8 @@ public class PlayerInputScript : MonoBehaviour {
 					jump();
 			}
 			anim.SetBool ("isBlocking", blockPressed);
+			anim.SetBool ("isBlockWalking", blockPressed && xVelo != 0 && isGrounded);
+
 			anim.SetBool ("isCrouching", isCrouching);
 			anim.SetBool ("isPunching", (punchPressed && !uppercutPressed && !grabPressed));
 			if(punchPressed && !uppercutPressed && !grabPressed) {
@@ -400,7 +402,6 @@ public class PlayerInputScript : MonoBehaviour {
 	{
 		if ((col2D.collider.bounds.extents.y + col2D.gameObject.transform.position.y + groundCollisionOffset < transform.position.y - lowerHitBox.bounds.extents.y) && col2D.gameObject.layer == LayerMask.NameToLayer ("Ledge")) {
 			isLedgeVaulting = true;
-			Debug.Log ("ledgeJump as a result of collsion");
 		}
 	}
 }

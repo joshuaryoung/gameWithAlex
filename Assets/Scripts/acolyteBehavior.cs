@@ -98,7 +98,6 @@ void disableIsPunching () {
 
 		if ( cols.Length > 0 ) 
 		{
-			Debug.Log("PIS.blockPressed " + (PIS.blockPressed ? "true" : "false"));
 			audioSrc.clip = PIS.blockPressed ? blockSoundEffect : impactSoundEffect;
 			audioSrc.Play();
 			foreach (Collider2D c in cols) 
