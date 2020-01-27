@@ -14,7 +14,6 @@ public class playerAnimationEvents : MonoBehaviour
     }
 
     void eventHandler(string message) {
-        Debug.Log(message);
         animator.SetBool("isReeling", false);
     }
 }

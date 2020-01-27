@@ -34,11 +34,13 @@ public class acolyteAttackDistance : MonoBehaviour {
 				AB.canAttack = false;
 				anim.SetBool ("isLightPunching", true);
 				audioSrc.clip = punchSoundEffect;
+				audioSrc.enabled = true;
 				audioSrc.Play();
 			} else if(attackRNG == 1 && AB.canAttack) {
 				AB.canAttack = false;
 				anim.SetBool ("isHeavyPunching", true);
 				audioSrc.clip = punchSoundEffect;
+				audioSrc.enabled = true;
 				audioSrc.Play();
 			}
 			

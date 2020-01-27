@@ -400,7 +400,6 @@ public class PlayerInputScript : MonoBehaviour {
 	{
 		if ((col2D.collider.bounds.extents.y + col2D.gameObject.transform.position.y + groundCollisionOffset < transform.position.y - lowerHitBox.bounds.extents.y) && col2D.gameObject.layer == LayerMask.NameToLayer ("Ledge")) {
 			isLedgeVaulting = true;
-			Debug.Log ("ledgeJump as a result of collsion");
 		}
 	}
 }

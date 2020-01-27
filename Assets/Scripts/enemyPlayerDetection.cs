@@ -63,7 +63,6 @@ public class enemyPlayerDetection : MonoBehaviour {
 			distanceFlipCalc = currentColDistance * thisGameObjLocalScale.x * -1;
 			
 			if(distanceFlipCalc < 0) {
-				Debug.Log("enemyPlayerDetection send message flip");
 				gameObject.SendMessageUpwards("flip");
 			}
 		}
