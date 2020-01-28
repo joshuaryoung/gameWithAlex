@@ -18436,6 +18436,11 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 226532694}
+    - target: {fileID: 114504737153347904, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: InfiniteHealth
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
 --- !u!1 &2065074809

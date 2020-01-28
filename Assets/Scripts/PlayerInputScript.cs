@@ -239,7 +239,7 @@ public class PlayerInputScript : MonoBehaviour {
 		}
 
 		if (canCombo) {
-			if ((punchPressed || kickPressed || sweepPressed || uppercutPressed) && currentAutoComboIndex < 2) {
+			if ((punchPressed || kickPressed || sweepPressed || uppercutPressed) && currentAutoComboIndex < 2 && isGrounded) {
 				currentAutoComboIndex++;
 				anim.SetInteger("currentAutoComboIndex", currentAutoComboIndex);
 				// AnimatorControllerParameter backupParams = anim.parameters;
