@@ -87,6 +87,7 @@ public class PlayerInputScript : MonoBehaviour {
 	public bool freeFallAvailable;		//ability to release the jump button and immediately start to fall
 	public float groundCollisionOffset;
 	public bool attackHasAlreadyHit;	//has an attack already registered damage?
+	public int currentAutoComboIndex = 0;
 
 	// Use this for initialization
 	void Start ()
@@ -182,6 +183,8 @@ public class PlayerInputScript : MonoBehaviour {
 
 		if (canAct) {
 			canCombo = false;
+			currentAutoComboIndex = 0;
+			anim.SetInteger("currentAutoComboIndex", currentAutoComboIndex);
 
 			if ((isGrounded || isWallClimbing) && jumpCoolDown == 0)
 			{
@@ -193,15 +196,15 @@ public class PlayerInputScript : MonoBehaviour {
 
 			anim.SetBool ("isCrouching", isCrouching);
 			anim.SetBool ("isPunching", (punchPressed && !uppercutPressed && !grabPressed));
-			if(punchPressed && !uppercutPressed && !grabPressed) {
-				anim.Play("Punch", 0, 0.0f);
-				playSoundEffect(punchSoundEffect);
-			}
+			// if(punchPressed && !uppercutPressed && !grabPressed) {
+			// 	anim.Play("Punch", 0, 0.0f);
+			// 	playSoundEffect(punchSoundEffect);
+			// }
 			anim.SetBool ("isKicking", (kickPressed && !sweepPressed  && !grabPressed));
-			if(kickPressed && !sweepPressed  && !grabPressed) {
-				anim.Play("Kick", 0, 0.0f);
-				playSoundEffect(kickSoundEffect);
-			}
+			// if(kickPressed && !sweepPressed  && !grabPressed) {
+			// 	anim.Play("Kick", 0, 0.0f);
+			// 	playSoundEffect(kickSoundEffect);
+			// }
 			anim.SetBool ("isSweeping", sweepPressed);
 			anim.SetBool ("isUppercutting", uppercutPressed);
 			anim.SetBool ("isGrabbing", grabPressed);
@@ -236,7 +239,9 @@ public class PlayerInputScript : MonoBehaviour {
 		}
 
 		if (canCombo) {
-			if (punchPressed || kickPressed || sweepPressed || uppercutPressed) {
+			if ((punchPressed || kickPressed || sweepPressed || uppercutPressed) && currentAutoComboIndex < 2) {
+				currentAutoComboIndex++;
+				anim.SetInteger("currentAutoComboIndex", currentAutoComboIndex);
 				// AnimatorControllerParameter backupParams = anim.parameters;
 				foreach(AnimatorControllerParameter parameter in anim.parameters) {            
 					anim.SetBool(parameter.name, false);            
