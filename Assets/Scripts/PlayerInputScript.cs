@@ -87,6 +87,7 @@ public class PlayerInputScript : MonoBehaviour {
 	public bool freeFallAvailable;		//ability to release the jump button and immediately start to fall
 	public float groundCollisionOffset;
 	public bool attackHasAlreadyHit;	//has an attack already registered damage?
+	public int currentAutoComboIndex = 0;
 
 	// Use this for initialization
 	void Start ()
@@ -182,6 +183,8 @@ public class PlayerInputScript : MonoBehaviour {
 
 		if (canAct) {
 			canCombo = false;
+			currentAutoComboIndex = 0;
+			anim.SetInteger("currentAutoComboIndex", currentAutoComboIndex);
 
 			if ((isGrounded || isWallClimbing) && jumpCoolDown == 0)
 			{
@@ -236,25 +239,29 @@ public class PlayerInputScript : MonoBehaviour {
 		}
 
 		if (canCombo) {
-			if (punchPressed || kickPressed || sweepPressed || uppercutPressed) {
-				// AnimatorControllerParameter backupParams = anim.parameters;
-				foreach(AnimatorControllerParameter parameter in anim.parameters) {            
-					anim.SetBool(parameter.name, false);            
+			if ((punchPressed || kickPressed || sweepPressed || uppercutPressed) && isGrounded) {
+				if(currentAutoComboIndex < 2) {
+					currentAutoComboIndex++;
+					anim.SetInteger("currentAutoComboIndex", currentAutoComboIndex);
+					
+					foreach(AnimatorControllerParameter parameter in anim.parameters) {
+						switch (parameter.type.ToString())
+						{
+								case "Int":
+									break;
+								default:
+									anim.SetBool(parameter.name, false);
+									break;
+						}
+					}
+					attackHasAlreadyHit = false;
+					anim.SetBool ("isPunching", (punchPressed && !uppercutPressed && !grabPressed));
+					anim.SetBool ("isKicking", (kickPressed && !sweepPressed && !grabPressed));
+					anim.SetBool ("isSweeping", sweepPressed);
+					anim.SetBool ("isUppercutting", uppercutPressed);
+					anim.SetBool ("isGrounded", isGrounded);
 				}
-				attackHasAlreadyHit = false;
-				anim.SetBool ("isPunching", (punchPressed && !uppercutPressed && !grabPressed));
-				if(punchPressed && !uppercutPressed && !grabPressed) {
-					anim.Play("Punch", 0, 0.0f);
-					playSoundEffect(punchSoundEffect);
-				}
-				anim.SetBool ("isKicking", (kickPressed && !sweepPressed && !grabPressed));
-				if(kickPressed && !sweepPressed  && !grabPressed) {
-					anim.Play("Kick", 0, 0.0f);
-					playSoundEffect(kickSoundEffect);
-				}
-				anim.SetBool ("isSweeping", sweepPressed);
-				anim.SetBool ("isUppercutting", uppercutPressed);
-				anim.SetBool ("isGrounded", isGrounded);
+
 			}
 		}
 
