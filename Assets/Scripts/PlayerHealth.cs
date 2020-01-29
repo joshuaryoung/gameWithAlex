@@ -64,6 +64,7 @@ public class PlayerHealth : MonoBehaviour {
 	
 	public void playerTakeDamage(int damage)
 	{
+		PIS.attackHasAlreadyHit = false;
 		if (invincibilityCooldown == 0 && !PIS.blockPressed)
 		{
 			if (currentHealth - damage <= 0) {
