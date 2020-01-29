@@ -182,7 +182,7 @@ public class PlayerInputScript : MonoBehaviour {
 		}
 
 		if (canAct) {
-			canCombo = false;
+			canCombo = false; 
 			currentAutoComboIndex = 0;
 			anim.SetInteger("currentAutoComboIndex", currentAutoComboIndex);
 
@@ -240,6 +240,7 @@ public class PlayerInputScript : MonoBehaviour {
 
 		if (canCombo) {
 			if ((punchPressed || kickPressed || sweepPressed || uppercutPressed) && isGrounded) {
+				attackHasAlreadyHit = false;
 				if(currentAutoComboIndex < 2) {
 					currentAutoComboIndex++;
 					anim.SetInteger("currentAutoComboIndex", currentAutoComboIndex);
@@ -254,7 +255,6 @@ public class PlayerInputScript : MonoBehaviour {
 									break;
 						}
 					}
-					attackHasAlreadyHit = false;
 					anim.SetBool ("isPunching", (punchPressed && !uppercutPressed && !grabPressed));
 					anim.SetBool ("isKicking", (kickPressed && !sweepPressed && !grabPressed));
 					anim.SetBool ("isSweeping", sweepPressed);

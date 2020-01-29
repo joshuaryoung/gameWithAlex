@@ -315,7 +315,7 @@ Transform:
   m_GameObject: {fileID: 1555567904092848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.977, y: 0.41, z: 0}
-  m_LocalScale: {x: 0.4301324, y: 0.65171593, z: 0.65171593}
+  m_LocalScale: {x: 0.74106675, y: 0.65171593, z: 0.65171593}
   m_Children: []
   m_Father: {fileID: 4087151271183574}
   m_RootOrder: 0
@@ -327,7 +327,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555567904092848}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -508,6 +508,7 @@ MonoBehaviour:
   freeFallAvailable: 0
   groundCollisionOffset: 0
   attackHasAlreadyHit: 0
+  currentAutoComboIndex: 0
 --- !u!114 &114504737153347904
 MonoBehaviour:
   m_ObjectHideFlags: 0
