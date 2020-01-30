@@ -28,7 +28,7 @@ public class acolyteAttackDistance : MonoBehaviour {
 	{
 		if (col2D.gameObject.tag == "PlayerCharacter" && AB.invincibilityCooldownCurrent <= 0 && AB.canAttack && !PIS.isDead) {
 			AB.isWithinAttackDistance = true;
-			attackRNG = Random.Range (1, 200);
+			attackRNG = Random.Range (1, 120);
 
 			if (attackRNG == 5 && AB.canAttack) {
 				AB.canAttack = false;
