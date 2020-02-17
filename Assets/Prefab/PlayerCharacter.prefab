@@ -542,6 +542,9 @@ MonoBehaviour:
   animator: {fileID: 0}
   RB2D: {fileID: 0}
   InfiniteHealth: 0
+  audioSrc: {fileID: 0}
+  impactSoundEffect: {fileID: 8300000, guid: c33d06a25edb11445b640a985ec7711f, type: 3}
+  blockSoundEffect: {fileID: 8300000, guid: dbe104ed0ce264aaf9745038e89e9243, type: 3}
 --- !u!50 &50374711187455098
 Rigidbody2D:
   serializedVersion: 4

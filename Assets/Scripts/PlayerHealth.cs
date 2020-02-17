@@ -23,10 +23,14 @@ public class PlayerHealth : MonoBehaviour {
 	private PlayerInputScript PIS;
 	public Rigidbody2D RB2D;
 	public bool InfiniteHealth;
+	public AudioSource audioSrc;
+	public AudioClip impactSoundEffect;
+	public AudioClip blockSoundEffect;
 
 	// Use this for initialization
 	void Start ()
 	{
+		audioSrc = GetComponent<AudioSource> ();
 		currentHealth = startHealth;
 		spriteR = GetComponent<SpriteRenderer> ();
 		spriteColor = spriteR.color;
@@ -72,6 +76,8 @@ public class PlayerHealth : MonoBehaviour {
 		pushBack(pushBackValue);
 		if (invincibilityCooldown == 0 && !PIS.blockPressed)
 		{
+			audioSrc.clip = impactSoundEffect;
+			audioSrc.Play();
 			if (currentHealth - damage <= 0) {
 				currentHealth = 0;
 				dying ();
@@ -90,6 +96,8 @@ public class PlayerHealth : MonoBehaviour {
 				animator.SetBool("isKicking", false);
 			}
 		} else if(invincibilityCooldown == 0 && PIS.blockPressed) {
+			audioSrc.clip = blockSoundEffect;
+			audioSrc.Play();
 			blockSparkObject.SetActive(true);
 			animator.SetBool("isReeling", false);
 			animator.SetBool("isBlockingAnAttack", true);

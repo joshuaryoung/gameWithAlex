@@ -68,12 +68,10 @@ MonoBehaviour:
   isWithinAttackDistance: 0
   punchHitBox: {fileID: 58312095405789320}
   punchDamageValue: 1
-  punchPushbackValue: 1.55
+  punchPushbackOnHit: 2.31
+  punchPushbackOnBlock: 1.45
   canAttack: 1
   hitSparkObject: {fileID: 3149539633743059270}
-  audioSrc: {fileID: 0}
-  impactSoundEffect: {fileID: 8300000, guid: 0c7cc4d9504c947418f93cf12213c4c2, type: 3}
-  blockSoundEffect: {fileID: 8300000, guid: dbe104ed0ce264aaf9745038e89e9243, type: 3}
   reelLength: 0
   pushBackDistance: 3
   infiniteHealth: 0
