@@ -57,7 +57,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 1587651397913248, guid: 117785b7cd429d342af78d659adcd96b,
     type: 3}
-  PIS: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
   startHealth: 7
   currentHealth: 7
   invincibilityCooldownPeriod: 0
@@ -354,7 +353,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.23040128, y: 0.1220116}
+  m_Offset: {x: -0.26928267, y: 0.1220116}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -365,7 +364,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.53919744, y: 1.2440231}
+  m_Size: {x: 0.46143466, y: 1.2440231}
   m_EdgeRadius: 0
 --- !u!114 &114313281030698670
 MonoBehaviour:
@@ -457,7 +456,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.56, y: 1.0606434}
+  m_Size: {x: 0.6, y: 1.0606434}
   m_EdgeRadius: 0
 --- !u!1 &1881226787504032
 GameObject:

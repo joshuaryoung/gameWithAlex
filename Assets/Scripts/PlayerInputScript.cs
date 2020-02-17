@@ -182,7 +182,8 @@ public class PlayerInputScript : MonoBehaviour {
 		}
 
 		if (canAct) {
-			canCombo = false; 
+			canCombo = false;
+			attackHasAlreadyHit = false;
 			currentAutoComboIndex = 0;
 			anim.SetInteger("currentAutoComboIndex", currentAutoComboIndex);
 
