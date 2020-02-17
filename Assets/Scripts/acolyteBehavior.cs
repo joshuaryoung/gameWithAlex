@@ -20,6 +20,7 @@ public class acolyteBehavior : MonoBehaviour {
 	public bool isWithinAttackDistance;
 	public Collider2D punchHitBox;
 	public int punchDamageValue;
+	public float punchPushbackValue;
 	public bool canAttack;
 	Animator acolyteAnim;
 	public GameObject hitSparkObject;
@@ -87,7 +88,7 @@ void disableIsPunching () {
 
 	void pushBack(float pushBackValue)
 	{
-		RB2D.velocity = (new Vector2 (RB2D.velocity.x + (pushBackValue * transform.localScale.x * -1), RB2D.velocity.y));
+		RB2D.velocity = (new Vector2 (RB2D.velocity.x + pushBackValue, RB2D.velocity.y));
 	}
 
 	//method for punching
@@ -102,12 +103,16 @@ void disableIsPunching () {
 			audioSrc.Play();
 			foreach (Collider2D c in cols) 
 			{
-				c.SendMessageUpwards ("playerTakeDamage", punchDamageValue);
+				object[] args = {punchDamageValue, transform.localScale.x * punchPushbackValue};
+				c.SendMessageUpwards ("playerTakeDamage", args);
 			}
 		}
 	}
 
-	public void enemyTakeDamage(int damage){
+	public void enemyTakeDamage(object[] args){
+		int damage = (int)args[0];
+		float pushBackDistance = (float)args[1];
+
 		if (currentHealth > 0 && invincibilityCooldownCurrent == 0) {
 			if(!infiniteHealth)
 				currentHealth -= damage;

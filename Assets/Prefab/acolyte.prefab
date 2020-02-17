@@ -145,7 +145,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 1587651397913248, guid: 117785b7cd429d342af78d659adcd96b,
     type: 3}
-  PIS: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
   startHealth: 8
   currentHealth: 8
   invincibilityCooldownPeriod: 0
@@ -157,6 +156,7 @@ MonoBehaviour:
   isWithinAttackDistance: 0
   punchHitBox: {fileID: 58312095405789320}
   punchDamageValue: 1
+  punchPushbackValue: 1.32
   canAttack: 1
   hitSparkObject: {fileID: 7838519832701570912}
   audioSrc: {fileID: 0}

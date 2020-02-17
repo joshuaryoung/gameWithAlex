@@ -465,11 +465,17 @@ MonoBehaviour:
   impactSoundEffect: {fileID: 8300000, guid: c33d06a25edb11445b640a985ec7711f, type: 3}
   audioPlayer: {fileID: 0}
   punchDamageValue: 1
+  punchPushbackValue: 4
   jumpingPunchDamageValue: 3
+  jumpingPunchPushbackValue: 4
   kickDamageValue: 1
+  kickPushbackValue: 4
   jumpingKickDamageValue: 2
+  jumpingKickPushbackValue: 4
   sweepDamageValue: 2
+  sweepPushbackValue: 4
   uppercutDamageValue: 3
+  uppercutPushbackValue: 4
   walkVelocity: 7
   runVelocity: 12
   crouchVelocity: 3.5

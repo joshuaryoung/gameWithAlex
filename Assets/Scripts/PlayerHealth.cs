@@ -62,9 +62,14 @@ public class PlayerHealth : MonoBehaviour {
 		}
 	}
 	
-	public void playerTakeDamage(int damage)
+	public void playerTakeDamage(object[] args)
 	{
+		int damage = (int)args [0];
+		float pushBackValue = (float)args [1];
+
 		PIS.attackHasAlreadyHit = false;
+
+		pushBack(pushBackValue);
 		if (invincibilityCooldown == 0 && !PIS.blockPressed)
 		{
 			if (currentHealth - damage <= 0) {
@@ -91,6 +96,11 @@ public class PlayerHealth : MonoBehaviour {
 			animator.SetBool("isPunching", false);
 			animator.SetBool("isKicking", false);
 		}
+	}
+
+	void pushBack(float pushBackValue)
+	{
+		RB2D.velocity = (new Vector2 (RB2D.velocity.x + pushBackValue, RB2D.velocity.y));
 	}
 
 	void dying()

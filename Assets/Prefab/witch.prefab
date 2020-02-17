@@ -68,6 +68,7 @@ MonoBehaviour:
   isWithinAttackDistance: 0
   punchHitBox: {fileID: 58312095405789320}
   punchDamageValue: 1
+  punchPushbackValue: 1.55
   canAttack: 1
   hitSparkObject: {fileID: 3149539633743059270}
   audioSrc: {fileID: 0}
