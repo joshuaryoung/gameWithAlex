@@ -44,11 +44,17 @@ public class PlayerInputScript : MonoBehaviour {
 	public AudioClip impactSoundEffect;
 	public AudioSource audioPlayer;
 	public int punchDamageValue;
+	public float punchPushbackValue;
 	public int jumpingPunchDamageValue;
+	public float jumpingPunchPushbackValue;
 	public int kickDamageValue;
+	public float kickPushbackValue;
 	public int jumpingKickDamageValue;
+	public float jumpingKickPushbackValue;
 	public int sweepDamageValue;
+	public float sweepPushbackValue;
 	public int uppercutDamageValue;
+	public float uppercutPushbackValue;
 	public float walkVelocity;
 	public float runVelocity;
 	public float crouchVelocity;
@@ -331,7 +337,7 @@ public class PlayerInputScript : MonoBehaviour {
 		jumpCoolDown = 5;
 	}
 
-	void attack(Collider2D hitBox, int damageValue, AudioClip soundEffect){
+	void attack(Collider2D hitBox, int damageValue, float pushbackValue, AudioClip soundEffect){
 		string nameOfPreviousCol="null";
 		//hitbox stuff
 		Collider2D[] cols = Physics2D.OverlapBoxAll (hitBox.bounds.center, hitBox.bounds.size, 0f, LayerMask.GetMask("EnemyLayer"));
@@ -344,8 +350,9 @@ public class PlayerInputScript : MonoBehaviour {
 			foreach (Collider2D c in cols) 
 			{
 				if (!string.Equals (c.transform.parent.name, nameOfPreviousCol)) {
+					object[] args = {damageValue, transform.localScale.x * pushbackValue};
 					c.SendMessageUpwards ("reelStateEnter");
-					c.SendMessageUpwards ("enemyTakeDamage", damageValue);
+					c.SendMessageUpwards ("enemyTakeDamage", args);
 					c.SendMessageUpwards ("resetCanAttack");
 				}
 				nameOfPreviousCol = c.transform.parent.name;
@@ -357,7 +364,7 @@ public class PlayerInputScript : MonoBehaviour {
 	void punch()
 	{
 		if(!attackHasAlreadyHit){
-			attack (punchHitBox, punchDamageValue, impactSoundEffect);
+			attack (punchHitBox, punchDamageValue, punchPushbackValue, impactSoundEffect);
 		}
 	}
 
@@ -369,35 +376,35 @@ public class PlayerInputScript : MonoBehaviour {
 	void jumpingPunch()
 	{
 		if (!attackHasAlreadyHit) {
-			attack (jumpingPunchHitBox, jumpingPunchDamageValue, impactSoundEffect);
+			attack (jumpingPunchHitBox, jumpingPunchDamageValue, jumpingPunchPushbackValue, impactSoundEffect);
 		}
 	}
 
 	void kick()
 	{
 		if (!attackHasAlreadyHit) {
-			attack (kickHitBox, kickDamageValue, impactSoundEffect);
+			attack (kickHitBox, kickDamageValue, kickPushbackValue, impactSoundEffect);
 		}
 	}
 
 	void jumpingKick()
 	{
 		if (!attackHasAlreadyHit) {
-			attack (jumpingKickHitBox, jumpingKickDamageValue, impactSoundEffect);
+			attack (jumpingKickHitBox, jumpingKickDamageValue, jumpingKickPushbackValue, impactSoundEffect);
 		}
 	}
 
 	void sweep()
 	{
 		if (!attackHasAlreadyHit) {
-			attack (sweepHitBox, sweepDamageValue, impactSoundEffect);
+			attack (sweepHitBox, sweepDamageValue, sweepPushbackValue, impactSoundEffect);
 		}
 	}
 
 	void uppercut()
 	{
 		if (!attackHasAlreadyHit) {
-			attack (uppercutHitBox, uppercutDamageValue, impactSoundEffect);
+			attack (uppercutHitBox, uppercutDamageValue, uppercutPushbackValue, impactSoundEffect);
 		}
 	}
 
