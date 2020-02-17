@@ -20,13 +20,11 @@ public class acolyteBehavior : MonoBehaviour {
 	public bool isWithinAttackDistance;
 	public Collider2D punchHitBox;
 	public int punchDamageValue;
-	public float punchPushbackValue;
+	public float punchPushbackOnHit;
+	public float punchPushbackOnBlock;
 	public bool canAttack;
 	Animator acolyteAnim;
 	public GameObject hitSparkObject;
-	public AudioSource audioSrc;
-	public AudioClip impactSoundEffect;
-	public AudioClip blockSoundEffect;
 	public int reelLength;
 	public float pushBackDistance;
 	public bool infiniteHealth;
@@ -34,7 +32,6 @@ public class acolyteBehavior : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		PIS = GameObject.Find("PlayerCharacter").GetComponent<PlayerInputScript> ();
-		audioSrc = GetComponent<AudioSource> ();
 		currentHealth = startHealth;
 		spriteR = GetComponent<SpriteRenderer> ();
 		acolyteAnim = GetComponent<Animator> ();
@@ -99,11 +96,9 @@ void disableIsPunching () {
 
 		if ( cols.Length > 0 ) 
 		{
-			audioSrc.clip = PIS.blockPressed ? blockSoundEffect : impactSoundEffect;
-			audioSrc.Play();
 			foreach (Collider2D c in cols) 
 			{
-				object[] args = {punchDamageValue, transform.localScale.x * punchPushbackValue};
+				object[] args = {punchDamageValue, transform.localScale.x * (PIS.blockPressed ? punchPushbackOnBlock : punchPushbackOnHit)};
 				c.SendMessageUpwards ("playerTakeDamage", args);
 			}
 		}
