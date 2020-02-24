@@ -465,16 +465,21 @@ MonoBehaviour:
   impactSoundEffect: {fileID: 8300000, guid: c33d06a25edb11445b640a985ec7711f, type: 3}
   audioPlayer: {fileID: 0}
   punchDamageValue: 1
+  punchReelLength: 49
   punchPushbackValue: 4
   jumpingPunchDamageValue: 3
+  jumpingPunchReelLength: 76
   jumpingPunchPushbackValue: 4
   kickDamageValue: 1
+  kickReelLength: 124
   kickPushbackValue: 4
   jumpingKickDamageValue: 2
+  jumpingKickReelLength: 142
   jumpingKickPushbackValue: 4
   sweepDamageValue: 2
   sweepPushbackValue: 4
   uppercutDamageValue: 3
+  uppercutReelLength: 86
   uppercutPushbackValue: 4
   walkVelocity: 7
   runVelocity: 12
@@ -545,6 +550,7 @@ MonoBehaviour:
   audioSrc: {fileID: 0}
   impactSoundEffect: {fileID: 8300000, guid: c33d06a25edb11445b640a985ec7711f, type: 3}
   blockSoundEffect: {fileID: 8300000, guid: dbe104ed0ce264aaf9745038e89e9243, type: 3}
+  currentReelLengthCooldown: 0
 --- !u!50 &50374711187455098
 Rigidbody2D:
   serializedVersion: 4

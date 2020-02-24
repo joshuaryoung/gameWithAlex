@@ -72,8 +72,9 @@ MonoBehaviour:
   punchPushbackOnBlock: 1.45
   canAttack: 1
   hitSparkObject: {fileID: 3149539633743059270}
-  reelLength: 0
+  currentReelLengthCooldown: 0
   pushBackDistance: 3
+  punchReelLength: 59
   infiniteHealth: 0
 --- !u!212 &212857715412243474
 SpriteRenderer:
