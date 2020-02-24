@@ -204,7 +204,9 @@ public class PlayerInputScript : MonoBehaviour {
 					jump();
 			}
 			anim.SetBool ("isBlocking", blockPressed);
-			anim.SetBool ("isBlockWalking", blockPressed && xVelo != 0 && isGrounded);
+			anim.SetBool ("isBackDashing", blockPressed && controllerAxisX * transform.localScale.x < 0);
+			anim.SetBool ("isForwardDashing", blockPressed && controllerAxisX * transform.localScale.x > 0);
+			// anim.SetBool ("isBlockWalking", blockPressed && xVelo != 0 && isGrounded);
 
 			anim.SetBool ("isCrouching", isCrouching);
 			anim.SetBool ("isPunching", (punchPressed && !uppercutPressed && !grabPressed));
