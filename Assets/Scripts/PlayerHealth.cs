@@ -26,6 +26,7 @@ public class PlayerHealth : MonoBehaviour {
 	public AudioSource audioSrc;
 	public AudioClip impactSoundEffect;
 	public AudioClip blockSoundEffect;
+	public int currentReelLengthCooldown;
 
 	// Use this for initialization
 	void Start ()
@@ -51,6 +52,13 @@ public class PlayerHealth : MonoBehaviour {
 
 	void Update()
 	{
+		if(currentReelLengthCooldown > 0) {
+			currentReelLengthCooldown--;
+			if (currentReelLengthCooldown == 0){
+				animator.SetBool("isReeling", false);
+			}
+		}
+
 		if(invincibilityCooldown > 0)
 			invincibilityCooldown--;
 		//invincibility Animation
@@ -70,6 +78,7 @@ public class PlayerHealth : MonoBehaviour {
 	{
 		int damage = (int)args [0];
 		float pushBackValue = (float)args [1];
+		int attackReelValue = (int)args [2];
 
 		PIS.attackHasAlreadyHit = false;
 
@@ -85,6 +94,7 @@ public class PlayerHealth : MonoBehaviour {
 
 			if (currentHealth - damage > 0)
 			{
+				currentReelLengthCooldown = attackReelValue;
 				if(!InfiniteHealth)
 					currentHealth -= damage;
 				invincibilityCooldown = 100;

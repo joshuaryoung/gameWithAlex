@@ -25,8 +25,9 @@ public class acolyteBehavior : MonoBehaviour {
 	public bool canAttack;
 	Animator acolyteAnim;
 	public GameObject hitSparkObject;
-	public int reelLength;
+	public int currentReelLengthCooldown;
 	public float pushBackDistance;
+	public int punchReelLength;
 	public bool infiniteHealth;
 
 	// Use this for initialization
@@ -58,6 +59,13 @@ public class acolyteBehavior : MonoBehaviour {
 				transform.position.x - (0.01f * enemyHorizontalSpeed),
 				transform.position.y
 			);
+		}
+	
+		if (currentReelLengthCooldown > 0) {
+			currentReelLengthCooldown--;
+			if (currentReelLengthCooldown == 0){
+				reelStateExit();
+			}
 		}
 	
 		if (invincibilityCooldownCurrent > 0) {
@@ -98,7 +106,7 @@ void disableIsPunching () {
 		{
 			foreach (Collider2D c in cols) 
 			{
-				object[] args = {punchDamageValue, transform.localScale.x * (PIS.blockPressed ? punchPushbackOnBlock : punchPushbackOnHit)};
+				object[] args = {punchDamageValue, transform.localScale.x * (PIS.blockPressed ? punchPushbackOnBlock : punchPushbackOnHit), punchReelLength};
 				c.SendMessageUpwards ("playerTakeDamage", args);
 			}
 		}
@@ -107,21 +115,23 @@ void disableIsPunching () {
 	public void enemyTakeDamage(object[] args){
 		int damage = (int)args[0];
 		float pushBackDistance = (float)args[1];
+		int reelLength = (int)args[2];
 
 		if (currentHealth > 0 && invincibilityCooldownCurrent == 0) {
 			if(!infiniteHealth)
 				currentHealth -= damage;
 			hitSparkObject.SetActive(true);
 			pushBack (pushBackDistance);
-			reelStateEnter();
+			reelStateEnter(reelLength);
 			if(currentHealth <= 0)
 				enemyDeath ();
 		} 
 	}
 
 	//for the state that occurs right after receiving damage where acolyte is combo-able
-	public void reelStateEnter()
+	public void reelStateEnter(int reelLength)
 	{
+		currentReelLengthCooldown = reelLength;
 		if (invincibilityCooldownCurrent <= 0) {
 			foreach(AnimatorControllerParameter parameter in acolyteAnim.parameters) {            
 				acolyteAnim.SetBool(parameter.name, false);            
