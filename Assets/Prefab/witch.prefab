@@ -65,7 +65,6 @@ MonoBehaviour:
   enemyHorizontalSpeed: 4.5
   spriteR: {fileID: 212857715412243474}
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
-  isWithinAttackDistance: 0
   punchHitBox: {fileID: 58312095405789320}
   punchDamageValue: 1
   punchPushbackOnHit: 2.31
@@ -76,6 +75,14 @@ MonoBehaviour:
   pushBackDistance: 3
   punchReelLength: 59
   infiniteHealth: 0
+  isInFootsiesRange: 0
+  isNotInAnimation: 0
+  attackDecisionRNG: 0
+  bobAndWeaveRNG: 0
+  bobAndWeaveRNGMin: -9.46
+  bobAndWeaveRNGMax: 13.16
+  audioSrc: {fileID: 0}
+  punchSoundEffect: {fileID: 8300000, guid: 0c7cc4d9504c947418f93cf12213c4c2, type: 3}
 --- !u!212 &212857715412243474
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90,6 +97,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -378,12 +387,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eccdea33e3340ca47b1afa2ffa8c2691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerGameObject: {fileID: 0}
+  enemyGameObject: {fileID: 0}
+  collider2D: {fileID: 0}
   AB: {fileID: 114011634407126842}
   PIS: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
   anim: {fileID: 95403900325448564}
-  audioSrc: {fileID: 0}
-  punchSoundEffect: {fileID: 0}
-  attackRNG: 0
+  isColidingWithSomething: 0
 --- !u!1 &1616001421199328
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,6 +629,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
