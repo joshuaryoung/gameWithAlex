@@ -10,7 +10,7 @@ public class acolyteBehavior : MonoBehaviour
 
   public GameObject playerObject;
   PlayerInputScript PIS;
-  public int maxHealth;
+  public int startHealth;
   public int currentHealth;
   public int invincibilityCooldownPeriod;
   public int invincibilityCooldownCurrent;
@@ -35,7 +35,7 @@ public class acolyteBehavior : MonoBehaviour
   void Start()
   {
     PIS = GameObject.Find("PlayerCharacter").GetComponent<PlayerInputScript>();
-    currentHealth = maxHealth;
+    currentHealth = startHealth;
     spriteR = GetComponent<SpriteRenderer>();
     acolyteAnim = GetComponent<Animator>();
     spriteColor = spriteR.color;

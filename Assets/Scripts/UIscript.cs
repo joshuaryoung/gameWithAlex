@@ -10,7 +10,7 @@ public class UIscript : MonoBehaviour
   public PlayerHealth pHealth;
   public float scaleX;
   public int currentHealth;
-  public int maxHealth;
+  public int startHealth;
   public bool isDeadLast = false;
 
   // Use this for initialization
@@ -23,9 +23,9 @@ public class UIscript : MonoBehaviour
   {
     if (!isDeadLast)
     {
-      maxHealth = pHealth.maxHealth;
+      startHealth = pHealth.startHealth;
       currentHealth = pHealth.currentHealth;
-      scaleX = (float)currentHealth / maxHealth;
+      scaleX = (float)currentHealth / startHealth;
       healthBar.transform.localScale = new Vector3(scaleX, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
       // healthBar.sprite = hBarSprite [pHealth.currentHealth <= hBarSprite.Length - 1 ? pHealth.currentHealth : hBarSprite.Length - 1];
       // Make rectangle inside of a frame, the right coordinates moving left as a percentage of health

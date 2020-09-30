@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
 
-  public int maxHealth;
+  public int startHealth;
   public int currentHealth;
   public int invincibilityCooldown;
   public int invincibilityCooldownFlash = 0;
@@ -33,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
   void Start()
   {
     audioSrc = GetComponent<AudioSource>();
-    currentHealth = maxHealth;
+    currentHealth = startHealth;
     spriteR = GetComponent<SpriteRenderer>();
     spriteColor = spriteR.color;
     invincibilityCooldown = 0;
