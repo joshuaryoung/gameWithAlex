@@ -169,6 +169,14 @@ MonoBehaviour:
   bobAndWeaveRNG: 0
   bobAndWeaveRNGMin: -4.45
   bobAndWeaveRNGMax: 3.08
+  attackDecisionRNGMin: 0
+  attackDecisionRNGMax: 99
+  lightPunchRNGMin: 0
+  lightPunchRNGMax: 5
+  heavyPunchRNGMin: 6
+  heavyPunchRNGMax: 9
+  bobAndWeaveRNGDecisionMin: 10
+  bobAndWeaveRNGDecisionMax: 90
   audioSrc: {fileID: 0}
   punchSoundEffect: {fileID: 8300000, guid: 60983f774c0f6486693dae581ff31e60, type: 3}
 --- !u!212 &212857715412243474

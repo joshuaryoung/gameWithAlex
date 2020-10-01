@@ -35,6 +35,14 @@ public class acolyteBehavior : MonoBehaviour
   public float bobAndWeaveRNG;
   public float bobAndWeaveRNGMin;
   public float bobAndWeaveRNGMax;
+  public byte attackDecisionRNGMin;
+  public byte attackDecisionRNGMax;
+  public byte lightPunchRNGMin;
+  public byte lightPunchRNGMax;
+  public byte heavyPunchRNGMin;
+  public byte heavyPunchRNGMax;
+  public byte bobAndWeaveRNGDecisionMin;
+  public byte bobAndWeaveRNGDecisionMax;
   float actualMoveDistance;
   public AudioSource audioSrc;
   public AudioClip punchSoundEffect;
@@ -61,11 +69,11 @@ public class acolyteBehavior : MonoBehaviour
     {
       if (bobAndWeaveRNG == 0)
       {
-        attackDecisionRNG = Random.Range(1, 120);
+        attackDecisionRNG = Random.Range(attackDecisionRNGMin, attackDecisionRNGMax);
       }
       // See if col2D's x is within range of the enemy's
 
-      if (attackDecisionRNG == 5 && canAttack)
+      if (attackDecisionRNG >= lightPunchRNGMin && attackDecisionRNG <= lightPunchRNGMax && canAttack)
       {
         canAttack = false;
         acolyteAnim.SetBool("isLightPunching", true);
@@ -73,7 +81,7 @@ public class acolyteBehavior : MonoBehaviour
         audioSrc.enabled = true;
         audioSrc.Play();
       }
-      else if (attackDecisionRNG == 1 && canAttack)
+      else if (attackDecisionRNG >= heavyPunchRNGMin && attackDecisionRNG <= heavyPunchRNGMax && canAttack)
       {
         canAttack = false;
         acolyteAnim.SetBool("isHeavyPunching", true);
@@ -81,7 +89,7 @@ public class acolyteBehavior : MonoBehaviour
         audioSrc.enabled = true;
         audioSrc.Play();
       }
-      else if (attackDecisionRNG > 100 && isNotInAnimation)
+      else if (attackDecisionRNG >= bobAndWeaveRNGDecisionMin && attackDecisionRNG <= bobAndWeaveRNGDecisionMax && isNotInAnimation)
       {
         if (bobAndWeaveRNG == 0)
         {
