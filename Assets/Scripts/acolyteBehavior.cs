@@ -18,7 +18,6 @@ public class acolyteBehavior : MonoBehaviour
   public float enemyHorizontalSpeed;
   public SpriteRenderer spriteR;
   public Color spriteColor;
-  public bool isWithinAttackDistance;
   public Collider2D punchHitBox;
   public int punchDamageValue;
   public float punchPushbackOnHit;
@@ -30,6 +29,15 @@ public class acolyteBehavior : MonoBehaviour
   public float pushBackDistance;
   public int punchReelLength;
   public bool infiniteHealth;
+  public bool isInFootsiesRange;
+  public bool isNotInAnimation;
+  public int attackDecisionRNG;
+  public float bobAndWeaveRNG;
+  public float bobAndWeaveRNGMin;
+  public float bobAndWeaveRNGMax;
+  float actualMoveDistance;
+  public AudioSource audioSrc;
+  public AudioClip punchSoundEffect;
 
   // Use this for initialization
   void Start()
@@ -41,27 +49,66 @@ public class acolyteBehavior : MonoBehaviour
     spriteColor = spriteR.color;
     invincibilityCooldownCurrent = 0;
     RB2D = GetComponent<Rigidbody2D>();
+    audioSrc = GetComponentInParent<AudioSource>();
   }
 
   // Update is called once per frame
   void Update()
   {
-    //if facing right
-    if (transform.localScale.x > 0 && acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeavyPunching") == false)
+    isNotInAnimation = (acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeavyPunching") == false);
+    // Footsies Stuff
+    if (isInFootsiesRange)
     {
-      //if facing right, increment x axis
-      transform.position = new Vector3(
-        transform.position.x + (0.01f * enemyHorizontalSpeed),
-        transform.position.y
-      );
-    }
+      if (bobAndWeaveRNG == 0)
+      {
+        attackDecisionRNG = Random.Range(1, 120);
+      }
+      // See if col2D's x is within range of the enemy's
 
-    //if facing left
-    else if (transform.localScale.x < 0 && acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeavyPunching") == false)
+      if (attackDecisionRNG == 5 && canAttack)
+      {
+        canAttack = false;
+        acolyteAnim.SetBool("isLightPunching", true);
+        audioSrc.clip = punchSoundEffect;
+        audioSrc.enabled = true;
+        audioSrc.Play();
+      }
+      else if (attackDecisionRNG == 1 && canAttack)
+      {
+        canAttack = false;
+        acolyteAnim.SetBool("isHeavyPunching", true);
+        audioSrc.clip = punchSoundEffect;
+        audioSrc.enabled = true;
+        audioSrc.Play();
+      }
+      else if (attackDecisionRNG > 100 && isNotInAnimation)
+      {
+        if (bobAndWeaveRNG == 0)
+        {
+          bobAndWeaveRNG = Random.Range(bobAndWeaveRNGMin, bobAndWeaveRNGMax);
+        }
+        Debug.Log("Bobbing n Weaving! bobAndWeaveRNG: " + bobAndWeaveRNG + " actualMoveDistance: " + actualMoveDistance);
+        actualMoveDistance = Mathf.Clamp(bobAndWeaveRNG, -1 * enemyHorizontalSpeed, enemyHorizontalSpeed);
+        gameObject.transform.position = new Vector3(
+          transform.position.x + (0.01f * actualMoveDistance * transform.localScale.x),
+          transform.position.y
+        );
+        bobAndWeaveRNG -= actualMoveDistance;
+      }
+
+      else
+      {
+        if (canAttack)
+        {
+          acolyteAnim.SetBool("isLightPunching", false);
+          acolyteAnim.SetBool("isHeavyPunching", false);
+        }
+      }
+    }
+    else if (!isInFootsiesRange && isNotInAnimation)
     {
-      //if facing left, decrement x axis
       transform.position = new Vector3(
-        transform.position.x - (0.01f * enemyHorizontalSpeed),
+        transform.position.x + (0.01f * enemyHorizontalSpeed * transform.localScale.x),
         transform.position.y
       );
     }
