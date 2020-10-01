@@ -32805,6 +32805,11 @@ PrefabInstance:
       propertyPath: reelLength
       value: 65
       objectReference: {fileID: 0}
+    - target: {fileID: 114504737153347904, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
 --- !u!1 &2043579929
@@ -33183,8 +33188,8 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
+  m_HDR: 0
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -34011,6 +34016,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7995869809810875773, guid: bf17b18825b274297a33e09ce678fde7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 198.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995869809810875773, guid: bf17b18825b274297a33e09ce678fde7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -316.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071697535258495389, guid: bf17b18825b274297a33e09ce678fde7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 198.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071697535258495389, guid: bf17b18825b274297a33e09ce678fde7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -368.09998
+      objectReference: {fileID: 0}
     - target: {fileID: 8071697535258495390, guid: bf17b18825b274297a33e09ce678fde7,
         type: 3}
       propertyPath: pHealth
