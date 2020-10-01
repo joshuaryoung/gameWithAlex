@@ -79,8 +79,16 @@ MonoBehaviour:
   isNotInAnimation: 0
   attackDecisionRNG: 0
   bobAndWeaveRNG: 0
-  bobAndWeaveRNGMin: -7.72
-  bobAndWeaveRNGMax: 6.24
+  bobAndWeaveRNGMin: -11.81
+  bobAndWeaveRNGMax: 13.47
+  attackDecisionRNGMin: 1
+  attackDecisionRNGMax: 100
+  lightPunchRNGMin: 1
+  lightPunchRNGMax: 5
+  heavyPunchRNGMin: 6
+  heavyPunchRNGMax: 16
+  bobAndWeaveRNGDecisionMin: 17
+  bobAndWeaveRNGDecisionMax: 30
   audioSrc: {fileID: 0}
   punchSoundEffect: {fileID: 0}
 --- !u!212 &212857715412243474
