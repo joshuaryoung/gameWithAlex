@@ -4,3 +4,4 @@ Temp
 .DS_Store
 obj/Debug
 Library/
+*.app
