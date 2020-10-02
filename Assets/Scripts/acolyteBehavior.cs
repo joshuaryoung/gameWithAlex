@@ -97,21 +97,20 @@ public class acolyteBehavior : MonoBehaviour
         }
         Debug.Log("Bobbing n Weaving! bobAndWeaveRNG: " + bobAndWeaveRNG + " actualMoveDistance: " + actualMoveDistance);
         actualMoveDistance = Mathf.Clamp(bobAndWeaveRNG, -1 * enemyHorizontalSpeed, enemyHorizontalSpeed);
-        gameObject.transform.position = new Vector3(
-          transform.position.x + (0.01f * actualMoveDistance * transform.localScale.x),
-          transform.position.y
-        );
+        transform.position += new Vector3(actualMoveDistance * transform.localScale.x,
+          0,
+          0
+        ) * Time.deltaTime;
         bobAndWeaveRNG -= actualMoveDistance;
       }
-
-      else
-      {
-        if (canAttack)
-        {
-          acolyteAnim.SetBool("isLightPunching", false);
-          acolyteAnim.SetBool("isHeavyPunching", false);
-        }
-      }
+      // else
+      // {
+      //   if (canAttack)
+      //   {
+      //     acolyteAnim.SetBool("isLightPunching", false);
+      //     acolyteAnim.SetBool("isHeavyPunching", false);
+      //   }
+      // }
     }
     else if (!isInFootsiesRange && isNotInAnimation)
     {
