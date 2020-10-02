@@ -115,10 +115,10 @@ public class acolyteBehavior : MonoBehaviour
     }
     else if (!isInFootsiesRange && isNotInAnimation)
     {
-      transform.position = new Vector3(
-        transform.position.x + (0.01f * enemyHorizontalSpeed * transform.localScale.x),
-        transform.position.y
-      );
+      transform.position += new Vector3(enemyHorizontalSpeed * transform.localScale.x,
+        0,
+        0
+      ) * Time.deltaTime;
     }
 
     if (currentReelLengthCooldown > 0)
