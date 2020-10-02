@@ -28,8 +28,18 @@ public class acolyteAttackDistance : MonoBehaviour
     enemyGameObject = gameObject.transform.parent.gameObject;
   }
 
-  void OnTriggerEnter2D(Collider2D col2D)
-  {
+  // void OnTriggerEnter2D(Collider2D col2D)
+  // {
+  //   isColidingWithSomething = true;
+  //   collider2D = col2D;
+  //   if (col2D.gameObject.tag == "PlayerCharacter" && AB.invincibilityCooldownCurrent <= 0 && AB.canAttack && !PIS.isDead)
+  //   {
+  //     Debug.Log("Player Collision!");
+  //     AB.isInFootsiesRange = true;
+  //   }
+  // }
+
+  void OnTriggerStay2D (Collider2D col2D) {
     isColidingWithSomething = true;
     collider2D = col2D;
     if (col2D.gameObject.tag == "PlayerCharacter" && AB.invincibilityCooldownCurrent <= 0 && AB.canAttack && !PIS.isDead)
