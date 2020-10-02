@@ -103,14 +103,6 @@ public class acolyteBehavior : MonoBehaviour
         ) * Time.deltaTime;
         bobAndWeaveRNG -= actualMoveDistance;
       }
-      // else
-      // {
-      //   if (canAttack)
-      //   {
-      //     acolyteAnim.SetBool("isLightPunching", false);
-      //     acolyteAnim.SetBool("isHeavyPunching", false);
-      //   }
-      // }
     }
     else if (!isInFootsiesRange && isNotInAnimation)
     {
@@ -118,6 +110,14 @@ public class acolyteBehavior : MonoBehaviour
         0,
         0
       ) * Time.deltaTime;
+    }
+    else
+    {
+      if (canAttack)
+      {
+        acolyteAnim.SetBool("isLightPunching", false);
+        acolyteAnim.SetBool("isHeavyPunching", false);
+      }
     }
 
     if (currentReelLengthCooldown > 0)
