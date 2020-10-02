@@ -65,7 +65,7 @@ public class acolyteBehavior : MonoBehaviour
   {
     isNotInAnimation = (acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeavyPunching") == false);
     // Footsies Stuff
-    if (isInFootsiesRange)
+    if (isInFootsiesRange && isNotInAnimation)
     {
       if (bobAndWeaveRNG == 0)
       {
