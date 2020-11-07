@@ -33947,48 +33947,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4474038965901940, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.8083315
-      objectReference: {fileID: 0}
-    - target: {fileID: 4474038965901940, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.907
-      objectReference: {fileID: 0}
-    - target: {fileID: 4474038965901940, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.425
-      objectReference: {fileID: 0}
-    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: jumpForce
-      value: 12.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: wallJumpMinXAxisCooldownMax
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 114504737153347904, guid: 117785b7cd429d342af78d659adcd96b,
         type: 3}
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 226532694}
-    - target: {fileID: 114504737153347904, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: InfiniteHealth
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114504737153347904, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: reelLength
-      value: 65
-      objectReference: {fileID: 0}
-    - target: {fileID: 114504737153347904, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: maxHealth
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
 --- !u!1 &2043579929

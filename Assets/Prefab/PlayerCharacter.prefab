@@ -66,6 +66,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -314,8 +316,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555567904092848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.977, y: 0.41, z: 0}
-  m_LocalScale: {x: 0.74106675, y: 0.65171593, z: 0.65171593}
+  m_LocalPosition: {x: 0.907, y: 0.425, z: 0}
+  m_LocalScale: {x: 0.74106675, y: 0.8083315, z: 0.65171593}
   m_Children: []
   m_Father: {fileID: 4087151271183574}
   m_RootOrder: 0
@@ -400,6 +402,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -450,7 +454,7 @@ MonoBehaviour:
   isDead: 0
   punchAnimationClip: {fileID: 7400000, guid: 149e301081590af4cb14918cdfd7f88a, type: 2}
   kickAnimationClip: {fileID: 7400000, guid: 67bab586c6682ee4ca01f464cadbb6d1, type: 2}
-  jumpForce: 10.44
+  jumpForce: 12.88
   upperHurtBox: {fileID: 3725956914877408559}
   lowerHitBox: {fileID: 3725956914877408559}
   punchHitBox: {fileID: 58912666635816498}
@@ -465,7 +469,7 @@ MonoBehaviour:
   impactSoundEffect: {fileID: 8300000, guid: c33d06a25edb11445b640a985ec7711f, type: 3}
   audioPlayer: {fileID: 0}
   punchDamageValue: 1
-  punchReelLength: 49
+  punchReelLength: 23
   punchPushbackValue: 4
   jumpingPunchDamageValue: 3
   jumpingPunchReelLength: 76
@@ -495,6 +499,7 @@ MonoBehaviour:
   controllerAxisX: 0
   runHeld: 0
   jumpPressed: 0
+  jumpReleased: 0
   punchPressed: 0
   kickPressed: 0
   blockPressed: 0
@@ -511,7 +516,7 @@ MonoBehaviour:
   isWallSliding: 0
   isWallJumping: 0
   isLedgeVaulting: 0
-  wallJumpMinXAxisCooldownMax: 9
+  wallJumpMinXAxisCooldownMax: 6
   wallJumpMinXAxisCooldownCurrent: 0
   wasGroundedPreviousFrame: 1
   groundedCoolDown: 0
@@ -520,6 +525,11 @@ MonoBehaviour:
   groundCollisionOffset: 0
   attackHasAlreadyHit: 0
   currentAutoComboIndex: 0
+  jumpKeyCode: 0
+  punchKeyCode: 0
+  kickKeyCode: 0
+  runKeyCode: 0
+  blockKeyCode: 0
 --- !u!114 &114504737153347904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,7 +556,7 @@ MonoBehaviour:
   blockSparkObject: {fileID: 4079147941637204015}
   animator: {fileID: 0}
   RB2D: {fileID: 0}
-  InfiniteHealth: 0
+  InfiniteHealth: 1
   audioSrc: {fileID: 0}
   impactSoundEffect: {fileID: 8300000, guid: c33d06a25edb11445b640a985ec7711f, type: 3}
   blockSoundEffect: {fileID: 8300000, guid: dbe104ed0ce264aaf9745038e89e9243, type: 3}
@@ -1086,6 +1096,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
