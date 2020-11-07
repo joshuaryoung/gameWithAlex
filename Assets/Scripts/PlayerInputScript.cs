@@ -99,6 +99,11 @@ public class PlayerInputScript : MonoBehaviour {
 	public float groundCollisionOffset;
 	public bool attackHasAlreadyHit;	//has an attack already registered damage?
 	public int currentAutoComboIndex = 0;
+	public KeyCode jumpKeyCode = new KeyCode();
+	public KeyCode punchKeyCode = new KeyCode();
+	public KeyCode kickKeyCode = new KeyCode();
+	public KeyCode runKeyCode = new KeyCode();
+	public KeyCode blockKeyCode = new KeyCode();
 
 	// Use this for initialization
 	void Start ()
@@ -116,6 +121,11 @@ public class PlayerInputScript : MonoBehaviour {
 		freeFallAvailable = true;
 		wallStickDurationCurrent = wallStickDurationMax;
 		wallJumpMinXAxisCooldownCurrent = wallJumpMinXAxisCooldownMax;
+		jumpKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Jump", "JoystickButton0"));
+		punchKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Punch", "JoystickButton1"));
+		kickKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Kick", "JoystickButton2"));
+		runKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Run", "JoystickButton3"));
+		blockKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Block", "JoystickButton4"));
 	}
 
 	// Update is called once per frame
@@ -131,16 +141,16 @@ public class PlayerInputScript : MonoBehaviour {
 		localScaleX = transform.localScale.x;
 
 		// Poll controller
-		punchPressed = Input.GetButtonDown ("Punch") && !isWallClimbing && !blockPressed;
-		kickPressed = (Input.GetButtonDown ("Kick")  && !blockPressed && !isWallClimbing);
+		punchPressed = Input.GetKeyDown(punchKeyCode) && !isWallClimbing && !blockPressed;
+		kickPressed = (Input.GetKeyDown(kickKeyCode)  && !blockPressed && !isWallClimbing);
 		sweepPressed = (Input.GetAxis ("Vertical") < 0 && isGrounded && kickPressed && !isWallClimbing);
 		uppercutPressed = (Input.GetAxis ("Vertical") < 0 && isGrounded && punchPressed && !isWallClimbing);
-		blockPressed = Input.GetButton ("Block");
+		blockPressed = Input.GetKey(blockKeyCode);
 		grabPressed = (punchPressed && blockPressed && isGrounded && !isCrouching && !isWallClimbing);
-		runHeld = Input.GetButton("Run");
+		runHeld = Input.GetKey(runKeyCode);
 		isCrouching = (Input.GetAxis ("Vertical") < 0 && isGrounded && !isWallClimbing);
 		controllerAxisX = Input.GetAxis ("Horizontal");
-		jumpPressed = Input.GetButtonDown ( "Jump" );
+		jumpPressed = Input.GetKeyDown(jumpKeyCode);
 
 		if (isWallClimbing) {
 			isWallJumping = false;

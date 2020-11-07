@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{af80d112-7566-47cf-54d2-201ef3836956}</ProjectGuid>
+    <ProjectGuid>{e92124f5-87b8-c4c4-285c-65fedf442979}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>UnityEngine.TestRunner</AssemblyName>
@@ -340,7 +340,7 @@
         <HintPath>/Applications/2020.1.6f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-        <HintPath>/Users/joshuayoung/dev/unity/2D Self Tutorial/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+        <HintPath>/Users/joshuayoung/dev/unity/gameWithAlex/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>/Applications/2020.1.6f1/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

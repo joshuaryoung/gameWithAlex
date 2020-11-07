@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{ed9c74ba-51dc-99e9-62d2-f9f70232e7b2}</ProjectGuid>
+    <ProjectGuid>{9f874aa5-64cb-f4da-42a3-e924c3d1000a}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.Timeline</AssemblyName>
@@ -302,7 +302,7 @@
         <HintPath>/Applications/2020.1.6f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-        <HintPath>/Users/joshuayoung/dev/unity/2D Self Tutorial/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+        <HintPath>/Users/joshuayoung/dev/unity/gameWithAlex/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>/Applications/2020.1.6f1/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -652,24 +652,20 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{6d6fea70-46b5-12fc-1aa2-6f56588a432b}</Project>
+      <Project>{71d9550b-c7c8-cbe4-9b52-ea5f6d3434fb}</Project>
       <Name>UnityEditor.UI</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{84b9273d-45d6-b541-f5c5-2e0e6d352003}</Project>
+      <Project>{193e0f87-3a61-c367-8a8a-1cfbee26c898}</Project>
       <Name>UnityEngine.UI</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{4158d3f6-1fc4-82d8-cfd1-8df5bac2a524}</Project>
+      <Project>{eb5b4d71-09bb-c233-1576-0c87fd689708}</Project>
       <Name>UnityEditor.TestRunner</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{af80d112-7566-47cf-54d2-201ef3836956}</Project>
+      <Project>{e92124f5-87b8-c4c4-285c-65fedf442979}</Project>
       <Name>UnityEngine.TestRunner</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
