@@ -74,6 +74,7 @@ public class PlayerInputScript : MonoBehaviour {
 	public float controllerAxisX;
 	public bool runHeld;
 	public bool jumpPressed;
+	public bool jumpReleased;
 	public bool punchPressed;
 	public bool kickPressed;
 	public bool blockPressed;
@@ -126,6 +127,7 @@ public class PlayerInputScript : MonoBehaviour {
 		kickKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Kick", "JoystickButton2"));
 		runKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Run", "JoystickButton3"));
 		blockKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Block", "JoystickButton4"));
+		jumpReleased = true;
 	}
 
 	// Update is called once per frame
@@ -151,6 +153,7 @@ public class PlayerInputScript : MonoBehaviour {
 		isCrouching = (Input.GetAxis ("Vertical") < 0 && isGrounded && !isWallClimbing);
 		controllerAxisX = Input.GetAxis ("Horizontal");
 		jumpPressed = Input.GetKeyDown(jumpKeyCode);
+		jumpReleased = Input.GetKeyUp(jumpKeyCode);
 
 		if (isWallClimbing) {
 			isWallJumping = false;
@@ -187,7 +190,7 @@ public class PlayerInputScript : MonoBehaviour {
 		anim.SetBool ("isWallClimbing", isWallClimbing);
 
 		if(freeFallAvailable && RB2D.velocity.y > 0 && wallJumpMinXAxisCooldownCurrent <= 0){
-			if (Input.GetButtonUp ( "Jump" ) ) {
+			if (jumpReleased) {
 				RB2D.velocity = new Vector2 (RB2D.velocity.x, 0);
 				freeFallAvailable = false;
 			}
