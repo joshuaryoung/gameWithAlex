@@ -33964,6 +33964,11 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 12.88
       objectReference: {fileID: 0}
+    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: wallJumpMinXAxisCooldownMax
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 114504737153347904, guid: 117785b7cd429d342af78d659adcd96b,
         type: 3}
       propertyPath: deathScreen
