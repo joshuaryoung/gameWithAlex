@@ -44,21 +44,21 @@ public class PlayerInputScript : MonoBehaviour {
 	public AudioClip impactSoundEffect;
 	public AudioSource audioPlayer;
 	public int punchDamageValue;
-	public int punchReelLength;
+	public float punchReelLength;
 	public float punchPushbackValue;
 	public int jumpingPunchDamageValue;
-	public int jumpingPunchReelLength;
+	public float jumpingPunchReelLength;
 	public float jumpingPunchPushbackValue;
 	public int kickDamageValue;
-	public int kickReelLength;
+	public float kickReelLength;
 	public float kickPushbackValue;
 	public int jumpingKickDamageValue;
-	public int jumpingKickReelLength;
+	public float jumpingKickReelLength;
 	public float jumpingKickPushbackValue;
 	public int sweepDamageValue;
 	public float sweepPushbackValue;
 	public int uppercutDamageValue;
-	public int uppercutReelLength;
+	public float uppercutReelLength;
 	public float uppercutPushbackValue;
 	public float walkVelocity;
 	public float runVelocity;
@@ -357,7 +357,7 @@ public class PlayerInputScript : MonoBehaviour {
 		jumpCoolDownCurrent = jumpCoolDownMax;
 	}
 
-	void attack(Collider2D hitBox, int damageValue, float pushbackValue, int reelLength, AudioClip soundEffect){
+	void attack(Collider2D hitBox, int damageValue, float pushbackValue, float reelLength, AudioClip soundEffect){
 		string nameOfPreviousCol="null";
 		//hitbox stuff
 		Collider2D[] cols = Physics2D.OverlapBoxAll (hitBox.bounds.center, hitBox.bounds.size, 0f, LayerMask.GetMask("EnemyLayer"));

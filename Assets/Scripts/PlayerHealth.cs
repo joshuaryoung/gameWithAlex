@@ -9,7 +9,8 @@ public class PlayerHealth : MonoBehaviour
 
   public int startHealth;
   public int currentHealth;
-  public int invincibilityCooldown;
+  public float invincibilityCooldownCurrent;
+  public float invincibilityCooldownMax;
   public int invincibilityCooldownFlash = 0;
   public bool isDead = false;
   public bool isDying;
@@ -27,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
   public AudioSource audioSrc;
   public AudioClip impactSoundEffect;
   public AudioClip blockSoundEffect;
-  public int currentReelLengthCooldown;
+  public float currentReelLengthCooldown;
 
   // Use this for initialization
   void Start()
@@ -36,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
     currentHealth = startHealth;
     spriteR = GetComponent<SpriteRenderer>();
     spriteColor = spriteR.color;
-    invincibilityCooldown = 0;
+    invincibilityCooldownCurrent = 0;
     cf = GameObject.FindGameObjectWithTag("MainCamera").gameObject.GetComponent<cameraFollow>();
     PIS = gameObject.GetComponent<PlayerInputScript>();
     RB2D = gameObject.GetComponent<Rigidbody2D>();
@@ -58,23 +59,21 @@ public class PlayerHealth : MonoBehaviour
   {
     if (currentReelLengthCooldown > 0)
     {
-      currentReelLengthCooldown--;
-      if (currentReelLengthCooldown == 0)
+      currentReelLengthCooldown -= Time.deltaTime;
+      if (currentReelLengthCooldown <= 0)
       {
         animator.SetBool("isReeling", false);
       }
     }
 
-    if (invincibilityCooldown > 0)
-      invincibilityCooldown--;
     //invincibility Animation
-    if (invincibilityCooldown > 0)
+    if (invincibilityCooldownCurrent > 0)
     {
       spriteColor.a = invincibilityCooldownFlash;
       invincibilityCooldownFlash = (invincibilityCooldownFlash * -1) + 1;
       spriteR.color = spriteColor;
-      invincibilityCooldown--;
-      if (invincibilityCooldown == 0)
+      invincibilityCooldownCurrent -= Time.deltaTime;
+      if (invincibilityCooldownCurrent <= 0)
       {
         spriteColor.a = (float)255;
         spriteR.color = spriteColor;
@@ -86,12 +85,12 @@ public class PlayerHealth : MonoBehaviour
   {
     int damage = (int)args[0];
     float pushBackValue = (float)args[1];
-    int attackReelValue = (int)args[2];
+    float attackReelValue = (float)args[2];
 
     PIS.attackHasAlreadyHit = false;
 
     pushBack(pushBackValue);
-    if (invincibilityCooldown == 0 && !PIS.blockPressed)
+    if (invincibilityCooldownCurrent <= 0 && !PIS.blockPressed)
     {
       audioSrc.clip = impactSoundEffect;
       audioSrc.Play();
@@ -106,7 +105,7 @@ public class PlayerHealth : MonoBehaviour
         currentReelLengthCooldown = attackReelValue;
         if (!InfiniteHealth)
           currentHealth -= damage;
-        invincibilityCooldown = 100;
+        invincibilityCooldownCurrent = invincibilityCooldownMax;
         PIS.canAct = true;
         hitSparkObject.SetActive(true);
         animator.SetBool("isReeling", true);
@@ -115,7 +114,7 @@ public class PlayerHealth : MonoBehaviour
         animator.SetBool("isKicking", false);
       }
     }
-    else if (invincibilityCooldown == 0 && PIS.blockPressed)
+    else if (invincibilityCooldownCurrent <= 0 && PIS.blockPressed)
     {
       audioSrc.clip = blockSoundEffect;
       audioSrc.Play();

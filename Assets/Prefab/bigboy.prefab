@@ -73,7 +73,7 @@ MonoBehaviour:
   hitSparkObject: {fileID: 3149539633743059270}
   currentReelLengthCooldown: 0
   pushBackDistance: 4
-  punchReelLength: 94
+  punchReelLength: 0.76
   infiniteHealth: 0
   isInFootsiesRange: 0
   isNotInAnimation: 0
