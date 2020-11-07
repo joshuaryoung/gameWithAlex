@@ -66,6 +66,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -400,6 +402,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -495,6 +499,7 @@ MonoBehaviour:
   controllerAxisX: 0
   runHeld: 0
   jumpPressed: 0
+  jumpReleased: 0
   punchPressed: 0
   kickPressed: 0
   blockPressed: 0
@@ -511,7 +516,7 @@ MonoBehaviour:
   isWallSliding: 0
   isWallJumping: 0
   isLedgeVaulting: 0
-  wallJumpMinXAxisCooldownMax: 9
+  wallJumpMinXAxisCooldownMax: 24
   wallJumpMinXAxisCooldownCurrent: 0
   wasGroundedPreviousFrame: 1
   groundedCoolDown: 0
@@ -520,6 +525,11 @@ MonoBehaviour:
   groundCollisionOffset: 0
   attackHasAlreadyHit: 0
   currentAutoComboIndex: 0
+  jumpKeyCode: 0
+  punchKeyCode: 0
+  kickKeyCode: 0
+  runKeyCode: 0
+  blockKeyCode: 0
 --- !u!114 &114504737153347904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1086,6 +1096,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
