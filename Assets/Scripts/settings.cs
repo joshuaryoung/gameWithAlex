@@ -11,6 +11,7 @@ public class settings : MonoBehaviour
   public string currentlyCapturingButtonName;
   public bool isCapturingInput = false;
   public PlayerInputScript PIS;
+  public ReloadOnButton ROB;
   // Start is called before the first frame update
   void Start()
   {
@@ -23,8 +24,8 @@ public class settings : MonoBehaviour
   }
 
   void Update() {
-    if(PIS == null) {
-      Debug.Log("PIS is empty!");
+    if(PIS == null || ROB == null) {
+      Debug.Log("PIS or ROB is empty!");
       return;
     }
     e = Event.current;
@@ -77,6 +78,21 @@ public class settings : MonoBehaviour
           break;
         case "Block":
           PIS.blockKeyCode = keyCode;
+          break;
+        case "Up":
+          PIS.upKeyCode = keyCode;
+          break;
+        case "Down":
+          PIS.downKeyCode = keyCode;
+          break;
+        case "Left":
+          PIS.leftKeyCode = keyCode;
+          break;
+        case "Right":
+          PIS.rightKeyCode = keyCode;
+          break;
+        case "Reload":
+          ROB.reloadKeyCode = keyCode;
           break;
         default:
           break;

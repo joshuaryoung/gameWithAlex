@@ -105,6 +105,12 @@ public class PlayerInputScript : MonoBehaviour {
 	public KeyCode kickKeyCode = new KeyCode();
 	public KeyCode runKeyCode = new KeyCode();
 	public KeyCode blockKeyCode = new KeyCode();
+	public KeyCode upKeyCode = new KeyCode();
+	public KeyCode downKeyCode = new KeyCode();
+	public KeyCode leftKeyCode = new KeyCode();
+	public KeyCode rightKeyCode = new KeyCode();
+	public bool dpadLeftPressed;
+	public bool dpadRightPressed;
 
 	// Use this for initialization
 	void Start ()
@@ -127,6 +133,10 @@ public class PlayerInputScript : MonoBehaviour {
 		kickKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Kick", "JoystickButton2"));
 		runKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Run", "JoystickButton3"));
 		blockKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Block", "JoystickButton4"));
+		upKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Up", "JoystickButton5"));
+		downKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Down", "JoystickButton6"));
+		leftKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "JoystickButton7"));
+		rightKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "JoystickButton8"));
 		jumpReleased = true;
 	}
 
@@ -150,8 +160,15 @@ public class PlayerInputScript : MonoBehaviour {
 		blockPressed = Input.GetKey(blockKeyCode);
 		grabPressed = (punchPressed && blockPressed && isGrounded && !isCrouching && !isWallClimbing);
 		runHeld = Input.GetKey(runKeyCode);
-		isCrouching = (Input.GetAxis ("Vertical") < 0 && isGrounded && !isWallClimbing);
+		isCrouching = ((Input.GetAxis ("Vertical") < 0 || Input.GetKey(downKeyCode))&& isGrounded && !isWallClimbing);
 		controllerAxisX = Input.GetAxis ("Horizontal");
+		if (controllerAxisX == 0) {
+			dpadLeftPressed = Input.GetKey(leftKeyCode);
+			dpadRightPressed = Input.GetKey(rightKeyCode);
+			if(dpadLeftPressed || dpadRightPressed) {
+				controllerAxisX = dpadLeftPressed ? -1 : 1;
+			}
+		}
 		jumpPressed = Input.GetKeyDown(jumpKeyCode);
 		jumpReleased = Input.GetKeyUp(jumpKeyCode);
 
