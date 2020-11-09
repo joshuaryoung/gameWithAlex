@@ -12,10 +12,11 @@ public class settings : MonoBehaviour
   public bool isCapturingInput = false;
   public PlayerInputScript PIS;
   public ReloadOnButton ROB;
+  public KeyCode pauseKeyCode = new KeyCode();
   // Start is called before the first frame update
   void Start()
   {
-
+    pauseKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Pause", "JoystickButton10"));
   }
 
   public void OnClick()
@@ -28,7 +29,6 @@ public class settings : MonoBehaviour
       Debug.Log("PIS or ROB is empty!");
       return;
     }
-    e = Event.current;
     if (isCapturingInput) {
       bool joystickButtonFound = false;
       int joystickButtonIndex = -1;
@@ -52,6 +52,10 @@ public class settings : MonoBehaviour
       }
       // string keyCode = e.keyCode.ToString();
       // Debug.Log(currentlyCapturingButtonName + ": " + keyCode);
+    }
+
+    if (Input.GetKeyDown(pauseKeyCode)) {
+      settingsMenuGameObject.SetActive(!settingsMenuGameObject.activeSelf);
     }
   }
 
@@ -93,6 +97,9 @@ public class settings : MonoBehaviour
           break;
         case "Reload":
           ROB.reloadKeyCode = keyCode;
+          break;
+        case "Pause":
+          pauseKeyCode = keyCode;
           break;
         default:
           break;
