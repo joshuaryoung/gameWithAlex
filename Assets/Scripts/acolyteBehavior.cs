@@ -12,8 +12,8 @@ public class acolyteBehavior : MonoBehaviour
   PlayerInputScript PIS;
   public int startHealth;
   public int currentHealth;
-  public int invincibilityCooldownPeriod;
-  public int invincibilityCooldownCurrent;
+  public float invincibilityCooldownPeriod;
+  public float invincibilityCooldownCurrent;
   public int invincibilityCooldownFlash = 0;
   public float enemyHorizontalSpeed;
   public SpriteRenderer spriteR;
@@ -25,9 +25,9 @@ public class acolyteBehavior : MonoBehaviour
   public bool canAttack;
   Animator acolyteAnim;
   public GameObject hitSparkObject;
-  public int currentReelLengthCooldown;
+  public float currentReelLengthCooldown;
   public float pushBackDistance;
-  public int punchReelLength;
+  public float punchReelLength;
   public bool infiniteHealth;
   public bool isInFootsiesRange;
   public bool isNotInAnimation;
@@ -122,8 +122,8 @@ public class acolyteBehavior : MonoBehaviour
 
     if (currentReelLengthCooldown > 0)
     {
-      currentReelLengthCooldown--;
-      if (currentReelLengthCooldown == 0)
+      currentReelLengthCooldown -= Time.deltaTime;
+      if (currentReelLengthCooldown <= 0)
       {
         reelStateExit();
       }
@@ -134,8 +134,8 @@ public class acolyteBehavior : MonoBehaviour
       spriteColor.a = invincibilityCooldownFlash;
       invincibilityCooldownFlash = (invincibilityCooldownFlash * -1) + 1;
       spriteR.color = spriteColor;
-      invincibilityCooldownCurrent--;
-      if (invincibilityCooldownCurrent == 0)
+      invincibilityCooldownCurrent -= Time.deltaTime;
+      if (invincibilityCooldownCurrent <= 0)
       {
         spriteColor.a = (float)255;
         spriteR.color = spriteColor;
@@ -180,9 +180,9 @@ public class acolyteBehavior : MonoBehaviour
   {
     int damage = (int)args[0];
     float pushBackDistance = (float)args[1];
-    int reelLength = (int)args[2];
+    float reelLength = (float)args[2];
 
-    if (currentHealth > 0 && invincibilityCooldownCurrent == 0)
+    if (currentHealth > 0 && invincibilityCooldownCurrent <= 0)
     {
       if (!infiniteHealth)
         currentHealth -= damage;
@@ -195,7 +195,7 @@ public class acolyteBehavior : MonoBehaviour
   }
 
   //for the state that occurs right after receiving damage where acolyte is combo-able
-  public void reelStateEnter(int reelLength)
+  public void reelStateEnter(float reelLength)
   {
     currentReelLengthCooldown = reelLength;
     if (invincibilityCooldownCurrent <= 0)

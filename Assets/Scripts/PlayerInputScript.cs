@@ -26,8 +26,8 @@ public class PlayerInputScript : MonoBehaviour {
 	public AnimationClip kickAnimationClip;
 	public float jumpForce = 200.0f;
 	//timer to delay another jump
-	int jumpCoolDown = 0;
-
+	public float jumpCoolDownCurrent = 0;
+	public float jumpCoolDownMax;
 	RaycastHit2D hit;
 	Rigidbody2D RB2D;
 	public Collider2D upperHurtBox;
@@ -44,29 +44,29 @@ public class PlayerInputScript : MonoBehaviour {
 	public AudioClip impactSoundEffect;
 	public AudioSource audioPlayer;
 	public int punchDamageValue;
-	public int punchReelLength;
+	public float punchReelLength;
 	public float punchPushbackValue;
 	public int jumpingPunchDamageValue;
-	public int jumpingPunchReelLength;
+	public float jumpingPunchReelLength;
 	public float jumpingPunchPushbackValue;
 	public int kickDamageValue;
-	public int kickReelLength;
+	public float kickReelLength;
 	public float kickPushbackValue;
 	public int jumpingKickDamageValue;
-	public int jumpingKickReelLength;
+	public float jumpingKickReelLength;
 	public float jumpingKickPushbackValue;
 	public int sweepDamageValue;
 	public float sweepPushbackValue;
 	public int uppercutDamageValue;
-	public int uppercutReelLength;
+	public float uppercutReelLength;
 	public float uppercutPushbackValue;
 	public float walkVelocity;
 	public float runVelocity;
 	public float crouchVelocity;
 	public float blockVelocity;
 	public float wallJumpVelocity;
-	public int wallStickDurationCurrent;
-	public int wallStickDurationMax;
+	public float wallStickDurationCurrent;
+	public float wallStickDurationMax;
 	public float airBrakeDeceleration;
 	public float xVelo;
 	public float yVelo;
@@ -91,10 +91,10 @@ public class PlayerInputScript : MonoBehaviour {
 	public bool isWallSliding;
 	public bool isWallJumping;
 	public bool isLedgeVaulting;
-	public int wallJumpMinXAxisCooldownMax;
-	public int wallJumpMinXAxisCooldownCurrent;
+	public float wallJumpMinXAxisCooldownMax;
+	public float wallJumpMinXAxisCooldownCurrent;
 	public bool wasGroundedPreviousFrame;
-	public int groundedCoolDown;
+	public float groundedCoolDown;
 	public float localScaleX;
 	public bool freeFallAvailable;		//ability to release the jump button and immediately start to fall
 	public float groundCollisionOffset;
@@ -121,7 +121,7 @@ public class PlayerInputScript : MonoBehaviour {
 		wasGroundedPreviousFrame = true;
 		freeFallAvailable = true;
 		wallStickDurationCurrent = wallStickDurationMax;
-		wallJumpMinXAxisCooldownCurrent = wallJumpMinXAxisCooldownMax;
+		// wallJumpMinXAxisCooldownCurrent = wallJumpMinXAxisCooldownMax;
 		jumpKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Jump", "JoystickButton0"));
 		punchKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Punch", "JoystickButton1"));
 		kickKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Kick", "JoystickButton2"));
@@ -158,8 +158,8 @@ public class PlayerInputScript : MonoBehaviour {
 		if (isWallClimbing) {
 			isWallJumping = false;
 			if (wallStickDurationCurrent > 0 && !jumpPressed) {
-				wallStickDurationCurrent--;
-				//if( jumpCoolDown == 0)
+				wallStickDurationCurrent -= Time.deltaTime;
+				//if( jumpCoolDownCurrent == 0)
 				//RB2D.velocity = new Vector2 (RB2D.velocity.x, Vector2.zero.y);
 				//RB2D.angularVelocity = Vector2.zero.magnitude;
 				RB2D.gravityScale = 0;
@@ -211,7 +211,7 @@ public class PlayerInputScript : MonoBehaviour {
 			currentAutoComboIndex = 0;
 			anim.SetInteger("currentAutoComboIndex", currentAutoComboIndex);
 
-			if ((isGrounded || isWallClimbing) && jumpCoolDown == 0)
+			if ((isGrounded || isWallClimbing) && jumpCoolDownCurrent <= 0)
 			{
 				if(jumpPressed && !blockPressed)
 					jump();
@@ -292,14 +292,14 @@ public class PlayerInputScript : MonoBehaviour {
 			}
 		}
 
-		if (jumpCoolDown > 0) {
-			jumpCoolDown--;
+		if (jumpCoolDownCurrent > 0) {
+			jumpCoolDownCurrent -= Time.deltaTime;
 		}
 		if (groundedCoolDown > 0) {
-			groundedCoolDown--;
+			groundedCoolDown -= Time.deltaTime;
 		}
 		if (wallJumpMinXAxisCooldownCurrent > 0) {
-			wallJumpMinXAxisCooldownCurrent--;
+			wallJumpMinXAxisCooldownCurrent -= Time.deltaTime;
 		}
 		wasGroundedPreviousFrame = isGrounded;
 	}
@@ -354,10 +354,10 @@ public class PlayerInputScript : MonoBehaviour {
 		}
 		//set cooldown
 
-		jumpCoolDown = 5;
+		jumpCoolDownCurrent = jumpCoolDownMax;
 	}
 
-	void attack(Collider2D hitBox, int damageValue, float pushbackValue, int reelLength, AudioClip soundEffect){
+	void attack(Collider2D hitBox, int damageValue, float pushbackValue, float reelLength, AudioClip soundEffect){
 		string nameOfPreviousCol="null";
 		//hitbox stuff
 		Collider2D[] cols = Physics2D.OverlapBoxAll (hitBox.bounds.center, hitBox.bounds.size, 0f, LayerMask.GetMask("EnemyLayer"));

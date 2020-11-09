@@ -9,7 +9,7 @@ public class cameraFollow : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		
+		QualitySettings.vSyncCount = 1;
 	}
 	
 	// Update is called once per frame
