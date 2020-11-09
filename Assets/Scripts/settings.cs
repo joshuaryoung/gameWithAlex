@@ -21,7 +21,7 @@ public class settings : MonoBehaviour
 
   public void OnClick()
   {
-    settingsMenuGameObject.SetActive(!settingsMenuGameObject.activeSelf);
+    toggleMenu();
   }
 
   void Update() {
@@ -55,7 +55,7 @@ public class settings : MonoBehaviour
     }
 
     if (Input.GetKeyDown(pauseKeyCode)) {
-      settingsMenuGameObject.SetActive(!settingsMenuGameObject.activeSelf);
+      toggleMenu();
     }
   }
 
@@ -103,6 +103,15 @@ public class settings : MonoBehaviour
           break;
         default:
           break;
+    }
+  }
+
+  private void toggleMenu() {
+    settingsMenuGameObject.SetActive(!settingsMenuGameObject.activeSelf);
+    if(settingsMenuGameObject.activeSelf) {
+      Time.timeScale = 0;
+    } else {
+      Time.timeScale = 1;
     }
   }
 }
