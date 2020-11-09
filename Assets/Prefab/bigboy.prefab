@@ -81,8 +81,8 @@ MonoBehaviour:
   bobAndWeaveRNG: 0
   bobAndWeaveRNGMin: -11.81
   bobAndWeaveRNGMax: 13.47
-  bobAndWeaveDeadZoneMin: -7.94
-  bobAndWeaveDeadZoneMax: 6.99
+  bobAndWeaveDeadZoneMin: -10.64
+  bobAndWeaveDeadZoneMax: 8.23
   attackDecisionRNGMin: 1
   attackDecisionRNGMax: 100
   lightPunchRNGMin: 1
@@ -90,7 +90,7 @@ MonoBehaviour:
   heavyPunchRNGMin: 6
   heavyPunchRNGMax: 16
   bobAndWeaveRNGDecisionMin: 17
-  bobAndWeaveRNGDecisionMax: 30
+  bobAndWeaveRNGDecisionMax: 62
   audioSrc: {fileID: 0}
   punchSoundEffect: {fileID: 0}
 --- !u!212 &212857715412243474
