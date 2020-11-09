@@ -44,7 +44,7 @@ public class acolyteAttackDistance : MonoBehaviour
     collider2D = col2D;
     if (col2D.gameObject.tag == "PlayerCharacter" && AB.invincibilityCooldownCurrent <= 0 && AB.canAttack && !PIS.isDead)
     {
-      Debug.Log("Player Collision!");
+      // Debug.Log("Player Collision!");
       AB.isInFootsiesRange = true;
     }
   }

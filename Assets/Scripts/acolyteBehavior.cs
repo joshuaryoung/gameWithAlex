@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class acolyteBehavior : MonoBehaviour
 {
@@ -35,6 +36,8 @@ public class acolyteBehavior : MonoBehaviour
   public float bobAndWeaveRNG;
   public float bobAndWeaveRNGMin;
   public float bobAndWeaveRNGMax;
+  public float bobAndWeaveDeadZoneMin;
+  public float bobAndWeaveDeadZoneMax;
   public byte attackDecisionRNGMin;
   public byte attackDecisionRNGMax;
   public byte lightPunchRNGMin;
@@ -69,7 +72,7 @@ public class acolyteBehavior : MonoBehaviour
     {
       if (bobAndWeaveRNG == 0)
       {
-        attackDecisionRNG = Random.Range(attackDecisionRNGMin, attackDecisionRNGMax);
+        attackDecisionRNG = UnityEngine.Random.Range(attackDecisionRNGMin, attackDecisionRNGMax);
       }
       // See if col2D's x is within range of the enemy's
 
@@ -93,9 +96,19 @@ public class acolyteBehavior : MonoBehaviour
       {
         if (bobAndWeaveRNG == 0)
         {
-          bobAndWeaveRNG = Random.Range(bobAndWeaveRNGMin, bobAndWeaveRNGMax);
+          bobAndWeaveRNG = UnityEngine.Random.Range(bobAndWeaveRNGMin, bobAndWeaveRNGMax);
+          if (bobAndWeaveRNG >= bobAndWeaveDeadZoneMin && bobAndWeaveRNG <= bobAndWeaveDeadZoneMax) {
+            float distanceToMin = Math.Abs(bobAndWeaveRNG - bobAndWeaveDeadZoneMin);
+            float distanceToMax = Math.Abs(bobAndWeaveDeadZoneMax - bobAndWeaveRNG);
+            if (distanceToMin < distanceToMax) {
+              bobAndWeaveRNG = UnityEngine.Random.Range(bobAndWeaveRNGMin, bobAndWeaveDeadZoneMin);
+              // Debug.Log($"in dead zone. Closer to min. bobAndWeaveRng: {bobAndWeaveRNG} min: {bobAndWeaveDeadZoneMin} max: {bobAndWeaveDeadZoneMax} distanceToMin: {distanceToMin} distanceToMax: {distanceToMax}");
+            } else {
+              bobAndWeaveRNG = UnityEngine.Random.Range(bobAndWeaveDeadZoneMax, bobAndWeaveRNGMax);
+              // Debug.Log($"in dead zone. Closer to max. bobAndWeaveRng: {bobAndWeaveRNG} min: {bobAndWeaveDeadZoneMin} max: {bobAndWeaveDeadZoneMax} distanceToMin: {distanceToMin} distanceToMax: {distanceToMax}");
+            }
+          }
         }
-        Debug.Log("Bobbing n Weaving! bobAndWeaveRNG: " + bobAndWeaveRNG + " actualMoveDistance: " + actualMoveDistance);
         actualMoveDistance = Mathf.Clamp(bobAndWeaveRNG, -1 * enemyHorizontalSpeed, enemyHorizontalSpeed);
         transform.position += new Vector3(actualMoveDistance * transform.localScale.x,
           0,
