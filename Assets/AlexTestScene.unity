@@ -1600,9 +1600,9 @@ GameObject:
   - component: {fileID: 139666973}
   - component: {fileID: 139666978}
   - component: {fileID: 139666977}
-  - component: {fileID: 139666974}
   - component: {fileID: 139666979}
   - component: {fileID: 139666975}
+  - component: {fileID: 139666974}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -1638,15 +1638,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 139666972}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70765b2dc349a432285b1bb50e4d0be3, type: 3}
+  m_Script: {fileID: 11500000, guid: a8c1a80445a6b4023b435f1824770807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   settingsMenuGameObject: {fileID: 332489236}
   currentlyCapturingButtonName: 
   isCapturingInput: 0
-  PIS: {fileID: 476903157}
+  PIS: {fileID: 910819450}
   ROB: {fileID: 2076935513}
   pauseKeyCode: 0
+  gamePaused: 0
 --- !u!114 &139666975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1665,7 +1666,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 139666974}
-          m_TargetAssemblyTypeName: settings, Assembly-CSharp
+          m_TargetAssemblyTypeName: SettingsScript, Assembly-CSharp
           m_MethodName: OnClick
           m_Mode: 1
           m_Arguments:
@@ -5961,6 +5962,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
+        type: 3}
+      propertyPath: PIS
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1186461640105926, guid: 17943721003ec0e44bac1eaa1219b4f2, type: 3}
       propertyPath: m_Name
       value: witch (3)
@@ -6023,11 +6029,6 @@ PrefabInstance:
         type: 3}
       propertyPath: infiniteHealth
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
-        type: 3}
-      propertyPath: PIS
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17943721003ec0e44bac1eaa1219b4f2, type: 3}
@@ -7778,7 +7779,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 139666974}
-        m_TargetAssemblyTypeName: settings, Assembly-CSharp
+        m_TargetAssemblyTypeName: SettingsScript, Assembly-CSharp
         m_MethodName: OnButtonPress
         m_Mode: 5
         m_Arguments:
@@ -7788,7 +7789,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Left
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &419692516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8376,18 +8377,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 216a602d06062234b9e3fa84990e3137, type: 3}
---- !u!114 &476903157 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2041147546}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f763975a64cf32a4d8516ba13891098a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &483792928
 GameObject:
   m_ObjectHideFlags: 0
@@ -9609,7 +9598,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 139666974}
-        m_TargetAssemblyTypeName: settings, Assembly-CSharp
+        m_TargetAssemblyTypeName: SettingsScript, Assembly-CSharp
         m_MethodName: OnButtonPress
         m_Mode: 5
         m_Arguments:
@@ -9619,7 +9608,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Block
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &557143832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12787,7 +12776,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 139666974}
-        m_TargetAssemblyTypeName: settings, Assembly-CSharp
+        m_TargetAssemblyTypeName: SettingsScript, Assembly-CSharp
         m_MethodName: OnButtonPress
         m_Mode: 5
         m_Arguments:
@@ -12797,7 +12786,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Reload
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &740505019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15785,6 +15774,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 188
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &910819450 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2041147546}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f763975a64cf32a4d8516ba13891098a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &914502509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16666,7 +16667,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 139666974}
-        m_TargetAssemblyTypeName: settings, Assembly-CSharp
+        m_TargetAssemblyTypeName: SettingsScript, Assembly-CSharp
         m_MethodName: OnButtonPress
         m_Mode: 5
         m_Arguments:
@@ -16676,7 +16677,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Pause
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &974852350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20183,7 +20184,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 139666974}
-        m_TargetAssemblyTypeName: settings, Assembly-CSharp
+        m_TargetAssemblyTypeName: SettingsScript, Assembly-CSharp
         m_MethodName: OnButtonPress
         m_Mode: 5
         m_Arguments:
@@ -20193,7 +20194,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Up
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1202152211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20861,7 +20862,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 139666974}
-        m_TargetAssemblyTypeName: settings, Assembly-CSharp
+        m_TargetAssemblyTypeName: SettingsScript, Assembly-CSharp
         m_MethodName: OnButtonPress
         m_Mode: 5
         m_Arguments:
@@ -20871,7 +20872,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Down
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1225139252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23816,7 +23817,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 139666974}
-        m_TargetAssemblyTypeName: settings, Assembly-CSharp
+        m_TargetAssemblyTypeName: SettingsScript, Assembly-CSharp
         m_MethodName: OnButtonPress
         m_Mode: 5
         m_Arguments:
@@ -23826,7 +23827,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Jump
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1409076735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29845,7 +29846,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 139666974}
-        m_TargetAssemblyTypeName: settings, Assembly-CSharp
+        m_TargetAssemblyTypeName: SettingsScript, Assembly-CSharp
         m_MethodName: OnButtonPress
         m_Mode: 5
         m_Arguments:
@@ -29855,7 +29856,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Right
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1714609725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30223,7 +30224,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 139666974}
-        m_TargetAssemblyTypeName: settings, Assembly-CSharp
+        m_TargetAssemblyTypeName: SettingsScript, Assembly-CSharp
         m_MethodName: OnButtonPress
         m_Mode: 5
         m_Arguments:
@@ -30233,7 +30234,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Punch
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1736207744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31218,7 +31219,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 139666974}
-        m_TargetAssemblyTypeName: settings, Assembly-CSharp
+        m_TargetAssemblyTypeName: SettingsScript, Assembly-CSharp
         m_MethodName: OnButtonPress
         m_Mode: 5
         m_Arguments:
@@ -31228,7 +31229,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Kick
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1786833991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35137,6 +35138,11 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 11.86
       objectReference: {fileID: 0}
+    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: settingsScript
+      value: 
+      objectReference: {fileID: 139666974}
     - target: {fileID: 114504737153347904, guid: 117785b7cd429d342af78d659adcd96b,
         type: 3}
       propertyPath: deathScreen
@@ -35652,7 +35658,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 139666974}
-        m_TargetAssemblyTypeName: settings, Assembly-CSharp
+        m_TargetAssemblyTypeName: SettingsScript, Assembly-CSharp
         m_MethodName: OnButtonPress
         m_Mode: 5
         m_Arguments:
@@ -35662,7 +35668,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Run
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &2080664181
 MonoBehaviour:
   m_ObjectHideFlags: 0

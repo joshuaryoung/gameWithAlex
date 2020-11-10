@@ -111,6 +111,7 @@ public class PlayerInputScript : MonoBehaviour {
 	public KeyCode rightKeyCode = new KeyCode();
 	public bool dpadLeftPressed;
 	public bool dpadRightPressed;
+	public SettingsScript settingsScript;
 
 	// Use this for initialization
 	void Start ()
@@ -144,6 +145,15 @@ public class PlayerInputScript : MonoBehaviour {
 	void Update ()
 	{
 		if(isDead) {
+			return;
+		}
+
+		if (settingsScript == null) {
+			Debug.LogError("settings script not assigned!");
+			return;
+		}
+
+		if (settingsScript.gamePaused) {
 			return;
 		}
 		

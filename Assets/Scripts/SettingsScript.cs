@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class settings : MonoBehaviour
+public class SettingsScript : MonoBehaviour
 {
   public GameObject settingsMenuGameObject;
   public Event e;
@@ -13,6 +13,7 @@ public class settings : MonoBehaviour
   public PlayerInputScript PIS;
   public ReloadOnButton ROB;
   public KeyCode pauseKeyCode = new KeyCode();
+  public bool gamePaused = false;
   // Start is called before the first frame update
   void Start()
   {
@@ -107,8 +108,9 @@ public class settings : MonoBehaviour
   }
 
   private void toggleMenu() {
+    gamePaused = !settingsMenuGameObject.activeSelf;
     settingsMenuGameObject.SetActive(!settingsMenuGameObject.activeSelf);
-    if(settingsMenuGameObject.activeSelf) {
+    if(gamePaused) {
       Time.timeScale = 0;
     } else {
       Time.timeScale = 1;
