@@ -7,7 +7,7 @@ public class ReloadOnButton : MonoBehaviour
 	public KeyCode reloadKeyCode = new KeyCode();
 
     void Start() {
-		reloadKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Reload", "JoystickButton9"));
+		reloadKeyCode = (KeyCode) System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Reload"));
     }
 
     void Update ()
