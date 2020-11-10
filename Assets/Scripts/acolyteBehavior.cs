@@ -248,6 +248,8 @@ public class acolyteBehavior : MonoBehaviour
       if (col2D.gameObject.tag == "PlayerCharacter" && !PIS.isDead)
       {
         return;
+      } else if (col2D.gameObject.layer == LayerMask.NameToLayer("EnemyLayer") && col2D.gameObject.transform.localScale.x * transform.localScale.x > 0) {
+        return;
       }
 
       flip();
