@@ -46,7 +46,7 @@ public class acolyteBehavior : MonoBehaviour
   public byte heavyPunchRNGMax;
   public byte bobAndWeaveRNGDecisionMin;
   public byte bobAndWeaveRNGDecisionMax;
-  float actualMoveDistance;
+  public float actualMoveDistance;
   public AudioSource audioSrc;
   public AudioClip punchSoundEffect;
 
