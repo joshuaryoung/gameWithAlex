@@ -70,7 +70,7 @@ public class acolyteBehavior : MonoBehaviour
     // Footsies Stuff
     if (isInFootsiesRange && isNotInAnimation)
     {
-      if (bobAndWeaveRNG <= 0)
+      if (bobAndWeaveRNG == 0)
       {
         attackDecisionRNG = UnityEngine.Random.Range(attackDecisionRNGMin, attackDecisionRNGMax);
       }
@@ -94,7 +94,7 @@ public class acolyteBehavior : MonoBehaviour
       }
       else if (attackDecisionRNG >= bobAndWeaveRNGDecisionMin && attackDecisionRNG <= bobAndWeaveRNGDecisionMax && isNotInAnimation)
       {
-        if (bobAndWeaveRNG <= 0)
+        if (bobAndWeaveRNG == 0)
         {
           bobAndWeaveRNG = UnityEngine.Random.Range(bobAndWeaveRNGMin, bobAndWeaveRNGMax);
           if (bobAndWeaveRNG >= bobAndWeaveDeadZoneMin && bobAndWeaveRNG <= bobAndWeaveDeadZoneMax) {
