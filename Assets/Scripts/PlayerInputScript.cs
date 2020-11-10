@@ -165,12 +165,12 @@ public class PlayerInputScript : MonoBehaviour {
 		// Poll controller
 		punchPressed = Input.GetKeyDown(punchKeyCode) && !isWallClimbing && !blockPressed;
 		kickPressed = (Input.GetKeyDown(kickKeyCode)  && !blockPressed && !isWallClimbing);
-		sweepPressed = (Input.GetAxis ("Vertical") < 0 && isGrounded && kickPressed && !isWallClimbing);
-		uppercutPressed = (Input.GetAxis ("Vertical") < 0 && isGrounded && punchPressed && !isWallClimbing);
+		sweepPressed = ((Input.GetAxis ("Vertical") < 0 || Input.GetKey(downKeyCode)) && isGrounded && kickPressed && !isWallClimbing);
+		uppercutPressed = ((Input.GetAxis ("Vertical") < 0 || Input.GetKey(downKeyCode)) && isGrounded && punchPressed && !isWallClimbing);
 		blockPressed = Input.GetKey(blockKeyCode);
 		grabPressed = (punchPressed && blockPressed && isGrounded && !isCrouching && !isWallClimbing);
 		runHeld = Input.GetKey(runKeyCode);
-		isCrouching = ((Input.GetAxis ("Vertical") < 0 || Input.GetKey(downKeyCode))&& isGrounded && !isWallClimbing);
+		isCrouching = ((Input.GetAxis ("Vertical") < 0 || Input.GetKey(downKeyCode)) && isGrounded && !isWallClimbing);
 		controllerAxisX = Input.GetAxis ("Horizontal");
 		if (controllerAxisX == 0) {
 			dpadLeftPressed = Input.GetKey(leftKeyCode);
