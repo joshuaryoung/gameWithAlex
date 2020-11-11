@@ -49,6 +49,9 @@ public class acolyteBehavior : MonoBehaviour
   public float actualMoveDistance;
   public AudioSource audioSrc;
   public AudioClip punchSoundEffect;
+  public float flipCoolDown = 0;
+  public float flipCoolDownMax;
+  public Collider2D lowerHurtbox;
 
   // Use this for initialization
   void Start()
@@ -66,6 +69,10 @@ public class acolyteBehavior : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    if (lowerHurtbox == null) {
+      Debug.LogError("lowerHurtbox is null!");
+      return;
+    }
     isNotInAnimation = (acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeavyPunching") == false);
     // Footsies Stuff
     if ((isInFootsiesRange || bobAndWeaveRNG != 0) && isNotInAnimation)
@@ -154,6 +161,10 @@ public class acolyteBehavior : MonoBehaviour
         spriteR.color = spriteColor;
       }
     }
+
+    if (flipCoolDown > 0) {
+      flipCoolDown -= Time.deltaTime;
+    }
   }
 
   void disableIsPunching()
@@ -166,6 +177,7 @@ public class acolyteBehavior : MonoBehaviour
     Vector2 flipLocalScale = gameObject.transform.localScale;
     flipLocalScale.x *= -1;
     transform.localScale = flipLocalScale;
+    flipCoolDown = flipCoolDownMax;
   }
 
   void pushBack(float pushBackValue)
@@ -238,21 +250,40 @@ public class acolyteBehavior : MonoBehaviour
     canAttack = true;
   }
 
-  void OnCollisionEnter2D(Collision2D col2D)
+  void OnCollisionStay2D(Collision2D col2D)
   {
+    if (lowerHurtbox == null) {
+      Debug.LogError("lowerHurtbox is null!");
+      return;
+    }
     /*if (hit.GetComponent<Collider>().tag == "Player") {
 			playerObject.GetComponent<PlayerHealth> ().playerTakeDamage (1);
 		}*/
-    if (acolyteAnim.GetBool("isHeavyPunching") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isReeling") == false && col2D.transform.position.y + col2D.collider.bounds.extents.y > transform.position.y - (spriteR.bounds.size.y / 2) && col2D.gameObject.layer != 2)
-    {
-      if (col2D.gameObject.tag == "PlayerCharacter" && !PIS.isDead)
-      {
-        return;
-      } else if (col2D.gameObject.layer == LayerMask.NameToLayer("EnemyLayer") && col2D.gameObject.transform.localScale.x * transform.localScale.x > 0) {
-        return;
-      }
+    isNotInAnimation = acolyteAnim.GetBool("isHeavyPunching") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isReeling") == false;
+    float collisionTop = col2D.transform.position.y + col2D.collider.bounds.extents.y;
+    float characterBottom = transform.position.y - lowerHurtbox.bounds.extents.y;
+    bool isWall = col2D.gameObject.layer == LayerMask.NameToLayer("Wall");
+    bool isEnemy = col2D.gameObject.layer == LayerMask.NameToLayer("EnemyLayer");
+    bool isPlayer = col2D.gameObject.tag == "PlayerCharacter";
+    bool isNotOnIgnoreRaycastLayer = col2D.gameObject.layer != 2;
+    bool isFacingTowardsWall = (col2D.gameObject.transform.localPosition.x - transform.localPosition.x) * transform.localScale.x > 0;
+    bool facingOppositeDirections = col2D.transform.localScale.x * transform.localScale.x < 0;
 
-      flip();
+    if (isNotInAnimation && isNotOnIgnoreRaycastLayer && flipCoolDown <= 0)
+    {
+      if (isWall && isFacingTowardsWall) {
+        flip();
+      } else if (isEnemy && facingOppositeDirections) {
+        flip();
+      }
+      // if (isPlayer && !PIS.isDead)
+      // {
+      //   return;
+      // } else if (isWall && facingOppositeDirections) { // only when running into things head on
+      //   flip();
+      // } else if (isEnemy && !facingOppositeDirections) {
+      //   return;
+      // }
     }
     // if (col2D.gameObject.tag == "PlayerCharacter" && invincibilityCooldownCurrent <= 0) {
     // 	flip ();

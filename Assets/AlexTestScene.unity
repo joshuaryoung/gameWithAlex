@@ -17875,16 +17875,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114011634407126842, guid: 216a602d06062234b9e3fa84990e3137,
-        type: 3}
-      propertyPath: bobAndWeaveRNGMin
-      value: -7.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 114011634407126842, guid: 216a602d06062234b9e3fa84990e3137,
-        type: 3}
-      propertyPath: bobAndWeaveRNGMax
-      value: 6.06
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 216a602d06062234b9e3fa84990e3137, type: 3}
 --- !u!1 &1056997643
@@ -35091,11 +35081,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4087151271183574, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -381.7
+      value: -333.2
       objectReference: {fileID: 0}
     - target: {fileID: 4087151271183574, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35.7
+      value: 49.4
       objectReference: {fileID: 0}
     - target: {fileID: 4087151271183574, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
       propertyPath: m_LocalPosition.z

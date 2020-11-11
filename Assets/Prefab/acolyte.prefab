@@ -167,9 +167,9 @@ MonoBehaviour:
   isNotInAnimation: 0
   attackDecisionRNG: 0
   bobAndWeaveRNG: 0
-  bobAndWeaveRNGMin: -87.7
+  bobAndWeaveRNGMin: -29.65
   bobAndWeaveRNGMax: 7.4
-  bobAndWeaveDeadZoneMin: -68.5
+  bobAndWeaveDeadZoneMin: -25.9
   bobAndWeaveDeadZoneMax: 5.8
   attackDecisionRNGMin: 0
   attackDecisionRNGMax: 99
@@ -178,10 +178,13 @@ MonoBehaviour:
   heavyPunchRNGMin: 3
   heavyPunchRNGMax: 4
   bobAndWeaveRNGDecisionMin: 5
-  bobAndWeaveRNGDecisionMax: 10
+  bobAndWeaveRNGDecisionMax: 17
   actualMoveDistance: 0
   audioSrc: {fileID: 0}
   punchSoundEffect: {fileID: 8300000, guid: 60983f774c0f6486693dae581ff31e60, type: 3}
+  flipCoolDown: 0
+  flipCoolDownMax: 0.38
+  lowerHurtbox: {fileID: 8835459544498847602}
 --- !u!212 &212857715412243474
 SpriteRenderer:
   m_ObjectHideFlags: 0

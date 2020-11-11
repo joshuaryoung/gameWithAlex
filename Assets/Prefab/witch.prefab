@@ -79,20 +79,24 @@ MonoBehaviour:
   isNotInAnimation: 0
   attackDecisionRNG: 0
   bobAndWeaveRNG: 0
-  bobAndWeaveRNGMin: -9.46
-  bobAndWeaveRNGMax: 13.16
-  bobAndWeaveDeadZoneMin: -4.84
-  bobAndWeaveDeadZoneMax: 6.18
+  bobAndWeaveRNGMin: -82.8
+  bobAndWeaveRNGMax: 0
+  bobAndWeaveDeadZoneMin: -71
+  bobAndWeaveDeadZoneMax: 0
   attackDecisionRNGMin: 1
   attackDecisionRNGMax: 100
-  lightPunchRNGMin: 2
-  lightPunchRNGMax: 11
+  lightPunchRNGMin: 1
+  lightPunchRNGMax: 20
   heavyPunchRNGMin: 255
   heavyPunchRNGMax: 255
-  bobAndWeaveRNGDecisionMin: 12
+  bobAndWeaveRNGDecisionMin: 20
   bobAndWeaveRNGDecisionMax: 43
+  actualMoveDistance: 0
   audioSrc: {fileID: 0}
   punchSoundEffect: {fileID: 8300000, guid: 0c7cc4d9504c947418f93cf12213c4c2, type: 3}
+  flipCoolDown: 0
+  flipCoolDownMax: 0.38
+  lowerHurtbox: {fileID: 523051667151902992}
 --- !u!212 &212857715412243474
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -305,7 +309,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304074381354322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.82, z: 0}
+  m_LocalPosition: {x: 0.68, y: 0.64, z: 0}
   m_LocalScale: {x: 1, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
@@ -318,7 +322,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304074381354322}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -326,7 +330,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.3}
   serializedVersion: 2
-  m_Radius: 0.24063826
+  m_Radius: 0.64
 --- !u!1 &1472227797893740
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +357,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472227797893740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.05, y: 0.422, z: 0}
+  m_LocalPosition: {x: 0.75, y: 0.422, z: 0}
   m_LocalScale: {x: 2.1062837, y: 1.5374997, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
@@ -372,7 +376,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.26928267, y: 0.1220116}
+  m_Offset: {x: -0.1, y: 0.1220116}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -383,7 +387,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.46143466, y: 1.2440231}
+  m_Size: {x: 0.83, y: 1.2440231}
   m_EdgeRadius: 0
 --- !u!114 &114313281030698670
 MonoBehaviour:
@@ -413,7 +417,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4698233896438564}
-  - component: {fileID: 58740448159620614}
   - component: {fileID: 523051667151902992}
   m_Layer: 10
   m_Name: lowerHurtbox
@@ -436,22 +439,6 @@ Transform:
   m_Father: {fileID: 4612835406874000}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58740448159620614
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1616001421199328}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 1
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.08, y: 0.15}
-  serializedVersion: 2
-  m_Radius: 0.6262884
 --- !u!61 &523051667151902992
 BoxCollider2D:
   m_ObjectHideFlags: 0

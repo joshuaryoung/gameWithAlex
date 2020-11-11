@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 755544596}
   - component: {fileID: 755544597}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: topSurface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,10 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.5, y: 0}
   - {x: 0.5, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1394762005359104
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +63,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4544571930680878}
   - component: {fileID: 68066838902427954}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: leftSideLedge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,6 +102,10 @@ EdgeCollider2D:
   m_Points:
   - {x: 0, y: -0.5}
   - {x: 0, y: 0.5}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1495891824803404
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +117,7 @@ GameObject:
   - component: {fileID: 4390964398648154}
   - component: {fileID: 212320547349157750}
   - component: {fileID: 61885748786416078}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,6 +157,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -220,7 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4139903560229800}
   - component: {fileID: 68782457748544808}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: rightSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,6 +269,10 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.5, y: 0}
   - {x: 0.5, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1702036414621484
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4621170265332656}
   - component: {fileID: 68207632362140320}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: rightSideLedge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,6 +322,10 @@ EdgeCollider2D:
   m_Points:
   - {x: 0, y: -0.5}
   - {x: 0, y: 0.5}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1706786929378380
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4670470362011692}
   - component: {fileID: 68898467253841702}
-  m_Layer: 2
+  m_Layer: 14
   m_Name: leftSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,3 +375,7 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.5, y: 0}
   - {x: 0.5, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
