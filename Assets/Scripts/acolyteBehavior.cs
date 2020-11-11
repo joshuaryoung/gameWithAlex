@@ -269,7 +269,7 @@ public class acolyteBehavior : MonoBehaviour
     bool isFacingTowardsWall = (col2D.gameObject.transform.localPosition.x - transform.localPosition.x) * transform.localScale.x > 0;
     bool facingOppositeDirections = col2D.transform.localScale.x * transform.localScale.x < 0;
 
-    if (isNotInAnimation && isNotOnIgnoreRaycastLayer && flipCoolDown <= 0)
+    if (isNotInAnimation && isNotOnIgnoreRaycastLayer && flipCoolDown <= 0 && !isInFootsiesRange)
     {
       if (isWall && isFacingTowardsWall) {
         flip();

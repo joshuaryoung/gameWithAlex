@@ -16,7 +16,7 @@ public class playerWallCollisionCheck : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D col2D)
 	{
-		if ((col2D.bounds.extents.y + col2D.gameObject.transform.position.y > wallCollider.transform.position.y - wallCollider.bounds.extents.y) && col2D.gameObject.layer == LayerMask.NameToLayer ("GroundLayer") && !PIS.isGrounded) {
+		if ((col2D.bounds.extents.y + col2D.gameObject.transform.position.y > wallCollider.transform.position.y - wallCollider.bounds.extents.y) && col2D.gameObject.layer == LayerMask.NameToLayer ("Wall") && !PIS.isGrounded) {
 			PIS.isWallClimbing = false;
 		}
 		if (col2D.gameObject.layer == LayerMask.NameToLayer ("Ledge")) {
@@ -25,7 +25,7 @@ public class playerWallCollisionCheck : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col2D){
-		if ((col2D.bounds.extents.y + col2D.gameObject.transform.position.y > wallCollider.transform.position.y - wallCollider.bounds.extents.y) && col2D.gameObject.layer == LayerMask.NameToLayer ("GroundLayer") && !PIS.isGrounded) {
+		if ((col2D.bounds.extents.y + col2D.gameObject.transform.position.y > wallCollider.transform.position.y - wallCollider.bounds.extents.y) && col2D.gameObject.layer == LayerMask.NameToLayer ("Wall") && !PIS.isGrounded) {
 			PIS.wallStickDurationCurrent = PIS.wallStickDurationMax;
 			RB2D.velocity = new Vector2 (RB2D.velocity.x, 0f);
 		}
@@ -33,7 +33,7 @@ public class playerWallCollisionCheck : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D col2D)
 	{
-		if ((col2D.bounds.extents.y + col2D.gameObject.transform.position.y > wallCollider.transform.position.y - wallCollider.bounds.extents.y) && col2D.gameObject.layer == LayerMask.NameToLayer ("GroundLayer") && !PIS.isGrounded && !PIS.isLedgeVaulting && PIS.yVelo <=0 && PIS.controllerAxisX * (col2D.transform.position.x - playerTransform.position.x) > 0) {
+		if ((col2D.bounds.extents.y + col2D.gameObject.transform.position.y > wallCollider.transform.position.y - wallCollider.bounds.extents.y) && col2D.gameObject.layer == LayerMask.NameToLayer ("Wall") && !PIS.isGrounded && !PIS.isLedgeVaulting && PIS.yVelo <=0 && PIS.controllerAxisX * (col2D.transform.position.x - playerTransform.position.x) > 0) {
 			PIS.isWallClimbing = true;
 		}
 		if ((col2D.bounds.extents.y + col2D.gameObject.transform.position.y > wallCollider.transform.position.y - wallCollider.bounds.extents.y) && col2D.gameObject.layer == LayerMask.NameToLayer ("Ledge")) {
