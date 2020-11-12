@@ -88,6 +88,7 @@ MonoBehaviour:
   parentGameObj: {fileID: 1186461640105926}
   parentGameObjTrans: {fileID: 4612835406874000}
   distanceFlipCalc: 0
+  AIBS: {fileID: 350383198513300272}
 --- !u!1 &1186461640105926
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,8 +185,9 @@ MonoBehaviour:
   audioSrc: {fileID: 0}
   punchSoundEffect: {fileID: 8300000, guid: 60983f774c0f6486693dae581ff31e60, type: 3}
   flipCoolDown: 0
-  flipCoolDownMax: 0.38
+  flipCoolDownMax: 0.33
   lowerHurtbox: {fileID: 8835459544498847602}
+  AIBS: {fileID: 0}
 --- !u!212 &212857715412243474
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -798,6 +800,7 @@ MonoBehaviour:
   acolyteAnim: {fileID: 95403900325448564}
   parentTransform: {fileID: 4612835406874000}
   AB: {fileID: 114011634407126842}
+  isCollidingWithAIBlocker: 0
 --- !u!1 &7838519832701570912
 GameObject:
   m_ObjectHideFlags: 0

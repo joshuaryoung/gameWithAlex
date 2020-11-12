@@ -52,6 +52,7 @@ public class acolyteBehavior : MonoBehaviour
   public float flipCoolDown = 0;
   public float flipCoolDownMax;
   public Collider2D lowerHurtbox;
+  public AIBlockerScript AIBS;
 
   // Use this for initialization
   void Start()
@@ -64,6 +65,9 @@ public class acolyteBehavior : MonoBehaviour
     invincibilityCooldownCurrent = 0;
     RB2D = GetComponent<Rigidbody2D>();
     audioSrc = GetComponentInParent<AudioSource>();
+    if (AIBS == null) {
+      AIBS = GetComponentInChildren<AIBlockerScript>();
+    }
   }
 
   // Update is called once per frame
@@ -75,7 +79,7 @@ public class acolyteBehavior : MonoBehaviour
     }
     isNotInAnimation = (acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeavyPunching") == false);
     // Footsies Stuff
-    if ((isInFootsiesRange || bobAndWeaveRNG != 0) && isNotInAnimation)
+    if ((isInFootsiesRange || bobAndWeaveRNG != 0) && isNotInAnimation && !AIBS.isCollidingWithAIBlocker)
     {
       if (bobAndWeaveRNG == 0)
       {
@@ -276,17 +280,6 @@ public class acolyteBehavior : MonoBehaviour
       } else if (isEnemy && facingOppositeDirections) {
         flip();
       }
-      // if (isPlayer && !PIS.isDead)
-      // {
-      //   return;
-      // } else if (isWall && facingOppositeDirections) { // only when running into things head on
-      //   flip();
-      // } else if (isEnemy && !facingOppositeDirections) {
-      //   return;
-      // }
     }
-    // if (col2D.gameObject.tag == "PlayerCharacter" && invincibilityCooldownCurrent <= 0) {
-    // 	flip ();
-    // }
   }
 }

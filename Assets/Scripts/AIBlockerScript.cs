@@ -7,6 +7,7 @@ public class AIBlockerScript : MonoBehaviour
   public Animator acolyteAnim;
   public Transform parentTransform;
   public acolyteBehavior AB;
+  public bool isCollidingWithAIBlocker;
 
   void Start() {
     if (acolyteAnim == null) {
@@ -24,7 +25,6 @@ public class AIBlockerScript : MonoBehaviour
     Vector2 flipLocalScale = parentTransform.localScale;
     flipLocalScale.x *= -1;
     parentTransform.localScale = flipLocalScale;
-    AB.flipCoolDown = AB.flipCoolDownMax;
   }
 
   void OnTriggerEnter2D(Collider2D col2D)
@@ -33,9 +33,20 @@ public class AIBlockerScript : MonoBehaviour
     bool isAIBlocker = col2D.gameObject.layer == LayerMask.NameToLayer("AIBlocker");
     bool isFacingTowardsWall = (col2D.gameObject.transform.localPosition.x - parentTransform.localPosition.x) * parentTransform.localScale.x > 0;
 
-    if (isAIBlocker && isFacingTowardsWall && AB.flipCoolDown <= 0)
+    if (isAIBlocker && isFacingTowardsWall)
     {
+      isCollidingWithAIBlocker = true;
       flip();
+    }
+  }
+
+  void OnTriggerExit2D(Collider2D col2D)
+  {
+    bool isAIBlocker = col2D.gameObject.layer == LayerMask.NameToLayer("AIBlocker");
+    
+    if(isAIBlocker) {
+      isCollidingWithAIBlocker = false;
+      AB.flipCoolDown = AB.flipCoolDownMax;
     }
   }
 }

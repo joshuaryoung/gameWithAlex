@@ -29,10 +29,14 @@ public class enemyPlayerDetection : MonoBehaviour {
 	public GameObject parentGameObj;
 	public Transform parentGameObjTrans;
 	public float distanceFlipCalc;
+  	public AIBlockerScript AIBS;
 
 	// Use this for initialization
 	void Start () {
 		thisColl2D = gameObject.GetComponent<Collider2D>();
+		if (AB == null) {
+			AB = GetComponentInParent<acolyteBehavior>();
+		}
 	}
 
 	void Update() {
@@ -54,6 +58,10 @@ public class enemyPlayerDetection : MonoBehaviour {
 	}
 
 	void OnTriggerCommonRoutines(Collider2D col2D) {
+		if (AIBS == null) {
+			Debug.LogError("AIBlockerScript is null!");
+			return;
+		}
 		playerDetected = col2D.gameObject.layer == LayerMask.NameToLayer("Player");
 		if(playerDetected) {
 			currentColLayer = col2D.gameObject.layer;
@@ -62,7 +70,7 @@ public class enemyPlayerDetection : MonoBehaviour {
 			currentColDistance = upperHurtboxColBounds.x - currentColPos.x;
 			distanceFlipCalc = currentColDistance * thisGameObjLocalScale.x * -1;
 			
-			if(distanceFlipCalc < 0) {
+			if(distanceFlipCalc < 0 && !AIBS.isCollidingWithAIBlocker && AB.flipCoolDown <= 0) {
 				gameObject.SendMessageUpwards("flip");
 			}
 		}

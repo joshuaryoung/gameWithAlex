@@ -98,6 +98,7 @@ MonoBehaviour:
   flipCoolDown: 0
   flipCoolDownMax: 0.38
   lowerHurtbox: {fileID: 523051667151902992}
+  AIBS: {fileID: 649002897586421724}
 --- !u!212 &212857715412243474
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -670,6 +671,7 @@ MonoBehaviour:
   acolyteAnim: {fileID: 95403900325448564}
   parentTransform: {fileID: 4612835406874000}
   AB: {fileID: 114011634407126842}
+  isCollidingWithAIBlocker: 0
 --- !u!1 &3149539633743059270
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,3 +950,4 @@ MonoBehaviour:
   parentGameObj: {fileID: 1186461640105926}
   parentGameObjTrans: {fileID: 4612835406874000}
   distanceFlipCalc: 0
+  AIBS: {fileID: 649002897586421724}
