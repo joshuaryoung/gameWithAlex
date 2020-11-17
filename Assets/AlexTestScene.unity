@@ -34347,11 +34347,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
         type: 3}
-      propertyPath: jumpForce
-      value: 11.86
-      objectReference: {fileID: 0}
-    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
       propertyPath: settingsScript
       value: 
       objectReference: {fileID: 139666974}
@@ -34360,6 +34355,16 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 226532694}
+    - target: {fileID: 5421631279037627104, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5421631279037627104, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2.57
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
 --- !u!1 &2043579929

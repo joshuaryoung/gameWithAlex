@@ -385,6 +385,7 @@ Transform:
   - {fileID: 4489739293024602914}
   - {fileID: 4609098896365374}
   - {fileID: 1418060702627715617}
+  - {fileID: 2977819603047490979}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -454,7 +455,7 @@ MonoBehaviour:
   isDead: 0
   punchAnimationClip: {fileID: 7400000, guid: 149e301081590af4cb14918cdfd7f88a, type: 2}
   kickAnimationClip: {fileID: 7400000, guid: 67bab586c6682ee4ca01f464cadbb6d1, type: 2}
-  jumpForce: 12.88
+  jumpForce: 11.86
   jumpCoolDownCurrent: 0
   jumpCoolDownMax: 0.08
   upperHurtBox: {fileID: 3725956914877408559}
@@ -465,7 +466,7 @@ MonoBehaviour:
   jumpingKickHitBox: {fileID: 58866748017980126}
   sweepHitBox: {fileID: 58146812505729596}
   uppercutHitBox: {fileID: 58529760823048468}
-  throwHitBox: {fileID: 0}
+  throwHitBox: {fileID: 5421631279037627104}
   punchSoundEffect: {fileID: 8300000, guid: 60983f774c0f6486693dae581ff31e60, type: 3}
   kickSoundEffect: {fileID: 8300000, guid: 45faa29d78cc142fe92f55f4590b6d48, type: 3}
   impactSoundEffect: {fileID: 8300000, guid: c33d06a25edb11445b640a985ec7711f, type: 3}
@@ -532,6 +533,13 @@ MonoBehaviour:
   kickKeyCode: 0
   runKeyCode: 0
   blockKeyCode: 0
+  upKeyCode: 0
+  downKeyCode: 0
+  leftKeyCode: 0
+  rightKeyCode: 0
+  dpadLeftPressed: 0
+  dpadRightPressed: 0
+  settingsScript: {fileID: 0}
 --- !u!114 &114504737153347904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1149,6 +1157,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 95111781746514370}
+--- !u!1 &4388039951246518491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2977819603047490979}
+  - component: {fileID: 5421631279037627104}
+  m_Layer: 12
+  m_Name: throwHitBox
+  m_TagString: PlayerCharacter
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2977819603047490979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388039951246518491}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3, y: 0, z: 0}
+  m_LocalScale: {x: 0.77171576, y: 0.77171576, z: 0.77171576}
+  m_Children: []
+  m_Father: {fileID: 4087151271183574}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &5421631279037627104
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388039951246518491}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &8739900958573432134
 GameObject:
   m_ObjectHideFlags: 0

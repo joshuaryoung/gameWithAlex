@@ -53,6 +53,7 @@ public class acolyteBehavior : MonoBehaviour
   public float flipCoolDownMax;
   public Collider2D lowerHurtbox;
   public AIBlockerScript AIBS;
+  public bool isBeingGrabbed = false;
 
   // Use this for initialization
   void Start()
@@ -77,7 +78,7 @@ public class acolyteBehavior : MonoBehaviour
       Debug.LogError("lowerHurtbox is null!");
       return;
     }
-    isNotInAnimation = (acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeavyPunching") == false);
+    isNotInAnimation = acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeavyPunching") == false && !isBeingGrabbed;
     // Footsies Stuff
     if ((isInFootsiesRange || bobAndWeaveRNG != 0) && isNotInAnimation && !AIBS.isCollidingWithAIBlocker)
     {
@@ -222,6 +223,19 @@ public class acolyteBehavior : MonoBehaviour
         enemyDeath();
     }
   }
+  public void enemyGetGrabbed(object[] args)
+  {
+    int damage = (int)args[0];
+
+    if (currentHealth > 0 && invincibilityCooldownCurrent <= 0)
+    {
+      if (!infiniteHealth)
+        currentHealth -= damage;
+      grabStateEnter();
+      if (currentHealth <= 0)
+        enemyDeath();
+    }
+  }
 
   //for the state that occurs right after receiving damage where acolyte is combo-able
   public void reelStateEnter(float reelLength)
@@ -237,10 +251,29 @@ public class acolyteBehavior : MonoBehaviour
       acolyteAnim.Play("reel", 0, 0.0f);
     }
   }
+  public void grabStateEnter()
+  {
+    if (invincibilityCooldownCurrent <= 0)
+    {
+      foreach (AnimatorControllerParameter parameter in acolyteAnim.parameters)
+      {
+        acolyteAnim.SetBool(parameter.name, false);
+      }
+      isBeingGrabbed = true;
+      acolyteAnim.SetBool("isBeingGrabbed", true);
+      acolyteAnim.Play("BeingGrabbed", 0, 0.0f);
+    }
+  }
 
   public void reelStateExit()
   {
     acolyteAnim.SetBool("isReeling", false);
+    invincibilityCooldownCurrent = invincibilityCooldownPeriod;
+  }
+  public void grabStateExit()
+  {
+    isBeingGrabbed = false;
+    acolyteAnim.SetBool("isBeingGrabbed", false);
     invincibilityCooldownCurrent = invincibilityCooldownPeriod;
   }
 

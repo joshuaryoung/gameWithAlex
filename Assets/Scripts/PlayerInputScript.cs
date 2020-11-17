@@ -61,6 +61,7 @@ public class PlayerInputScript : MonoBehaviour
     public int uppercutDamageValue;
     public float uppercutReelLength;
     public float uppercutPushbackValue;
+    public int throwDamageValue;
     public float walkVelocity;
     public float runVelocity;
     public float crouchVelocity;
@@ -172,9 +173,6 @@ public class PlayerInputScript : MonoBehaviour
         sweepPressed = ((Input.GetAxis("Vertical") < 0 || Input.GetKey(downKeyCode)) && isGrounded && kickPressed && !isWallClimbing);
         uppercutPressed = ((Input.GetAxis("Vertical") < 0 || Input.GetKey(downKeyCode)) && isGrounded && punchPressed && !isWallClimbing);
         blockPressed = Input.GetKey(blockKeyCode);
-        if (punchPressed) {
-          Debug.Log("punch");
-        }
         grabPressed = punchPressed && blockPressed;
         runHeld = Input.GetKey(runKeyCode);
         isCrouching = ((Input.GetAxis("Vertical") < 0 || Input.GetKey(downKeyCode)) && isGrounded && !isWallClimbing);
@@ -453,6 +451,21 @@ public class PlayerInputScript : MonoBehaviour
         }
     }
 
+    void grabAttack(Collider2D hitBox, int damageValue, AudioClip soundEffect)
+    {
+        //hitbox stuff
+        Collider2D[] cols = Physics2D.OverlapCircleAll(hitBox.bounds.center, hitBox.bounds.extents.x, LayerMask.GetMask("EnemyLayer"));
+
+        if (cols.Length > 0)
+        {
+            attackHasAlreadyHit = true;
+            playSoundEffect(soundEffect);
+            object[] args = { damageValue };
+            cols[0].SendMessageUpwards("enemyGetGrabbed", args);
+            cols[0].SendMessageUpwards("resetCanAttack");
+        }
+    }
+
     //method for punching
     void punch()
     {
@@ -505,6 +518,14 @@ public class PlayerInputScript : MonoBehaviour
         if (!attackHasAlreadyHit)
         {
             attack(uppercutHitBox, uppercutDamageValue, uppercutPushbackValue, uppercutReelLength, impactSoundEffect);
+        }
+    }
+
+    void grab()
+    {
+        if (!attackHasAlreadyHit)
+        {
+            grabAttack(throwHitBox, throwDamageValue, impactSoundEffect);
         }
     }
 
