@@ -458,6 +458,14 @@ public class PlayerInputScript : MonoBehaviour
 
         if (cols.Length > 0)
         {
+            Collider2D closestCol = cols[0];
+            foreach(Collider2D el in cols) {
+                float distanceToEl = Mathf.Abs(el.bounds.center.x - hitBox.bounds.center.x);
+                float distanceToClosestCol = Mathf.Abs(closestCol.bounds.center.x - hitBox.bounds.center.x);
+                if (distanceToEl < distanceToClosestCol) {
+                    closestCol = el;
+                }
+            }
             attackHasAlreadyHit = true;
             playSoundEffect(soundEffect);
             object[] args = { damageValue };
