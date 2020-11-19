@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 999187270}
   - component: {fileID: 999187269}
   - component: {fileID: 999187271}
+  - component: {fileID: 1155454898482242927}
   m_Layer: 8
   m_Name: hitSpark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &999187268
 Transform:
   m_ObjectHideFlags: 0
@@ -116,6 +117,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 0}
+  hitSparkAnimator: {fileID: 0}
+--- !u!114 &1155454898482242927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999187267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998483c7329cbe541b0268ad741073c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitStopDuration: 0.08
 --- !u!1 &1457568271417486
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +503,7 @@ MonoBehaviour:
   uppercutDamageValue: 3
   uppercutReelLength: 0.2
   uppercutPushbackValue: 4
+  throwDamageValue: 0
   walkVelocity: 7
   runVelocity: 12
   crouchVelocity: 3.5
@@ -540,6 +556,7 @@ MonoBehaviour:
   dpadLeftPressed: 0
   dpadRightPressed: 0
   settingsScript: {fileID: 0}
+  HS: {fileID: 0}
 --- !u!114 &114504737153347904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,7 +581,9 @@ MonoBehaviour:
   deathScreen: {fileID: 0}
   playerCharacter: {fileID: 0}
   hitSparkObject: {fileID: 999187267}
+  hitSparkAnimator: {fileID: 999187270}
   blockSparkObject: {fileID: 4079147941637204015}
+  blockSparkAnimator: {fileID: 8831438579535511990}
   animator: {fileID: 0}
   RB2D: {fileID: 0}
   InfiniteHealth: 1
@@ -1053,13 +1072,14 @@ GameObject:
   - component: {fileID: 8831438579535511990}
   - component: {fileID: 2306235528496050957}
   - component: {fileID: 178220163855115011}
+  - component: {fileID: 18330575411873065}
   m_Layer: 8
   m_Name: blockSpark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1418060702627715617
 Transform:
   m_ObjectHideFlags: 0
@@ -1157,6 +1177,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 95111781746514370}
+  hitSparkAnimator: {fileID: 0}
+--- !u!114 &18330575411873065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4079147941637204015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998483c7329cbe541b0268ad741073c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitStopDuration: 0.08
 --- !u!1 &4388039951246518491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,7 +1237,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2.57
 --- !u!1 &8739900958573432134
 GameObject:
   m_ObjectHideFlags: 0

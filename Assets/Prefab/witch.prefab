@@ -71,7 +71,7 @@ MonoBehaviour:
   punchPushbackOnHit: 2.31
   punchPushbackOnBlock: 1.45
   canAttack: 1
-  hitSparkObject: {fileID: 3149539633743059270}
+  hitSparkAnimator: {fileID: 3034471355560115620}
   currentReelLengthCooldown: 0
   pushBackDistance: 3
   punchReelLength: 0.4
@@ -99,6 +99,7 @@ MonoBehaviour:
   flipCoolDownMax: 0.38
   lowerHurtbox: {fileID: 523051667151902992}
   AIBS: {fileID: 0}
+  isBeingGrabbed: 0
 --- !u!212 &212857715412243474
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -593,13 +594,14 @@ GameObject:
   - component: {fileID: 236406617972442454}
   - component: {fileID: 3034471355560115620}
   - component: {fileID: 7002288143557316785}
+  - component: {fileID: 4575287931979864259}
   m_Layer: 10
   m_Name: hitSpark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6030313800102478563
 Transform:
   m_ObjectHideFlags: 0
@@ -697,6 +699,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 0}
+  hitSparkAnimator: {fileID: 0}
+--- !u!114 &4575287931979864259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3149539633743059270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998483c7329cbe541b0268ad741073c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitStopDuration: 0.08
 --- !u!1 &4683997396453679969
 GameObject:
   m_ObjectHideFlags: 0

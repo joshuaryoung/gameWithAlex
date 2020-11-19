@@ -25,7 +25,7 @@ public class acolyteBehavior : MonoBehaviour
   public float punchPushbackOnBlock;
   public bool canAttack;
   Animator acolyteAnim;
-  public GameObject hitSparkObject;
+  public Animator hitSparkAnimator;
   public float currentReelLengthCooldown;
   public float pushBackDistance;
   public float punchReelLength;
@@ -76,6 +76,10 @@ public class acolyteBehavior : MonoBehaviour
   {
     if (lowerHurtbox == null) {
       Debug.LogError("lowerHurtbox is null!");
+      return;
+    }
+    if (hitSparkAnimator == null) {
+      Debug.LogError("hitSparkAnimator is null!");
       return;
     }
     isNotInAnimation = acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeavyPunching") == false && !isBeingGrabbed;
@@ -216,7 +220,7 @@ public class acolyteBehavior : MonoBehaviour
     {
       if (!infiniteHealth)
         currentHealth -= damage;
-      hitSparkObject.SetActive(true);
+      hitSparkAnimator.SetBool("isActive", true);
       pushBack(pushBackDistance);
       reelStateEnter(reelLength);
       if (currentHealth <= 0)

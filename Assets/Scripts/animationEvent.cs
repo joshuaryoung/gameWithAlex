@@ -5,8 +5,13 @@ using UnityEngine;
 public class animationEvent : MonoBehaviour
 {
     public Animator playerAnimator;
+    public Animator hitSparkAnimator;
+
+    void Start() {
+        hitSparkAnimator = GetComponent<Animator>();
+    }
     public void animationEnded(string message) {
-        gameObject.SetActive(false);
+        hitSparkAnimator.SetBool("isActive", false);
     }
 
     public void setBlockingAttackFalse() {

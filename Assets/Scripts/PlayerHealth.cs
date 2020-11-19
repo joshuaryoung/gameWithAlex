@@ -19,7 +19,9 @@ public class PlayerHealth : MonoBehaviour
   public Text deathScreen;
   public GameObject playerCharacter;
   public GameObject hitSparkObject;
+  public Animator hitSparkAnimator;
   public GameObject blockSparkObject;
+  public Animator blockSparkAnimator;
   public Animator animator;
   private cameraFollow cf;
   private PlayerInputScript PIS;
@@ -57,6 +59,14 @@ public class PlayerHealth : MonoBehaviour
 
   void Update()
   {
+    if(hitSparkAnimator == null) {
+      Debug.LogError("hitSparkAnimator is null!");
+      return;
+    }
+    if(blockSparkAnimator == null) {
+      Debug.LogError("blockSparkAnimator is null!");
+      return;
+    }
     if (currentReelLengthCooldown > 0)
     {
       currentReelLengthCooldown -= Time.deltaTime;
@@ -107,7 +117,7 @@ public class PlayerHealth : MonoBehaviour
           currentHealth -= damage;
         invincibilityCooldownCurrent = invincibilityCooldownMax;
         PIS.canAct = true;
-        hitSparkObject.SetActive(true);
+        hitSparkAnimator.SetBool("isActive", true);
         animator.SetBool("isReeling", true);
         animator.SetBool("isBlockingAnAttack", false);
         animator.SetBool("isPunching", false);
@@ -119,7 +129,7 @@ public class PlayerHealth : MonoBehaviour
     {
       audioSrc.clip = blockSoundEffect;
       audioSrc.Play();
-      blockSparkObject.SetActive(true);
+      blockSparkAnimator.SetBool("isActive", true);
       animator.SetBool("isReeling", false);
       animator.SetBool("isBlockingAnAttack", true);
       animator.SetBool("isPunching", false);

@@ -114,6 +114,7 @@ public class PlayerInputScript : MonoBehaviour
     public bool dpadLeftPressed;
     public bool dpadRightPressed;
     public SettingsScript settingsScript;
+    public HitStop HS;
 
     // Use this for initialization
     void Start()
@@ -141,6 +142,9 @@ public class PlayerInputScript : MonoBehaviour
         leftKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left"));
         rightKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right"));
         jumpReleased = true;
+        if (HS == null) {
+            HS = FindObjectOfType<HitStop>();
+        }
     }
 
     // Update is called once per frame
@@ -438,6 +442,7 @@ public class PlayerInputScript : MonoBehaviour
             canCombo = true;
             attackHasAlreadyHit = true;
             playSoundEffect(soundEffect);
+            // HS.stop();
             foreach (Collider2D c in cols)
             {
                 if (!string.Equals(c.transform.parent.name, nameOfPreviousCol))
