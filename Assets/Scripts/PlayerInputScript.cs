@@ -326,9 +326,9 @@ public class PlayerInputScript : MonoBehaviour
         {
             if ((punchPressed || kickPressed || sweepPressed || uppercutPressed) && isGrounded)
             {
-                attackHasAlreadyHit = false;
                 if (currentAutoComboIndex < 2)
                 {
+                    attackHasAlreadyHit = false;
                     currentAutoComboIndex++;
                     anim.SetInteger("currentAutoComboIndex", currentAutoComboIndex);
 
