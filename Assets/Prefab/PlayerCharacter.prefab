@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 998483c7329cbe541b0268ad741073c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitStopDuration: 0.08
+  hitStopDuration: 0.15
 --- !u!1 &1457568271417486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,7 +1190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 998483c7329cbe541b0268ad741073c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitStopDuration: 0.08
+  hitStopDuration: 0.15
 --- !u!1 &4388039951246518491
 GameObject:
   m_ObjectHideFlags: 0

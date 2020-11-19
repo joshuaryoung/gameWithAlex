@@ -94,9 +94,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: isHeavyPunching
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: isLightPunching
-    m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isBeingGrabbed
     m_EventTreshold: 0
