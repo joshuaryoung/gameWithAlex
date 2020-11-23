@@ -54,6 +54,7 @@ public class acolyteBehavior : MonoBehaviour
   public Collider2D lowerHurtbox;
   public AIBlockerScript AIBS;
   public bool isBeingGrabbed = false;
+  public bool attackHasAlreadyHit = false;
 
   // Use this for initialization
   void Start()
@@ -181,6 +182,10 @@ public class acolyteBehavior : MonoBehaviour
     acolyteAnim.SetBool("isLightPunching", false);
     acolyteAnim.SetBool("isHeavyPunching", false);
   }
+
+  void resetAttackHasAlreadyHit() {
+    attackHasAlreadyHit = false;
+  }
   void flip()
   {
     Vector2 flipLocalScale = gameObject.transform.localScale;
@@ -197,6 +202,9 @@ public class acolyteBehavior : MonoBehaviour
   //method for punching
   public void punch()
   {
+    if (attackHasAlreadyHit) {
+      return;
+    }
     //hitbox stuff
     Collider2D[] cols = Physics2D.OverlapBoxAll(punchHitBox.bounds.center, punchHitBox.bounds.size, 0f, LayerMask.GetMask("Player"));
 
@@ -204,6 +212,7 @@ public class acolyteBehavior : MonoBehaviour
     {
       foreach (Collider2D c in cols)
       {
+        attackHasAlreadyHit = true;
         object[] args = { punchDamageValue, transform.localScale.x * (PIS.blockPressed ? punchPushbackOnBlock : punchPushbackOnHit), punchReelLength };
         c.SendMessageUpwards("playerTakeDamage", args);
       }
@@ -212,6 +221,7 @@ public class acolyteBehavior : MonoBehaviour
 
   public void enemyTakeDamage(object[] args)
   {
+    attackHasAlreadyHit = false;
     int damage = (int)args[0];
     float pushBackDistance = (float)args[1];
     float reelLength = (float)args[2];
