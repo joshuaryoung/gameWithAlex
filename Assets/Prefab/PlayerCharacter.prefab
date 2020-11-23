@@ -490,18 +490,18 @@ MonoBehaviour:
   punchReelLength: 0.37
   punchPushbackValue: 4
   jumpingPunchDamageValue: 3
-  jumpingPunchReelLength: 0.8
+  jumpingPunchReelLength: 0.5
   jumpingPunchPushbackValue: 4
   kickDamageValue: 1
-  kickReelLength: 0.6
+  kickReelLength: 0.37
   kickPushbackValue: 4
   jumpingKickDamageValue: 2
-  jumpingKickReelLength: 0.9
-  jumpingKickPushbackValue: 4
+  jumpingKickReelLength: 0.5
+  jumpingKickPushbackValue: 6
   sweepDamageValue: 2
   sweepPushbackValue: 4
   uppercutDamageValue: 3
-  uppercutReelLength: 0.2
+  uppercutReelLength: 0.37
   uppercutPushbackValue: 4
   throwDamageValue: 0
   walkVelocity: 7
@@ -1190,7 +1190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 998483c7329cbe541b0268ad741073c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitStopDuration: 0
+  hitStopDuration: 0.08
 --- !u!1 &4388039951246518491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,9 +1235,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.35, y: 0.62}
   serializedVersion: 2
-  m_Radius: 2.57
+  m_Radius: 0.24
 --- !u!1 &8739900958573432134
 GameObject:
   m_ObjectHideFlags: 0

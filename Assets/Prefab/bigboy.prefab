@@ -58,8 +58,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 1587651397913248, guid: 117785b7cd429d342af78d659adcd96b,
     type: 3}
-  startHealth: 10
-  currentHealth: 10
+  startHealth: 22
+  currentHealth: 22
   invincibilityCooldownPeriod: 0
   invincibilityCooldownCurrent: 0
   invincibilityCooldownFlash: 0
@@ -74,27 +74,27 @@ MonoBehaviour:
   hitSparkAnimator: {fileID: 3034471355560115620}
   currentReelLengthCooldown: 0
   pushBackDistance: 4
-  punchReelLength: 0.76
+  punchReelLength: 0.6
   infiniteHealth: 0
   isInFootsiesRange: 0
   isNotInAnimation: 0
   attackDecisionRNG: 0
   bobAndWeaveRNG: 0
-  bobAndWeaveRNGMin: -11.81
-  bobAndWeaveRNGMax: 13.47
-  bobAndWeaveDeadZoneMin: -10.64
-  bobAndWeaveDeadZoneMax: 8.23
-  attackDecisionRNGMin: 1
-  attackDecisionRNGMax: 100
-  lightPunchRNGMin: 1
-  lightPunchRNGMax: 5
+  bobAndWeaveRNGMin: -30
+  bobAndWeaveRNGMax: 35
+  bobAndWeaveDeadZoneMin: -15
+  bobAndWeaveDeadZoneMax: 20
+  attackDecisionRNGMin: 0
+  attackDecisionRNGMax: 200
+  lightPunchRNGMin: 0
+  lightPunchRNGMax: 2
   heavyPunchRNGMin: 6
-  heavyPunchRNGMax: 16
-  bobAndWeaveRNGDecisionMin: 17
-  bobAndWeaveRNGDecisionMax: 62
+  heavyPunchRNGMax: 7
+  bobAndWeaveRNGDecisionMin: 7
+  bobAndWeaveRNGDecisionMax: 20
   actualMoveDistance: 0
   audioSrc: {fileID: 0}
-  punchSoundEffect: {fileID: 0}
+  punchSoundEffect: {fileID: 8300000, guid: 60983f774c0f6486693dae581ff31e60, type: 3}
   flipCoolDown: 0
   flipCoolDownMax: 0.38
   lowerHurtbox: {fileID: 523051667151902992}
@@ -379,7 +379,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.10131726, y: 0}
+  m_Offset: {x: -0.19, y: 0.21}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -390,7 +390,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2026346, y: 1}
+  m_Size: {x: 1.2026346, y: 1.36}
   m_EdgeRadius: 0
 --- !u!114 &114313281030698670
 MonoBehaviour:

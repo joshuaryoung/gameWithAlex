@@ -118,7 +118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1186461640105926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -36.019707, y: 0.12, z: 0}
+  m_LocalPosition: {x: -36.019707, y: 0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 4870287289636666}
@@ -147,12 +147,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 1587651397913248, guid: 117785b7cd429d342af78d659adcd96b,
     type: 3}
-  startHealth: 8
-  currentHealth: 8
+  startHealth: 16
+  currentHealth: 16
   invincibilityCooldownPeriod: 0
   invincibilityCooldownCurrent: 0
   invincibilityCooldownFlash: 0
-  enemyHorizontalSpeed: 3.75
+  enemyHorizontalSpeed: 3.25
   spriteR: {fileID: 212857715412243474}
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   punchHitBox: {fileID: 58312095405789320}
@@ -163,24 +163,24 @@ MonoBehaviour:
   hitSparkAnimator: {fileID: 5263788996454897237}
   currentReelLengthCooldown: 0
   pushBackDistance: 4
-  punchReelLength: 0.61
+  punchReelLength: 0.5
   infiniteHealth: 0
   isInFootsiesRange: 0
   isNotInAnimation: 0
   attackDecisionRNG: 0
   bobAndWeaveRNG: 0
-  bobAndWeaveRNGMin: -29.65
+  bobAndWeaveRNGMin: -100
   bobAndWeaveRNGMax: 7.4
-  bobAndWeaveDeadZoneMin: -25.9
+  bobAndWeaveDeadZoneMin: -50
   bobAndWeaveDeadZoneMax: 5.8
   attackDecisionRNGMin: 0
   attackDecisionRNGMax: 99
   lightPunchRNGMin: 0
-  lightPunchRNGMax: 2
-  heavyPunchRNGMin: 3
-  heavyPunchRNGMax: 4
-  bobAndWeaveRNGDecisionMin: 5
-  bobAndWeaveRNGDecisionMax: 17
+  lightPunchRNGMax: 3
+  heavyPunchRNGMin: 4
+  heavyPunchRNGMax: 5
+  bobAndWeaveRNGDecisionMin: 6
+  bobAndWeaveRNGDecisionMax: 20
   actualMoveDistance: 0
   audioSrc: {fileID: 0}
   punchSoundEffect: {fileID: 8300000, guid: 60983f774c0f6486693dae581ff31e60, type: 3}
@@ -234,7 +234,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.43, y: 1.32}
+  m_Size: {x: 1.92, y: 2.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -468,7 +468,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.1500304, y: 0}
+  m_Offset: {x: -0.09, y: 0.24}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -479,7 +479,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6999392, y: 1}
+  m_Size: {x: 0.58, y: 1.64}
   m_EdgeRadius: 0
 --- !u!114 &114313281030698670
 MonoBehaviour:

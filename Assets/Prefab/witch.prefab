@@ -58,8 +58,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 1587651397913248, guid: 117785b7cd429d342af78d659adcd96b,
     type: 3}
-  startHealth: 7
-  currentHealth: 7
+  startHealth: 14
+  currentHealth: 14
   invincibilityCooldownPeriod: 0
   invincibilityCooldownCurrent: 0
   invincibilityCooldownFlash: 0
@@ -331,9 +331,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.3}
+  m_Offset: {x: -0.27, y: 0.46}
   serializedVersion: 2
-  m_Radius: 0.64
+  m_Radius: 0.44
 --- !u!1 &1472227797893740
 GameObject:
   m_ObjectHideFlags: 0
