@@ -189,6 +189,7 @@ MonoBehaviour:
   lowerHurtbox: {fileID: 8835459544498847602}
   AIBS: {fileID: 0}
   isBeingGrabbed: 0
+  attackHasAlreadyHit: 0
 --- !u!212 &212857715412243474
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -422,7 +423,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.19, y: 0}
   serializedVersion: 2
-  m_Radius: 0.34
+  m_Radius: 0.46
 --- !u!1 &1472227797893740
 GameObject:
   m_ObjectHideFlags: 0
