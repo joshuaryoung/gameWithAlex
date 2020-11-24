@@ -439,8 +439,8 @@ public class PlayerInputScript : MonoBehaviour
 
         if (cols.Length > 0)
         {
-            canCombo = true;
-            attackHasAlreadyHit = true;
+            // canCombo = true;
+            // attackHasAlreadyHit = true;
             playSoundEffect(soundEffect);
             // HS.stop();
             foreach (Collider2D c in cols)
