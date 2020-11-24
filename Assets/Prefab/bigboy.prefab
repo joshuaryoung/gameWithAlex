@@ -100,6 +100,7 @@ MonoBehaviour:
   lowerHurtbox: {fileID: 523051667151902992}
   AIBS: {fileID: 649002897586421724}
   isBeingGrabbed: 0
+  attackHasAlreadyHit: 0
 --- !u!212 &212857715412243474
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -791,6 +792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 0}
   hitSparkAnimator: {fileID: 0}
+  PIS: {fileID: 0}
 --- !u!114 &5972083730335620231
 MonoBehaviour:
   m_ObjectHideFlags: 0

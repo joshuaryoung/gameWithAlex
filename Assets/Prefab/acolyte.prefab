@@ -851,6 +851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 0}
   hitSparkAnimator: {fileID: 0}
+  PIS: {fileID: 0}
 --- !u!95 &5263788996454897237
 Animator:
   serializedVersion: 3
