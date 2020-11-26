@@ -55,6 +55,7 @@ public class acolyteBehavior : MonoBehaviour
   public AIBlockerScript AIBS;
   public bool isBeingGrabbed = false;
   public bool attackHasAlreadyHit = false;
+  public CurrentlyVisableObjects CVO;
 
   // Use this for initialization
   void Start()
@@ -70,6 +71,9 @@ public class acolyteBehavior : MonoBehaviour
     if (AIBS == null) {
       AIBS = GetComponentInChildren<AIBlockerScript>();
     }
+    if (CVO == null) {
+      CVO = FindObjectOfType<CurrentlyVisableObjects>();
+    }
   }
 
   // Update is called once per frame
@@ -83,7 +87,19 @@ public class acolyteBehavior : MonoBehaviour
       Debug.LogError("hitSparkAnimator is null!");
       return;
     }
+    if (CVO == null)
+    {
+        Debug.LogError("CVO script not assigned!");
+        return;
+    }
     isNotInAnimation = acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeavyPunching") == false && !isBeingGrabbed;
+
+    // Is Visible to camera?
+    if (spriteR.isVisible) {
+      CVO.addObject(gameObject);
+    } else {
+      CVO.removeObject(gameObject);
+    }
     // Footsies Stuff
     if ((isInFootsiesRange || bobAndWeaveRNG != 0) && isNotInAnimation && !AIBS.isCollidingWithAIBlocker)
     {

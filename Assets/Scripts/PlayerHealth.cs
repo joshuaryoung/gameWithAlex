@@ -121,8 +121,10 @@ public class PlayerHealth : MonoBehaviour
         animator.SetBool("isReeling", true);
         animator.SetBool("isBlockingAnAttack", false);
         animator.SetBool("isPunching", false);
+        animator.SetBool("isUppercutting", false);
         animator.SetBool("isKicking", false);
         animator.SetBool("isGrabbing", false);
+        animator.SetBool("isSweeping", false);
       }
     }
     else if (invincibilityCooldownCurrent <= 0 && PIS.blockPressed)
@@ -133,8 +135,10 @@ public class PlayerHealth : MonoBehaviour
       animator.SetBool("isReeling", false);
       animator.SetBool("isBlockingAnAttack", true);
       animator.SetBool("isPunching", false);
+      animator.SetBool("isUppercutting", false);
       animator.SetBool("isKicking", false);
       animator.SetBool("isGrabbing", false);
+        animator.SetBool("isSweeping", false);
     }
   }
 

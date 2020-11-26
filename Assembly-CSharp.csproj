@@ -43,6 +43,7 @@
      <Compile Include="Assets\Scripts\acolyteBehavior.cs" />
      <Compile Include="Assets\Scripts\animationEvent.cs" />
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
+     <Compile Include="Assets\Scripts\HitStop.cs" />
      <Compile Include="Assets\Scripts\groundCheck.cs" />
      <Compile Include="Assets\Scripts\cameraFollow.cs" />
      <Compile Include="Assets\Scripts\PlayerInputScript.cs" />
@@ -51,7 +52,7 @@
      <Compile Include="Assets\Scripts\playerAnimationEvents.cs" />
      <Compile Include="Assets\Scripts\UIscript.cs" />
      <Compile Include="Assets\Scripts\BackgroundScroll.cs" />
-     <Compile Include="Assets\Scripts\HitStop.cs" />
+     <Compile Include="Assets\CurrentlyVisableObjects.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

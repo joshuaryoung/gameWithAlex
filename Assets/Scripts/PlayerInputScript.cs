@@ -83,6 +83,7 @@ public class PlayerInputScript : MonoBehaviour
     public bool sweepPressed;
     public bool uppercutPressed;
     public bool grabPressed;
+    public bool lockOnPressed;
     public bool canAct;
     public bool canCombo;
     public bool isRunning;
@@ -111,10 +112,12 @@ public class PlayerInputScript : MonoBehaviour
     public KeyCode downKeyCode = new KeyCode();
     public KeyCode leftKeyCode = new KeyCode();
     public KeyCode rightKeyCode = new KeyCode();
+    public KeyCode lockOnKeyCode = new KeyCode();
     public bool dpadLeftPressed;
     public bool dpadRightPressed;
     public SettingsScript settingsScript;
     public HitStop HS;
+    public CurrentlyVisableObjects CVO;
 
     // Use this for initialization
     void Start()
@@ -137,13 +140,17 @@ public class PlayerInputScript : MonoBehaviour
         kickKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Kick"));
         runKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Run"));
         blockKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Block"));
-        upKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Up"));
-        downKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Down"));
-        leftKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left"));
-        rightKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right"));
+        lockOnKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Lock"));
+        upKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Up", "JoystickButton19"));
+        downKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Down", "JoystickButton19"));
+        leftKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "JoystickButton19"));
+        rightKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "JoystickButton19"));
         jumpReleased = true;
         if (HS == null) {
             HS = FindObjectOfType<HitStop>();
+        }
+        if (CVO == null) {
+            CVO = FindObjectOfType<CurrentlyVisableObjects>();
         }
     }
 
@@ -158,6 +165,11 @@ public class PlayerInputScript : MonoBehaviour
         if (settingsScript == null)
         {
             Debug.LogError("settings script not assigned!");
+            return;
+        }
+        if (CVO == null)
+        {
+            Debug.LogError("CVO script not assigned!");
             return;
         }
 
@@ -179,6 +191,10 @@ public class PlayerInputScript : MonoBehaviour
         blockPressed = Input.GetKey(blockKeyCode);
         grabPressed = punchPressed && blockPressed;
         runHeld = Input.GetKey(runKeyCode);
+        lockOnPressed = Input.GetKeyDown(lockOnKeyCode);
+        if (lockOnPressed) {
+            CVO.initiateLockOn();
+        }
         isCrouching = ((Input.GetAxis("Vertical") < 0 || Input.GetKey(downKeyCode)) && isGrounded && !isWallClimbing);
         controllerAxisX = Input.GetAxis("Horizontal");
         if (controllerAxisX == 0)
@@ -277,6 +293,11 @@ public class PlayerInputScript : MonoBehaviour
             if (punchPressed && !uppercutPressed && !grabPressed)
             {
                 anim.Play("Punch", 0, 0.0f);
+                playSoundEffect(punchSoundEffect);
+            }
+            if (uppercutPressed && !grabPressed)
+            {
+                anim.Play("Uppercut", 0, 0.0f);
                 playSoundEffect(punchSoundEffect);
             }
             anim.SetBool("isKicking", (kickPressed && !sweepPressed && !grabPressed));

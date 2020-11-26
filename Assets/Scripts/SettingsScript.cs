@@ -96,6 +96,9 @@ public class SettingsScript : MonoBehaviour
         case "Right":
           PIS.rightKeyCode = keyCode;
           break;
+        case "Lock":
+          PIS.lockOnKeyCode = keyCode;
+          break;
         case "Reload":
           ROB.reloadKeyCode = keyCode;
           break;
