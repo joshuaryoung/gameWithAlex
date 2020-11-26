@@ -180,7 +180,7 @@ MonoBehaviour:
   heavyPunchRNGMin: 4
   heavyPunchRNGMax: 5
   bobAndWeaveRNGDecisionMin: 6
-  bobAndWeaveRNGDecisionMax: 20
+  bobAndWeaveRNGDecisionMax: 10
   actualMoveDistance: 0
   audioSrc: {fileID: 0}
   punchSoundEffect: {fileID: 8300000, guid: 60983f774c0f6486693dae581ff31e60, type: 3}
