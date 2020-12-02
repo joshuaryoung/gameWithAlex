@@ -7,14 +7,14 @@ public class CurrentlyVisableObjects : MonoBehaviour
     public List<GameObject> visibleObjects = new List<GameObject>();
     public Camera cam;
     public GameObject playerGameObject;
-    public GameObject closestEnemyObj;
+    public GameObject lockedOnEnemyObj = null;
+    public bool isLockedOn = false;
     // Start is called before the first frame update
     void Start()
     {
         if (cam == null) {
             cam = GetComponent<Camera>();
         }
-        closestEnemyObj = new GameObject();
     }
 
     // Update is called once per frame
@@ -40,36 +40,77 @@ public class CurrentlyVisableObjects : MonoBehaviour
         visibleObjects.Remove(gameObj);
     }
 
+    public void toggleLockOn() {
+        if (isLockedOn) {
+            endLockOn();
+        } else {
+            initiateLockOn();
+        }
+    }
+
+    public void endLockOn() {
+
+        isLockedOn = false;
+    }
+
     public void initiateLockOn() {
         if (playerGameObject == null) {
             Debug.LogError("playerGameObject is null!");
             return;
         }
+        if (isLockedOn) {
+            lockedOnEnemyObj.SetActive(false);
+            isLockedOn = false;
+            lockedOnEnemyObj = null;
+
+            return;
+        }
         if (visibleObjects.Count == 0) {
             return;
         } else if (visibleObjects.Count == 1) {
-            closestEnemyObj = visibleObjects[0];
+            bool playerFacingEnemy = (playerGameObject.transform.localPosition.x - visibleObjects[0].transform.localPosition.x) * playerGameObject.transform.localScale.x < 0;
+
+            if (playerFacingEnemy) {
+                lockedOnEnemyObj = visibleObjects[0];
+            } else {
+                return;
+            }
         } else {
+            GameObject closestEnemyObj = new GameObject();
             foreach (GameObject el in visibleObjects) {
                 float distanceToElFromPlayer = Vector3.Distance(el.transform.localPosition, playerGameObject.transform.localPosition);
                 float distanceToClosestEnemyFromPlayer = Vector3.Distance(closestEnemyObj.transform.localPosition, playerGameObject.transform.localPosition);
 
-                if (distanceToElFromPlayer < distanceToClosestEnemyFromPlayer) {
+                // Check: is player facing enemy?
+                bool playerFacingEnemy = (playerGameObject.transform.localPosition.x - el.transform.localPosition.x) * playerGameObject.transform.localScale.x < 0;
+                
+                // Find closest Obj
+                if (distanceToElFromPlayer < distanceToClosestEnemyFromPlayer && playerFacingEnemy) {
                     closestEnemyObj = el;
                 }
             }
+            if (closestEnemyObj.Equals(new GameObject())) {
+                return;
+            }
+
+            lockedOnEnemyObj = closestEnemyObj;
         }
 
-        Transform lockOnCircleTransform = closestEnemyObj.transform.Find("LockOnCircle");
-
-        if (lockOnCircleTransform == null) {
-            Debug.LogWarning($"LockOnCircle not found in {closestEnemyObj.name}");
+        if (lockedOnEnemyObj == null) {
             return;
         }
 
-        GameObject lockOnCircleObj = lockOnCircleTransform.gameObject;
+        Transform lockOnCircleTransform = lockedOnEnemyObj.transform.Find("LockOnCircle");
 
-        lockOnCircleObj.SetActive(!lockOnCircleObj.activeSelf);
+        if (lockOnCircleTransform == null) {
+            Debug.LogWarning($"LockOnCircle not found in {lockedOnEnemyObj.name}");
+            return;
+        }
+
+        lockedOnEnemyObj = lockOnCircleTransform.gameObject;
+
+        lockedOnEnemyObj.SetActive(!lockedOnEnemyObj.activeSelf);
+        isLockedOn = true;
         Debug.Log("initiate LockOn!");
     }
 }
