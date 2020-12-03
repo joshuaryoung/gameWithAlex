@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\enemyPlayerDetection.cs" />
     <Compile Include="Assets\Scripts\ReloadOnButton.cs" />
     <Compile Include="Assets\Scripts\acolyteBehavior.cs" />
+    <Compile Include="Assets\CurrentlyVisableObjects.cs" />
     <Compile Include="Assets\Scripts\animationEvent.cs" />
     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\HitStop.cs" />
