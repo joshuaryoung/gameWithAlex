@@ -35111,7 +35111,8 @@ MonoBehaviour:
   visibleObjects: []
   cam: {fileID: 0}
   playerGameObject: {fileID: 2076824889}
-  closestEnemyObj: {fileID: 0}
+  lockedOnEnemyObj: {fileID: 0}
+  isLockedOn: 0
 --- !u!20 &2076935510
 Camera:
   m_ObjectHideFlags: 0

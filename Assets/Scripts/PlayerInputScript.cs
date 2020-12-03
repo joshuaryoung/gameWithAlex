@@ -135,16 +135,16 @@ public class PlayerInputScript : MonoBehaviour
         freeFallAvailable = true;
         wallStickDurationCurrent = wallStickDurationMax;
         // wallJumpMinXAxisCooldownCurrent = wallJumpMinXAxisCooldownMax;
-        jumpKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Jump"));
-        punchKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Punch"));
-        kickKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Kick"));
-        runKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Run"));
-        blockKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Block"));
-        lockOnKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Lock"));
-        upKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Up", "JoystickButton19"));
-        downKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Down", "JoystickButton19"));
-        leftKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "JoystickButton19"));
-        rightKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "JoystickButton19"));
+        jumpKeyCode = PlayerPrefs.GetString("Jump") != "" ? (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Jump")) : new KeyCode();
+        punchKeyCode = PlayerPrefs.GetString("Punch") != "" ? (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Punch")) : new KeyCode();
+        kickKeyCode = PlayerPrefs.GetString("Kick") != "" ? (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Kick")) : new KeyCode();
+        runKeyCode = PlayerPrefs.GetString("Run") != "" ? (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Run")) : new KeyCode();
+        blockKeyCode = PlayerPrefs.GetString("Block") != "" ? (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Block")) : new KeyCode();
+        lockOnKeyCode = PlayerPrefs.GetString("LockOn") != "" ? (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("LockOn")) : new KeyCode();
+        upKeyCode = PlayerPrefs.GetString("Up") != "" ? (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Up")) : new KeyCode();
+        downKeyCode = PlayerPrefs.GetString("Down") != "" ? (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Down")) : new KeyCode();
+        leftKeyCode = PlayerPrefs.GetString("Left") != "" ? (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left")) : new KeyCode();
+        rightKeyCode = PlayerPrefs.GetString("Right") != "" ? (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right")) : new KeyCode();
         jumpReleased = true;
         if (HS == null) {
             HS = FindObjectOfType<HitStop>();
