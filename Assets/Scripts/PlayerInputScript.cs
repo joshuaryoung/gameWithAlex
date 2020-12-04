@@ -103,16 +103,16 @@ public class PlayerInputScript : MonoBehaviour
     public float groundCollisionOffset;
     public bool attackHasAlreadyHit;    //has an attack already registered damage?
     public int currentAutoComboIndex = 0;
-    public KeyCode jumpKeyCode = new KeyCode();
-    public KeyCode punchKeyCode = new KeyCode();
-    public KeyCode kickKeyCode = new KeyCode();
-    public KeyCode runKeyCode = new KeyCode();
-    public KeyCode blockKeyCode = new KeyCode();
-    public KeyCode upKeyCode = new KeyCode();
-    public KeyCode downKeyCode = new KeyCode();
-    public KeyCode leftKeyCode = new KeyCode();
-    public KeyCode rightKeyCode = new KeyCode();
-    public KeyCode lockOnKeyCode = new KeyCode();
+    public KeyCode jumpKeyCode;
+    public KeyCode punchKeyCode;
+    public KeyCode kickKeyCode;
+    public KeyCode runKeyCode;
+    public KeyCode blockKeyCode;
+    public KeyCode upKeyCode;
+    public KeyCode downKeyCode;
+    public KeyCode leftKeyCode;
+    public KeyCode rightKeyCode;
+    public KeyCode lockOnKeyCode;
     public bool dpadLeftPressed;
     public bool dpadRightPressed;
     public SettingsScript settingsScript;
@@ -208,6 +208,14 @@ public class PlayerInputScript : MonoBehaviour
         }
         jumpPressed = Input.GetKeyDown(jumpKeyCode);
         jumpReleased = Input.GetKeyUp(jumpKeyCode);
+
+        if (CVO.lockOnEnemyCircleObj) {
+            // Check: is player facing enemy?
+            bool playerFacingEnemy = (gameObject.transform.localPosition.x - CVO.lockedOnEnemyObj.transform.localPosition.x) * gameObject.transform.localScale.x < 0;
+            if (!playerFacingEnemy) {
+                flipPlayer();
+            }
+        }
 
         if (isWallClimbing)
         {
@@ -392,7 +400,7 @@ public class PlayerInputScript : MonoBehaviour
     void movePlayer()
     {
         //If direction pushed == direction facing right, then move that way
-        if (transform.localScale.x * controllerAxisX > 0 && !blockPressed)
+        if ((transform.localScale.x * controllerAxisX > 0 || CVO.isLockedOn) && !blockPressed)
         {
             if (isWalking && !isCrouching && wallJumpMinXAxisCooldownCurrent <= 0)
             {
@@ -410,7 +418,7 @@ public class PlayerInputScript : MonoBehaviour
         }
         else
         {
-            if (!blockPressed)
+            if (!blockPressed && !CVO.isLockedOn)
                 flipPlayer();
             if (blockPressed && transform.localScale.x * controllerAxisX < 0 && isGrounded)
             {

@@ -8,6 +8,7 @@ public class CurrentlyVisableObjects : MonoBehaviour
     public Camera cam;
     public GameObject playerGameObject;
     public GameObject lockedOnEnemyObj = null;
+    public GameObject lockOnEnemyCircleObj = null;
     public bool isLockedOn = false;
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,10 @@ public class CurrentlyVisableObjects : MonoBehaviour
         if (!visibleObjects.Contains(gameObj)) {
             return;
         }
+        if (lockedOnEnemyObj.Equals(gameObj)) {
+            lockedOnEnemyObj = new GameObject();
+            isLockedOn = false;
+        }
         visibleObjects.Remove(gameObj);
     }
 
@@ -59,9 +64,10 @@ public class CurrentlyVisableObjects : MonoBehaviour
             return;
         }
         if (isLockedOn) {
-            lockedOnEnemyObj.SetActive(false);
+            lockOnEnemyCircleObj.SetActive(false);
             isLockedOn = false;
             lockedOnEnemyObj = null;
+            lockOnEnemyCircleObj = null;
 
             return;
         }
@@ -107,9 +113,10 @@ public class CurrentlyVisableObjects : MonoBehaviour
             return;
         }
 
-        lockedOnEnemyObj = lockOnCircleTransform.gameObject;
+        lockOnEnemyCircleObj = lockOnCircleTransform.gameObject;
+        lockedOnEnemyObj = lockOnCircleTransform.parent.gameObject;
 
-        lockedOnEnemyObj.SetActive(!lockedOnEnemyObj.activeSelf);
+        lockOnEnemyCircleObj.SetActive(!lockOnEnemyCircleObj.activeSelf);
         isLockedOn = true;
         Debug.Log("initiate LockOn!");
     }

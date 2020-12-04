@@ -309,6 +309,8 @@ public class acolyteBehavior : MonoBehaviour
 
   public void enemyDeath()
   {
+    // Remove lock on
+    CVO.removeObject(gameObject);
     gameObject.SetActive(false);
   }
 
