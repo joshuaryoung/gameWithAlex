@@ -526,6 +526,7 @@ MonoBehaviour:
   sweepPressed: 0
   uppercutPressed: 0
   grabPressed: 0
+  lockOnPressed: 0
   canAct: 1
   canCombo: 0
   isRunning: 0
@@ -554,10 +555,12 @@ MonoBehaviour:
   downKeyCode: 0
   leftKeyCode: 0
   rightKeyCode: 0
+  lockOnKeyCode: 0
   dpadLeftPressed: 0
   dpadRightPressed: 0
   settingsScript: {fileID: 0}
   HS: {fileID: 0}
+  CVO: {fileID: 0}
 --- !u!114 &114504737153347904
 MonoBehaviour:
   m_ObjectHideFlags: 0
