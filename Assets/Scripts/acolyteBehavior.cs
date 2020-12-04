@@ -57,6 +57,7 @@ public class acolyteBehavior : MonoBehaviour
   public bool attackHasAlreadyHit = false;
   public CurrentlyVisableObjects CVO;
   public bool isDead = false;
+  public bool isDying = false;
 
   // Use this for initialization
   void Start()
@@ -93,7 +94,7 @@ public class acolyteBehavior : MonoBehaviour
         Debug.LogError("CVO script not assigned!");
         return;
     }
-    if (isDead) {
+    if (isDead || isDying) {
       return;
     }
     isNotInAnimation = acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeavyPunching") == false && !isBeingGrabbed;
@@ -313,11 +314,15 @@ public class acolyteBehavior : MonoBehaviour
 
   public void enemyDeath()
   {
-    // Remove lock on
     CVO.removeObject(gameObject);
-    acolyteAnim.SetBool("isDead", true);
-    isDead = true;
+    isDying = true;
+    acolyteAnim.SetBool("isDying", true);
     // gameObject.SetActive(false);
+  }
+
+  public void setDeathVars() {
+    isDead = true;
+    acolyteAnim.SetBool("isDead", true);
   }
 
   public void resetCanAttack()
