@@ -209,7 +209,7 @@ public class PlayerInputScript : MonoBehaviour
         jumpPressed = Input.GetKeyDown(jumpKeyCode);
         jumpReleased = Input.GetKeyUp(jumpKeyCode);
 
-        if (CVO.lockOnEnemyCircleObj) {
+        if (CVO.isLockedOn) {
             // Check: is player facing enemy?
             bool playerFacingEnemy = (gameObject.transform.localPosition.x - CVO.lockedOnEnemyObj.transform.localPosition.x) * gameObject.transform.localScale.x < 0;
             if (!playerFacingEnemy) {

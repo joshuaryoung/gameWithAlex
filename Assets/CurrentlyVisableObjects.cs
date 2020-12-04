@@ -38,8 +38,10 @@ public class CurrentlyVisableObjects : MonoBehaviour
         if (!visibleObjects.Contains(gameObj)) {
             return;
         }
-        if (lockedOnEnemyObj.Equals(gameObj)) {
-            lockedOnEnemyObj = new GameObject();
+        if (gameObj.Equals(lockedOnEnemyObj)) {
+            lockedOnEnemyObj = null;
+            lockOnEnemyCircleObj.SetActive(false);
+            lockOnEnemyCircleObj = null;
             isLockedOn = false;
         }
         visibleObjects.Remove(gameObj);
