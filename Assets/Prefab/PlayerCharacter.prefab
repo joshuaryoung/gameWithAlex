@@ -370,6 +370,7 @@ GameObject:
   - component: {fileID: 95111781746514370}
   - component: {fileID: 1743696012}
   - component: {fileID: 1743696013}
+  - component: {fileID: 2076824895}
   m_Layer: 8
   m_Name: PlayerCharacter
   m_TagString: PlayerCharacter
@@ -576,7 +577,7 @@ MonoBehaviour:
   startHealth: 9
   currentHealth: 9
   invincibilityCooldownCurrent: 0
-  invincibilityCooldownMax: 1.25
+  invincibilityCooldownMax: 0
   invincibilityCooldownFlash: 0
   isDead: 0
   isDying: 0
@@ -744,6 +745,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+--- !u!114 &2076824895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587651397913248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 467d271694c7d47278dbdfd42b21244a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAnimator: {fileID: 0}
+  hitSparkAnimator: {fileID: 0}
+  PIS: {fileID: 0}
 --- !u!1 &1588787812087780
 GameObject:
   m_ObjectHideFlags: 0
