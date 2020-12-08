@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 998483c7329cbe541b0268ad741073c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitStopDuration: 0.15
+  hitStopDuration: 0.2166
 --- !u!1 &1457568271417486
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,15 +967,15 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894077155629768}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.27, y: 0.75}
+  m_Offset: {x: -0.01, y: 0.01}
   serializedVersion: 2
-  m_Radius: 0.39887345
+  m_Radius: 0.64
 --- !u!1 &1904211961834366
 GameObject:
   m_ObjectHideFlags: 0

@@ -103,6 +103,8 @@ MonoBehaviour:
   isBeingGrabbed: 0
   attackHasAlreadyHit: 0
   CVO: {fileID: 0}
+  isDead: 0
+  isDying: 0
 --- !u!212 &212857715412243474
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -807,7 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 998483c7329cbe541b0268ad741073c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitStopDuration: 0.15
+  hitStopDuration: 0.2166
 --- !u!1 &4683997396453679969
 GameObject:
   m_ObjectHideFlags: 0
