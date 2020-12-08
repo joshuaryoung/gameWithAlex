@@ -729,6 +729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5049338409926321908}
   - component: {fileID: 3024768767765258286}
+  - component: {fileID: 7371858480203177170}
   m_Layer: 10
   m_Name: LockOnCircle
   m_TagString: Untagged
@@ -744,7 +745,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4103457536071237549}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: 0.49, z: 0}
+  m_LocalPosition: {x: 0.17, y: 1.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
@@ -790,7 +791,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d775f253ee6fa45fc80a4e273b9c1ea9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c3692da72e47d2d45884054f2b1acad9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -801,6 +802,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7371858480203177170
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4103457536071237549}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c9f7e15a7d47a3944997bf8c8bc3ffe9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4683997396453679969
 GameObject:
   m_ObjectHideFlags: 0
