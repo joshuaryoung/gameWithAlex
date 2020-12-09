@@ -446,7 +446,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 950a9dee1545acf4fa529edc7d429f21, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf10a4b17efb65647a5e026a27d34f12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -491,18 +491,18 @@ MonoBehaviour:
   punchDamageValue: 1
   punchReelLength: 0.37
   punchPushbackValue: 4
-  jumpingPunchDamageValue: 3
+  jumpingPunchDamageValue: 2
   jumpingPunchReelLength: 0.8
   jumpingPunchPushbackValue: 4
   kickDamageValue: 1
   kickReelLength: 0.6
   kickPushbackValue: 4
-  jumpingKickDamageValue: 2
-  jumpingKickReelLength: 0.9
+  jumpingKickDamageValue: 1
+  jumpingKickReelLength: 0.8
   jumpingKickPushbackValue: 4
   sweepDamageValue: 2
-  sweepPushbackValue: 4
-  uppercutDamageValue: 3
+  sweepPushbackValue: 4.5
+  uppercutDamageValue: 2
   uppercutReelLength: 0.2
   uppercutPushbackValue: 4
   throwDamageValue: 0
@@ -591,7 +591,7 @@ MonoBehaviour:
   blockSparkAnimator: {fileID: 8831438579535511990}
   animator: {fileID: 0}
   RB2D: {fileID: 0}
-  InfiniteHealth: 0
+  InfiniteHealth: 1
   audioSrc: {fileID: 0}
   impactSoundEffect: {fileID: 8300000, guid: c33d06a25edb11445b640a985ec7711f, type: 3}
   blockSoundEffect: {fileID: 8300000, guid: dbe104ed0ce264aaf9745038e89e9243, type: 3}
@@ -832,7 +832,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600461449919920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.371, y: 0.268, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4087151271183574}
@@ -853,7 +853,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 1.15, y: -1}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.7
 --- !u!1 &1794639834159246
 GameObject:
   m_ObjectHideFlags: 0
