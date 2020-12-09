@@ -15388,6 +15388,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
+        type: 3}
+      propertyPath: bobAndWeaveRNGMin
+      value: -70
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
+        type: 3}
+      propertyPath: bobAndWeaveRNGMax
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
+        type: 3}
+      propertyPath: bobAndWeaveDeadZoneMax
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
+        type: 3}
+      propertyPath: bobAndWeaveDeadZoneMin
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
+        type: 3}
+      propertyPath: lightPunchRNGMax
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
+        type: 3}
+      propertyPath: heavyPunchRNGMin
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
+        type: 3}
+      propertyPath: heavyPunchRNGMax
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 212857715412243474, guid: 347ccad12011c2945bc08be236bad5bd,
         type: 3}
       propertyPath: m_WasSpriteAssigned
@@ -16375,6 +16410,11 @@ PrefabInstance:
     - target: {fileID: 4612835406874000, guid: 216a602d06062234b9e3fa84990e3137, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 216a602d06062234b9e3fa84990e3137,
+        type: 3}
+      propertyPath: bobAndWeaveRNGMax
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 216a602d06062234b9e3fa84990e3137, type: 3}
@@ -18298,11 +18338,6 @@ PrefabInstance:
     - target: {fileID: 4612835406874000, guid: 216a602d06062234b9e3fa84990e3137, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114011634407126842, guid: 216a602d06062234b9e3fa84990e3137,
-        type: 3}
-      propertyPath: bobAndWeaveRNGMax
-      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 216a602d06062234b9e3fa84990e3137, type: 3}
@@ -32129,6 +32164,11 @@ PrefabInstance:
     - target: {fileID: 4612835406874000, guid: 216a602d06062234b9e3fa84990e3137, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 216a602d06062234b9e3fa84990e3137,
+        type: 3}
+      propertyPath: bobAndWeaveRNGMax
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 216a602d06062234b9e3fa84990e3137, type: 3}

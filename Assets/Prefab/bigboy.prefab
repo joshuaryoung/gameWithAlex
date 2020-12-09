@@ -90,7 +90,7 @@ MonoBehaviour:
   lightPunchRNGMin: 1
   lightPunchRNGMax: 5
   heavyPunchRNGMin: 6
-  heavyPunchRNGMax: 16
+  heavyPunchRNGMax: 10
   bobAndWeaveRNGDecisionMin: 17
   bobAndWeaveRNGDecisionMax: 62
   actualMoveDistance: 0
