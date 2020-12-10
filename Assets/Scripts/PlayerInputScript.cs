@@ -65,7 +65,9 @@ public class PlayerInputScript : MonoBehaviour
     public float walkVelocity;
     public float runVelocity;
     public float crouchVelocity;
-    public float blockVelocity;
+    public float backDashVelocity;
+    public float forwardDashVelocity;
+    public bool isDashing;
     public float wallJumpVelocity;
     public float wallStickDurationCurrent;
     public float wallStickDurationMax;
@@ -77,6 +79,7 @@ public class PlayerInputScript : MonoBehaviour
     public bool runHeld;
     public bool jumpPressed;
     public bool jumpReleased;
+    public bool dashReleased;
     public bool punchPressed;
     public bool kickPressed;
     public bool blockPressed;
@@ -84,7 +87,7 @@ public class PlayerInputScript : MonoBehaviour
     public bool uppercutPressed;
     public bool grabPressed;
     public bool lockOnPressed;
-    public bool canAct;
+    public bool isAbleToAct;
     public bool canCombo;
     public bool isRunning;
     public bool isWalking;
@@ -129,7 +132,7 @@ public class PlayerInputScript : MonoBehaviour
         RB2D = GetComponent<Rigidbody2D>();
         isGrounded = true;
         groundedCoolDown = 0;
-        canAct = true;
+        isAbleToAct = true;
         attackHasAlreadyHit = false;
         wasGroundedPreviousFrame = true;
         freeFallAvailable = true;
@@ -146,6 +149,7 @@ public class PlayerInputScript : MonoBehaviour
         leftKeyCode = PlayerPrefs.GetString("Left") != "" ? (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left")) : new KeyCode();
         rightKeyCode = PlayerPrefs.GetString("Right") != "" ? (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right")) : new KeyCode();
         jumpReleased = true;
+        dashReleased = true;
         if (HS == null) {
             HS = FindObjectOfType<HitStop>();
         }
@@ -204,6 +208,10 @@ public class PlayerInputScript : MonoBehaviour
             if (dpadLeftPressed || dpadRightPressed)
             {
                 controllerAxisX = dpadLeftPressed ? -1 : 1;
+            }
+
+            if(controllerAxisX == 0) {
+                dashReleased = true;
             }
         }
         jumpPressed = Input.GetKeyDown(jumpKeyCode);
@@ -271,7 +279,7 @@ public class PlayerInputScript : MonoBehaviour
 
         if (!wasGroundedPreviousFrame && isGrounded)
         {
-            canAct = true;
+            isAbleToAct = true;
             isWallJumping = false;
             upperHurtBox.offset.Set(upperHurtBox.offset.x, 0.5f);
             wallStickDurationCurrent = wallStickDurationMax;
@@ -279,7 +287,7 @@ public class PlayerInputScript : MonoBehaviour
             attackHasAlreadyHit = false;
         }
 
-        if (canAct)
+        if (isAbleToAct)
         {
             canCombo = false;
             attackHasAlreadyHit = false;
@@ -292,8 +300,8 @@ public class PlayerInputScript : MonoBehaviour
                     jump();
             }
             anim.SetBool("isBlocking", blockPressed);
-            anim.SetBool("isBackDashing", blockPressed && controllerAxisX * transform.localScale.x < 0);
-            anim.SetBool("isForwardDashing", blockPressed && controllerAxisX * transform.localScale.x > 0);
+            anim.SetBool("isBackDashing", blockPressed && dashReleased && controllerAxisX * transform.localScale.x < 0);
+            anim.SetBool("isForwardDashing", blockPressed && dashReleased && controllerAxisX * transform.localScale.x > 0);
             // anim.SetBool ("isBlockWalking", blockPressed && xVelo != 0 && isGrounded);
 
             anim.SetBool("isCrouching", isCrouching);
@@ -318,8 +326,8 @@ public class PlayerInputScript : MonoBehaviour
             anim.SetBool("isUppercutting", uppercutPressed);
             anim.SetBool("isGrabbing", grabPressed);
 
-            isWalking = (controllerAxisX != 0 && !runHeld);
-            isRunning = (controllerAxisX != 0 && runHeld);
+            isWalking = (controllerAxisX != 0 && !runHeld && !blockPressed);
+            isRunning = (controllerAxisX != 0 && runHeld && !blockPressed);
             anim.SetBool("isWalking", isWalking);
             anim.SetBool("isRunning", isRunning);
             anim.SetBool("isLedgeVaulting", isLedgeVaulting);
@@ -420,9 +428,17 @@ public class PlayerInputScript : MonoBehaviour
         {
             if (!blockPressed && !CVO.isLockedOn)
                 flipPlayer();
-            if (blockPressed && transform.localScale.x * controllerAxisX < 0 && isGrounded)
+            if (blockPressed && isGrounded)
             {
-                RB2D.velocity = new Vector2(controllerAxisX * blockVelocity, RB2D.velocity.y);
+                if (transform.localScale.x * controllerAxisX < 0 && dashReleased) {
+                    isDashing = true;
+                    dashReleased = false;
+                    RB2D.velocity = new Vector2(-transform.localScale.x * backDashVelocity, RB2D.velocity.y);
+                } else if (transform.localScale.x * controllerAxisX > 0 && dashReleased) {
+                    isDashing = true;
+                    dashReleased = false;
+                    RB2D.velocity = new Vector2(transform.localScale.x * forwardDashVelocity, RB2D.velocity.y);
+                }
             }
         }
 
@@ -574,6 +590,10 @@ public class PlayerInputScript : MonoBehaviour
     void resetAttackHasAlreadyHit()
     {
         attackHasAlreadyHit = false;
+    }
+
+    public void resetIsDashing() {
+        isDashing = false;
     }
 
     //ground check

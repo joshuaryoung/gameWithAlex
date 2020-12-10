@@ -40,4 +40,22 @@ public class animationEvent : MonoBehaviour
 
         PIS.attackHasAlreadyHit = true;
     }
+
+
+    public void setCanActFalse() {
+        if (PIS == null) {
+            Debug.LogError("PIS is null!");
+            return;
+        }
+        
+        PIS.isAbleToAct = false;
+    }
+    public void setCanActTrue() {
+        if (PIS == null) {
+            Debug.LogError("PIS is null!");
+            return;
+        }
+        
+        PIS.isAbleToAct = true;
+    }
 }

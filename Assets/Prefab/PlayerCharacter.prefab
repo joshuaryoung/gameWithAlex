@@ -509,7 +509,9 @@ MonoBehaviour:
   walkVelocity: 7
   runVelocity: 12
   crouchVelocity: 3.5
-  blockVelocity: 3.5
+  backDashVelocity: 24.34
+  forwardDashVelocity: 25.75
+  isDashing: 0
   wallJumpVelocity: 8.02
   wallStickDurationCurrent: 24
   wallStickDurationMax: 0.88
@@ -521,6 +523,7 @@ MonoBehaviour:
   runHeld: 0
   jumpPressed: 0
   jumpReleased: 0
+  dashReleased: 0
   punchPressed: 0
   kickPressed: 0
   blockPressed: 0
@@ -528,12 +531,12 @@ MonoBehaviour:
   uppercutPressed: 0
   grabPressed: 0
   lockOnPressed: 0
-  canAct: 1
+  canAct: 0
   canCombo: 0
   isRunning: 0
   isWalking: 0
   isCrouching: 0
-  isGrounded: 1
+  isGrounded: 0
   isWallClimbing: 0
   isWallSliding: 0
   isWallJumping: 0
@@ -591,7 +594,7 @@ MonoBehaviour:
   blockSparkAnimator: {fileID: 8831438579535511990}
   animator: {fileID: 0}
   RB2D: {fileID: 0}
-  InfiniteHealth: 1
+  InfiniteHealth: 0
   audioSrc: {fileID: 0}
   impactSoundEffect: {fileID: 8300000, guid: c33d06a25edb11445b640a985ec7711f, type: 3}
   blockSoundEffect: {fileID: 8300000, guid: dbe104ed0ce264aaf9745038e89e9243, type: 3}
