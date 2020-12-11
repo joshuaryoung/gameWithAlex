@@ -531,7 +531,7 @@ MonoBehaviour:
   uppercutPressed: 0
   grabPressed: 0
   lockOnPressed: 0
-  canAct: 0
+  isAbleToAct: 0
   canCombo: 0
   isRunning: 0
   isWalking: 0
