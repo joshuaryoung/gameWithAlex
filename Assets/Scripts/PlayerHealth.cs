@@ -162,6 +162,10 @@ public class PlayerHealth : MonoBehaviour
   }
   void death()
   {
+    if (deathScreen == null) {
+      Debug.LogError("deathScreen is null!");
+      return;
+    }
     isDying = false;
     animator.SetBool("isDying", isDying);
     RB2D.simulated = false;
