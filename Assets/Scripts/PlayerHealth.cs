@@ -117,7 +117,8 @@ public class PlayerHealth : MonoBehaviour
           currentHealth -= damage;
         invincibilityCooldownCurrent = invincibilityCooldownMax;
         PIS.isAbleToAct = true;
-        PIS.isDashing = false;
+        PIS.isForwardDashing = false;
+        PIS.isBackDashing = false;
         hitSparkAnimator.SetBool("isActive", true);
         animator.SetBool("isReeling", true);
         animator.SetBool("isBlockingAnAttack", false);
@@ -144,7 +145,9 @@ public class PlayerHealth : MonoBehaviour
       animator.SetBool("isSweeping", false);
       animator.SetBool("isBackDashing", false);
       animator.SetBool("isForwardDashing", false);
-      PIS.isDashing = false;
+      PIS.isForwardDashing = false;
+      PIS.isBackDashing = false;
+      PIS.isAbleToAct = true;
     }
   }
 
