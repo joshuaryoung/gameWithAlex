@@ -171,7 +171,7 @@ MonoBehaviour:
   attackDecisionRNG: 0
   bobAndWeaveRNG: 0
   bobAndWeaveRNGMin: -80
-  bobAndWeaveRNGMax: 30
+  bobAndWeaveRNGMax: 50
   bobAndWeaveDeadZoneMin: -10
   bobAndWeaveDeadZoneMax: 10
   attackDecisionRNGMin: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
   lightPunchRNGMin: 0
   lightPunchRNGMax: 2
   heavyPunchRNGMin: 3
-  heavyPunchRNGMax: 3
+  heavyPunchRNGMax: 4
   bobAndWeaveRNGDecisionMin: 5
   bobAndWeaveRNGDecisionMax: 15
   actualMoveDistance: 0

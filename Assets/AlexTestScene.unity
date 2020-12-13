@@ -18054,6 +18054,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 61385600487667074, guid: 17943721003ec0e44bac1eaa1219b4f2,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.26970148
+      objectReference: {fileID: 0}
+    - target: {fileID: 61385600487667074, guid: 17943721003ec0e44bac1eaa1219b4f2,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.69059706
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 17943721003ec0e44bac1eaa1219b4f2,
+        type: 3}
+      propertyPath: lightPunchRNGMax
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 17943721003ec0e44bac1eaa1219b4f2,
+        type: 3}
+      propertyPath: bobAndWeaveRNGMin
+      value: -100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17943721003ec0e44bac1eaa1219b4f2, type: 3}
 --- !u!1001 &1034085761
