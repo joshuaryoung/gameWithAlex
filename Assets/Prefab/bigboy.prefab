@@ -59,8 +59,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 1587651397913248, guid: 117785b7cd429d342af78d659adcd96b,
     type: 3}
-  startHealth: 10
-  currentHealth: 10
+  startHealth: 16
+  currentHealth: 16
   invincibilityCooldownPeriod: 0
   invincibilityCooldownCurrent: 0
   invincibilityCooldownFlash: 0
@@ -69,22 +69,22 @@ MonoBehaviour:
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   punchHitBox: {fileID: 58312095405789320}
   punchDamageValue: 2
-  punchPushbackOnHit: 2.8
-  punchPushbackOnBlock: 1.54
+  punchPushbackOnHit: 4
+  punchPushbackOnBlock: 4
   canAttack: 1
   hitSparkAnimator: {fileID: 3034471355560115620}
   currentReelLengthCooldown: 0
   pushBackDistance: 4
-  punchReelLength: 0.76
+  punchReelLength: 1
   infiniteHealth: 0
   isInFootsiesRange: 0
   isNotInAnimation: 0
   attackDecisionRNG: 0
   bobAndWeaveRNG: 0
-  bobAndWeaveRNGMin: -11.81
-  bobAndWeaveRNGMax: 13.47
-  bobAndWeaveDeadZoneMin: -10.64
-  bobAndWeaveDeadZoneMax: 8.23
+  bobAndWeaveRNGMin: -12
+  bobAndWeaveRNGMax: 30
+  bobAndWeaveDeadZoneMin: -10
+  bobAndWeaveDeadZoneMax: 0
   attackDecisionRNGMin: 1
   attackDecisionRNGMax: 100
   lightPunchRNGMin: 1

@@ -67,7 +67,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.31666666
+        time: 0.23333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -312,7 +312,7 @@ AnimationClip:
       value: {fileID: 21300000, guid: e1f9dab45c2f6434a93d7678c6f2cef3, type: 3}
     - time: 0.15
       value: {fileID: 21300000, guid: 17af1c3a01eca22499294698eae0997d, type: 3}
-    - time: 0.23333333
+    - time: 0.2
       value: {fileID: 21300000, guid: ba9ce95dca131b946a55a459f4d6e79e, type: 3}
     attribute: m_Sprite
     path: 
@@ -385,7 +385,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.31666666
+    m_StopTime: 0.28333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -451,7 +451,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.31666666
+        time: 0.23333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -704,22 +704,22 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.033333335
+  - time: 0.05
     functionName: punch
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.31666666
-    functionName: resetAttackHasAlreadyHit
+  - time: 0.28333333
+    functionName: setCanActTrue
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.31666666
-    functionName: setCanActTrue
+  - time: 0.28333333
+    functionName: resetAttackHasAlreadyHit
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
