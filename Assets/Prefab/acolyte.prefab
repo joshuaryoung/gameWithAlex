@@ -118,7 +118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1186461640105926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -36.019707, y: 0.12, z: 0}
+  m_LocalPosition: {x: -36.027, y: 0.091, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 4870287289636666}
@@ -171,7 +171,7 @@ MonoBehaviour:
   attackDecisionRNG: 0
   bobAndWeaveRNG: 0
   bobAndWeaveRNGMin: -80
-  bobAndWeaveRNGMax: 30
+  bobAndWeaveRNGMax: 50
   bobAndWeaveDeadZoneMin: -10
   bobAndWeaveDeadZoneMax: 10
   attackDecisionRNGMin: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
   lightPunchRNGMin: 0
   lightPunchRNGMax: 2
   heavyPunchRNGMin: 3
-  heavyPunchRNGMax: 3
+  heavyPunchRNGMax: 4
   bobAndWeaveRNGDecisionMin: 5
   bobAndWeaveRNGDecisionMax: 15
   actualMoveDistance: 0

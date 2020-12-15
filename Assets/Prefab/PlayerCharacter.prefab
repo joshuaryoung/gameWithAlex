@@ -489,14 +489,14 @@ MonoBehaviour:
   impactSoundEffect: {fileID: 8300000, guid: c33d06a25edb11445b640a985ec7711f, type: 3}
   audioPlayer: {fileID: 0}
   punchDamageValue: 1
-  punchReelLength: 0.37
+  punchReelLength: 0.3
   punchPushbackValue: 4
   jumpingPunchDamageValue: 2
   jumpingPunchReelLength: 0.8
   jumpingPunchPushbackValue: 4
   kickDamageValue: 1
-  kickReelLength: 0.6
-  kickPushbackValue: 4
+  kickReelLength: 0.3
+  kickPushbackValue: 2.5
   jumpingKickDamageValue: 1
   jumpingKickReelLength: 0.8
   jumpingKickPushbackValue: 4
@@ -511,7 +511,8 @@ MonoBehaviour:
   crouchVelocity: 3.5
   backDashVelocity: 24.34
   forwardDashVelocity: 25.75
-  isDashing: 0
+  isForwardDashing: 0
+  isBackDashing: 0
   wallJumpVelocity: 8.02
   wallStickDurationCurrent: 24
   wallStickDurationMax: 0.88
