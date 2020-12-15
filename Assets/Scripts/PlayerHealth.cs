@@ -73,6 +73,7 @@ public class PlayerHealth : MonoBehaviour
       if (currentReelLengthCooldown <= 0)
       {
         animator.SetBool("isReeling", false);
+        PIS.isAbleToAct = true;
       }
     }
 

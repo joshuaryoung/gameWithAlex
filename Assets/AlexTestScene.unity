@@ -37210,13 +37210,48 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
         type: 3}
+      propertyPath: punchAC2HitBox
+      value: 
+      objectReference: {fileID: 2087340354}
+    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: punchAC3HitBox
+      value: 
+      objectReference: {fileID: 2087340354}
+    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
       propertyPath: settingsScript
       value: 
       objectReference: {fileID: 139666974}
     - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
         type: 3}
+      propertyPath: kickAC2ReelLength
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: kickAC3ReelLength
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
       propertyPath: kickPushbackValue
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: punchAC3ReelLength
+      value: 1.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: punchAC3DamageValue
+      value: 61
+      objectReference: {fileID: 0}
+    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: punchAC3PushbackValue
+      value: 11.22
       objectReference: {fileID: 0}
     - target: {fileID: 114504737153347904, guid: 117785b7cd429d342af78d659adcd96b,
         type: 3}
@@ -38070,6 +38105,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 247
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &2087340354 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 58912666635816498, guid: 117785b7cd429d342af78d659adcd96b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2041147546}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2093390519
 PrefabInstance:
   m_ObjectHideFlags: 0

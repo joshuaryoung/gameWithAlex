@@ -34,25 +34,45 @@ public class PlayerInputScript : MonoBehaviour
     public Collider2D upperHurtBox;
     public Collider2D lowerHitBox;
     public Collider2D punchHitBox;
+    public Collider2D punchAC2HitBox;
+    public Collider2D punchAC3HitBox;
     public Collider2D jumpingPunchHitBox;
     public Collider2D kickHitBox;
+    public Collider2D kickAC2HitBox;
+    public Collider2D kickAC3HitBox;
     public Collider2D jumpingKickHitBox;
     public Collider2D sweepHitBox;
     public Collider2D uppercutHitBox;
     public Collider2D throwHitBox;
     public AudioClip punchSoundEffect;
+    public AudioClip punchAC2SoundEffect;
+    public AudioClip punchAC3SoundEffect;
     public AudioClip kickSoundEffect;
+    public AudioClip kickAC2SoundEffect;
+    public AudioClip kickAC3SoundEffect;
     public AudioClip impactSoundEffect;
     public AudioSource audioPlayer;
     public int punchDamageValue;
+    public int punchAC2DamageValue;
+    public int punchAC3DamageValue;
     public float punchReelLength;
+    public float punchAC2ReelLength;
+    public float punchAC3ReelLength;
     public float punchPushbackValue;
+    public float punchAC2PushbackValue;
+    public float punchAC3PushbackValue;
     public int jumpingPunchDamageValue;
     public float jumpingPunchReelLength;
     public float jumpingPunchPushbackValue;
     public int kickDamageValue;
+    public int kickAC2DamageValue;
+    public int kickAC3DamageValue;
     public float kickReelLength;
+    public float kickAC2ReelLength;
+    public float kickAC3ReelLength;
     public float kickPushbackValue;
+    public float kickAC2PushbackValue;
+    public float kickAC3PushbackValue;
     public int jumpingKickDamageValue;
     public float jumpingKickReelLength;
     public float jumpingKickPushbackValue;
@@ -540,6 +560,20 @@ public class PlayerInputScript : MonoBehaviour
         if (!attackHasAlreadyHit)
         {
             attack(punchHitBox, punchDamageValue, punchPushbackValue, punchReelLength, impactSoundEffect);
+        }
+    }
+    void punchAC2()
+    {
+        if (!attackHasAlreadyHit)
+        {
+            attack(punchAC2HitBox, punchAC2DamageValue, punchAC2PushbackValue, punchAC2ReelLength, impactSoundEffect);
+        }
+    }
+    void punchAC3()
+    {
+        if (!attackHasAlreadyHit)
+        {
+            attack(punchAC3HitBox, punchAC3DamageValue, punchAC3PushbackValue, punchAC3ReelLength, impactSoundEffect);
         }
     }
 
