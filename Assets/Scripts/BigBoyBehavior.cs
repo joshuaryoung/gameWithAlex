@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class acolyteBehavior : MonoBehaviour
+public class BigBoyBehavior : MonoBehaviour
 {
   //Raycast class;
   Collider2D hit;
@@ -20,20 +20,19 @@ public class acolyteBehavior : MonoBehaviour
   public SpriteRenderer spriteR;
   public Color spriteColor;
   public Collider2D punchHitBox;
-  public Collider2D headbuttHitBox;
+  public Collider2D heavyPunchHitBox;
   public int punchDamageValue;
-  public int headbuttDamageValue;
   public float punchPushbackOnHit;
-  public float punchReelLength;
-  public float headbuttPushbackOnHit;
   public float punchPushbackOnBlock;
-  public float headbuttPushbackOnBlock;
-  public float headbuttReelLength;
+  public float punchReelLength;
+  public int heavyPunchDamageValue;
+  public float heavyPunchPushbackOnHit;
+  public float heavyPunchPushbackOnBlock;
+  public float heavyPunchReelLength;
   public bool canAttack;
   Animator acolyteAnim;
   public Animator hitSparkAnimator;
   public float currentReelLengthCooldown;
-  public float pushBackDistance;
   public bool infiniteHealth;
   public bool isInFootsiesRange;
   public bool isNotInAnimation;
@@ -248,9 +247,9 @@ public class acolyteBehavior : MonoBehaviour
   {
     attack(punchHitBox, punchDamageValue, punchPushbackOnBlock, punchPushbackOnHit, punchReelLength);
   }
-  public void headbutt()
+  public void heavyPunch()
   {
-    attack(headbuttHitBox, headbuttDamageValue, headbuttPushbackOnBlock, headbuttPushbackOnHit, headbuttReelLength);
+    attack(heavyPunchHitBox, heavyPunchDamageValue, heavyPunchPushbackOnBlock, heavyPunchPushbackOnHit, heavyPunchReelLength);
   }
 
   public void enemyTakeDamage(object[] args)

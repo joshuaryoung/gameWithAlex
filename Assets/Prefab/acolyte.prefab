@@ -157,14 +157,19 @@ MonoBehaviour:
   spriteR: {fileID: 212857715412243474}
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   punchHitBox: {fileID: 58312095405789320}
+  headbuttHitBox: {fileID: 58312095405789320}
   punchDamageValue: 1
+  headbuttDamageValue: 2
   punchPushbackOnHit: 2.97
+  punchReelLength: 0.61
+  headbuttPushbackOnHit: 7.65
   punchPushbackOnBlock: 1.61
+  headbuttPushbackOnBlock: 1.45
+  headbuttReelLength: 0.94
   canAttack: 1
   hitSparkAnimator: {fileID: 5263788996454897237}
   currentReelLengthCooldown: 0
   pushBackDistance: 4
-  punchReelLength: 0.61
   infiniteHealth: 0
   isInFootsiesRange: 0
   isNotInAnimation: 0

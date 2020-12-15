@@ -16012,41 +16012,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
-        type: 3}
-      propertyPath: heavyPunchRNGMax
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
-        type: 3}
-      propertyPath: heavyPunchRNGMin
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
-        type: 3}
-      propertyPath: lightPunchRNGMax
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
-        type: 3}
-      propertyPath: bobAndWeaveRNGMax
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
-        type: 3}
-      propertyPath: bobAndWeaveRNGMin
-      value: -70
-      objectReference: {fileID: 0}
-    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
-        type: 3}
-      propertyPath: bobAndWeaveDeadZoneMax
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
-        type: 3}
-      propertyPath: bobAndWeaveDeadZoneMin
-      value: -10
-      objectReference: {fileID: 0}
     - target: {fileID: 212857715412243474, guid: 347ccad12011c2945bc08be236bad5bd,
         type: 3}
       propertyPath: m_Size.x
@@ -16062,6 +16027,16 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4143573283847474267, guid: 347ccad12011c2945bc08be236bad5bd,
+        type: 3}
+      propertyPath: CVO
+      value: 
+      objectReference: {fileID: 2076935509}
+    - target: {fileID: 4143573283847474267, guid: 347ccad12011c2945bc08be236bad5bd,
+        type: 3}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 2076824889}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 347ccad12011c2945bc08be236bad5bd, type: 3}
 --- !u!1 &878520611
@@ -37155,11 +37130,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4087151271183574, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -495.52298
+      value: -370.7
       objectReference: {fileID: 0}
     - target: {fileID: 4087151271183574, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 46.800003
+      value: 28.5
       objectReference: {fileID: 0}
     - target: {fileID: 4087151271183574, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
       propertyPath: m_LocalPosition.z
