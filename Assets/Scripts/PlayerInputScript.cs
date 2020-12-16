@@ -576,6 +576,7 @@ public class PlayerInputScript : MonoBehaviour
             attack(punchAC3HitBox, punchAC3DamageValue, punchAC3PushbackValue, punchAC3ReelLength, impactSoundEffect);
         }
     }
+    
 
     void playSoundEffect(AudioClip src)
     {
@@ -598,7 +599,20 @@ public class PlayerInputScript : MonoBehaviour
             attack(kickHitBox, kickDamageValue, kickPushbackValue, kickReelLength, impactSoundEffect);
         }
     }
-
+ void kickAC2()
+    {
+        if (!attackHasAlreadyHit)
+        {
+            attack(kickAC2HitBox, kickAC2DamageValue, kickAC2PushbackValue, kickAC2ReelLength, impactSoundEffect);
+        }
+    }
+      void kickAC3()
+    {
+        if (!attackHasAlreadyHit)
+        {
+            attack(kickAC3HitBox, kickAC3DamageValue, kickAC3PushbackValue, kickAC3ReelLength, impactSoundEffect);
+        }
+    }
     void jumpingKick()
     {
         if (!attackHasAlreadyHit)
