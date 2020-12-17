@@ -32,6 +32,7 @@ public class PlayerInputScript : MonoBehaviour
     RaycastHit2D hit;
     Rigidbody2D RB2D;
     public Collider2D upperHurtBox;
+    public Collider2D lowerHurtBox;
     public Collider2D lowerHitBox;
     public Collider2D punchHitBox;
     public Collider2D punchAC2HitBox;

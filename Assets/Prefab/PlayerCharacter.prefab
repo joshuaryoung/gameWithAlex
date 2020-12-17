@@ -260,7 +260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4609098896365374}
   - component: {fileID: 61047054372075774}
-  m_Layer: 8
+  m_Layer: 16
   m_Name: lowerHurtbox
   m_TagString: PlayerCharacter
   m_Icon: {fileID: 0}
@@ -476,6 +476,7 @@ MonoBehaviour:
   jumpCoolDownCurrent: 0
   jumpCoolDownMax: 0.08
   upperHurtBox: {fileID: 3725956914877408559}
+  lowerHurtBox: {fileID: 0}
   lowerHitBox: {fileID: 3725956914877408559}
   punchHitBox: {fileID: 58912666635816498}
   punchAC2HitBox: {fileID: 58912666635816498}
@@ -501,29 +502,29 @@ MonoBehaviour:
   punchAC3DamageValue: 2
   punchReelLength: 0.25
   punchAC2ReelLength: 0.2666
-  punchAC3ReelLength: 0.3666
+  punchAC3ReelLength: 0.3333
   punchPushbackValue: 3
   punchAC2PushbackValue: 2
-  punchAC3PushbackValue: 10
+  punchAC3PushbackValue: 9
   jumpingPunchDamageValue: 2
   jumpingPunchReelLength: 0.8
   jumpingPunchPushbackValue: 4
   kickDamageValue: 1
   kickAC2DamageValue: 1
   kickAC3DamageValue: 1
-  kickReelLength: 0.4
-  kickAC2ReelLength: 0.4
-  kickAC3ReelLength: 0.7
+  kickReelLength: 0.35
+  kickAC2ReelLength: 0.3666
+  kickAC3ReelLength: 0.3333
   kickPushbackValue: 4
   kickAC2PushbackValue: 1
-  kickAC3PushbackValue: 13
+  kickAC3PushbackValue: 14
   jumpingKickDamageValue: 1
   jumpingKickReelLength: 0.8
   jumpingKickPushbackValue: 4
   sweepDamageValue: 3
   sweepPushbackValue: 8
   uppercutDamageValue: 2
-  uppercutReelLength: 0.2
+  uppercutReelLength: 0.3333
   uppercutPushbackValue: 4
   throwDamageValue: 0
   walkVelocity: 7
@@ -1293,7 +1294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4489739293024602914}
   - component: {fileID: 4995993718019938176}
-  m_Layer: 8
+  m_Layer: 16
   m_Name: upperHurtbox
   m_TagString: PlayerCharacter
   m_Icon: {fileID: 0}
