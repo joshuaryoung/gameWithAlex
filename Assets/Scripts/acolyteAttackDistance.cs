@@ -26,6 +26,14 @@ public class acolyteAttackDistance : MonoBehaviour
   {
     playerGameObject = GameObject.FindWithTag("PlayerCharacter");
     enemyGameObject = gameObject.transform.parent.gameObject;
+    if (PIS == null) {
+      if (playerGameObject == null) {
+        Debug.LogError("playerGameObject is null!");
+        return;
+      }
+
+      PIS = playerGameObject.GetComponent<PlayerInputScript>();
+    }
   }
 
   // void OnTriggerEnter2D(Collider2D col2D)
@@ -44,6 +52,10 @@ public class acolyteAttackDistance : MonoBehaviour
       Debug.LogError("AB is null!");
       return;
     }
+    if (PIS == null) {
+      Debug.LogError("PIS is null!");
+      return;
+    }
     isColidingWithSomething = true;
     _col2D = col2D;
     if (col2D.gameObject.tag == "PlayerCharacter" && AB.invincibilityCooldownCurrent <= 0 && AB.canAttack && !PIS.isDead)
@@ -55,6 +67,10 @@ public class acolyteAttackDistance : MonoBehaviour
 
   void OnTriggerExit2D(Collider2D col2D)
   {
+    if (AB == null) {
+      Debug.LogError("AB is null!");
+      return;
+    }
     isColidingWithSomething = false;
     _col2D = null;
     if (col2D.gameObject.tag == "PlayerCharacter")

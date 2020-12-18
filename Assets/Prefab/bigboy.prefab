@@ -104,7 +104,7 @@ MonoBehaviour:
   flipCoolDown: 0
   flipCoolDownMax: 0
   lowerHurtbox: {fileID: 523051667151902992}
-  AIBS: {fileID: 649002897586421724}
+  AIBS: {fileID: 0}
   isBeingGrabbed: 0
   attackHasAlreadyHit: 0
   CVO: {fileID: 0}
@@ -354,7 +354,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4294627304714502}
   - component: {fileID: 61385600487667074}
-  - component: {fileID: 114313281030698670}
   - component: {fileID: 3362592767112760321}
   m_Layer: 2
   m_Name: attackDistance
@@ -403,25 +402,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2026346, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114313281030698670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1472227797893740}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eccdea33e3340ca47b1afa2ffa8c2691, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerGameObject: {fileID: 0}
-  enemyGameObject: {fileID: 0}
-  _col2D: {fileID: 0}
-  AB: {fileID: 0}
-  PIS: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
-  anim: {fileID: 95403900325448564}
-  isColidingWithSomething: 0
 --- !u!114 &3362592767112760321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,7 +650,7 @@ GameObject:
   - component: {fileID: 6799193654981313168}
   - component: {fileID: 4829812298889191278}
   - component: {fileID: 5005740371937163428}
-  - component: {fileID: 649002897586421724}
+  - component: {fileID: 6038134190278073034}
   m_Layer: 10
   m_Name: AIBlockerCollisionbox
   m_TagString: Untagged
@@ -734,7 +714,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.51, y: 1}
   m_EdgeRadius: 0
---- !u!114 &649002897586421724
+--- !u!114 &6038134190278073034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -743,12 +723,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2908757571603314579}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a2ee19be7044fb40a0370501adea512, type: 3}
+  m_Script: {fileID: 11500000, guid: 75c7551d2986fe04f9dd894e8eea794e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   acolyteAnim: {fileID: 95403900325448564}
   parentTransform: {fileID: 4612835406874000}
-  AB: {fileID: 0}
+  BBB: {fileID: 4143573283847474267}
   isCollidingWithAIBlocker: 0
 --- !u!1 &3149539633743059270
 GameObject:
@@ -1044,7 +1024,7 @@ MonoBehaviour:
   parentGameObj: {fileID: 1186461640105926}
   parentGameObjTrans: {fileID: 4612835406874000}
   distanceFlipCalc: 0
-  AIBS: {fileID: 649002897586421724}
+  AIBS: {fileID: 0}
 --- !u!1 &8273459651185286545
 GameObject:
   m_ObjectHideFlags: 0

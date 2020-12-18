@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIBlockerScript : MonoBehaviour
+public class BigBoyAIBlockerScript : MonoBehaviour
 {
   public Animator acolyteAnim;
   public Transform parentTransform;
-  public acolyteBehavior AB;
+  public BigBoyBehavior BBB;
   public bool isCollidingWithAIBlocker;
 
   void Start() {
@@ -16,8 +16,8 @@ public class AIBlockerScript : MonoBehaviour
     if (parentTransform == null) {
       parentTransform = GetComponentInParent<Transform>();
     }
-    if (AB == null) {
-      AB = GetComponentInParent<acolyteBehavior>();
+    if (BBB == null) {
+      BBB = GetComponentInParent<BigBoyBehavior>();
       Debug.Log("");
     }
   }
@@ -43,14 +43,14 @@ public class AIBlockerScript : MonoBehaviour
 
   void OnTriggerExit2D(Collider2D col2D)
   {
-    if (AB == null) {
-      Debug.LogError("AB is null!");
+    if (BBB == null) {
+      Debug.LogError("BBB is null!");
     }
     bool isAIBlocker = col2D.gameObject.layer == LayerMask.NameToLayer("AIBlocker");
     
     if(isAIBlocker) {
       isCollidingWithAIBlocker = false;
-      AB.flipCoolDown = AB.flipCoolDownMax;
+      BBB.flipCoolDown = BBB.flipCoolDownMax;
     }
   }
 }
