@@ -12,7 +12,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyPlayerDetection : MonoBehaviour {
+public class acolytePlayerDetection : MonoBehaviour {
 	public acolyteBehavior AB;
 	public Animator anim;
 	public bool playerDetected;

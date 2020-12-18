@@ -100,7 +100,7 @@ MonoBehaviour:
   bobAndWeaveRNGDecisionMax: 62
   actualMoveDistance: 0
   audioSrc: {fileID: 0}
-  punchSoundEffect: {fileID: 0}
+  punchSoundEffect: {fileID: 8300000, guid: 60983f774c0f6486693dae581ff31e60, type: 3}
   flipCoolDown: 0
   flipCoolDownMax: 0
   lowerHurtbox: {fileID: 523051667151902992}
@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 4294627304714502}
   - component: {fileID: 61385600487667074}
   - component: {fileID: 114313281030698670}
+  - component: {fileID: 3362592767112760321}
   m_Layer: 2
   m_Name: attackDistance
   m_TagString: Untagged
@@ -409,16 +410,35 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472227797893740}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eccdea33e3340ca47b1afa2ffa8c2691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerGameObject: {fileID: 0}
   enemyGameObject: {fileID: 0}
-  collider2D: {fileID: 0}
+  _col2D: {fileID: 0}
   AB: {fileID: 0}
   PIS: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
+  anim: {fileID: 95403900325448564}
+  isColidingWithSomething: 0
+--- !u!114 &3362592767112760321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472227797893740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53c29967fd43f8448b02010f0f6787e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerGameObject: {fileID: 0}
+  enemyGameObject: {fileID: 0}
+  _col2D: {fileID: 0}
+  BBB: {fileID: 4143573283847474267}
+  PIS: {fileID: 0}
   anim: {fileID: 95403900325448564}
   isColidingWithSomething: 0
 --- !u!1 &1616001421199328
