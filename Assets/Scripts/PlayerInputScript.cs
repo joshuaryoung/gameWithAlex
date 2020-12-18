@@ -32,6 +32,7 @@ public class PlayerInputScript : MonoBehaviour
     RaycastHit2D hit;
     Rigidbody2D RB2D;
     public Collider2D upperHurtBox;
+    public Collider2D lowerHurtBox;
     public Collider2D lowerHitBox;
     public Collider2D punchHitBox;
     public Collider2D punchAC2HitBox;
@@ -576,6 +577,7 @@ public class PlayerInputScript : MonoBehaviour
             attack(punchAC3HitBox, punchAC3DamageValue, punchAC3PushbackValue, punchAC3ReelLength, impactSoundEffect);
         }
     }
+    
 
     void playSoundEffect(AudioClip src)
     {
@@ -598,7 +600,20 @@ public class PlayerInputScript : MonoBehaviour
             attack(kickHitBox, kickDamageValue, kickPushbackValue, kickReelLength, impactSoundEffect);
         }
     }
-
+ void kickAC2()
+    {
+        if (!attackHasAlreadyHit)
+        {
+            attack(kickAC2HitBox, kickAC2DamageValue, kickAC2PushbackValue, kickAC2ReelLength, impactSoundEffect);
+        }
+    }
+      void kickAC3()
+    {
+        if (!attackHasAlreadyHit)
+        {
+            attack(kickAC3HitBox, kickAC3DamageValue, kickAC3PushbackValue, kickAC3ReelLength, impactSoundEffect);
+        }
+    }
     void jumpingKick()
     {
         if (!attackHasAlreadyHit)

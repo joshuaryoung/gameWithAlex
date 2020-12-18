@@ -230,7 +230,7 @@ public class acolyteBehavior : MonoBehaviour
       return;
     }
     //hitbox stuff
-    Collider2D[] cols = Physics2D.OverlapBoxAll(hitBox.bounds.center, hitBox.bounds.size, 0f, LayerMask.GetMask("Player"));
+    Collider2D[] cols = Physics2D.OverlapBoxAll(punchHitBox.bounds.center, punchHitBox.bounds.size, 0f, LayerMask.GetMask("PlayerHurtbox"));
 
     if (cols.Length > 0)
     {

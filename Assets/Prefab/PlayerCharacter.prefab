@@ -260,7 +260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4609098896365374}
   - component: {fileID: 61047054372075774}
-  m_Layer: 8
+  m_Layer: 16
   m_Name: lowerHurtbox
   m_TagString: PlayerCharacter
   m_Icon: {fileID: 0}
@@ -451,7 +451,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.5, y: 2.5}
+  m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -476,34 +476,55 @@ MonoBehaviour:
   jumpCoolDownCurrent: 0
   jumpCoolDownMax: 0.08
   upperHurtBox: {fileID: 3725956914877408559}
+  lowerHurtBox: {fileID: 0}
   lowerHitBox: {fileID: 3725956914877408559}
   punchHitBox: {fileID: 58912666635816498}
+  punchAC2HitBox: {fileID: 58912666635816498}
+  punchAC3HitBox: {fileID: 58912666635816498}
   jumpingPunchHitBox: {fileID: 58698200373852838}
   kickHitBox: {fileID: 58122790631109842}
+  kickAC2HitBox: {fileID: 0}
+  kickAC3HitBox: {fileID: 0}
   jumpingKickHitBox: {fileID: 58866748017980126}
   sweepHitBox: {fileID: 58146812505729596}
   uppercutHitBox: {fileID: 58529760823048468}
   throwHitBox: {fileID: 5421631279037627104}
   punchSoundEffect: {fileID: 8300000, guid: 60983f774c0f6486693dae581ff31e60, type: 3}
+  punchAC2SoundEffect: {fileID: 0}
+  punchAC3SoundEffect: {fileID: 0}
   kickSoundEffect: {fileID: 8300000, guid: 45faa29d78cc142fe92f55f4590b6d48, type: 3}
+  kickAC2SoundEffect: {fileID: 0}
+  kickAC3SoundEffect: {fileID: 0}
   impactSoundEffect: {fileID: 8300000, guid: c33d06a25edb11445b640a985ec7711f, type: 3}
   audioPlayer: {fileID: 0}
   punchDamageValue: 1
-  punchReelLength: 0.3
-  punchPushbackValue: 4
+  punchAC2DamageValue: 1
+  punchAC3DamageValue: 2
+  punchReelLength: 0.25
+  punchAC2ReelLength: 0.2666
+  punchAC3ReelLength: 0.3333
+  punchPushbackValue: 3
+  punchAC2PushbackValue: 2
+  punchAC3PushbackValue: 9
   jumpingPunchDamageValue: 2
   jumpingPunchReelLength: 0.8
   jumpingPunchPushbackValue: 4
   kickDamageValue: 1
-  kickReelLength: 0.3
-  kickPushbackValue: 2.5
+  kickAC2DamageValue: 1
+  kickAC3DamageValue: 1
+  kickReelLength: 0.35
+  kickAC2ReelLength: 0.3666
+  kickAC3ReelLength: 0.3333
+  kickPushbackValue: 4
+  kickAC2PushbackValue: 1
+  kickAC3PushbackValue: 14
   jumpingKickDamageValue: 1
   jumpingKickReelLength: 0.8
   jumpingKickPushbackValue: 4
-  sweepDamageValue: 2
-  sweepPushbackValue: 4.5
+  sweepDamageValue: 3
+  sweepPushbackValue: 8
   uppercutDamageValue: 2
-  uppercutReelLength: 0.2
+  uppercutReelLength: 0.3333
   uppercutPushbackValue: 4
   throwDamageValue: 0
   walkVelocity: 7
@@ -578,8 +599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4de637235b9dc4aa58a2a731eea944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 9
-  currentHealth: 9
+  startHealth: 20
+  currentHealth: 20
   invincibilityCooldownCurrent: 0
   invincibilityCooldownMax: 0
   invincibilityCooldownFlash: 0
@@ -1273,7 +1294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4489739293024602914}
   - component: {fileID: 4995993718019938176}
-  m_Layer: 8
+  m_Layer: 16
   m_Name: upperHurtbox
   m_TagString: PlayerCharacter
   m_Icon: {fileID: 0}
