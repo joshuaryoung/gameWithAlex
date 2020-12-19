@@ -946,7 +946,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8916181005389259164}
   - component: {fileID: 2884619901221265368}
-  - component: {fileID: 5938491454887205459}
+  - component: {fileID: 2142914139000199331}
   m_Layer: 12
   m_Name: playerDetectionCollider
   m_TagString: Untagged
@@ -994,7 +994,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6262078, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5938491454887205459
+--- !u!114 &2142914139000199331
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1003,15 +1003,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5571457018190419073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 710af5343eeae47e792b5426b37f2143, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ba28ec6827ab1a42b9ed53cf44c4ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AB: {fileID: 0}
+  BBB: {fileID: 0}
   anim: {fileID: 0}
   playerDetected: 0
   playerLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   currentCol: {fileID: 0}
   currentColLayer: 0
   currentColPos: {x: 0, y: 0, z: 0}
@@ -1024,7 +1024,7 @@ MonoBehaviour:
   parentGameObj: {fileID: 1186461640105926}
   parentGameObjTrans: {fileID: 4612835406874000}
   distanceFlipCalc: 0
-  AIBS: {fileID: 0}
+  BBAIBS: {fileID: 6038134190278073034}
 --- !u!1 &8273459651185286545
 GameObject:
   m_ObjectHideFlags: 0

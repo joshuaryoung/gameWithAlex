@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class BigBoyBehavior : MonoBehaviour
+public class BigboyBehavior : MonoBehaviour
 {
   //Raycast class;
   Collider2D hit;
@@ -56,7 +56,7 @@ public class BigBoyBehavior : MonoBehaviour
   public float flipCoolDown = 0;
   public float flipCoolDownMax;
   public Collider2D lowerHurtbox;
-  public AIBlockerScript AIBS;
+  public BigboyAIBlockerScript BBAIBS;
   public bool isBeingGrabbed = false;
   public bool attackHasAlreadyHit = false;
   public CurrentlyVisableObjects CVO;
@@ -64,6 +64,7 @@ public class BigBoyBehavior : MonoBehaviour
   public bool isDying = false;
 
   // Use this for initialization
+  
   void Start()
   {
     PIS = GameObject.Find("PlayerCharacter").GetComponent<PlayerInputScript>();
@@ -74,8 +75,8 @@ public class BigBoyBehavior : MonoBehaviour
     invincibilityCooldownCurrent = 0;
     RB2D = GetComponent<Rigidbody2D>();
     audioSrc = GetComponentInParent<AudioSource>();
-    if (AIBS == null) {
-      AIBS = GetComponentInChildren<AIBlockerScript>();
+    if (BBAIBS == null) {
+      BBAIBS = GetComponentInChildren<BigboyAIBlockerScript>();
     }
     if (CVO == null) {
       CVO = FindObjectOfType<CurrentlyVisableObjects>();
@@ -98,6 +99,11 @@ public class BigBoyBehavior : MonoBehaviour
         Debug.LogError("CVO script not assigned!");
         return;
     }
+    if (BBAIBS == null)
+    {
+        Debug.LogError("BBAIBS script not assigned!");
+        return;
+    }
     if (isDead || isDying) {
       return;
     }
@@ -110,7 +116,7 @@ public class BigBoyBehavior : MonoBehaviour
       CVO.removeObject(gameObject);
     }
     // Footsies Stuff
-    if ((isInFootsiesRange || bobAndWeaveRNG != 0) && isNotInAnimation && !AIBS.isCollidingWithAIBlocker)
+    if ((isInFootsiesRange || bobAndWeaveRNG != 0) && isNotInAnimation && !BBAIBS.isCollidingWithAIBlocker)
     {
       if (bobAndWeaveRNG == 0)
       {
