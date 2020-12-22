@@ -81,6 +81,7 @@ public class BigboyBehavior : MonoBehaviour
     if (CVO == null) {
       CVO = FindObjectOfType<CurrentlyVisableObjects>();
     }
+    canAttack = true;
   }
 
   // Update is called once per frame
@@ -198,6 +199,7 @@ public class BigboyBehavior : MonoBehaviour
       invincibilityCooldownCurrent -= Time.deltaTime;
       if (invincibilityCooldownCurrent <= 0)
       {
+        canAttack = true;
         spriteColor.a = (float)255;
         spriteR.color = spriteColor;
       }
@@ -255,6 +257,10 @@ public class BigboyBehavior : MonoBehaviour
   }
   public void heavyPunch()
   {
+    if (heavyPunchHitBox == null) {
+      Debug.LogError("heavyPunchHitBox is null!");
+      return;
+    }
     attack(heavyPunchHitBox, heavyPunchDamageValue, heavyPunchPushbackOnBlock, heavyPunchPushbackOnHit, heavyPunchReelLength);
   }
 
@@ -343,6 +349,10 @@ public class BigboyBehavior : MonoBehaviour
     acolyteAnim.SetBool("isDead", true);
   }
 
+  public void setCanAttackFalse()
+  {
+    canAttack = false;
+  }
   public void resetCanAttack()
   {
     canAttack = true;

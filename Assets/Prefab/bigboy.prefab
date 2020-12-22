@@ -104,7 +104,7 @@ MonoBehaviour:
   flipCoolDown: 0
   flipCoolDownMax: 0
   lowerHurtbox: {fileID: 523051667151902992}
-  AIBS: {fileID: 0}
+  BBAIBS: {fileID: 0}
   isBeingGrabbed: 0
   attackHasAlreadyHit: 0
   CVO: {fileID: 0}
@@ -335,7 +335,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304074381354322}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -630,7 +630,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2486614690771159612}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1

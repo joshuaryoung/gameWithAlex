@@ -47,7 +47,11 @@ public class bigboyAttackDistance : MonoBehaviour
     }
     isColidingWithSomething = true;
     _col2D = col2D;
-    if (col2D.gameObject.tag == "PlayerCharacter" && BBB.invincibilityCooldownCurrent <= 0 && BBB.canAttack && !PIS.isDead)
+
+    bool isPlayerCharacter = col2D.gameObject.tag == "PlayerCharacter";
+    bool isNotInInvincibilityAnim = BBB.invincibilityCooldownCurrent <= 0;
+
+    if (isPlayerCharacter && isNotInInvincibilityAnim && BBB.canAttack && !PIS.isDead)
     {
       // Debug.Log("Player Collision!");
       BBB.isInFootsiesRange = true;
