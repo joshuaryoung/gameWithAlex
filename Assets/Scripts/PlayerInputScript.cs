@@ -118,6 +118,7 @@ public class PlayerInputScript : MonoBehaviour
     public bool isWallClimbing;
     public bool isWallSliding;
     public bool isWallJumping;
+    public bool hasReleasedWall;
     public bool isLedgeVaulting;
     public float wallJumpMinXAxisCooldownMax;
     public float wallJumpMinXAxisCooldownCurrent;
@@ -178,6 +179,7 @@ public class PlayerInputScript : MonoBehaviour
         if (CVO == null) {
             CVO = FindObjectOfType<CurrentlyVisableObjects>();
         }
+        hasReleasedWall = true;
     }
 
     // Update is called once per frame
@@ -376,6 +378,7 @@ public class PlayerInputScript : MonoBehaviour
             {
                 RB2D.gravityScale = RBgravityScale;
                 isWallClimbing = false;
+                hasReleasedWall = true;
                 wallJumpMinXAxisCooldownCurrent = 0;
             }
 
@@ -447,8 +450,14 @@ public class PlayerInputScript : MonoBehaviour
 
     void movePlayer()
     {
+        bool isFacingTheDirectionPressed = transform.localScale.x * controllerAxisX > 0;
+        if (isWallClimbing && !isFacingTheDirectionPressed) {
+            isWallClimbing = false;
+            anim.SetBool("isWallClimbing", false);
+            anim.SetBool("isFalling", true);
+        } 
         //If direction pushed == direction facing right, then move that way
-        if ((transform.localScale.x * controllerAxisX > 0 || CVO.isLockedOn) && !blockPressed)
+        if ((isFacingTheDirectionPressed || CVO.isLockedOn) && !blockPressed)
         {
             if (isWalking && !isCrouching && wallJumpMinXAxisCooldownCurrent <= 0)
             {
@@ -466,15 +475,16 @@ public class PlayerInputScript : MonoBehaviour
         }
         else
         {
-            if (!blockPressed && !CVO.isLockedOn)
+            if (!blockPressed && !CVO.isLockedOn) {
                 flipPlayer();
+            }
             if (blockPressed && isGrounded)
             {
-                if (transform.localScale.x * controllerAxisX < 0 && dashReleased) {
+                if (!isFacingTheDirectionPressed && dashReleased) {
                     isBackDashing = true;
                     dashReleased = false;
                     RB2D.velocity = new Vector2(-transform.localScale.x * backDashVelocity, RB2D.velocity.y);
-                } else if (transform.localScale.x * controllerAxisX > 0 && dashReleased) {
+                } else if (isFacingTheDirectionPressed && dashReleased) {
                     isForwardDashing = true;
                     dashReleased = false;
                     RB2D.velocity = new Vector2(transform.localScale.x * forwardDashVelocity, RB2D.velocity.y);
@@ -501,6 +511,7 @@ public class PlayerInputScript : MonoBehaviour
         {
             RB2D.velocity = new Vector2(RB2D.velocity.x, jumpForce);
             isWallClimbing = false;
+            hasReleasedWall = true;
             freeFallAvailable = true;
         }
         else
@@ -510,6 +521,7 @@ public class PlayerInputScript : MonoBehaviour
             freeFallAvailable = false;
             RB2D.velocity = new Vector2(wallJumpVelocity * (transform.localScale.x * -1), jumpForce);
             isWallClimbing = false;
+            hasReleasedWall = true;
         }
         //set cooldown
 

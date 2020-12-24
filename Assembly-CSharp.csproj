@@ -57,6 +57,10 @@
      <Compile Include="Assets\Scripts\BigboyBehavior.cs" />
      <Compile Include="Assets\Scripts\playerAnimationEvents.cs" />
      <Compile Include="Assets\CurrentlyVisableObjects.cs" />
+     <Compile Include="Assets\Scripts\witchAttackDistance.cs" />
+     <Compile Include="Assets\Scripts\WitchBehavior.cs" />
+     <Compile Include="Assets\Scripts\witchAIBlockerScript.cs" />
+     <Compile Include="Assets\Scripts\WitchPlayerDetection.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

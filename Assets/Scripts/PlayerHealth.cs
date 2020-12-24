@@ -101,7 +101,7 @@ public class PlayerHealth : MonoBehaviour
     PIS.attackHasAlreadyHit = false;
 
     pushBack(pushBackValue);
-    if (invincibilityCooldownCurrent <= 0 && !PIS.blockPressed)
+    if (invincibilityCooldownCurrent <= 0 && (!PIS.blockPressed || !PIS.isGrounded))
     {
       audioSrc.clip = impactSoundEffect;
       audioSrc.Play();
@@ -120,6 +120,7 @@ public class PlayerHealth : MonoBehaviour
         PIS.isAbleToAct = true;
         PIS.isForwardDashing = false;
         PIS.isBackDashing = false;
+        PIS.hasReleasedWall = true;
         hitSparkAnimator.SetBool("isActive", true);
         animator.SetBool("isReeling", true);
         animator.SetBool("isBlockingAnAttack", false);
@@ -132,7 +133,7 @@ public class PlayerHealth : MonoBehaviour
         animator.SetBool("isForwardDashing", false);
       }
     }
-    else if (invincibilityCooldownCurrent <= 0 && PIS.blockPressed)
+    else if (invincibilityCooldownCurrent <= 0 && PIS.blockPressed && PIS.isGrounded)
     {
       audioSrc.clip = blockSoundEffect;
       audioSrc.Play();
