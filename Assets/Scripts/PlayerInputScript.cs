@@ -248,7 +248,7 @@ public class PlayerInputScript : MonoBehaviour
         jumpPressed = Input.GetKeyDown(jumpKeyCode);
         jumpReleased = Input.GetKeyUp(jumpKeyCode);
 
-        if (CVO.isLockedOn) {
+        if (CVO.isLockedOn && !isWallClimbing) {
             // Check: is player facing enemy?
             bool playerFacingEnemy = (gameObject.transform.localPosition.x - CVO.lockedOnEnemyObj.transform.localPosition.x) * gameObject.transform.localScale.x < 0;
             if (!playerFacingEnemy) {
@@ -337,23 +337,32 @@ public class PlayerInputScript : MonoBehaviour
 
             anim.SetBool("isCrouching", isCrouching);
             anim.SetBool("isPunching", (punchPressed && !uppercutPressed && !grabPressed));
-            if (punchPressed && !uppercutPressed && !grabPressed)
+            if (punchPressed && !uppercutPressed && !grabPressed && isGrounded)
             {
                 anim.Play("Punch", 0, 0.0f);
                 playSoundEffect(punchSoundEffect);
             }
-            if (uppercutPressed && !grabPressed)
+            if (!isGrounded && !isWallClimbing && punchPressed && !blockPressed) {
+                playSoundEffect(punchSoundEffect);
+            }
+            if (!isGrounded && !isWallClimbing && kickPressed && !blockPressed) {
+                playSoundEffect(kickSoundEffect);
+            }
+            if (uppercutPressed && !grabPressed && isGrounded)
             {
                 anim.Play("Uppercut", 0, 0.0f);
                 playSoundEffect(punchSoundEffect);
             }
             anim.SetBool("isKicking", (kickPressed && !sweepPressed && !grabPressed));
-            if (kickPressed && !sweepPressed && !grabPressed)
+            if (kickPressed && !sweepPressed && !grabPressed && isGrounded)
             {
                 anim.Play("Kick", 0, 0.0f);
                 playSoundEffect(kickSoundEffect);
             }
             anim.SetBool("isSweeping", sweepPressed);
+            if (sweepPressed && isGrounded && !blockPressed) {
+                playSoundEffect(kickSoundEffect);
+            }
             anim.SetBool("isUppercutting", uppercutPressed);
             anim.SetBool("isGrabbing", grabPressed);
 
