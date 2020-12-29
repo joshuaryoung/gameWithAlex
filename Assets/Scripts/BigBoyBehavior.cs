@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class acolyteBehavior : MonoBehaviour
+public class BigboyBehavior : MonoBehaviour
 {
   //Raycast class;
   Collider2D hit;
@@ -20,20 +20,19 @@ public class acolyteBehavior : MonoBehaviour
   public SpriteRenderer spriteR;
   public Color spriteColor;
   public Collider2D punchHitBox;
-  public Collider2D headbuttHitBox;
+  public Collider2D heavyPunchHitBox;
   public int punchDamageValue;
-  public int headbuttDamageValue;
   public float punchPushbackOnHit;
-  public float punchReelLength;
-  public float headbuttPushbackOnHit;
   public float punchPushbackOnBlock;
-  public float headbuttPushbackOnBlock;
-  public float headbuttReelLength;
+  public float punchReelLength;
+  public int heavyPunchDamageValue;
+  public float heavyPunchPushbackOnHit;
+  public float heavyPunchPushbackOnBlock;
+  public float heavyPunchReelLength;
   public bool canAttack;
-  Animator acolyteAnim;
+  Animator bigboyAnim;
   public Animator hitSparkAnimator;
   public float currentReelLengthCooldown;
-  public float pushBackDistance;
   public bool infiniteHealth;
   public bool isInFootsiesRange;
   public bool isNotInAnimation;
@@ -57,7 +56,7 @@ public class acolyteBehavior : MonoBehaviour
   public float flipCoolDown = 0;
   public float flipCoolDownMax;
   public Collider2D lowerHurtbox;
-  public AIBlockerScript AIBS;
+  public BigboyAIBlockerScript BBAIBS;
   public bool isBeingGrabbed = false;
   public bool attackHasAlreadyHit = false;
   public CurrentlyVisableObjects CVO;
@@ -65,22 +64,24 @@ public class acolyteBehavior : MonoBehaviour
   public bool isDying = false;
 
   // Use this for initialization
+  
   void Start()
   {
     PIS = GameObject.Find("PlayerCharacter").GetComponent<PlayerInputScript>();
     currentHealth = startHealth;
     spriteR = GetComponent<SpriteRenderer>();
-    acolyteAnim = GetComponent<Animator>();
+    bigboyAnim = GetComponent<Animator>();
     spriteColor = spriteR.color;
     invincibilityCooldownCurrent = 0;
     RB2D = GetComponent<Rigidbody2D>();
     audioSrc = GetComponentInParent<AudioSource>();
-    if (AIBS == null) {
-      AIBS = GetComponentInChildren<AIBlockerScript>();
+    if (BBAIBS == null) {
+      BBAIBS = GetComponentInChildren<BigboyAIBlockerScript>();
     }
     if (CVO == null) {
       CVO = FindObjectOfType<CurrentlyVisableObjects>();
     }
+    canAttack = true;
   }
 
   // Update is called once per frame
@@ -99,10 +100,15 @@ public class acolyteBehavior : MonoBehaviour
         Debug.LogError("CVO script not assigned!");
         return;
     }
+    if (BBAIBS == null)
+    {
+        Debug.LogError("BBAIBS script not assigned!");
+        return;
+    }
     if (isDead || isDying) {
       return;
     }
-    isNotInAnimation = acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeavyPunching") == false && !isBeingGrabbed;
+    isNotInAnimation = bigboyAnim.GetBool("isReeling") == false && bigboyAnim.GetBool("isLightPunching") == false && bigboyAnim.GetBool("isHeavyPunching") == false && !isBeingGrabbed;
 
     // Is Visible to camera?
     if (spriteR.isVisible) {
@@ -111,7 +117,7 @@ public class acolyteBehavior : MonoBehaviour
       CVO.removeObject(gameObject);
     }
     // Footsies Stuff
-    if ((isInFootsiesRange || bobAndWeaveRNG != 0) && isNotInAnimation && !AIBS.isCollidingWithAIBlocker)
+    if ((isInFootsiesRange || bobAndWeaveRNG != 0) && isNotInAnimation && !BBAIBS.isCollidingWithAIBlocker)
     {
       if (bobAndWeaveRNG == 0)
       {
@@ -122,7 +128,7 @@ public class acolyteBehavior : MonoBehaviour
       if (attackDecisionRNG >= lightPunchRNGMin && attackDecisionRNG <= lightPunchRNGMax && canAttack)
       {
         canAttack = false;
-        acolyteAnim.SetBool("isLightPunching", true);
+        bigboyAnim.SetBool("isLightPunching", true);
         audioSrc.clip = punchSoundEffect;
         audioSrc.enabled = true;
         audioSrc.Play();
@@ -130,7 +136,7 @@ public class acolyteBehavior : MonoBehaviour
       else if (attackDecisionRNG >= heavyPunchRNGMin && attackDecisionRNG <= heavyPunchRNGMax && canAttack)
       {
         canAttack = false;
-        acolyteAnim.SetBool("isHeavyPunching", true);
+        bigboyAnim.SetBool("isHeavyPunching", true);
         audioSrc.clip = punchSoundEffect;
         audioSrc.enabled = true;
         audioSrc.Play();
@@ -171,8 +177,8 @@ public class acolyteBehavior : MonoBehaviour
     {
       if (canAttack)
       {
-        acolyteAnim.SetBool("isLightPunching", false);
-        acolyteAnim.SetBool("isHeavyPunching", false);
+        bigboyAnim.SetBool("isLightPunching", false);
+        bigboyAnim.SetBool("isHeavyPunching", false);
       }
     }
 
@@ -193,6 +199,7 @@ public class acolyteBehavior : MonoBehaviour
       invincibilityCooldownCurrent -= Time.deltaTime;
       if (invincibilityCooldownCurrent <= 0)
       {
+        canAttack = true;
         spriteColor.a = (float)255;
         spriteR.color = spriteColor;
       }
@@ -205,8 +212,8 @@ public class acolyteBehavior : MonoBehaviour
 
   void disableIsPunching()
   {
-    acolyteAnim.SetBool("isLightPunching", false);
-    acolyteAnim.SetBool("isHeavyPunching", false);
+    bigboyAnim.SetBool("isLightPunching", false);
+    bigboyAnim.SetBool("isHeavyPunching", false);
   }
 
   void resetAttackHasAlreadyHit() {
@@ -230,7 +237,7 @@ public class acolyteBehavior : MonoBehaviour
       return;
     }
     //hitbox stuff
-    Collider2D[] cols = Physics2D.OverlapBoxAll(punchHitBox.bounds.center, punchHitBox.bounds.size, 0f, LayerMask.GetMask("PlayerHurtbox"));
+    Collider2D[] cols = Physics2D.OverlapBoxAll(hitBox.bounds.center, hitBox.bounds.size, 0f, LayerMask.GetMask("Player"));
 
     if (cols.Length > 0)
     {
@@ -248,9 +255,13 @@ public class acolyteBehavior : MonoBehaviour
   {
     attack(punchHitBox, punchDamageValue, punchPushbackOnBlock, punchPushbackOnHit, punchReelLength);
   }
-  public void headbutt()
+  public void heavyPunch()
   {
-    attack(headbuttHitBox, headbuttDamageValue, headbuttPushbackOnBlock, headbuttPushbackOnHit, headbuttReelLength);
+    if (heavyPunchHitBox == null) {
+      Debug.LogError("heavyPunchHitBox is null!");
+      return;
+    }
+    attack(heavyPunchHitBox, heavyPunchDamageValue, heavyPunchPushbackOnBlock, heavyPunchPushbackOnHit, heavyPunchReelLength);
   }
 
   public void enemyTakeDamage(object[] args)
@@ -291,37 +302,37 @@ public class acolyteBehavior : MonoBehaviour
     currentReelLengthCooldown = reelLength;
     if (invincibilityCooldownCurrent <= 0)
     {
-      foreach (AnimatorControllerParameter parameter in acolyteAnim.parameters)
+      foreach (AnimatorControllerParameter parameter in bigboyAnim.parameters)
       {
-        acolyteAnim.SetBool(parameter.name, false);
+        bigboyAnim.SetBool(parameter.name, false);
       }
-      acolyteAnim.SetBool("isReeling", true);
-      acolyteAnim.Play("reel", 0, 0.0f);
+      bigboyAnim.SetBool("isReeling", true);
+      bigboyAnim.Play("reel", 0, 0.0f);
     }
   }
   public void grabStateEnter()
   {
     if (invincibilityCooldownCurrent <= 0)
     {
-      foreach (AnimatorControllerParameter parameter in acolyteAnim.parameters)
+      foreach (AnimatorControllerParameter parameter in bigboyAnim.parameters)
       {
-        acolyteAnim.SetBool(parameter.name, false);
+        bigboyAnim.SetBool(parameter.name, false);
       }
       isBeingGrabbed = true;
-      acolyteAnim.SetBool("isBeingGrabbed", true);
-      acolyteAnim.Play("BeingGrabbed", 0, 0.0f);
+      bigboyAnim.SetBool("isBeingGrabbed", true);
+      bigboyAnim.Play("BeingGrabbed", 0, 0.0f);
     }
   }
 
   public void reelStateExit()
   {
-    acolyteAnim.SetBool("isReeling", false);
+    bigboyAnim.SetBool("isReeling", false);
     invincibilityCooldownCurrent = invincibilityCooldownPeriod;
   }
   public void grabStateExit()
   {
     isBeingGrabbed = false;
-    acolyteAnim.SetBool("isBeingGrabbed", false);
+    bigboyAnim.SetBool("isBeingGrabbed", false);
     invincibilityCooldownCurrent = invincibilityCooldownPeriod;
   }
 
@@ -329,15 +340,19 @@ public class acolyteBehavior : MonoBehaviour
   {
     CVO.removeObject(gameObject);
     isDying = true;
-    acolyteAnim.SetBool("isDying", true);
+    bigboyAnim.SetBool("isDying", true);
     // gameObject.SetActive(false);
   }
 
   public void setDeathVars() {
     isDead = true;
-    acolyteAnim.SetBool("isDead", true);
+    bigboyAnim.SetBool("isDead", true);
   }
 
+  public void setCanAttackFalse()
+  {
+    canAttack = false;
+  }
   public void resetCanAttack()
   {
     canAttack = true;
@@ -352,7 +367,7 @@ public class acolyteBehavior : MonoBehaviour
     /*if (hit.GetComponent<Collider>().tag == "Player") {
 			playerObject.GetComponent<PlayerHealth> ().playerTakeDamage (1);
 		}*/
-    isNotInAnimation = acolyteAnim.GetBool("isHeavyPunching") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isReeling") == false;
+    isNotInAnimation = bigboyAnim.GetBool("isHeavyPunching") == false && bigboyAnim.GetBool("isLightPunching") == false && bigboyAnim.GetBool("isReeling") == false;
     float collisionTop = col2D.transform.position.y + col2D.collider.bounds.extents.y;
     float characterBottom = transform.position.y - lowerHurtbox.bounds.extents.y;
     bool isWall = col2D.gameObject.layer == LayerMask.NameToLayer("Wall");

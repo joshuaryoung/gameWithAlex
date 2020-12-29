@@ -14,6 +14,19 @@ public class playerWallCollisionCheck : MonoBehaviour {
 		wallCollider = GetComponent<Collider2D> ();
 	}
 
+	void initiateWallClimb(Collider2D col2D) {
+		bool isFacingWall = playerTransform.localScale.x * (col2D.transform.position.x - playerTransform.position.x) > 0;
+		if (PIS.hasReleasedWall) {
+			PIS.wallStickDurationCurrent = PIS.wallStickDurationMax;
+			PIS.hasReleasedWall = false;
+		}
+		RB2D.velocity = new Vector2 (RB2D.velocity.x, 0f);
+		if (!isFacingWall && !PIS.isWallClimbing) {
+			playerTransform.localScale = new Vector3(playerTransform.transform.localScale.x * -1, playerTransform.localScale.y, playerTransform.localScale.z);
+		}
+		PIS.isWallClimbing = true;
+	}
+
 	void OnTriggerExit2D(Collider2D col2D)
 	{
 		bool isWallHeight = col2D.bounds.extents.y + col2D.gameObject.transform.position.y > wallCollider.transform.position.y - wallCollider.bounds.extents.y;
@@ -21,29 +34,32 @@ public class playerWallCollisionCheck : MonoBehaviour {
 		bool isLedge = col2D.gameObject.layer == LayerMask.NameToLayer ("Ledge");
 		if (isWallHeight && isWall && !PIS.isGrounded) {
 			PIS.isWallClimbing = false;
+			PIS.hasReleasedWall = true;
 		}
 		if (isLedge) {
 			PIS.isLedgeVaulting = false;
+			PIS.hasReleasedWall = true;
 		}
 	}
 
 	void OnTriggerEnter2D(Collider2D col2D){
-		bool isWallHeight = col2D.bounds.extents.y + col2D.gameObject.transform.position.y > wallCollider.transform.position.y - wallCollider.bounds.extents.y;
-		bool isWall = col2D.gameObject.layer == LayerMask.NameToLayer ("Wall");
-		if (isWallHeight && isWall && !PIS.isGrounded) {
-			PIS.wallStickDurationCurrent = PIS.wallStickDurationMax;
-			RB2D.velocity = new Vector2 (RB2D.velocity.x, 0f);
-		}
+		// bool isWallHeight = col2D.bounds.extents.y + col2D.gameObject.transform.position.y > wallCollider.transform.position.y - wallCollider.bounds.extents.y;
+		// bool isWall = col2D.gameObject.layer == LayerMask.NameToLayer ("Wall");
+		// if (isWallHeight && isWall && !PIS.isGrounded && Mathf.Abs(PIS.controllerAxisX) > 0.5f) {
+		// }
 	}
 
 	void OnTriggerStay2D(Collider2D col2D)
 	{
+		if (playerTransform == null) {
+			Debug.LogError("playerTransform is null!");
+			return;
+		}
 		bool isWallHeight = col2D.bounds.extents.y + col2D.gameObject.transform.position.y > wallCollider.transform.position.y - wallCollider.bounds.extents.y;
 		bool isWall = col2D.gameObject.layer == LayerMask.NameToLayer ("Wall");
-		bool isFacingWall = PIS.controllerAxisX * (col2D.transform.position.x - playerTransform.position.x) > 0;
 		bool isLedge = col2D.gameObject.layer == LayerMask.NameToLayer ("Ledge");
-		if (isWallHeight && isWall && !PIS.isGrounded && !PIS.isLedgeVaulting && PIS.yVelo <= 0 && isFacingWall) {
-			PIS.isWallClimbing = true;
+		if (isWallHeight && isWall && !PIS.isGrounded && !PIS.isLedgeVaulting && PIS.yVelo <= 0 && Mathf.Abs(PIS.controllerAxisX) > 0.5f) {
+			initiateWallClimb(col2D);
 		}
 		if (isWallHeight && isLedge) {
 			PIS.isLedgeVaulting = true;

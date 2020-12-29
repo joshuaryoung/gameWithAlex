@@ -12,8 +12,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyPlayerDetection : MonoBehaviour {
-	public acolyteBehavior AB;
+public class WitchPlayerDetection : MonoBehaviour {
+	public WitchBehavior WB;
 	public Animator anim;
 	public bool playerDetected;
 	public LayerMask playerLayer;
@@ -29,13 +29,13 @@ public class enemyPlayerDetection : MonoBehaviour {
 	public GameObject parentGameObj;
 	public Transform parentGameObjTrans;
 	public float distanceFlipCalc;
-  	public AIBlockerScript AIBS;
+  	public witchAIBlockerScript WAIBS;
 
 	// Use this for initialization
 	void Start () {
 		thisColl2D = gameObject.GetComponent<Collider2D>();
-		if (AB == null) {
-			AB = GetComponentInParent<acolyteBehavior>();
+		if (WB == null) {
+			WB = GetComponentInParent<WitchBehavior>();
 		}
 	}
 
@@ -58,7 +58,7 @@ public class enemyPlayerDetection : MonoBehaviour {
 	}
 
 	void OnTriggerCommonRoutines(Collider2D col2D) {
-		if (AIBS == null) {
+		if (WAIBS == null) {
 			Debug.LogError("AIBlockerScript is null!");
 			return;
 		}
@@ -70,7 +70,7 @@ public class enemyPlayerDetection : MonoBehaviour {
 			currentColDistance = upperHurtboxColBounds.x - currentColPos.x;
 			distanceFlipCalc = currentColDistance * thisGameObjLocalScale.x * -1;
 			
-			if(distanceFlipCalc < 0 && !AIBS.isCollidingWithAIBlocker && AB.flipCoolDown <= 0) {
+			if(distanceFlipCalc < 0 && !WAIBS.isCollidingWithAIBlocker && WB.flipCoolDown <= 0) {
 				gameObject.SendMessageUpwards("flip");
 			}
 		}

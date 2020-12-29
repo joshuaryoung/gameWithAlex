@@ -12,12 +12,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class acolyteAttackDistance : MonoBehaviour
+public class witchAttackDistance : MonoBehaviour
 {
   public GameObject playerGameObject;
   public GameObject enemyGameObject;
   public Collider2D _col2D;
-  public acolyteBehavior AB;
+  public WitchBehavior WB;
   public PlayerInputScript PIS;
   public Animator anim;
   public bool isColidingWithSomething;
@@ -36,20 +36,9 @@ public class acolyteAttackDistance : MonoBehaviour
     }
   }
 
-  // void OnTriggerEnter2D(Collider2D col2D)
-  // {
-  //   isColidingWithSomething = true;
-  //   _col2D = col2D;
-  //   if (col2D.gameObject.tag == "PlayerCharacter" && AB.invincibilityCooldownCurrent <= 0 && AB.canAttack && !PIS.isDead)
-  //   {
-  //     Debug.Log("Player Collision!");
-  //     AB.isInFootsiesRange = true;
-  //   }
-  // }
-
   void OnTriggerStay2D (Collider2D col2D) {
-    if (AB == null) {
-      Debug.LogError("AB is null!");
+    if (WB == null) {
+      Debug.LogError("WB is null!");
       return;
     }
     if (PIS == null) {
@@ -58,25 +47,28 @@ public class acolyteAttackDistance : MonoBehaviour
     }
     isColidingWithSomething = true;
     _col2D = col2D;
-    if (col2D.gameObject.tag == "PlayerCharacter" && AB.invincibilityCooldownCurrent <= 0 && AB.canAttack && !PIS.isDead)
+
+    bool isPlayerCharacter = col2D.gameObject.tag == "PlayerCharacter";
+    bool isNotInInvincibilityAnim = WB.invincibilityCooldownCurrent <= 0;
+
+    if (isPlayerCharacter && isNotInInvincibilityAnim && WB.canAttack && !PIS.isDead)
     {
       // Debug.Log("Player Collision!");
-      AB.isInFootsiesRange = true;
+      WB.isInFootsiesRange = true;
     }
   }
 
   void OnTriggerExit2D(Collider2D col2D)
   {
-    if (AB == null) {
-      Debug.LogError("AB is null!");
+    if (WB == null) {
+      Debug.LogError("WB is null!");
       return;
     }
     isColidingWithSomething = false;
     _col2D = null;
     if (col2D.gameObject.tag == "PlayerCharacter")
     {
-      AB.isInFootsiesRange = false;
-      // anim.SetBool ("isPunching", false);
+      WB.isInFootsiesRange = false;
     }
   }
 }

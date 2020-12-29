@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4612835406874000}
-  - component: {fileID: 114011634407126842}
+  - component: {fileID: 8661806925557398270}
   - component: {fileID: 212857715412243474}
   - component: {fileID: 50499672408396796}
   - component: {fileID: 95403900325448564}
@@ -45,7 +45,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114011634407126842
+--- !u!114 &8661806925557398270
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,28 +54,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 1186461640105926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75029784f7a9a4444b2fede220ac1fb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f0fc564c9cb70a4c930d5a4f70fcc25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 1587651397913248, guid: 117785b7cd429d342af78d659adcd96b,
     type: 3}
   startHealth: 8
-  currentHealth: 8
+  currentHealth: 0
   invincibilityCooldownPeriod: 0
   invincibilityCooldownCurrent: 0
   invincibilityCooldownFlash: 0
   enemyHorizontalSpeed: 4.5
   spriteR: {fileID: 212857715412243474}
-  spriteColor: {r: 1, g: 1, b: 1, a: 1}
-  punchHitBox: {fileID: 58312095405789320}
-  punchDamageValue: 1
-  punchPushbackOnHit: 2.31
-  punchPushbackOnBlock: 1.45
+  spriteColor: {r: 0, g: 0, b: 0, a: 0}
+  slashHitBox: {fileID: 58312095405789320}
+  heavyPunchHitBox: {fileID: 0}
+  slashDamageValue: 1
+  slashPushbackOnHit: 0
+  slashPushbackOnBlock: 2.31
+  slashReelLength: 0.4
+  heavyPunchDamageValue: 0
+  heavyPunchPushbackOnHit: 0
+  heavyPunchPushbackOnBlock: 0
+  heavyPunchReelLength: 0
   canAttack: 1
   hitSparkAnimator: {fileID: 3034471355560115620}
   currentReelLengthCooldown: 0
-  pushBackDistance: 3
-  punchReelLength: 0.4
   infiniteHealth: 0
   isInFootsiesRange: 0
   isNotInAnimation: 0
@@ -87,19 +91,19 @@ MonoBehaviour:
   bobAndWeaveDeadZoneMax: 0
   attackDecisionRNGMin: 1
   attackDecisionRNGMax: 254
-  lightPunchRNGMin: 1
-  lightPunchRNGMax: 15
+  slashRNGMin: 1
+  slashRNGMax: 15
   heavyPunchRNGMin: 255
   heavyPunchRNGMax: 255
   bobAndWeaveRNGDecisionMin: 20
   bobAndWeaveRNGDecisionMax: 80
   actualMoveDistance: 0
   audioSrc: {fileID: 0}
-  punchSoundEffect: {fileID: 8300000, guid: 0c7cc4d9504c947418f93cf12213c4c2, type: 3}
+  slashSoundEffect: {fileID: 8300000, guid: 0c7cc4d9504c947418f93cf12213c4c2, type: 3}
   flipCoolDown: 0
   flipCoolDownMax: 0.38
   lowerHurtbox: {fileID: 523051667151902992}
-  AIBS: {fileID: 0}
+  WAIBS: {fileID: 2387456136599492055}
   isBeingGrabbed: 0
   attackHasAlreadyHit: 0
   CVO: {fileID: 0}
@@ -303,7 +307,7 @@ GameObject:
   - component: {fileID: 4102394978497550}
   - component: {fileID: 58312095405789320}
   m_Layer: 12
-  m_Name: punchHitbox
+  m_Name: slashHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -349,7 +353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4294627304714502}
   - component: {fileID: 61385600487667074}
-  - component: {fileID: 114313281030698670}
+  - component: {fileID: 4865944186443949057}
   m_Layer: 2
   m_Name: attackDistance
   m_TagString: Untagged
@@ -397,7 +401,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.69059706, y: 1.2440231}
   m_EdgeRadius: 0
---- !u!114 &114313281030698670
+--- !u!114 &4865944186443949057
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -406,13 +410,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1472227797893740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eccdea33e3340ca47b1afa2ffa8c2691, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f3953258e60acc4dbbaa026ca9307ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerGameObject: {fileID: 0}
   enemyGameObject: {fileID: 0}
-  collider2D: {fileID: 0}
-  AB: {fileID: 114011634407126842}
+  _col2D: {fileID: 0}
+  WB: {fileID: 8661806925557398270}
   PIS: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
   anim: {fileID: 95403900325448564}
   isColidingWithSomething: 0
@@ -906,7 +910,7 @@ GameObject:
   - component: {fileID: 3781419756910085369}
   - component: {fileID: 6772519350228720008}
   - component: {fileID: 2171315821765569997}
-  - component: {fileID: 8417154536944675901}
+  - component: {fileID: 2387456136599492055}
   m_Layer: 10
   m_Name: AIBlockerCollisionbox
   m_TagString: Untagged
@@ -970,7 +974,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 0.98}
   m_EdgeRadius: 0
---- !u!114 &8417154536944675901
+--- !u!114 &2387456136599492055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -979,12 +983,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5124782898448055822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a2ee19be7044fb40a0370501adea512, type: 3}
+  m_Script: {fileID: 11500000, guid: fb88970d66e4cbe4b901ea7b3784dac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acolyteAnim: {fileID: 95403900325448564}
+  witchAnim: {fileID: 95403900325448564}
   parentTransform: {fileID: 4612835406874000}
-  AB: {fileID: 114011634407126842}
+  WB: {fileID: 8661806925557398270}
   isCollidingWithAIBlocker: 0
 --- !u!1 &5571457018190419073
 GameObject:
@@ -996,7 +1000,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8916181005389259164}
   - component: {fileID: 2884619901221265368}
-  - component: {fileID: 5938491454887205459}
+  - component: {fileID: 7152296313388285540}
   m_Layer: 12
   m_Name: playerDetectionCollider
   m_TagString: Untagged
@@ -1044,7 +1048,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2369294, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5938491454887205459
+--- !u!114 &7152296313388285540
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1053,10 +1057,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5571457018190419073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 710af5343eeae47e792b5426b37f2143, type: 3}
+  m_Script: {fileID: 11500000, guid: c908f08737a88634fb57fc08ef571bc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AB: {fileID: 0}
+  WB: {fileID: 0}
   anim: {fileID: 0}
   playerDetected: 0
   playerLayer:
@@ -1074,4 +1078,4 @@ MonoBehaviour:
   parentGameObj: {fileID: 1186461640105926}
   parentGameObjTrans: {fileID: 4612835406874000}
   distanceFlipCalc: 0
-  AIBS: {fileID: 8417154536944675901}
+  WAIBS: {fileID: 2387456136599492055}

@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1102 &-7548514560835656649
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -53,7 +53,7 @@ AnimatorStateTransition:
   m_CanTransitionToSelf: 0
 --- !u!1102 &-1658056876978913607
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -117,7 +117,7 @@ AnimatorController:
   m_Name: Witch
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: isLightPunching
+  - m_Name: isSlashing
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -175,7 +175,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isLightPunching
+    m_ConditionEvent: isSlashing
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isReeling
@@ -215,7 +215,7 @@ AnimatorStateTransition:
     m_ConditionEvent: isReeling
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: isLightPunching
+    m_ConditionEvent: isSlashing
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isBeingGrabbed
@@ -249,7 +249,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: isLightPunching
+    m_ConditionEvent: isSlashing
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isReeling
@@ -279,7 +279,7 @@ AnimatorStateTransition:
   m_CanTransitionToSelf: 0
 --- !u!1102 &1102070949413760318
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -305,7 +305,7 @@ AnimatorState:
   m_TimeParameter: 
 --- !u!1102 &1102365378613403972
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -331,12 +331,12 @@ AnimatorState:
   m_TimeParameter: 
 --- !u!1102 &1102926035367810332
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: acolytePunch
+  m_Name: slash
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -357,7 +357,7 @@ AnimatorState:
   m_TimeParameter: 
 --- !u!1107 &1107245152710029012
 AnimatorStateMachine:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -400,7 +400,7 @@ AnimatorStateMachine:
   m_DefaultState: {fileID: 1102365378613403972}
 --- !u!1102 &4777899144793575760
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
