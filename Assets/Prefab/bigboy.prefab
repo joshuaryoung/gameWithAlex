@@ -726,9 +726,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c7551d2986fe04f9dd894e8eea794e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acolyteAnim: {fileID: 95403900325448564}
-  parentTransform: {fileID: 4612835406874000}
-  BBB: {fileID: 4143573283847474267}
+  bigBoyAnim: {fileID: 0}
+  parentTransform: {fileID: 0}
+  BBB: {fileID: 0}
   isCollidingWithAIBlocker: 0
 --- !u!1 &3149539633743059270
 GameObject:

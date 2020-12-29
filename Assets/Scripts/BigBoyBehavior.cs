@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class BigboyBehavior : MonoBehaviour
+public class BigBoyBehavior : MonoBehaviour
 {
   //Raycast class;
   Collider2D hit;
@@ -56,7 +56,7 @@ public class BigboyBehavior : MonoBehaviour
   public float flipCoolDown = 0;
   public float flipCoolDownMax;
   public Collider2D lowerHurtbox;
-  public BigboyAIBlockerScript BBAIBS;
+  public BigBoyAIBlockerScript BBAIBS;
   public bool isBeingGrabbed = false;
   public bool attackHasAlreadyHit = false;
   public CurrentlyVisableObjects CVO;
@@ -76,7 +76,7 @@ public class BigboyBehavior : MonoBehaviour
     RB2D = GetComponent<Rigidbody2D>();
     audioSrc = GetComponentInParent<AudioSource>();
     if (BBAIBS == null) {
-      BBAIBS = GetComponentInChildren<BigboyAIBlockerScript>();
+      BBAIBS = GetComponentInChildren<BigBoyAIBlockerScript>();
     }
     if (CVO == null) {
       CVO = FindObjectOfType<CurrentlyVisableObjects>();

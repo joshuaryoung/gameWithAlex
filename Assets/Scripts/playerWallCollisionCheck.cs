@@ -58,7 +58,7 @@ public class playerWallCollisionCheck : MonoBehaviour {
 		bool isWallHeight = col2D.bounds.extents.y + col2D.gameObject.transform.position.y > wallCollider.transform.position.y - wallCollider.bounds.extents.y;
 		bool isWall = col2D.gameObject.layer == LayerMask.NameToLayer ("Wall");
 		bool isLedge = col2D.gameObject.layer == LayerMask.NameToLayer ("Ledge");
-		if (isWallHeight && isWall && !PIS.isGrounded && !PIS.isLedgeVaulting && PIS.yVelo <= 0 && Mathf.Abs(PIS.controllerAxisX) > 0.5f) {
+		if (isWallHeight && isWall && !PIS.isGrounded && !PIS.isLedgeVaulting && Mathf.Abs(PIS.controllerAxisX) > 0.5f) {
 			initiateWallClimb(col2D);
 		}
 		if (isWallHeight && isLedge) {

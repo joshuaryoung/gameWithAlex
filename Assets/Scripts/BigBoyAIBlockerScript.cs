@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BigboyAIBlockerScript : MonoBehaviour
+public class BigBoyAIBlockerScript : MonoBehaviour
 {
   public Animator bigBoyAnim;
   public Transform parentTransform;
-  public BigboyBehavior BBB;
+  public BigBoyBehavior BBB;
   public bool isCollidingWithAIBlocker;
 
   void Start() {
@@ -17,7 +17,7 @@ public class BigboyAIBlockerScript : MonoBehaviour
       parentTransform = GetComponentInParent<Transform>();
     }
     if (BBB == null) {
-      BBB = GetComponentInParent<BigboyBehavior>();
+      BBB = GetComponentInParent<BigBoyBehavior>();
       Debug.Log("");
     }
   }

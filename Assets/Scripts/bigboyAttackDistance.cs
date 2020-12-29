@@ -17,7 +17,7 @@ public class bigboyAttackDistance : MonoBehaviour
   public GameObject playerGameObject;
   public GameObject enemyGameObject;
   public Collider2D _col2D;
-  public BigboyBehavior BBB;
+  public BigBoyBehavior BBB;
   public PlayerInputScript PIS;
   public Animator anim;
   public bool isColidingWithSomething;

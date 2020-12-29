@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BigboyPlayerDetection : MonoBehaviour {
-	public BigboyBehavior BBB;
+	public BigBoyBehavior BBB;
 	public Animator anim;
 	public bool playerDetected;
 	public LayerMask playerLayer;
@@ -29,13 +29,13 @@ public class BigboyPlayerDetection : MonoBehaviour {
 	public GameObject parentGameObj;
 	public Transform parentGameObjTrans;
 	public float distanceFlipCalc;
-  	public BigboyAIBlockerScript BBAIBS;
+  	public BigBoyAIBlockerScript BBAIBS;
 
 	// Use this for initialization
 	void Start () {
 		thisColl2D = gameObject.GetComponent<Collider2D>();
 		if (BBB == null) {
-			BBB = GetComponentInParent<BigboyBehavior>();
+			BBB = GetComponentInParent<BigBoyBehavior>();
 		}
 	}
 
@@ -59,7 +59,7 @@ public class BigboyPlayerDetection : MonoBehaviour {
 
 	void OnTriggerCommonRoutines(Collider2D col2D) {
 		if (BBAIBS == null) {
-			Debug.LogError("AIBlockerScript is null!");
+			Debug.LogError("BBAIBS is null!");
 			return;
 		}
 		playerDetected = col2D.gameObject.layer == LayerMask.NameToLayer("Player");

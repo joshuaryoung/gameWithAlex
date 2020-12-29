@@ -41,26 +41,26 @@
      <Compile Include="Assets\Scripts\playerWallCollisionCheck.cs" />
      <Compile Include="Assets\Scripts\HitStop.cs" />
      <Compile Include="Assets\Scripts\PlayerInputScript.cs" />
+     <Compile Include="Assets\Scripts\witchAttackDistance.cs" />
      <Compile Include="Assets\Scripts\acolyteAttackDistance.cs" />
      <Compile Include="Assets\Scripts\SettingsScript.cs" />
+     <Compile Include="Assets\Scripts\witchAIBlockerScript.cs" />
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\BigboyPlayerDetection.cs" />
      <Compile Include="Assets\Scripts\cameraFollow.cs" />
      <Compile Include="Assets\Scripts\animationEvent.cs" />
-     <Compile Include="Assets\Scripts\BigboyAIBlockerScript.cs" />
+     <Compile Include="Assets\Scripts\WitchBehavior.cs" />
+     <Compile Include="Assets\Scripts\BigBoyAIBlockerScript.cs" />
+     <Compile Include="Assets\Scripts\WitchPlayerDetection.cs" />
      <Compile Include="Assets\Scripts\UIscript.cs" />
      <Compile Include="Assets\Scripts\BackgroundScroll.cs" />
      <Compile Include="Assets\Scripts\acolytePlayerDetection.cs" />
      <Compile Include="Assets\Scripts\bigboyAttackDistance.cs" />
      <Compile Include="Assets\Scripts\acolyteBehavior.cs" />
      <Compile Include="Assets\Scripts\ReloadOnButton.cs" />
-     <Compile Include="Assets\Scripts\BigboyBehavior.cs" />
+     <Compile Include="Assets\Scripts\BigBoyBehavior.cs" />
      <Compile Include="Assets\Scripts\playerAnimationEvents.cs" />
      <Compile Include="Assets\CurrentlyVisableObjects.cs" />
-     <Compile Include="Assets\Scripts\witchAttackDistance.cs" />
-     <Compile Include="Assets\Scripts\WitchBehavior.cs" />
-     <Compile Include="Assets\Scripts\witchAIBlockerScript.cs" />
-     <Compile Include="Assets\Scripts\WitchPlayerDetection.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
