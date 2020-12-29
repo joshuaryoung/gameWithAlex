@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 10.161328, y: 1.8, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &581883080
 BoxCollider2D:
@@ -125,6 +125,7 @@ Transform:
   - {fileID: 4698233896438564}
   - {fileID: 4294627304714502}
   - {fileID: 4102394978497550}
+  - {fileID: 7719782239575027807}
   - {fileID: 581883079}
   - {fileID: 525040263578983214}
   - {fileID: 5331432209199406503}
@@ -157,15 +158,20 @@ MonoBehaviour:
   spriteR: {fileID: 212857715412243474}
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   punchHitBox: {fileID: 58312095405789320}
-  headbuttHitBox: {fileID: 58312095405789320}
   punchDamageValue: 1
-  headbuttDamageValue: 2
-  punchPushbackOnHit: 2.97
   punchReelLength: 0.61
-  headbuttPushbackOnHit: 7.65
+  punchPushbackOnHit: 2.97
   punchPushbackOnBlock: 1.61
-  headbuttPushbackOnBlock: 1.45
+  headbuttHitBox: {fileID: 58312095405789320}
+  headbuttDamageValue: 2
   headbuttReelLength: 0.94
+  headbuttPushbackOnHit: 7.65
+  headbuttPushbackOnBlock: 1.45
+  attack3HitBox: {fileID: 0}
+  attack3DamageValue: 3
+  attack3ReelLength: 1.02
+  attack3PushbackOnHit: 4.05
+  attack3PushbackOnBlock: 1.39
   canAttack: 1
   hitSparkAnimator: {fileID: 5263788996454897237}
   currentReelLengthCooldown: 0
@@ -183,9 +189,11 @@ MonoBehaviour:
   attackDecisionRNGMax: 255
   lightPunchRNGMin: 0
   lightPunchRNGMax: 2
-  heavyPunchRNGMin: 3
-  heavyPunchRNGMax: 4
-  bobAndWeaveRNGDecisionMin: 5
+  headbuttPunchRNGMin: 3
+  headbuttPunchRNGMax: 5
+  attack3RNGMin: 6
+  attack3RNGMax: 8
+  bobAndWeaveRNGDecisionMin: 9
   bobAndWeaveRNGDecisionMax: 15
   actualMoveDistance: 0
   audioSrc: {fileID: 0}
@@ -505,7 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerGameObject: {fileID: 0}
   enemyGameObject: {fileID: 0}
-  collider2D: {fileID: 0}
+  _col2D: {fileID: 0}
   AB: {fileID: 114011634407126842}
   PIS: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
   anim: {fileID: 95403900325448564}
@@ -653,7 +661,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1963836123843921860
 BoxCollider2D:
@@ -710,7 +718,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1186997071808004953
 BoxCollider2D:
@@ -738,6 +746,53 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &2151672130511012217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7719782239575027807}
+  - component: {fileID: 5345130513557998484}
+  m_Layer: 12
+  m_Name: attack3Hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7719782239575027807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151672130511012217}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.965, y: 0.877, z: 0}
+  m_LocalScale: {x: 1, y: 0, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4612835406874000}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &5345130513557998484
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151672130511012217}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.19, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.34
 --- !u!1 &2161071759686440939
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,7 +823,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2931236136721788344
 SpriteRenderer:
@@ -870,7 +925,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3309789254849776009
 BoxCollider2D:
@@ -946,7 +1001,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6315779722685617940
 MonoBehaviour:

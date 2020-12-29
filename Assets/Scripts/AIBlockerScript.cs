@@ -30,7 +30,7 @@ public class AIBlockerScript : MonoBehaviour
 
   void OnTriggerEnter2D(Collider2D col2D)
   {
-    bool isNotInAnimation = acolyteAnim.GetBool("isHeavyPunching") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isReeling") == false;
+    bool isNotInAnimation = acolyteAnim.GetBool("isHeadbutting") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isReeling") == false;
     bool isAIBlocker = col2D.gameObject.layer == LayerMask.NameToLayer("AIBlocker");
     bool isFacingTowardsWall = (col2D.gameObject.transform.localPosition.x - parentTransform.localPosition.x) * parentTransform.localScale.x > 0;
 

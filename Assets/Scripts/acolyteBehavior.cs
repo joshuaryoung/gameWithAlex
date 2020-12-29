@@ -20,15 +20,20 @@ public class acolyteBehavior : MonoBehaviour
   public SpriteRenderer spriteR;
   public Color spriteColor;
   public Collider2D punchHitBox;
-  public Collider2D headbuttHitBox;
   public int punchDamageValue;
-  public int headbuttDamageValue;
-  public float punchPushbackOnHit;
   public float punchReelLength;
-  public float headbuttPushbackOnHit;
+  public float punchPushbackOnHit;
   public float punchPushbackOnBlock;
-  public float headbuttPushbackOnBlock;
+  public Collider2D headbuttHitBox;
+  public int headbuttDamageValue;
   public float headbuttReelLength;
+  public float headbuttPushbackOnHit;
+  public float headbuttPushbackOnBlock;
+  public Collider2D attack3HitBox;
+  public int attack3DamageValue;
+  public float attack3ReelLength;
+  public float attack3PushbackOnHit;
+  public float attack3PushbackOnBlock;
   public bool canAttack;
   Animator acolyteAnim;
   public Animator hitSparkAnimator;
@@ -47,8 +52,10 @@ public class acolyteBehavior : MonoBehaviour
   public byte attackDecisionRNGMax;
   public byte lightPunchRNGMin;
   public byte lightPunchRNGMax;
-  public byte heavyPunchRNGMin;
-  public byte heavyPunchRNGMax;
+  public byte headbuttPunchRNGMin;
+  public byte headbuttPunchRNGMax;
+  public byte attack3RNGMin;
+  public byte attack3RNGMax;
   public byte bobAndWeaveRNGDecisionMin;
   public byte bobAndWeaveRNGDecisionMax;
   public float actualMoveDistance;
@@ -102,7 +109,7 @@ public class acolyteBehavior : MonoBehaviour
     if (isDead || isDying) {
       return;
     }
-    isNotInAnimation = acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeavyPunching") == false && !isBeingGrabbed;
+    isNotInAnimation = acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeadbutting") == false && !isBeingGrabbed;
 
     // Is Visible to camera?
     if (spriteR.isVisible) {
@@ -127,10 +134,18 @@ public class acolyteBehavior : MonoBehaviour
         audioSrc.enabled = true;
         audioSrc.Play();
       }
-      else if (attackDecisionRNG >= heavyPunchRNGMin && attackDecisionRNG <= heavyPunchRNGMax && canAttack)
+      else if (attackDecisionRNG >= headbuttPunchRNGMin && attackDecisionRNG <= headbuttPunchRNGMax && canAttack)
       {
         canAttack = false;
-        acolyteAnim.SetBool("isHeavyPunching", true);
+        acolyteAnim.SetBool("isHeadbutting", true);
+        audioSrc.clip = punchSoundEffect;
+        audioSrc.enabled = true;
+        audioSrc.Play();
+      }
+      else if (attackDecisionRNG >= attack3RNGMin && attackDecisionRNG <= attack3RNGMax && canAttack)
+      {
+        canAttack = false;
+        acolyteAnim.SetBool("isAttack3ing", true);
         audioSrc.clip = punchSoundEffect;
         audioSrc.enabled = true;
         audioSrc.Play();
@@ -172,7 +187,8 @@ public class acolyteBehavior : MonoBehaviour
       if (canAttack)
       {
         acolyteAnim.SetBool("isLightPunching", false);
-        acolyteAnim.SetBool("isHeavyPunching", false);
+        acolyteAnim.SetBool("isHeadbutting", false);
+        acolyteAnim.SetBool("isAttack3ing", false);
       }
     }
 
@@ -206,7 +222,8 @@ public class acolyteBehavior : MonoBehaviour
   void disableIsPunching()
   {
     acolyteAnim.SetBool("isLightPunching", false);
-    acolyteAnim.SetBool("isHeavyPunching", false);
+    acolyteAnim.SetBool("isHeadbutting", false);
+    acolyteAnim.SetBool("isAttack3ing", false);
   }
 
   void resetAttackHasAlreadyHit() {
@@ -251,6 +268,16 @@ public class acolyteBehavior : MonoBehaviour
   public void headbutt()
   {
     attack(headbuttHitBox, headbuttDamageValue, headbuttPushbackOnBlock, headbuttPushbackOnHit, headbuttReelLength);
+  }
+  public void attack3()
+  {
+    attack(attack3HitBox, attack3DamageValue, attack3PushbackOnBlock, attack3PushbackOnHit, attack3ReelLength);
+  }
+
+  public void attack3Exit() {
+    disableIsPunching();
+    canAttack = true;
+    attackHasAlreadyHit = false;
   }
 
   public void enemyTakeDamage(object[] args)
@@ -342,6 +369,10 @@ public class acolyteBehavior : MonoBehaviour
   {
     canAttack = true;
   }
+  public void setCanAttackFalse()
+  {
+    canAttack = false;
+  }
 
   void OnCollisionStay2D(Collision2D col2D)
   {
@@ -352,7 +383,7 @@ public class acolyteBehavior : MonoBehaviour
     /*if (hit.GetComponent<Collider>().tag == "Player") {
 			playerObject.GetComponent<PlayerHealth> ().playerTakeDamage (1);
 		}*/
-    isNotInAnimation = acolyteAnim.GetBool("isHeavyPunching") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isReeling") == false;
+    isNotInAnimation = acolyteAnim.GetBool("isHeadbutting") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isReeling") == false;
     float collisionTop = col2D.transform.position.y + col2D.collider.bounds.extents.y;
     float characterBottom = transform.position.y - lowerHurtbox.bounds.extents.y;
     bool isWall = col2D.gameObject.layer == LayerMask.NameToLayer("Wall");
