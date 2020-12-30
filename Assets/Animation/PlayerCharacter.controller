@@ -54,6 +54,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: isReeling
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isBlockingAnAttack
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -859038259595893658}
   m_Solo: 0
@@ -145,6 +148,9 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isReeling
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isBlockingAnAttack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2237685030517663404}
@@ -291,6 +297,9 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isReeling
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isBlockingAnAttack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4418840553196598309}
@@ -446,17 +455,23 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: isPunching
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: isGrounded
+    m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isDying
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isDead
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: isGrounded
-    m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isReeling
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isBlockingAnAttack
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isJumping
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4216637635198534780}
@@ -900,6 +915,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: currentAutoComboIndex
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isBlockingAnAttack
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102525401919427348}
   m_Solo: 0
@@ -1168,6 +1186,9 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isGrabbing
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isBlockingAnAttack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102499868596073222}
