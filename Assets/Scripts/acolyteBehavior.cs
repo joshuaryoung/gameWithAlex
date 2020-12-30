@@ -22,22 +22,26 @@ public class acolyteBehavior : MonoBehaviour
   public Collider2D punchHitBox;
   public int punchDamageValue;
   public float punchReelLength;
+  public float punchBlockStunLength;
   public float punchPushbackOnHit;
   public float punchPushbackOnBlock;
   public Collider2D headbuttHitBox;
   public int headbuttDamageValue;
   public float headbuttReelLength;
+  public float headbuttBlockStunLength;
   public float headbuttPushbackOnHit;
   public float headbuttPushbackOnBlock;
   public Collider2D attack3HitBox;
   public int attack3DamageValue;
   public float attack3ReelLength;
+  public float attack3BlockStunLength;
   public float attack3PushbackOnHit;
   public float attack3PushbackOnBlock;
   public bool canAttack;
   Animator acolyteAnim;
   public Animator hitSparkAnimator;
   public float currentReelLengthCooldown;
+  public float currentBlockStunLengthCooldown;
   public float pushBackDistance;
   public bool infiniteHealth;
   public bool isInFootsiesRange;
@@ -242,7 +246,7 @@ public class acolyteBehavior : MonoBehaviour
     RB2D.velocity = (new Vector2(RB2D.velocity.x + pushBackValue, RB2D.velocity.y));
   }
 
-  void attack(Collider2D hitBox, int damageValue, float pushbackOnBlock, float pushbackOnHit, float reelLength) {
+  void attack(Collider2D hitBox, int damageValue, float pushbackOnBlock, float pushbackOnHit, float reelLength, float blockStunLength) {
     if (attackHasAlreadyHit) {
       return;
     }
@@ -254,7 +258,7 @@ public class acolyteBehavior : MonoBehaviour
       foreach (Collider2D c in cols)
       {
         attackHasAlreadyHit = true;
-        object[] args = { damageValue, transform.localScale.x * (PIS.blockPressed ? pushbackOnBlock : pushbackOnHit), reelLength };
+        object[] args = { damageValue, transform.localScale.x * (PIS.isBlocking ? pushbackOnBlock : pushbackOnHit), reelLength, blockStunLength };
         c.SendMessageUpwards("playerTakeDamage", args);
       }
     }
@@ -263,15 +267,15 @@ public class acolyteBehavior : MonoBehaviour
   //method for punching
   public void punch()
   {
-    attack(punchHitBox, punchDamageValue, punchPushbackOnBlock, punchPushbackOnHit, punchReelLength);
+    attack(punchHitBox, punchDamageValue, punchPushbackOnBlock, punchPushbackOnHit, punchReelLength, punchBlockStunLength);
   }
   public void headbutt()
   {
-    attack(headbuttHitBox, headbuttDamageValue, headbuttPushbackOnBlock, headbuttPushbackOnHit, headbuttReelLength);
+    attack(headbuttHitBox, headbuttDamageValue, headbuttPushbackOnBlock, headbuttPushbackOnHit, headbuttReelLength, headbuttBlockStunLength);
   }
   public void attack3()
   {
-    attack(attack3HitBox, attack3DamageValue, attack3PushbackOnBlock, attack3PushbackOnHit, attack3ReelLength);
+    attack(attack3HitBox, attack3DamageValue, attack3PushbackOnBlock, attack3PushbackOnHit, attack3ReelLength, attack3BlockStunLength);
   }
 
   public void attack3Exit() {

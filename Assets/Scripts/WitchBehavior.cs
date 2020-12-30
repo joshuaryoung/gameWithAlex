@@ -25,10 +25,12 @@ public class WitchBehavior : MonoBehaviour
   public float slashPushbackOnHit;
   public float slashPushbackOnBlock;
   public float slashReelLength;
+  public float slashBlockStunLength;
   public int heavyPunchDamageValue;
   public float heavyPunchPushbackOnHit;
   public float heavyPunchPushbackOnBlock;
   public float heavyPunchReelLength;
+  public float heavyPunchBlockStunLength;
   public bool canAttack;
   Animator witchAnim;
   public Animator hitSparkAnimator;
@@ -232,7 +234,7 @@ public class WitchBehavior : MonoBehaviour
     RB2D.velocity = (new Vector2(RB2D.velocity.x + pushBackValue, RB2D.velocity.y));
   }
 
-  void attack(Collider2D hitBox, int damageValue, float pushbackOnBlock, float pushbackOnHit, float reelLength) {
+  void attack(Collider2D hitBox, int damageValue, float pushbackOnBlock, float pushbackOnHit, float reelLength, float blockStunLength) {
     if (attackHasAlreadyHit) {
       return;
     }
@@ -244,7 +246,7 @@ public class WitchBehavior : MonoBehaviour
       foreach (Collider2D c in cols)
       {
         attackHasAlreadyHit = true;
-        object[] args = { damageValue, transform.localScale.x * (PIS.blockPressed ? pushbackOnBlock : pushbackOnHit), reelLength };
+        object[] args = { damageValue, transform.localScale.x * (PIS.isBlocking ? pushbackOnBlock : pushbackOnHit), reelLength, blockStunLength };
         c.SendMessageUpwards("playerTakeDamage", args);
       }
     }
@@ -253,7 +255,7 @@ public class WitchBehavior : MonoBehaviour
   //method for punching
   public void slash()
   {
-    attack(slashHitBox, slashDamageValue, slashPushbackOnBlock, slashPushbackOnHit, slashReelLength);
+    attack(slashHitBox, slashDamageValue, slashPushbackOnBlock, slashPushbackOnHit, slashReelLength, slashBlockStunLength);
   }
   public void heavyPunch()
   {
@@ -261,7 +263,7 @@ public class WitchBehavior : MonoBehaviour
       Debug.LogError("heavyPunchHitBox is null!");
       return;
     }
-    attack(heavyPunchHitBox, heavyPunchDamageValue, heavyPunchPushbackOnBlock, heavyPunchPushbackOnHit, heavyPunchReelLength);
+    attack(heavyPunchHitBox, heavyPunchDamageValue, heavyPunchPushbackOnBlock, heavyPunchPushbackOnHit, heavyPunchReelLength, heavyPunchBlockStunLength);
   }
 
   public void enemyTakeDamage(object[] args)

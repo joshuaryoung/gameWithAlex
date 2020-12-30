@@ -74,10 +74,12 @@ MonoBehaviour:
   punchPushbackOnHit: 4
   punchPushbackOnBlock: 1.29
   punchReelLength: 1
+  punchBlockStunLength: 0
   heavyPunchDamageValue: 0
   heavyPunchPushbackOnHit: 5.36
   heavyPunchPushbackOnBlock: 0.96
   heavyPunchReelLength: 1.71
+  heavyPunchBlockStunLength: 0
   canAttack: 0
   hitSparkAnimator: {fileID: 3034471355560115620}
   currentReelLengthCooldown: 0
@@ -698,7 +700,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.089810014, y: 0.14999998}

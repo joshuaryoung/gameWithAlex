@@ -59,11 +59,15 @@ public class PlayerInputScript : MonoBehaviour
     public float punchReelLength;
     public float punchAC2ReelLength;
     public float punchAC3ReelLength;
+    public float punchBlockStunLength;
+    public float punchAC2BlockStunLength;
+    public float punchAC3BlockStunLength;
     public float punchPushbackValue;
     public float punchAC2PushbackValue;
     public float punchAC3PushbackValue;
     public int jumpingPunchDamageValue;
     public float jumpingPunchReelLength;
+    public float jumpingPunchBlockStunLength;
     public float jumpingPunchPushbackValue;
     public int kickDamageValue;
     public int kickAC2DamageValue;
@@ -71,16 +75,22 @@ public class PlayerInputScript : MonoBehaviour
     public float kickReelLength;
     public float kickAC2ReelLength;
     public float kickAC3ReelLength;
+    public float kickBlockStunLength;
+    public float kickAC2BlockStunLength;
+    public float kickAC3BlockStunLength;
     public float kickPushbackValue;
     public float kickAC2PushbackValue;
     public float kickAC3PushbackValue;
     public int jumpingKickDamageValue;
     public float jumpingKickReelLength;
+    public float jumpingKickBlockStunLength;
     public float jumpingKickPushbackValue;
     public int sweepDamageValue;
+    public float sweepBlockStunLength;
     public float sweepPushbackValue;
     public int uppercutDamageValue;
     public float uppercutReelLength;
+    public float uppercutBlockStunLength;
     public float uppercutPushbackValue;
     public int throwDamageValue;
     public float walkVelocity;
@@ -105,6 +115,8 @@ public class PlayerInputScript : MonoBehaviour
     public bool punchPressed;
     public bool kickPressed;
     public bool blockPressed;
+    public bool isBlocking;
+    public bool isGrabbing;
     public bool sweepPressed;
     public bool uppercutPressed;
     public bool grabPressed;
@@ -322,9 +334,17 @@ public class PlayerInputScript : MonoBehaviour
 
         if (isAbleToAct)
         {
+            if (controllerAxisX != 0)
+            {
+                movePlayer();
+            }
+            isGrabbing = grabPressed;
+            isBlocking = blockPressed && !isGrabbing && !isForwardDashing && !isBackDashing && isGrounded;
             canCombo = false;
             attackHasAlreadyHit = false;
             currentAutoComboIndex = 0;
+
+            //Check to see if X Axis was pressed
             anim.SetInteger("currentAutoComboIndex", currentAutoComboIndex);
 
             if ((isGrounded || isWallClimbing) && jumpCoolDownCurrent <= 0)
@@ -332,7 +352,7 @@ public class PlayerInputScript : MonoBehaviour
                 if (jumpPressed && !blockPressed)
                     jump();
             }
-            anim.SetBool("isBlocking", blockPressed);
+            anim.SetBool("isBlocking", isBlocking);
             anim.SetBool("isBackDashing", isBackDashing);
             anim.SetBool("isForwardDashing", isForwardDashing);
             // anim.SetBool ("isBlockWalking", blockPressed && xVelo != 0 && isGrounded);
@@ -380,12 +400,6 @@ public class PlayerInputScript : MonoBehaviour
                 isWallClimbing = false;
                 hasReleasedWall = true;
                 wallJumpMinXAxisCooldownCurrent = 0;
-            }
-
-            //Check to see if X Axis was pressed
-            if (controllerAxisX != 0)
-            {
-                movePlayer();
             }
             //Airbrake logic
             if (controllerAxisX == 0 && !isGrounded && wallJumpMinXAxisCooldownCurrent <= 0)
@@ -481,10 +495,12 @@ public class PlayerInputScript : MonoBehaviour
             if (blockPressed && isGrounded)
             {
                 if (!isFacingTheDirectionPressed && dashReleased) {
+                    isBlocking = false;
                     isBackDashing = true;
                     dashReleased = false;
                     RB2D.velocity = new Vector2(-transform.localScale.x * backDashVelocity, RB2D.velocity.y);
                 } else if (isFacingTheDirectionPressed && dashReleased) {
+                    isBlocking = false;
                     isForwardDashing = true;
                     dashReleased = false;
                     RB2D.velocity = new Vector2(transform.localScale.x * forwardDashVelocity, RB2D.velocity.y);
@@ -528,7 +544,7 @@ public class PlayerInputScript : MonoBehaviour
         jumpCoolDownCurrent = jumpCoolDownMax;
     }
 
-    void attack(Collider2D hitBox, int damageValue, float pushbackValue, float reelLength, AudioClip soundEffect)
+    void attack(Collider2D hitBox, int damageValue, float pushbackValue, float reelLength, float blockStunLength, AudioClip soundEffect)
     {
         string nameOfPreviousCol = "null";
         //hitbox stuff
@@ -544,7 +560,7 @@ public class PlayerInputScript : MonoBehaviour
             {
                 if (!string.Equals(c.transform.parent.name, nameOfPreviousCol))
                 {
-                    object[] args = { damageValue, transform.localScale.x * pushbackValue, reelLength };
+                    object[] args = { damageValue, transform.localScale.x * pushbackValue, reelLength, blockStunLength };
                     c.SendMessageUpwards("enemyTakeDamage", args);
                     c.SendMessageUpwards("resetCanAttack");
                 }
@@ -581,21 +597,21 @@ public class PlayerInputScript : MonoBehaviour
     {
         if (!attackHasAlreadyHit)
         {
-            attack(punchHitBox, punchDamageValue, punchPushbackValue, punchReelLength, impactSoundEffect);
+            attack(punchHitBox, punchDamageValue, punchPushbackValue, punchReelLength, punchBlockStunLength, impactSoundEffect);
         }
     }
     void punchAC2()
     {
         if (!attackHasAlreadyHit)
         {
-            attack(punchAC2HitBox, punchAC2DamageValue, punchAC2PushbackValue, punchAC2ReelLength, impactSoundEffect);
+            attack(punchAC2HitBox, punchAC2DamageValue, punchAC2PushbackValue, punchAC2ReelLength, punchAC2BlockStunLength, impactSoundEffect);
         }
     }
     void punchAC3()
     {
         if (!attackHasAlreadyHit)
         {
-            attack(punchAC3HitBox, punchAC3DamageValue, punchAC3PushbackValue, punchAC3ReelLength, impactSoundEffect);
+            attack(punchAC3HitBox, punchAC3DamageValue, punchAC3PushbackValue, punchAC3ReelLength, punchAC3BlockStunLength, impactSoundEffect);
         }
     }
     
@@ -610,7 +626,7 @@ public class PlayerInputScript : MonoBehaviour
     {
         if (!attackHasAlreadyHit)
         {
-            attack(jumpingPunchHitBox, jumpingPunchDamageValue, jumpingPunchPushbackValue, jumpingPunchReelLength, impactSoundEffect);
+            attack(jumpingPunchHitBox, jumpingPunchDamageValue, jumpingPunchPushbackValue, jumpingPunchReelLength, jumpingPunchBlockStunLength, impactSoundEffect);
         }
     }
 
@@ -618,28 +634,28 @@ public class PlayerInputScript : MonoBehaviour
     {
         if (!attackHasAlreadyHit)
         {
-            attack(kickHitBox, kickDamageValue, kickPushbackValue, kickReelLength, impactSoundEffect);
+            attack(kickHitBox, kickDamageValue, kickPushbackValue, kickReelLength, kickBlockStunLength, impactSoundEffect);
         }
     }
  void kickAC2()
     {
         if (!attackHasAlreadyHit)
         {
-            attack(kickAC2HitBox, kickAC2DamageValue, kickAC2PushbackValue, kickAC2ReelLength, impactSoundEffect);
+            attack(kickAC2HitBox, kickAC2DamageValue, kickAC2PushbackValue, kickAC2ReelLength, kickAC2BlockStunLength, impactSoundEffect);
         }
     }
       void kickAC3()
     {
         if (!attackHasAlreadyHit)
         {
-            attack(kickAC3HitBox, kickAC3DamageValue, kickAC3PushbackValue, kickAC3ReelLength, impactSoundEffect);
+            attack(kickAC3HitBox, kickAC3DamageValue, kickAC3PushbackValue, kickAC3ReelLength, kickAC3BlockStunLength, impactSoundEffect);
         }
     }
     void jumpingKick()
     {
         if (!attackHasAlreadyHit)
         {
-            attack(jumpingKickHitBox, jumpingKickDamageValue, jumpingKickPushbackValue, jumpingKickReelLength, impactSoundEffect);
+            attack(jumpingKickHitBox, jumpingKickDamageValue, jumpingKickPushbackValue, jumpingKickReelLength, jumpingKickBlockStunLength, impactSoundEffect);
         }
     }
 
@@ -647,7 +663,7 @@ public class PlayerInputScript : MonoBehaviour
     {
         if (!attackHasAlreadyHit)
         {
-            attack(sweepHitBox, sweepDamageValue, sweepPushbackValue, 0, impactSoundEffect);
+            attack(sweepHitBox, sweepDamageValue, sweepPushbackValue, 0, sweepBlockStunLength, impactSoundEffect);
         }
     }
 
@@ -655,7 +671,7 @@ public class PlayerInputScript : MonoBehaviour
     {
         if (!attackHasAlreadyHit)
         {
-            attack(uppercutHitBox, uppercutDamageValue, uppercutPushbackValue, uppercutReelLength, impactSoundEffect);
+            attack(uppercutHitBox, uppercutDamageValue, uppercutPushbackValue, uppercutReelLength, uppercutBlockStunLength, impactSoundEffect);
         }
     }
 

@@ -73,6 +73,7 @@ public class PlayerHealth : MonoBehaviour
       if (currentReelLengthCooldown <= 0)
       {
         animator.SetBool("isReeling", false);
+        animator.SetBool("isBlockingAnAttack", false);
         PIS.isAbleToAct = true;
       }
     }
@@ -97,11 +98,12 @@ public class PlayerHealth : MonoBehaviour
     int damage = (int)args[0];
     float pushBackValue = (float)args[1];
     float attackReelValue = (float)args[2];
+    float attackBlockStunValue = (float)args[3];
 
     PIS.attackHasAlreadyHit = false;
 
     pushBack(pushBackValue);
-    if (invincibilityCooldownCurrent <= 0 && (!PIS.blockPressed || !PIS.isGrounded))
+    if (invincibilityCooldownCurrent <= 0 && (!PIS.isBlocking || !PIS.isGrounded))
     {
       audioSrc.clip = impactSoundEffect;
       audioSrc.Play();
@@ -133,8 +135,9 @@ public class PlayerHealth : MonoBehaviour
         animator.SetBool("isForwardDashing", false);
       }
     }
-    else if (invincibilityCooldownCurrent <= 0 && PIS.blockPressed && PIS.isGrounded)
+    else if (invincibilityCooldownCurrent <= 0 && PIS.isBlocking && PIS.isGrounded)
     {
+      currentReelLengthCooldown = attackBlockStunValue;
       audioSrc.clip = blockSoundEffect;
       audioSrc.Play();
       blockSparkAnimator.SetBool("isActive", true);

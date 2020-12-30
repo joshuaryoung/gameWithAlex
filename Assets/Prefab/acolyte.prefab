@@ -160,21 +160,25 @@ MonoBehaviour:
   punchHitBox: {fileID: 58312095405789320}
   punchDamageValue: 1
   punchReelLength: 0.61
+  punchBlockStunLength: 3.03
   punchPushbackOnHit: 2.97
   punchPushbackOnBlock: 1.61
   headbuttHitBox: {fileID: 58312095405789320}
   headbuttDamageValue: 2
   headbuttReelLength: 0.94
+  headbuttBlockStunLength: 3.03
   headbuttPushbackOnHit: 7.65
   headbuttPushbackOnBlock: 1.45
   attack3HitBox: {fileID: 0}
   attack3DamageValue: 3
   attack3ReelLength: 1.02
+  attack3BlockStunLength: 2.99
   attack3PushbackOnHit: 4.05
   attack3PushbackOnBlock: 1.39
   canAttack: 1
   hitSparkAnimator: {fileID: 5263788996454897237}
   currentReelLengthCooldown: 0
+  currentBlockStunLengthCooldown: 0
   pushBackDistance: 4
   infiniteHealth: 0
   isInFootsiesRange: 0
