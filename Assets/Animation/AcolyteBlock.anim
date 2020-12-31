@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: reel
+  m_Name: AcolyteBlock
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,15 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: ed22dac93361e9e49ad27d6b0b60fe16, type: 3}
-    - time: 0.016666668
-      value: {fileID: 21300000, guid: b0490ebb98387ef489e4c31f9b675287, type: 3}
-    - time: 0.21666667
-      value: {fileID: 21300000, guid: d61efbc282e8e924c926707c9c9312b5, type: 3}
-    - time: 0.41666666
-      value: {fileID: 21300000, guid: 8b710cfb33a4e434ba5d82bc693bf8ae, type: 3}
-    - time: 0.6666667
-      value: {fileID: 21300000, guid: 24dea950aa988484aad804f20f33625c, type: 3}
+      value: {fileID: 21300000, guid: de096624b6ffec2479dbdba5674aea93, type: 3}
+    - time: 2.1333334
+      value: {fileID: 21300000, guid: de096624b6ffec2479dbdba5674aea93, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,17 +42,14 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: ed22dac93361e9e49ad27d6b0b60fe16, type: 3}
-    - {fileID: 21300000, guid: b0490ebb98387ef489e4c31f9b675287, type: 3}
-    - {fileID: 21300000, guid: d61efbc282e8e924c926707c9c9312b5, type: 3}
-    - {fileID: 21300000, guid: 8b710cfb33a4e434ba5d82bc693bf8ae, type: 3}
-    - {fileID: 21300000, guid: 24dea950aa988484aad804f20f33625c, type: 3}
+    - {fileID: 21300000, guid: de096624b6ffec2479dbdba5674aea93, type: 3}
+    - {fileID: 21300000, guid: de096624b6ffec2479dbdba5674aea93, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.8333333
+    m_StopTime: 2.15
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -78,8 +69,15 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.8333333
-    functionName: reelStateExit
+  - time: 0
+    functionName: blockEnter
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.1166666
+    functionName: blockExit
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

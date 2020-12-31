@@ -52,6 +52,7 @@ public class PlayerInputScript : MonoBehaviour
     public AudioClip kickAC2SoundEffect;
     public AudioClip kickAC3SoundEffect;
     public AudioClip impactSoundEffect;
+    public AudioClip blockSoundEffect;
     public AudioSource audioPlayer;
     public int punchDamageValue;
     public int punchAC2DamageValue;
@@ -544,7 +545,7 @@ public class PlayerInputScript : MonoBehaviour
         jumpCoolDownCurrent = jumpCoolDownMax;
     }
 
-    void attack(Collider2D hitBox, int damageValue, float pushbackValue, float reelLength, float blockStunLength, AudioClip soundEffect)
+    void attack(Collider2D hitBox, int damageValue, float pushbackValue, float reelLength, float blockStunLength, AudioClip hitSoundEffect, AudioClip _blockSoundEffect)
     {
         string nameOfPreviousCol = "null";
         //hitbox stuff
@@ -554,13 +555,13 @@ public class PlayerInputScript : MonoBehaviour
         {
             // canCombo = true;
             // attackHasAlreadyHit = true;
-            playSoundEffect(soundEffect);
+            // playSoundEffect(soundEffect);
             // HS.stop();
             foreach (Collider2D c in cols)
             {
                 if (!string.Equals(c.transform.parent.name, nameOfPreviousCol))
                 {
-                    object[] args = { damageValue, transform.localScale.x * pushbackValue, reelLength, blockStunLength };
+                    object[] args = { damageValue, transform.localScale.x * pushbackValue, reelLength, blockStunLength, hitSoundEffect, _blockSoundEffect };
                     c.SendMessageUpwards("enemyTakeDamage", args);
                     c.SendMessageUpwards("resetCanAttack");
                 }
@@ -597,21 +598,21 @@ public class PlayerInputScript : MonoBehaviour
     {
         if (!attackHasAlreadyHit)
         {
-            attack(punchHitBox, punchDamageValue, punchPushbackValue, punchReelLength, punchBlockStunLength, impactSoundEffect);
+            attack(punchHitBox, punchDamageValue, punchPushbackValue, punchReelLength, punchBlockStunLength, impactSoundEffect, blockSoundEffect);
         }
     }
     void punchAC2()
     {
         if (!attackHasAlreadyHit)
         {
-            attack(punchAC2HitBox, punchAC2DamageValue, punchAC2PushbackValue, punchAC2ReelLength, punchAC2BlockStunLength, impactSoundEffect);
+            attack(punchAC2HitBox, punchAC2DamageValue, punchAC2PushbackValue, punchAC2ReelLength, punchAC2BlockStunLength, impactSoundEffect, blockSoundEffect);
         }
     }
     void punchAC3()
     {
         if (!attackHasAlreadyHit)
         {
-            attack(punchAC3HitBox, punchAC3DamageValue, punchAC3PushbackValue, punchAC3ReelLength, punchAC3BlockStunLength, impactSoundEffect);
+            attack(punchAC3HitBox, punchAC3DamageValue, punchAC3PushbackValue, punchAC3ReelLength, punchAC3BlockStunLength, impactSoundEffect, blockSoundEffect);
         }
     }
     
@@ -626,7 +627,7 @@ public class PlayerInputScript : MonoBehaviour
     {
         if (!attackHasAlreadyHit)
         {
-            attack(jumpingPunchHitBox, jumpingPunchDamageValue, jumpingPunchPushbackValue, jumpingPunchReelLength, jumpingPunchBlockStunLength, impactSoundEffect);
+            attack(jumpingPunchHitBox, jumpingPunchDamageValue, jumpingPunchPushbackValue, jumpingPunchReelLength, jumpingPunchBlockStunLength, impactSoundEffect, blockSoundEffect);
         }
     }
 
@@ -634,28 +635,28 @@ public class PlayerInputScript : MonoBehaviour
     {
         if (!attackHasAlreadyHit)
         {
-            attack(kickHitBox, kickDamageValue, kickPushbackValue, kickReelLength, kickBlockStunLength, impactSoundEffect);
+            attack(kickHitBox, kickDamageValue, kickPushbackValue, kickReelLength, kickBlockStunLength, impactSoundEffect, blockSoundEffect);
         }
     }
  void kickAC2()
     {
         if (!attackHasAlreadyHit)
         {
-            attack(kickAC2HitBox, kickAC2DamageValue, kickAC2PushbackValue, kickAC2ReelLength, kickAC2BlockStunLength, impactSoundEffect);
+            attack(kickAC2HitBox, kickAC2DamageValue, kickAC2PushbackValue, kickAC2ReelLength, kickAC2BlockStunLength, impactSoundEffect, blockSoundEffect);
         }
     }
       void kickAC3()
     {
         if (!attackHasAlreadyHit)
         {
-            attack(kickAC3HitBox, kickAC3DamageValue, kickAC3PushbackValue, kickAC3ReelLength, kickAC3BlockStunLength, impactSoundEffect);
+            attack(kickAC3HitBox, kickAC3DamageValue, kickAC3PushbackValue, kickAC3ReelLength, kickAC3BlockStunLength, impactSoundEffect, blockSoundEffect);
         }
     }
     void jumpingKick()
     {
         if (!attackHasAlreadyHit)
         {
-            attack(jumpingKickHitBox, jumpingKickDamageValue, jumpingKickPushbackValue, jumpingKickReelLength, jumpingKickBlockStunLength, impactSoundEffect);
+            attack(jumpingKickHitBox, jumpingKickDamageValue, jumpingKickPushbackValue, jumpingKickReelLength, jumpingKickBlockStunLength, impactSoundEffect, blockSoundEffect);
         }
     }
 
@@ -663,7 +664,7 @@ public class PlayerInputScript : MonoBehaviour
     {
         if (!attackHasAlreadyHit)
         {
-            attack(sweepHitBox, sweepDamageValue, sweepPushbackValue, 0, sweepBlockStunLength, impactSoundEffect);
+            attack(sweepHitBox, sweepDamageValue, sweepPushbackValue, 0, sweepBlockStunLength, impactSoundEffect, blockSoundEffect);
         }
     }
 
@@ -671,7 +672,7 @@ public class PlayerInputScript : MonoBehaviour
     {
         if (!attackHasAlreadyHit)
         {
-            attack(uppercutHitBox, uppercutDamageValue, uppercutPushbackValue, uppercutReelLength, uppercutBlockStunLength, impactSoundEffect);
+            attack(uppercutHitBox, uppercutDamageValue, uppercutPushbackValue, uppercutReelLength, uppercutBlockStunLength, impactSoundEffect, blockSoundEffect);
         }
     }
 

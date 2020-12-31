@@ -496,6 +496,7 @@ MonoBehaviour:
   kickAC2SoundEffect: {fileID: 0}
   kickAC3SoundEffect: {fileID: 0}
   impactSoundEffect: {fileID: 8300000, guid: c33d06a25edb11445b640a985ec7711f, type: 3}
+  blockSoundEffect: {fileID: 8300000, guid: dbe104ed0ce264aaf9745038e89e9243, type: 3}
   audioPlayer: {fileID: 0}
   punchDamageValue: 1
   punchAC2DamageValue: 1
@@ -503,11 +504,15 @@ MonoBehaviour:
   punchReelLength: 0.25
   punchAC2ReelLength: 0.2666
   punchAC3ReelLength: 0.3333
+  punchBlockStunLength: 0.42
+  punchAC2BlockStunLength: 0.69
+  punchAC3BlockStunLength: 1.01
   punchPushbackValue: 3
   punchAC2PushbackValue: 2
   punchAC3PushbackValue: 9
   jumpingPunchDamageValue: 2
   jumpingPunchReelLength: 0.8
+  jumpingPunchBlockStunLength: 0.87
   jumpingPunchPushbackValue: 4
   kickDamageValue: 1
   kickAC2DamageValue: 1
@@ -515,16 +520,22 @@ MonoBehaviour:
   kickReelLength: 0.35
   kickAC2ReelLength: 0.3666
   kickAC3ReelLength: 0.3333
+  kickBlockStunLength: 0.66
+  kickAC2BlockStunLength: 1.27
+  kickAC3BlockStunLength: 1.44
   kickPushbackValue: 4
   kickAC2PushbackValue: 1
   kickAC3PushbackValue: 14
   jumpingKickDamageValue: 1
   jumpingKickReelLength: 0.8
+  jumpingKickBlockStunLength: 0.88
   jumpingKickPushbackValue: 4
   sweepDamageValue: 3
+  sweepBlockStunLength: 0.87
   sweepPushbackValue: 8
   uppercutDamageValue: 2
   uppercutReelLength: 0.3333
+  uppercutBlockStunLength: 0.97
   uppercutPushbackValue: 4
   throwDamageValue: 0
   walkVelocity: 7
@@ -549,6 +560,8 @@ MonoBehaviour:
   punchPressed: 0
   kickPressed: 0
   blockPressed: 0
+  isBlocking: 0
+  isGrabbing: 0
   sweepPressed: 0
   uppercutPressed: 0
   grabPressed: 0
@@ -562,6 +575,7 @@ MonoBehaviour:
   isWallClimbing: 0
   isWallSliding: 0
   isWallJumping: 0
+  hasReleasedWall: 0
   isLedgeVaulting: 0
   wallJumpMinXAxisCooldownMax: 0.18
   wallJumpMinXAxisCooldownCurrent: 0

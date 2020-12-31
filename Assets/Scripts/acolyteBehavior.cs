@@ -37,9 +37,13 @@ public class acolyteBehavior : MonoBehaviour
   public float attack3BlockStunLength;
   public float attack3PushbackOnHit;
   public float attack3PushbackOnBlock;
-  public bool canAttack;
+  public bool canAttack = true;
+  
+  bool canAttackLastFrame = true;
+  public bool isBlocking;
   Animator acolyteAnim;
   public Animator hitSparkAnimator;
+  public Animator blockSparkAnimator;
   public float currentReelLengthCooldown;
   public float currentBlockStunLengthCooldown;
   public float pushBackDistance;
@@ -60,6 +64,8 @@ public class acolyteBehavior : MonoBehaviour
   public byte headbuttPunchRNGMax;
   public byte attack3RNGMin;
   public byte attack3RNGMax;
+  public byte blockRNGMin;
+  public byte blockRNGMax;
   public byte bobAndWeaveRNGDecisionMin;
   public byte bobAndWeaveRNGDecisionMax;
   public float actualMoveDistance;
@@ -97,12 +103,20 @@ public class acolyteBehavior : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    if (canAttack != canAttackLastFrame) {
+      Debug.Log("canAttack has changed!");
+    }
+    canAttackLastFrame = canAttack;
     if (lowerHurtbox == null) {
       Debug.LogError("lowerHurtbox is null!");
       return;
     }
     if (hitSparkAnimator == null) {
       Debug.LogError("hitSparkAnimator is null!");
+      return;
+    }
+    if (blockSparkAnimator == null) {
+      Debug.LogError("blockSparkAnimator is null!");
       return;
     }
     if (CVO == null)
@@ -113,7 +127,7 @@ public class acolyteBehavior : MonoBehaviour
     if (isDead || isDying) {
       return;
     }
-    isNotInAnimation = acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeadbutting") == false && !isBeingGrabbed;
+    isNotInAnimation = acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeadbutting") == false && acolyteAnim.GetBool("isBlocking") == false && acolyteAnim.GetBool("isBlockingAnAttack") == false && !isBeingGrabbed;
 
     // Is Visible to camera?
     if (spriteR.isVisible) {
@@ -154,6 +168,12 @@ public class acolyteBehavior : MonoBehaviour
         audioSrc.enabled = true;
         audioSrc.Play();
       }
+      else if (attackDecisionRNG >= blockRNGMin && attackDecisionRNG <= blockRNGMax && canAttack)
+      {
+        canAttack = false;
+        isBlocking = true;
+        acolyteAnim.SetBool("isBlocking", true);
+      }
       else if (attackDecisionRNG >= bobAndWeaveRNGDecisionMin && attackDecisionRNG <= bobAndWeaveRNGDecisionMax && isNotInAnimation)
       {
         if (bobAndWeaveRNG == 0)
@@ -193,6 +213,8 @@ public class acolyteBehavior : MonoBehaviour
         acolyteAnim.SetBool("isLightPunching", false);
         acolyteAnim.SetBool("isHeadbutting", false);
         acolyteAnim.SetBool("isAttack3ing", false);
+        acolyteAnim.SetBool("isBlocking", false);
+        acolyteAnim.SetBool("isBlockingAnAttack", false);
       }
     }
 
@@ -284,22 +306,58 @@ public class acolyteBehavior : MonoBehaviour
     attackHasAlreadyHit = false;
   }
 
+  public void blockEnter() {
+    canAttack = false;
+    Debug.Log("blockEnter");
+  }
+
+  public void blockExit() {
+    isBlocking = false;
+    acolyteAnim.SetBool("isBlocking", false);
+    canAttack = true;
+  }
+
+  public void blockStunEnter() {
+    canAttack = false;
+    foreach (AnimatorControllerParameter parameter in acolyteAnim.parameters)
+    {
+      acolyteAnim.SetBool(parameter.name, false);
+    }
+    acolyteAnim.SetBool("isBlockingAnAttack", true);
+  }
+
   public void enemyTakeDamage(object[] args)
   {
     attackHasAlreadyHit = false;
     int damage = (int)args[0];
     float pushBackDistance = (float)args[1];
     float reelLength = (float)args[2];
+    float blockStunLength = (float)args[3];
+    AudioClip hitSoundEffect = (AudioClip)args[4];
+    AudioClip blockSoundEffect = (AudioClip)args[5];
 
     if (currentHealth > 0 && invincibilityCooldownCurrent <= 0)
     {
-      if (!infiniteHealth)
-        currentHealth -= damage;
-      hitSparkAnimator.SetBool("isActive", true);
-      pushBack(pushBackDistance);
-      reelStateEnter(reelLength);
-      if (currentHealth <= 0)
-        enemyDeath();
+      if (isBlocking) {
+        currentReelLengthCooldown = blockStunLength;
+        blockSparkAnimator.SetBool("isActive", true);
+        acolyteAnim.SetBool("isBlockingAnAttack", true);
+        pushBack(blockStunLength);
+        audioSrc.clip = blockSoundEffect;
+        audioSrc.enabled = true;
+        audioSrc.Play();
+      } else {
+        if (!infiniteHealth)
+          currentHealth -= damage;
+        hitSparkAnimator.SetBool("isActive", true);
+        pushBack(pushBackDistance);
+        audioSrc.clip = hitSoundEffect;
+        // audioSrc.enabled = true;
+        audioSrc.Play();
+        reelStateEnter(reelLength);
+        if (currentHealth <= 0)
+          enemyDeath();
+      }
     }
   }
   public void enemyGetGrabbed(object[] args)
@@ -347,6 +405,9 @@ public class acolyteBehavior : MonoBehaviour
   public void reelStateExit()
   {
     acolyteAnim.SetBool("isReeling", false);
+    acolyteAnim.SetBool("isBlocking", false);
+    acolyteAnim.SetBool("isBlockingAnAttack", false);
+    isBlocking = false;
     invincibilityCooldownCurrent = invincibilityCooldownPeriod;
   }
   public void grabStateExit()
