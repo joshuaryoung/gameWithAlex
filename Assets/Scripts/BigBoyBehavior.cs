@@ -32,8 +32,10 @@ public class BigBoyBehavior : MonoBehaviour
   public float heavyPunchReelLength;
   public float heavyPunchBlockStunLength;
   public bool canAttack;
+  public bool isBlocking;
   Animator bigboyAnim;
   public Animator hitSparkAnimator;
+  public Animator blockSparkAnimator;
   public float currentReelLengthCooldown;
   public bool infiniteHealth;
   public bool isInFootsiesRange;
@@ -50,6 +52,8 @@ public class BigBoyBehavior : MonoBehaviour
   public byte lightPunchRNGMax;
   public byte heavyPunchRNGMin;
   public byte heavyPunchRNGMax;
+  public byte blockRNGMin;
+  public byte blockRNGMax;
   public byte bobAndWeaveRNGDecisionMin;
   public byte bobAndWeaveRNGDecisionMax;
   public float actualMoveDistance;
@@ -97,6 +101,10 @@ public class BigBoyBehavior : MonoBehaviour
       Debug.LogError("hitSparkAnimator is null!");
       return;
     }
+    if (blockSparkAnimator == null) {
+      Debug.LogError("blockSparkAnimator is null!");
+      return;
+    }
     if (CVO == null)
     {
         Debug.LogError("CVO script not assigned!");
@@ -110,7 +118,7 @@ public class BigBoyBehavior : MonoBehaviour
     if (isDead || isDying) {
       return;
     }
-    isNotInAnimation = bigboyAnim.GetBool("isReeling") == false && bigboyAnim.GetBool("isLightPunching") == false && bigboyAnim.GetBool("isHeavyPunching") == false && !isBeingGrabbed;
+    isNotInAnimation = bigboyAnim.GetBool("isReeling") == false && bigboyAnim.GetBool("isLightPunching") == false && bigboyAnim.GetBool("isHeavyPunching") == false && bigboyAnim.GetBool("isBlocking") == false && bigboyAnim.GetBool("isBlockingAnAttack") == false && !isBeingGrabbed;
 
     // Is Visible to camera?
     if (spriteR.isVisible) {
@@ -142,6 +150,12 @@ public class BigBoyBehavior : MonoBehaviour
         audioSrc.clip = punchSoundEffect;
         audioSrc.enabled = true;
         audioSrc.Play();
+      }
+      else if (attackDecisionRNG >= blockRNGMin && attackDecisionRNG <= blockRNGMax && canAttack)
+      {
+        canAttack = false;
+        isBlocking = true;
+        bigboyAnim.SetBool("isBlocking", true);
       }
       else if (attackDecisionRNG >= bobAndWeaveRNGDecisionMin && attackDecisionRNG <= bobAndWeaveRNGDecisionMax && isNotInAnimation)
       {
@@ -181,6 +195,9 @@ public class BigBoyBehavior : MonoBehaviour
       {
         bigboyAnim.SetBool("isLightPunching", false);
         bigboyAnim.SetBool("isHeavyPunching", false);
+        bigboyAnim.SetBool("isBlocking", false);
+        bigboyAnim.SetBool("isBlockingAnAttack", false);
+        isBlocking = false;
       }
     }
 
@@ -266,22 +283,57 @@ public class BigBoyBehavior : MonoBehaviour
     attack(heavyPunchHitBox, heavyPunchDamageValue, heavyPunchPushbackOnBlock, heavyPunchPushbackOnHit, heavyPunchReelLength, heavyPunchBlockStunLength);
   }
 
+  public void blockEnter() {
+    canAttack = false;
+  }
+
+  public void blockExit() {
+    isBlocking = false;
+    bigboyAnim.SetBool("isBlocking", false);
+    canAttack = true;
+  }
+
+  public void blockStunEnter() {
+    canAttack = false;
+    foreach (AnimatorControllerParameter parameter in bigboyAnim.parameters)
+    {
+      bigboyAnim.SetBool(parameter.name, false);
+    }
+    bigboyAnim.SetBool("isBlockingAnAttack", true);
+  }
+
   public void enemyTakeDamage(object[] args)
   {
     attackHasAlreadyHit = false;
     int damage = (int)args[0];
     float pushBackDistance = (float)args[1];
     float reelLength = (float)args[2];
+    float blockStunLength = (float)args[3];
+    AudioClip hitSoundEffect = (AudioClip)args[4];
+    AudioClip blockSoundEffect = (AudioClip)args[5];
 
     if (currentHealth > 0 && invincibilityCooldownCurrent <= 0)
     {
-      if (!infiniteHealth)
-        currentHealth -= damage;
-      hitSparkAnimator.SetBool("isActive", true);
-      pushBack(pushBackDistance);
-      reelStateEnter(reelLength);
-      if (currentHealth <= 0)
-        enemyDeath();
+      if (isBlocking) {
+        currentReelLengthCooldown = blockStunLength;
+        blockSparkAnimator.SetBool("isActive", true);
+        bigboyAnim.SetBool("isBlockingAnAttack", true);
+        pushBack(blockStunLength);
+        audioSrc.clip = blockSoundEffect;
+        audioSrc.enabled = true;
+        audioSrc.Play();
+      } else {
+        if (!infiniteHealth)
+          currentHealth -= damage;
+        hitSparkAnimator.SetBool("isActive", true);
+        pushBack(pushBackDistance);
+        audioSrc.clip = hitSoundEffect;
+        // audioSrc.enabled = true;
+        audioSrc.Play();
+        reelStateEnter(reelLength);
+        if (currentHealth <= 0)
+          enemyDeath();
+      }
     }
   }
   public void enemyGetGrabbed(object[] args)
@@ -329,7 +381,14 @@ public class BigBoyBehavior : MonoBehaviour
   public void reelStateExit()
   {
     bigboyAnim.SetBool("isReeling", false);
+    bigboyAnim.SetBool("isBlocking", false);
+    bigboyAnim.SetBool("isBlockingAnAttack", false);
+    isBlocking = false;
     invincibilityCooldownCurrent = invincibilityCooldownPeriod;
+
+    if (invincibilityCooldownCurrent == 0) {
+      canAttack = true;
+    }
   }
   public void grabStateExit()
   {

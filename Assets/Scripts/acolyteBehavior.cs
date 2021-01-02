@@ -208,6 +208,7 @@ public class acolyteBehavior : MonoBehaviour
         acolyteAnim.SetBool("isAttack3ing", false);
         acolyteAnim.SetBool("isBlocking", false);
         acolyteAnim.SetBool("isBlockingAnAttack", false);
+        isBlocking = false;
       }
     }
 

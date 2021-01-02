@@ -197,6 +197,7 @@ public class WitchBehavior : MonoBehaviour
         witchAnim.SetBool("isHeavyPunching", false);
         witchAnim.SetBool("isBlocking", false);
         witchAnim.SetBool("isBlockingAnAttack", false);
+        isBlocking = false;
       }
     }
 
