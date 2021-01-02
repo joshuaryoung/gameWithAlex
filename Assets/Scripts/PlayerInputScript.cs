@@ -563,7 +563,6 @@ public class PlayerInputScript : MonoBehaviour
                 {
                     object[] args = { damageValue, transform.localScale.x * pushbackValue, reelLength, blockStunLength, hitSoundEffect, _blockSoundEffect };
                     c.SendMessageUpwards("enemyTakeDamage", args);
-                    c.SendMessageUpwards("resetCanAttack");
                 }
                 nameOfPreviousCol = c.transform.parent.name;
             }
@@ -589,7 +588,6 @@ public class PlayerInputScript : MonoBehaviour
             playSoundEffect(soundEffect);
             object[] args = { damageValue };
             cols[0].SendMessageUpwards("enemyGetGrabbed", args);
-            cols[0].SendMessageUpwards("resetCanAttack");
         }
     }
 

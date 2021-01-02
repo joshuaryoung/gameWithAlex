@@ -18,7 +18,6 @@ public class witchAIBlockerScript : MonoBehaviour
     }
     if (WB == null) {
       WB = GetComponentInParent<WitchBehavior>();
-      Debug.Log("");
     }
   }
 

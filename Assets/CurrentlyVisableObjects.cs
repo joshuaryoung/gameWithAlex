@@ -120,6 +120,5 @@ public class CurrentlyVisableObjects : MonoBehaviour
 
         lockOnEnemyCircleObj.SetActive(!lockOnEnemyCircleObj.activeSelf);
         isLockedOn = true;
-        Debug.Log("initiate LockOn!");
     }
 }

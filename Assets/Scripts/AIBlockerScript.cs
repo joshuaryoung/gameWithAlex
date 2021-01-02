@@ -18,7 +18,6 @@ public class AIBlockerScript : MonoBehaviour
     }
     if (AB == null) {
       AB = GetComponentInParent<acolyteBehavior>();
-      Debug.Log("");
     }
   }
 

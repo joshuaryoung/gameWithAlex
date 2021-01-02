@@ -18,7 +18,6 @@ public class BigBoyAIBlockerScript : MonoBehaviour
     }
     if (BBB == null) {
       BBB = GetComponentInParent<BigBoyBehavior>();
-      Debug.Log("");
     }
   }
 

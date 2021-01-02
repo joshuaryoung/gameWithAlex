@@ -27,7 +27,7 @@ public class SettingsScript : MonoBehaviour
 
   void Update() {
     if(PIS == null || ROB == null) {
-      Debug.Log("PIS or ROB is empty!");
+      Debug.LogError("PIS or ROB is empty!");
       return;
     }
     if (isCapturingInput) {

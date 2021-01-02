@@ -38,14 +38,11 @@ public class acolyteBehavior : MonoBehaviour
   public float attack3PushbackOnHit;
   public float attack3PushbackOnBlock;
   public bool canAttack = true;
-  
-  bool canAttackLastFrame = true;
   public bool isBlocking;
   Animator acolyteAnim;
   public Animator hitSparkAnimator;
   public Animator blockSparkAnimator;
   public float currentReelLengthCooldown;
-  public float currentBlockStunLengthCooldown;
   public float pushBackDistance;
   public bool infiniteHealth;
   public bool isInFootsiesRange;
@@ -103,10 +100,6 @@ public class acolyteBehavior : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (canAttack != canAttackLastFrame) {
-      Debug.Log("canAttack has changed!");
-    }
-    canAttackLastFrame = canAttack;
     if (lowerHurtbox == null) {
       Debug.LogError("lowerHurtbox is null!");
       return;
