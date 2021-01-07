@@ -12,7 +12,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class acolyteAttackDistance : MonoBehaviour
+public class acolyteAttackDistanceFar : MonoBehaviour
 {
   public GameObject playerGameObject;
   public GameObject enemyGameObject;
@@ -36,16 +36,15 @@ public class acolyteAttackDistance : MonoBehaviour
     }
   }
 
-  // void OnTriggerEnter2D(Collider2D col2D)
-  // {
-  //   isColidingWithSomething = true;
-  //   _col2D = col2D;
-  //   if (col2D.gameObject.tag == "PlayerCharacter" && AB.invincibilityCooldownCurrent <= 0 && AB.canAttack && !PIS.isDead)
-  //   {
-  //     Debug.Log("Player Collision!");
-  //     AB.isInFootsiesRange = true;
-  //   }
-  // }
+  void OnTriggerEnter2D(Collider2D col2D)
+  {
+    isColidingWithSomething = true;
+    _col2D = col2D;
+    if (col2D.gameObject.tag == "PlayerCharacter" && AB.invincibilityCooldownCurrent <= 0 && AB.canAttack && !PIS.isDead)
+    {
+      AB.currentFootsiesRange = footsies.range.Far;
+    }
+  }
 
   void OnTriggerStay2D (Collider2D col2D) {
     if (AB == null) {
@@ -61,7 +60,7 @@ public class acolyteAttackDistance : MonoBehaviour
     if (col2D.gameObject.tag == "PlayerCharacter" && AB.invincibilityCooldownCurrent <= 0 && AB.canAttack && !PIS.isDead)
     {
       // Debug.Log("Player Collision!");
-      AB.isInFootsiesRange = true;
+      AB.currentFootsiesRange = footsies.range.Far;
     }
   }
 
@@ -75,8 +74,7 @@ public class acolyteAttackDistance : MonoBehaviour
     _col2D = null;
     if (col2D.gameObject.tag == "PlayerCharacter")
     {
-      AB.isInFootsiesRange = false;
-      // anim.SetBool ("isPunching", false);
+      AB.currentFootsiesRange = footsies.range.None;
     }
   }
 }

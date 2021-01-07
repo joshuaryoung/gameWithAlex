@@ -45,16 +45,16 @@ public class acolyteBehavior : MonoBehaviour
   public float currentReelLengthCooldown;
   public float pushBackDistance;
   public bool infiniteHealth;
-  public bool isInFootsiesRange;
+  public footsies.range currentFootsiesRange;
   public bool isNotInAnimation;
   public int attackDecisionRNG;
+  public byte attackDecisionRNGMin;
+  public byte attackDecisionRNGMax;
   public float bobAndWeaveRNG;
   public float bobAndWeaveRNGMin;
   public float bobAndWeaveRNGMax;
   public float bobAndWeaveDeadZoneMin;
   public float bobAndWeaveDeadZoneMax;
-  public byte attackDecisionRNGMin;
-  public byte attackDecisionRNGMax;
   public byte lightPunchRNGMin;
   public byte lightPunchRNGMax;
   public byte headbuttPunchRNGMin;
@@ -129,7 +129,7 @@ public class acolyteBehavior : MonoBehaviour
       CVO.removeObject(gameObject);
     }
     // Footsies Stuff
-    if ((isInFootsiesRange || bobAndWeaveRNG != 0) && isNotInAnimation && !AIBS.isCollidingWithAIBlocker)
+    if ((currentFootsiesRange != footsies.range.None || bobAndWeaveRNG != 0) && isNotInAnimation && !AIBS.isCollidingWithAIBlocker)
     {
       if (bobAndWeaveRNG == 0)
       {
@@ -192,7 +192,7 @@ public class acolyteBehavior : MonoBehaviour
         bobAndWeaveRNG -= actualMoveDistance;
       }
     }
-    else if (!isInFootsiesRange && isNotInAnimation)
+    else if (currentFootsiesRange == footsies.range.None && isNotInAnimation)
     {
       transform.position += new Vector3(enemyHorizontalSpeed * transform.localScale.x,
         0,
@@ -452,7 +452,7 @@ public class acolyteBehavior : MonoBehaviour
     bool isFacingTowardsWall = (col2D.gameObject.transform.localPosition.x - transform.localPosition.x) * transform.localScale.x > 0;
     bool facingOppositeDirections = col2D.transform.localScale.x * transform.localScale.x < 0;
 
-    if (isNotInAnimation && isNotOnIgnoreRaycastLayer && flipCoolDown <= 0 && !isInFootsiesRange)
+    if (isNotInAnimation && isNotOnIgnoreRaycastLayer && flipCoolDown <= 0 && currentFootsiesRange == footsies.range.None)
     {
       if (isWall && isFacingTowardsWall) {
         flip();

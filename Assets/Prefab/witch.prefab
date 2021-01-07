@@ -100,8 +100,8 @@ MonoBehaviour:
   slashRNGMax: 15
   heavyPunchRNGMin: 255
   heavyPunchRNGMax: 255
-  blockRNGMin: 16
-  blockRNGMax: 50
+  blockRNGMin: 255
+  blockRNGMax: 255
   bobAndWeaveRNGDecisionMin: 51
   bobAndWeaveRNGDecisionMax: 80
   actualMoveDistance: 0
