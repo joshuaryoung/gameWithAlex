@@ -74,13 +74,13 @@ MonoBehaviour:
   punchDamageValue: 2
   punchPushbackOnHit: 4
   punchPushbackOnBlock: 1.29
-  punchReelLength: 1
-  punchBlockStunLength: 0.78
+  punchReelLength: 0.4333
+  punchBlockStunLength: 0.3333
   heavyPunchDamageValue: 0
   heavyPunchPushbackOnHit: 5.36
   heavyPunchPushbackOnBlock: 0.96
-  heavyPunchReelLength: 1.71
-  heavyPunchBlockStunLength: 0
+  heavyPunchReelLength: 0.4333
+  heavyPunchBlockStunLength: 0.3333
   canAttack: 0
   isBlocking: 0
   hitSparkAnimator: {fileID: 3034471355560115620}

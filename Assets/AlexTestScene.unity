@@ -6275,6 +6275,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114011634407126842, guid: 216a602d06062234b9e3fa84990e3137,
         type: 3}
+      propertyPath: blockRNGMax
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 216a602d06062234b9e3fa84990e3137,
+        type: 3}
+      propertyPath: blockRNGMin
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 216a602d06062234b9e3fa84990e3137,
+        type: 3}
       propertyPath: startHealth
       value: 9
       objectReference: {fileID: 0}
@@ -6282,6 +6292,46 @@ PrefabInstance:
         type: 3}
       propertyPath: currentHealth
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 216a602d06062234b9e3fa84990e3137,
+        type: 3}
+      propertyPath: punchReelLength
+      value: 0.4333
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 216a602d06062234b9e3fa84990e3137,
+        type: 3}
+      propertyPath: lightPunchRNGMax
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 216a602d06062234b9e3fa84990e3137,
+        type: 3}
+      propertyPath: punchPushbackOnHit
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 216a602d06062234b9e3fa84990e3137,
+        type: 3}
+      propertyPath: headbuttPunchRNGMax
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 216a602d06062234b9e3fa84990e3137,
+        type: 3}
+      propertyPath: headbuttPunchRNGMin
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 216a602d06062234b9e3fa84990e3137,
+        type: 3}
+      propertyPath: attackDecisionRNGMax
+      value: 224
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 216a602d06062234b9e3fa84990e3137,
+        type: 3}
+      propertyPath: bobAndWeaveRNGDecisionMax
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011634407126842, guid: 216a602d06062234b9e3fa84990e3137,
+        type: 3}
+      propertyPath: bobAndWeaveRNGDecisionMin
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 216a602d06062234b9e3fa84990e3137, type: 3}
@@ -7818,7 +7868,7 @@ Transform:
   - {fileID: 131482903}
   - {fileID: 1589829895}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &402126277
 GameObject:
@@ -8094,7 +8144,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
-    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -10075,7 +10124,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1083991397
   m_SortingLayer: -2
-  m_SortingOrder: -1
+  m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: 9a4402ec8c8aeac478bc4789b8a9fc03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -10402,7 +10451,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
-    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -13873,7 +13921,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
-    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -17860,7 +17907,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
-    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -20876,7 +20922,7 @@ LightingSettings:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Settings.lighting
-  serializedVersion: 3
+  serializedVersion: 2
   m_GIWorkflowMode: 1
   m_EnableBakedLightmaps: 0
   m_EnableRealtimeLightmaps: 0
@@ -20915,7 +20961,7 @@ LightingSettings:
   m_PVREnvironmentReferencePointCount: 2048
   m_LightProbeSampleCountMultiplier: 4
   m_PVRBounces: 2
-  m_PVRMinBounces: 1
+  m_PVRRussianRouletteStartBounce: 2
   m_PVREnvironmentMIS: 0
   m_PVRFilteringMode: 2
   m_PVRDenoiserTypeDirect: 0
@@ -21794,7 +21840,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
-    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -22294,7 +22339,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
-    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -22539,7 +22583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4612835406874000, guid: 17943721003ec0e44bac1eaa1219b4f2, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 4612835406874000, guid: 17943721003ec0e44bac1eaa1219b4f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25313,7 +25357,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
-    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -25971,7 +26014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4928715575445812, guid: af1a9b38c83ca834c8dee91ea1a51b6d, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4928715575445812, guid: af1a9b38c83ca834c8dee91ea1a51b6d, type: 3}
       propertyPath: m_LocalScale.x
@@ -27514,7 +27557,7 @@ Transform:
   - {fileID: 2125425482}
   - {fileID: 1917131576}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1504262571
 GameObject:
@@ -30209,7 +30252,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
-    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -31417,7 +31459,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
-    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -31959,7 +32000,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
-    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -32852,7 +32892,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
-    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -37767,11 +37806,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4087151271183574, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -328.4
+      value: -531.9
       objectReference: {fileID: 0}
     - target: {fileID: 4087151271183574, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 55.1
+      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: 4087151271183574, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -37823,7 +37862,52 @@ PrefabInstance:
     - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
         type: 3}
       propertyPath: kickBlockStunLength
-      value: 2.3
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: punchBlockStunLength
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: sweepBlockStunLength
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: kickAC2BlockStunLength
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: kickAC3BlockStunLength
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: punchAC2BlockStunLength
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: punchAC3BlockStunLength
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: uppercutBlockStunLength
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: jumpingKickBlockStunLength
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
+        type: 3}
+      propertyPath: jumpingPunchBlockStunLength
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 114504737153347904, guid: 117785b7cd429d342af78d659adcd96b,
         type: 3}
@@ -38838,7 +38922,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
-    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
