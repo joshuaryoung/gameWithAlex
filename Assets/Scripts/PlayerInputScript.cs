@@ -1,19 +1,4 @@
-﻿/*
-
-TODO: Completely rewrite controller polling and state updates
-
-Bugs
-
-Can't crouch with S key while blocking - attempts to save scene? -Alex
--> What key should we change crouch to then?
-
-Vaulting over the lip of a wall after wall jump seems to rely on the exact size of the "Wall" object in the scene.
-Changing the proportions of a wall makes the character behavior buggy.
-
-
-
-*/
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

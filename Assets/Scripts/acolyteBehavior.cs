@@ -51,7 +51,13 @@ public class acolyteBehavior : MonoBehaviour
   public byte attackDecisionRNGMin;
   public byte attackDecisionRNGMax;
   public byte lightPunchRNGMin;
+  public byte lightPunchNearRNGMin;
+  public byte lightPunchMidRNGMin;
+  public byte lightPunchFarRNGMin;
   public byte lightPunchRNGMax;
+  public byte lightPunchNearRNGMax;
+  public byte lightPunchMidRNGMax;
+  public byte lightPunchFarRNGMax;
   public byte headbuttPunchRNGMin;
   public byte headbuttPunchRNGMax;
   public byte attack3RNGMin;
@@ -131,6 +137,7 @@ public class acolyteBehavior : MonoBehaviour
     // Footsies Stuff
     if ((currentFootsiesRange != footsies.range.None || bobAndWeaveDistanceRNG != 0) && isNotInAnimation && !AIBS.isCollidingWithAIBlocker)
     {
+      footsiesValsForCurrentRange();
       if (bobAndWeaveDistanceRNG == 0)
       {
         attackDecisionRNG = UnityEngine.Random.Range(attackDecisionRNGMin, attackDecisionRNGMax);
@@ -237,6 +244,18 @@ public class acolyteBehavior : MonoBehaviour
     if (flipCoolDown > 0) {
       flipCoolDown -= Time.deltaTime;
     }
+  }
+
+  void footsiesValsForCurrentRange() {
+    switch (currentFootsiesRange)
+    {
+        case footsies.range.Near:
+          lightPunchRNGMin = lightPunchNearRNGMin;
+          break;
+        default:
+          break;
+    }
+    //Todo - the rest of the distances
   }
 
   void disableIsPunching()
