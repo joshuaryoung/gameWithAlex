@@ -162,20 +162,20 @@ MonoBehaviour:
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   punchHitBox: {fileID: 58312095405789320}
   punchDamageValue: 1
-  punchReelLength: 0.61
-  punchBlockStunLength: 0.42
+  punchReelLength: 0.3833
+  punchBlockStunLength: 0.3333
   punchPushbackOnHit: 2.97
   punchPushbackOnBlock: 0.81
   headbuttHitBox: {fileID: 58312095405789320}
   headbuttDamageValue: 2
-  headbuttReelLength: 0.94
-  headbuttBlockStunLength: 0.34
+  headbuttReelLength: 0.5833
+  headbuttBlockStunLength: 0.3333
   headbuttPushbackOnHit: 7.65
   headbuttPushbackOnBlock: 1.45
-  attack3HitBox: {fileID: 5345130513557998484}
+  attack3HitBox: {fileID: 58312095405789320}
   attack3DamageValue: 3
   attack3ReelLength: 1.02
-  attack3BlockStunLength: 0.87
+  attack3BlockStunLength: 1.02
   attack3PushbackOnHit: 4.05
   attack3PushbackOnBlock: 1.39
   canAttack: 0
@@ -194,15 +194,15 @@ MonoBehaviour:
   bobAndWeaveDeadZoneMin: -10
   bobAndWeaveDeadZoneMax: 10
   attackDecisionRNGMin: 0
-  attackDecisionRNGMax: 255
+  attackDecisionRNGMax: 224
   lightPunchRNGMin: 0
   lightPunchRNGMax: 2
   headbuttPunchRNGMin: 3
   headbuttPunchRNGMax: 5
-  attack3RNGMin: 255
-  attack3RNGMax: 255
-  blockRNGMin: 255
-  blockRNGMax: 255
+  attack3RNGMin: 225
+  attack3RNGMax: 225
+  blockRNGMin: 9
+  blockRNGMax: 11
   bobAndWeaveRNGDecisionMin: 12
   bobAndWeaveRNGDecisionMax: 15
   actualMoveDistance: 0
