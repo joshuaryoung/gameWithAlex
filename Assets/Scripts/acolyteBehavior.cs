@@ -50,11 +50,6 @@ public class acolyteBehavior : MonoBehaviour
   public int attackDecisionRNG;
   public byte attackDecisionRNGMin;
   public byte attackDecisionRNGMax;
-  public float bobAndWeaveRNG;
-  public float bobAndWeaveRNGMin;
-  public float bobAndWeaveRNGMax;
-  public float bobAndWeaveDeadZoneMin;
-  public float bobAndWeaveDeadZoneMax;
   public byte lightPunchRNGMin;
   public byte lightPunchRNGMax;
   public byte headbuttPunchRNGMin;
@@ -65,6 +60,11 @@ public class acolyteBehavior : MonoBehaviour
   public byte blockRNGMax;
   public byte bobAndWeaveRNGDecisionMin;
   public byte bobAndWeaveRNGDecisionMax;
+  public float bobAndWeaveDistanceRNG;
+  public float bobAndWeaveDistanceRNGMin;
+  public float bobAndWeaveDistanceRNGMax;
+  public float bobAndWeaveDeadZoneMin;
+  public float bobAndWeaveDeadZoneMax;
   public float actualMoveDistance;
   public AudioSource audioSrc;
   public AudioClip punchSoundEffect;
@@ -129,9 +129,9 @@ public class acolyteBehavior : MonoBehaviour
       CVO.removeObject(gameObject);
     }
     // Footsies Stuff
-    if ((currentFootsiesRange != footsies.range.None || bobAndWeaveRNG != 0) && isNotInAnimation && !AIBS.isCollidingWithAIBlocker)
+    if ((currentFootsiesRange != footsies.range.None || bobAndWeaveDistanceRNG != 0) && isNotInAnimation && !AIBS.isCollidingWithAIBlocker)
     {
-      if (bobAndWeaveRNG == 0)
+      if (bobAndWeaveDistanceRNG == 0)
       {
         attackDecisionRNG = UnityEngine.Random.Range(attackDecisionRNGMin, attackDecisionRNGMax);
       }
@@ -169,27 +169,27 @@ public class acolyteBehavior : MonoBehaviour
       }
       else if (attackDecisionRNG >= bobAndWeaveRNGDecisionMin && attackDecisionRNG <= bobAndWeaveRNGDecisionMax && isNotInAnimation)
       {
-        if (bobAndWeaveRNG == 0)
+        if (bobAndWeaveDistanceRNG == 0)
         {
-          bobAndWeaveRNG = UnityEngine.Random.Range(bobAndWeaveRNGMin, bobAndWeaveRNGMax);
-          if (bobAndWeaveRNG >= bobAndWeaveDeadZoneMin && bobAndWeaveRNG <= bobAndWeaveDeadZoneMax) {
-            float distanceToMin = Math.Abs(bobAndWeaveRNG - bobAndWeaveDeadZoneMin);
-            float distanceToMax = Math.Abs(bobAndWeaveDeadZoneMax - bobAndWeaveRNG);
+          bobAndWeaveDistanceRNG = UnityEngine.Random.Range(bobAndWeaveDistanceRNGMin, bobAndWeaveDistanceRNGMax);
+          if (bobAndWeaveDistanceRNG >= bobAndWeaveDeadZoneMin && bobAndWeaveDistanceRNG <= bobAndWeaveDeadZoneMax) {
+            float distanceToMin = Math.Abs(bobAndWeaveDistanceRNG - bobAndWeaveDeadZoneMin);
+            float distanceToMax = Math.Abs(bobAndWeaveDeadZoneMax - bobAndWeaveDistanceRNG);
             if (distanceToMin < distanceToMax) {
-              bobAndWeaveRNG = UnityEngine.Random.Range(bobAndWeaveRNGMin, bobAndWeaveDeadZoneMin);
+              bobAndWeaveDistanceRNG = UnityEngine.Random.Range(bobAndWeaveDistanceRNGMin, bobAndWeaveDeadZoneMin);
               // Debug.Log($"in dead zone. Closer to min. bobAndWeaveRng: {bobAndWeaveRNG} min: {bobAndWeaveDeadZoneMin} max: {bobAndWeaveDeadZoneMax} distanceToMin: {distanceToMin} distanceToMax: {distanceToMax}");
             } else {
-              bobAndWeaveRNG = UnityEngine.Random.Range(bobAndWeaveDeadZoneMax, bobAndWeaveRNGMax);
-              // Debug.Log($"in dead zone. Closer to max. bobAndWeaveRng: {bobAndWeaveRNG} min: {bobAndWeaveDeadZoneMin} max: {bobAndWeaveDeadZoneMax} distanceToMin: {distanceToMin} distanceToMax: {distanceToMax}");
+              bobAndWeaveDistanceRNG = UnityEngine.Random.Range(bobAndWeaveDeadZoneMax, bobAndWeaveDistanceRNGMax);
+              // Debug.Log($"in dead zone. Closer to max. bobAndWeaveRng: {bobAndWeaveDistanceRNG} min: {bobAndWeaveDeadZoneMin} max: {bobAndWeaveDeadZoneMax} distanceToMin: {distanceToMin} distanceToMax: {distanceToMax}");
             }
           }
         }
-        actualMoveDistance = Mathf.Clamp(bobAndWeaveRNG, -1 * enemyHorizontalSpeed, enemyHorizontalSpeed);
+        actualMoveDistance = Mathf.Clamp(bobAndWeaveDistanceRNG, -1 * enemyHorizontalSpeed, enemyHorizontalSpeed);
         transform.position += new Vector3(actualMoveDistance * transform.localScale.x,
           0,
           0
         ) * Time.deltaTime;
-        bobAndWeaveRNG -= actualMoveDistance;
+        bobAndWeaveDistanceRNG -= actualMoveDistance;
       }
     }
     else if (currentFootsiesRange == footsies.range.None && isNotInAnimation)
