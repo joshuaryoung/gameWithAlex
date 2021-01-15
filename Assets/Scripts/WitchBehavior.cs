@@ -38,24 +38,60 @@ public class WitchBehavior : MonoBehaviour
   public Animator blockSparkAnimator;
   public float currentReelLengthCooldown;
   public bool infiniteHealth;
-  public bool isInFootsiesRange;
+  public footsies.range currentFootsiesRange;
   public bool isNotInAnimation;
   public int attackDecisionRNG;
-  public float bobAndWeaveRNG;
-  public float bobAndWeaveRNGMin;
-  public float bobAndWeaveRNGMax;
-  public float bobAndWeaveDeadZoneMin;
-  public float bobAndWeaveDeadZoneMax;
   public byte attackDecisionRNGMin;
   public byte attackDecisionRNGMax;
-  public byte slashRNGMin;
-  public byte slashRNGMax;
-  public byte heavyPunchRNGMin;
-  public byte heavyPunchRNGMax;
-  public byte blockRNGMin;
-  public byte blockRNGMax;
   public byte bobAndWeaveRNGDecisionMin;
+  public byte bobAndWeaveNearRNGDecisionMin;
+  public byte bobAndWeaveMidRNGDecisionMin;
+  public byte bobAndWeaveFarRNGDecisionMin;
   public byte bobAndWeaveRNGDecisionMax;
+  public byte bobAndWeaveNearRNGDecisionMax;
+  public byte bobAndWeaveMidRNGDecisionMax;
+  public byte bobAndWeaveFarRNGDecisionMax;
+  public float bobAndWeaveDistanceRNG;
+  public float bobAndWeaveDistanceRNGMin;
+  public float bobAndWeaveDistanceNearRNGMin;
+  public float bobAndWeaveDistanceMidRNGMin;
+  public float bobAndWeaveDistanceFarRNGMin;
+  public float bobAndWeaveDistanceRNGMax;
+  public float bobAndWeaveDistanceNearRNGMax;
+  public float bobAndWeaveDistanceMidRNGMax;
+  public float bobAndWeaveDistanceFarRNGMax;
+  public float bobAndWeaveDeadZoneMin;
+  public float bobAndWeaveDeadZoneNearMin;
+  public float bobAndWeaveDeadZoneMidMin;
+  public float bobAndWeaveDeadZoneFarMin;
+  public float bobAndWeaveDeadZoneMax;
+  public float bobAndWeaveDeadZoneNearMax;
+  public float bobAndWeaveDeadZoneMidMax;
+  public float bobAndWeaveDeadZoneFarMax;
+  public byte slashRNGMin;
+  public byte slashNearRNGMin;
+  public byte slashMidRNGMin;
+  public byte slashFarRNGMin;
+  public byte slashRNGMax;
+  public byte slashNearRNGMax;
+  public byte slashMidRNGMax;
+  public byte slashFarRNGMax;
+  public byte attack2RNGMin;
+  public byte attack2NearRNGMin;
+  public byte attack2MidRNGMin;
+  public byte attack2FarRNGMin;
+  public byte attack2RNGMax;
+  public byte attack2NearRNGMax;
+  public byte attack2MidRNGMax;
+  public byte attack2FarRNGMax;
+  public byte blockRNGMin;
+  public byte blockNearRNGMin;
+  public byte blockMidRNGMin;
+  public byte blockFarRNGMin;
+  public byte blockRNGMax;
+  public byte blockNearRNGMax;
+  public byte blockMidRNGMax;
+  public byte blockFarRNGMax;
   public float actualMoveDistance;
   public AudioSource audioSrc;
   public AudioClip slashSoundEffect;
@@ -127,9 +163,10 @@ public class WitchBehavior : MonoBehaviour
       CVO.removeObject(gameObject);
     }
     // Footsies Stuff
-    if ((isInFootsiesRange || bobAndWeaveRNG != 0) && isNotInAnimation && !WAIBS.isCollidingWithAIBlocker)
+    if ((currentFootsiesRange != footsies.range.None || bobAndWeaveDistanceRNG != 0) && isNotInAnimation && !WAIBS.isCollidingWithAIBlocker)
     {
-      if (bobAndWeaveRNG == 0)
+      footsiesValsForCurrentRange();
+      if (bobAndWeaveDistanceRNG == 0)
       {
         attackDecisionRNG = UnityEngine.Random.Range(attackDecisionRNGMin, attackDecisionRNGMax);
       }
@@ -143,7 +180,7 @@ public class WitchBehavior : MonoBehaviour
         audioSrc.enabled = true;
         audioSrc.Play();
       }
-      else if (attackDecisionRNG >= heavyPunchRNGMin && attackDecisionRNG <= heavyPunchRNGMax && canAttack)
+      else if (attackDecisionRNG >= attack2RNGMin && attackDecisionRNG <= attack2RNGMax && canAttack)
       {
         canAttack = false;
         witchAnim.SetBool("isHeavyPunching", true);
@@ -159,30 +196,30 @@ public class WitchBehavior : MonoBehaviour
       }
       else if (attackDecisionRNG >= bobAndWeaveRNGDecisionMin && attackDecisionRNG <= bobAndWeaveRNGDecisionMax && isNotInAnimation)
       {
-        if (bobAndWeaveRNG == 0)
+        if (bobAndWeaveDistanceRNG == 0)
         {
-          bobAndWeaveRNG = UnityEngine.Random.Range(bobAndWeaveRNGMin, bobAndWeaveRNGMax);
-          if (bobAndWeaveRNG >= bobAndWeaveDeadZoneMin && bobAndWeaveRNG <= bobAndWeaveDeadZoneMax) {
-            float distanceToMin = Math.Abs(bobAndWeaveRNG - bobAndWeaveDeadZoneMin);
-            float distanceToMax = Math.Abs(bobAndWeaveDeadZoneMax - bobAndWeaveRNG);
+          bobAndWeaveDistanceRNG = UnityEngine.Random.Range(bobAndWeaveDistanceRNGMin, bobAndWeaveDistanceRNGMax);
+          if (bobAndWeaveDistanceRNG >= bobAndWeaveDeadZoneMin && bobAndWeaveDistanceRNG <= bobAndWeaveDeadZoneMax) {
+            float distanceToMin = Math.Abs(bobAndWeaveDistanceRNG - bobAndWeaveDeadZoneMin);
+            float distanceToMax = Math.Abs(bobAndWeaveDeadZoneMax - bobAndWeaveDistanceRNG);
             if (distanceToMin < distanceToMax) {
-              bobAndWeaveRNG = UnityEngine.Random.Range(bobAndWeaveRNGMin, bobAndWeaveDeadZoneMin);
-              // Debug.Log($"in dead zone. Closer to min. bobAndWeaveRng: {bobAndWeaveRNG} min: {bobAndWeaveDeadZoneMin} max: {bobAndWeaveDeadZoneMax} distanceToMin: {distanceToMin} distanceToMax: {distanceToMax}");
+              bobAndWeaveDistanceRNG = UnityEngine.Random.Range(bobAndWeaveDistanceRNGMin, bobAndWeaveDeadZoneMin);
+              // Debug.Log($"in dead zone. Closer to min. bobAndWeaveDistanceRNG: {bobAndWeaveDistanceRNG} min: {bobAndWeaveDeadZoneMin} max: {bobAndWeaveDeadZoneMax} distanceToMin: {distanceToMin} distanceToMax: {distanceToMax}");
             } else {
-              bobAndWeaveRNG = UnityEngine.Random.Range(bobAndWeaveDeadZoneMax, bobAndWeaveRNGMax);
-              // Debug.Log($"in dead zone. Closer to max. bobAndWeaveRng: {bobAndWeaveRNG} min: {bobAndWeaveDeadZoneMin} max: {bobAndWeaveDeadZoneMax} distanceToMin: {distanceToMin} distanceToMax: {distanceToMax}");
+              bobAndWeaveDistanceRNG = UnityEngine.Random.Range(bobAndWeaveDeadZoneMax, bobAndWeaveDistanceRNGMax);
+              // Debug.Log($"in dead zone. Closer to max. bobAndWeaveDistanceRNG: {bobAndWeaveDistanceRNG} min: {bobAndWeaveDeadZoneMin} max: {bobAndWeaveDeadZoneMax} distanceToMin: {distanceToMin} distanceToMax: {distanceToMax}");
             }
           }
         }
-        actualMoveDistance = Mathf.Clamp(bobAndWeaveRNG, -1 * enemyHorizontalSpeed, enemyHorizontalSpeed);
+        actualMoveDistance = Mathf.Clamp(bobAndWeaveDistanceRNG, -1 * enemyHorizontalSpeed, enemyHorizontalSpeed);
         transform.position += new Vector3(actualMoveDistance * transform.localScale.x,
           0,
           0
         ) * Time.deltaTime;
-        bobAndWeaveRNG -= actualMoveDistance;
+        bobAndWeaveDistanceRNG -= actualMoveDistance;
       }
     }
-    else if (!isInFootsiesRange && isNotInAnimation)
+    else if (currentFootsiesRange == footsies.range.None && isNotInAnimation)
     {
       transform.position += new Vector3(enemyHorizontalSpeed * transform.localScale.x,
         0,
@@ -266,6 +303,59 @@ public class WitchBehavior : MonoBehaviour
         object[] args = { damageValue, transform.localScale.x * (PIS.isBlocking ? pushbackOnBlock : pushbackOnHit), reelLength, blockStunLength };
         c.SendMessageUpwards("playerTakeDamage", args);
       }
+    }
+  }
+
+  void footsiesValsForCurrentRange() {
+    switch (currentFootsiesRange)
+    {
+        case footsies.range.Near:
+          slashRNGMin = slashNearRNGMin;
+          slashRNGMax = slashNearRNGMax;
+          attack2RNGMin = attack2NearRNGMin;
+          attack2RNGMax = attack2NearRNGMax;
+          blockRNGMin = blockNearRNGMin;
+          blockRNGMax = blockNearRNGMax;
+          bobAndWeaveRNGDecisionMin = bobAndWeaveNearRNGDecisionMin;
+          bobAndWeaveRNGDecisionMax = bobAndWeaveNearRNGDecisionMax;
+          bobAndWeaveDistanceRNGMin = bobAndWeaveDistanceNearRNGMin;
+          bobAndWeaveDistanceRNGMax = bobAndWeaveDistanceNearRNGMax;
+          bobAndWeaveDeadZoneMin = bobAndWeaveDeadZoneNearMin;
+          bobAndWeaveDeadZoneMax = bobAndWeaveDeadZoneNearMax;
+          break;
+
+        case footsies.range.Mid:
+          slashRNGMin = slashMidRNGMin;
+          slashRNGMax = slashMidRNGMax;
+          attack2RNGMin = attack2MidRNGMin;
+          attack2RNGMax = attack2MidRNGMax;
+          blockRNGMin = blockMidRNGMin;
+          blockRNGMax = blockMidRNGMax;
+          bobAndWeaveRNGDecisionMin = bobAndWeaveMidRNGDecisionMin;
+          bobAndWeaveRNGDecisionMax = bobAndWeaveMidRNGDecisionMax;
+          bobAndWeaveDistanceRNGMin = bobAndWeaveDistanceMidRNGMin;
+          bobAndWeaveDistanceRNGMax = bobAndWeaveDistanceMidRNGMax;
+          bobAndWeaveDeadZoneMin = bobAndWeaveDeadZoneMidMin;
+          bobAndWeaveDeadZoneMax = bobAndWeaveDeadZoneMidMax;
+          break;
+
+        case footsies.range.Far:
+          slashRNGMin = slashFarRNGMin;
+          slashRNGMax = slashFarRNGMax;
+          attack2RNGMin = attack2FarRNGMin;
+          attack2RNGMax = attack2FarRNGMax;
+          blockRNGMin = blockFarRNGMin;
+          blockRNGMax = blockFarRNGMax;
+          bobAndWeaveRNGDecisionMin = bobAndWeaveFarRNGDecisionMin;
+          bobAndWeaveRNGDecisionMax = bobAndWeaveFarRNGDecisionMax;
+          bobAndWeaveDistanceRNGMin = bobAndWeaveDistanceFarRNGMin;
+          bobAndWeaveDistanceRNGMax = bobAndWeaveDistanceFarRNGMax;
+          bobAndWeaveDeadZoneMin = bobAndWeaveDeadZoneFarMin;
+          bobAndWeaveDeadZoneMax = bobAndWeaveDeadZoneFarMax;
+          break;
+
+        default:
+          break;
     }
   }
 
@@ -438,7 +528,7 @@ public class WitchBehavior : MonoBehaviour
     bool isFacingTowardsWall = (col2D.gameObject.transform.localPosition.x - transform.localPosition.x) * transform.localScale.x > 0;
     bool facingOppositeDirections = col2D.transform.localScale.x * transform.localScale.x < 0;
 
-    if (isNotInAnimation && isNotOnIgnoreRaycastLayer && flipCoolDown <= 0 && !isInFootsiesRange)
+    if (isNotInAnimation && isNotOnIgnoreRaycastLayer && flipCoolDown <= 0 && currentFootsiesRange == footsies.range.None)
     {
       if (isWall && isFacingTowardsWall) {
         flip();

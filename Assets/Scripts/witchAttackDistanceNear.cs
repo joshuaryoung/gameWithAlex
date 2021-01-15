@@ -12,7 +12,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class witchAttackDistance : MonoBehaviour
+public class witchAttackDistanceNear : MonoBehaviour
 {
   public GameObject playerGameObject;
   public GameObject enemyGameObject;
@@ -54,7 +54,7 @@ public class witchAttackDistance : MonoBehaviour
     if (isPlayerCharacter && isNotInInvincibilityAnim && WB.canAttack && !PIS.isDead)
     {
       // Debug.Log("Player Collision!");
-      WB.isInFootsiesRange = true;
+      WB.currentFootsiesRange = footsies.range.Near;
     }
   }
 
@@ -68,7 +68,7 @@ public class witchAttackDistance : MonoBehaviour
     _col2D = null;
     if (col2D.gameObject.tag == "PlayerCharacter")
     {
-      WB.isInFootsiesRange = false;
+      WB.currentFootsiesRange = footsies.range.None;
     }
   }
 }
