@@ -93,55 +93,55 @@ MonoBehaviour:
   attackDecisionRNG: 0
   attackDecisionRNGMin: 1
   attackDecisionRNGMax: 254
-  bobAndWeaveRNGDecisionMin: 51
+  bobAndWeaveRNGDecisionMin: 0
   bobAndWeaveNearRNGDecisionMin: 0
   bobAndWeaveMidRNGDecisionMin: 0
   bobAndWeaveFarRNGDecisionMin: 0
-  bobAndWeaveRNGDecisionMax: 80
-  bobAndWeaveNearRNGDecisionMax: 0
-  bobAndWeaveMidRNGDecisionMax: 0
-  bobAndWeaveFarRNGDecisionMax: 0
+  bobAndWeaveRNGDecisionMax: 0
+  bobAndWeaveNearRNGDecisionMax: 19
+  bobAndWeaveMidRNGDecisionMax: 9
+  bobAndWeaveFarRNGDecisionMax: 20
   bobAndWeaveDistanceRNG: 0
   bobAndWeaveDistanceRNGMin: 0
-  bobAndWeaveDistanceNearRNGMin: 0
-  bobAndWeaveDistanceMidRNGMin: 0
-  bobAndWeaveDistanceFarRNGMin: 0
+  bobAndWeaveDistanceNearRNGMin: -10.07
+  bobAndWeaveDistanceMidRNGMin: -5.95
+  bobAndWeaveDistanceFarRNGMin: -2.08
   bobAndWeaveDistanceRNGMax: 0
-  bobAndWeaveDistanceNearRNGMax: 0
-  bobAndWeaveDistanceMidRNGMax: 0
-  bobAndWeaveDistanceFarRNGMax: 0
-  bobAndWeaveDeadZoneMin: -71
-  bobAndWeaveDeadZoneNearMin: 0
-  bobAndWeaveDeadZoneMidMin: 0
-  bobAndWeaveDeadZoneFarMin: 0
+  bobAndWeaveDistanceNearRNGMax: 1
+  bobAndWeaveDistanceMidRNGMax: 5.02
+  bobAndWeaveDistanceFarRNGMax: 8.69
+  bobAndWeaveDeadZoneMin: 0
+  bobAndWeaveDeadZoneNearMin: -4.21
+  bobAndWeaveDeadZoneMidMin: -3.94
+  bobAndWeaveDeadZoneFarMin: -1.08
   bobAndWeaveDeadZoneMax: 0
-  bobAndWeaveDeadZoneNearMax: 0
-  bobAndWeaveDeadZoneMidMax: 0
-  bobAndWeaveDeadZoneFarMax: 0
-  slashRNGMin: 1
-  slashNearRNGMin: 0
-  slashMidRNGMin: 0
-  slashFarRNGMin: 0
-  slashRNGMax: 15
-  slashNearRNGMax: 0
-  slashMidRNGMax: 0
-  slashFarRNGMax: 0
+  bobAndWeaveDeadZoneNearMax: 0.78
+  bobAndWeaveDeadZoneMidMax: 3.71
+  bobAndWeaveDeadZoneFarMax: 6.18
+  slashRNGMin: 0
+  slashNearRNGMin: 20
+  slashMidRNGMin: 10
+  slashFarRNGMin: 21
+  slashRNGMax: 0
+  slashNearRNGMax: 34
+  slashMidRNGMax: 18
+  slashFarRNGMax: 22
   attack2RNGMin: 0
-  attack2NearRNGMin: 0
-  attack2MidRNGMin: 0
-  attack2FarRNGMin: 0
+  attack2NearRNGMin: 35
+  attack2MidRNGMin: 19
+  attack2FarRNGMin: 23
   attack2RNGMax: 0
   attack2NearRNGMax: 0
   attack2MidRNGMax: 0
   attack2FarRNGMax: 0
-  blockRNGMin: 255
-  blockNearRNGMin: 0
-  blockMidRNGMin: 0
-  blockFarRNGMin: 0
-  blockRNGMax: 255
-  blockNearRNGMax: 0
-  blockMidRNGMax: 0
-  blockFarRNGMax: 0
+  blockRNGMin: 0
+  blockNearRNGMin: 37
+  blockMidRNGMin: 20
+  blockFarRNGMin: 24
+  blockRNGMax: 0
+  blockNearRNGMax: 40
+  blockMidRNGMax: 26
+  blockFarRNGMax: 25
   actualMoveDistance: 0
   audioSrc: {fileID: 0}
   slashSoundEffect: {fileID: 8300000, guid: 0c7cc4d9504c947418f93cf12213c4c2, type: 3}
