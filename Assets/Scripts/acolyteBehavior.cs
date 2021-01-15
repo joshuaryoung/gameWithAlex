@@ -59,18 +59,54 @@ public class acolyteBehavior : MonoBehaviour
   public byte lightPunchMidRNGMax;
   public byte lightPunchFarRNGMax;
   public byte headbuttPunchRNGMin;
+  public byte headbuttPunchNearRNGMin;
+  public byte headbuttPunchMidRNGMin;
+  public byte headbuttPunchFarRNGMin;
   public byte headbuttPunchRNGMax;
+  public byte headbuttPunchNearRNGMax;
+  public byte headbuttPunchMidRNGMax;
+  public byte headbuttPunchFarRNGMax;
   public byte attack3RNGMin;
+  public byte attack3NearRNGMin;
+  public byte attack3MidRNGMin;
+  public byte attack3FarRNGMin;
   public byte attack3RNGMax;
+  public byte attack3NearRNGMax;
+  public byte attack3MidRNGMax;
+  public byte attack3FarRNGMax;
   public byte blockRNGMin;
+  public byte blockNearRNGMin;
+  public byte blockMidRNGMin;
+  public byte blockFarRNGMin;
   public byte blockRNGMax;
+  public byte blockNearRNGMax;
+  public byte blockMidRNGMax;
+  public byte blockFarRNGMax;
   public byte bobAndWeaveRNGDecisionMin;
+  public byte bobAndWeaveNearRNGDecisionMin;
+  public byte bobAndWeaveMidRNGDecisionMin;
+  public byte bobAndWeaveFarRNGDecisionMin;
   public byte bobAndWeaveRNGDecisionMax;
+  public byte bobAndWeaveNearRNGDecisionMax;
+  public byte bobAndWeaveMidRNGDecisionMax;
+  public byte bobAndWeaveFarRNGDecisionMax;
   public float bobAndWeaveDistanceRNG;
   public float bobAndWeaveDistanceRNGMin;
+  public float bobAndWeaveDistanceNearRNGMin;
+  public float bobAndWeaveDistanceMidRNGMin;
+  public float bobAndWeaveDistanceFarRNGMin;
   public float bobAndWeaveDistanceRNGMax;
+  public float bobAndWeaveDistanceNearRNGMax;
+  public float bobAndWeaveDistanceMidRNGMax;
+  public float bobAndWeaveDistanceFarRNGMax;
   public float bobAndWeaveDeadZoneMin;
+  public float bobAndWeaveDeadZoneNearMin;
+  public float bobAndWeaveDeadZoneMidMin;
+  public float bobAndWeaveDeadZoneFarMin;
   public float bobAndWeaveDeadZoneMax;
+  public float bobAndWeaveDeadZoneNearMax;
+  public float bobAndWeaveDeadZoneMidMax;
+  public float bobAndWeaveDeadZoneFarMax;
   public float actualMoveDistance;
   public AudioSource audioSrc;
   public AudioClip punchSoundEffect;
@@ -251,11 +287,58 @@ public class acolyteBehavior : MonoBehaviour
     {
         case footsies.range.Near:
           lightPunchRNGMin = lightPunchNearRNGMin;
+          lightPunchRNGMax = lightPunchNearRNGMax;
+          headbuttPunchRNGMin = headbuttPunchNearRNGMin;
+          headbuttPunchRNGMax = headbuttPunchNearRNGMax;
+          attack3RNGMin = attack3NearRNGMin;
+          attack3RNGMax = attack3NearRNGMax;
+          blockRNGMin = blockNearRNGMin;
+          blockRNGMax = blockNearRNGMax;
+          bobAndWeaveRNGDecisionMin = bobAndWeaveNearRNGDecisionMin;
+          bobAndWeaveRNGDecisionMax = bobAndWeaveNearRNGDecisionMax;
+          bobAndWeaveDistanceRNGMin = bobAndWeaveDistanceNearRNGMin;
+          bobAndWeaveDistanceRNGMax = bobAndWeaveDistanceNearRNGMax;
+          bobAndWeaveDeadZoneMin = bobAndWeaveDeadZoneNearMin;
+          bobAndWeaveDeadZoneMax = bobAndWeaveDeadZoneNearMax;
           break;
+
+        case footsies.range.Mid:
+          lightPunchRNGMin = lightPunchMidRNGMin;
+          lightPunchRNGMax = lightPunchMidRNGMax;
+          headbuttPunchRNGMin = headbuttPunchMidRNGMin;
+          headbuttPunchRNGMax = headbuttPunchMidRNGMax;
+          attack3RNGMin = attack3MidRNGMin;
+          attack3RNGMax = attack3MidRNGMax;
+          blockRNGMin = blockMidRNGMin;
+          blockRNGMax = blockMidRNGMax;
+          bobAndWeaveRNGDecisionMin = bobAndWeaveMidRNGDecisionMin;
+          bobAndWeaveRNGDecisionMax = bobAndWeaveMidRNGDecisionMax;
+          bobAndWeaveDistanceRNGMin = bobAndWeaveDistanceMidRNGMin;
+          bobAndWeaveDistanceRNGMax = bobAndWeaveDistanceMidRNGMax;
+          bobAndWeaveDeadZoneMin = bobAndWeaveDeadZoneMidMin;
+          bobAndWeaveDeadZoneMax = bobAndWeaveDeadZoneMidMax;
+          break;
+
+        case footsies.range.Far:
+          lightPunchRNGMin = lightPunchFarRNGMin;
+          lightPunchRNGMax = lightPunchFarRNGMax;
+          headbuttPunchRNGMin = headbuttPunchFarRNGMin;
+          headbuttPunchRNGMax = headbuttPunchFarRNGMax;
+          attack3RNGMin = attack3FarRNGMin;
+          attack3RNGMax = attack3FarRNGMax;
+          blockRNGMin = blockFarRNGMin;
+          blockRNGMax = blockFarRNGMax;
+          bobAndWeaveRNGDecisionMin = bobAndWeaveFarRNGDecisionMin;
+          bobAndWeaveRNGDecisionMax = bobAndWeaveFarRNGDecisionMax;
+          bobAndWeaveDistanceRNGMin = bobAndWeaveDistanceFarRNGMin;
+          bobAndWeaveDistanceRNGMax = bobAndWeaveDistanceFarRNGMax;
+          bobAndWeaveDeadZoneMin = bobAndWeaveDeadZoneFarMin;
+          bobAndWeaveDeadZoneMax = bobAndWeaveDeadZoneFarMax;
+          break;
+
         default:
           break;
     }
-    //Todo - the rest of the distances
   }
 
   void disableIsPunching()
@@ -321,7 +404,6 @@ public class acolyteBehavior : MonoBehaviour
 
   public void blockEnter() {
     canAttack = false;
-    Debug.Log("blockEnter");
   }
 
   public void blockExit() {

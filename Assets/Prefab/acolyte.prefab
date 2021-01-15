@@ -188,23 +188,65 @@ MonoBehaviour:
   currentFootsiesRange: 0
   isNotInAnimation: 0
   attackDecisionRNG: 0
-  bobAndWeaveRNG: 0
-  bobAndWeaveRNGMin: -80
-  bobAndWeaveRNGMax: 50
-  bobAndWeaveDeadZoneMin: -10
-  bobAndWeaveDeadZoneMax: 10
   attackDecisionRNGMin: 0
   attackDecisionRNGMax: 224
   lightPunchRNGMin: 0
+  lightPunchNearRNGMin: 0
+  lightPunchMidRNGMin: 0
+  lightPunchFarRNGMin: 0
   lightPunchRNGMax: 2
+  lightPunchNearRNGMax: 4
+  lightPunchMidRNGMax: 0
+  lightPunchFarRNGMax: 0
   headbuttPunchRNGMin: 3
+  headbuttPunchNearRNGMin: 5
+  headbuttPunchMidRNGMin: 0
+  headbuttPunchFarRNGMin: 0
   headbuttPunchRNGMax: 5
+  headbuttPunchNearRNGMax: 5
+  headbuttPunchMidRNGMax: 0
+  headbuttPunchFarRNGMax: 0
   attack3RNGMin: 225
+  attack3NearRNGMin: 255
+  attack3MidRNGMin: 255
+  attack3FarRNGMin: 255
   attack3RNGMax: 225
+  attack3NearRNGMax: 255
+  attack3MidRNGMax: 255
+  attack3FarRNGMax: 255
   blockRNGMin: 9
+  blockNearRNGMin: 6
+  blockMidRNGMin: 0
+  blockFarRNGMin: 0
   blockRNGMax: 11
+  blockNearRNGMax: 9
+  blockMidRNGMax: 0
+  blockFarRNGMax: 0
   bobAndWeaveRNGDecisionMin: 12
+  bobAndWeaveNearRNGDecisionMin: 10
+  bobAndWeaveMidRNGDecisionMin: 0
+  bobAndWeaveFarRNGDecisionMin: 0
   bobAndWeaveRNGDecisionMax: 15
+  bobAndWeaveNearRNGDecisionMax: 13
+  bobAndWeaveMidRNGDecisionMax: 0
+  bobAndWeaveFarRNGDecisionMax: 0
+  bobAndWeaveDistanceRNG: 0
+  bobAndWeaveDistanceRNGMin: 0
+  bobAndWeaveDistanceNearRNGMin: -4.53
+  bobAndWeaveDistanceMidRNGMin: 0
+  bobAndWeaveDistanceFarRNGMin: 0
+  bobAndWeaveDistanceRNGMax: 0
+  bobAndWeaveDistanceNearRNGMax: 0.98
+  bobAndWeaveDistanceMidRNGMax: 0
+  bobAndWeaveDistanceFarRNGMax: 0
+  bobAndWeaveDeadZoneMin: 0
+  bobAndWeaveDeadZoneNearMin: -2.05
+  bobAndWeaveDeadZoneMidMin: 0
+  bobAndWeaveDeadZoneFarMin: 0
+  bobAndWeaveDeadZoneMax: 10
+  bobAndWeaveDeadZoneNearMax: 0.36
+  bobAndWeaveDeadZoneMidMax: 0
+  bobAndWeaveDeadZoneFarMax: 0
   actualMoveDistance: 0
   audioSrc: {fileID: 0}
   punchSoundEffect: {fileID: 8300000, guid: 60983f774c0f6486693dae581ff31e60, type: 3}
