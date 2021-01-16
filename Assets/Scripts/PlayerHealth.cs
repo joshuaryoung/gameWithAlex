@@ -152,7 +152,7 @@ public class PlayerHealth : MonoBehaviour
       animator.SetBool("isForwardDashing", false);
       PIS.isForwardDashing = false;
       PIS.isBackDashing = false;
-      PIS.isAbleToAct = true;
+      // PIS.isAbleToAct = true;
     }
   }
 

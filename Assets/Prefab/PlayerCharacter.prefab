@@ -512,7 +512,7 @@ MonoBehaviour:
   punchAC3PushbackValue: 9
   jumpingPunchDamageValue: 2
   jumpingPunchReelLength: 0.8
-  jumpingPunchBlockStunLength: 0.87
+  jumpingPunchBlockStunLength: 0.8
   jumpingPunchPushbackValue: 4
   kickDamageValue: 1
   kickAC2DamageValue: 1
@@ -528,7 +528,7 @@ MonoBehaviour:
   kickAC3PushbackValue: 14
   jumpingKickDamageValue: 1
   jumpingKickReelLength: 0.8
-  jumpingKickBlockStunLength: 0.88
+  jumpingKickBlockStunLength: 0.52
   jumpingKickPushbackValue: 4
   sweepDamageValue: 3
   sweepBlockStunLength: 0.87
@@ -1163,7 +1163,7 @@ Animator:
   m_GameObject: {fileID: 4079147941637204015}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 27aeef1fef38245989341dad3591dc72, type: 2}
+  m_Controller: {fileID: 9100000, guid: 379c9455795f0db4dbe753946d5b965c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

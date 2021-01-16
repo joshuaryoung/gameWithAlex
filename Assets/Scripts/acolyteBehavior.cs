@@ -173,9 +173,9 @@ public class acolyteBehavior : MonoBehaviour
     // Footsies Stuff
     if ((currentFootsiesRange != footsies.range.None || bobAndWeaveDistanceRNG != 0) && isNotInAnimation && !AIBS.isCollidingWithAIBlocker)
     {
-      footsiesValsForCurrentRange();
       if (bobAndWeaveDistanceRNG == 0)
       {
+        canAttack = true;
         attackDecisionRNG = UnityEngine.Random.Range(attackDecisionRNGMin, attackDecisionRNGMax);
       }
       // See if col2D's x is within range of the enemy's
@@ -282,7 +282,7 @@ public class acolyteBehavior : MonoBehaviour
     }
   }
 
-  void footsiesValsForCurrentRange() {
+  public void footsiesValsForCurrentRange() {
     switch (currentFootsiesRange)
     {
         case footsies.range.Near:
@@ -433,6 +433,7 @@ public class acolyteBehavior : MonoBehaviour
 
     if (currentHealth > 0 && invincibilityCooldownCurrent <= 0)
     {
+      PIS.attackHasAlreadyHit = true;
       if (isBlocking) {
         currentReelLengthCooldown = blockStunLength;
         blockSparkAnimator.SetBool("isActive", true);

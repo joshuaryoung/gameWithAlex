@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: blockSpark
+  m_Name: playerBlockSpark
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -79,14 +79,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0
-    functionName: setCanCombo
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 1
-    messageOptions: 0
-  - time: 0.2
+  - time: 0.3
     functionName: animationEnded
     data: 
     objectReferenceParameter: {fileID: 0}

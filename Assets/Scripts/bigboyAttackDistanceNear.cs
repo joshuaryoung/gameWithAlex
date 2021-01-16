@@ -55,6 +55,7 @@ public class bigboyAttackDistanceNear : MonoBehaviour
     {
       // Debug.Log("Player Collision!");
       BBB.currentFootsiesRange = footsies.range.Near;
+      BBB.footsiesValsForCurrentRange();
     }
   }
 
@@ -66,9 +67,10 @@ public class bigboyAttackDistanceNear : MonoBehaviour
     }
     isColidingWithSomething = false;
     _col2D = null;
-    if (col2D.gameObject.tag == "PlayerCharacter")
+    if (col2D.gameObject.tag == "PlayerCollisionBox")
     {
       BBB.currentFootsiesRange = footsies.range.None;
+      BBB.footsiesValsForCurrentRange();
     }
   }
 }

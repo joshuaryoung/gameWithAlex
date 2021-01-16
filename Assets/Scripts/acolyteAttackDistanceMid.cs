@@ -54,6 +54,7 @@ public class acolyteAttackDistanceMid : MonoBehaviour
     if (isPlayerCharacter && isNotInInvincibilityAnim && AB.canAttack && !PIS.isDead)
     {
       AB.currentFootsiesRange = footsies.range.Mid;
+      AB.footsiesValsForCurrentRange();
     }
   }
 
@@ -75,6 +76,7 @@ public class acolyteAttackDistanceMid : MonoBehaviour
     {
       // Debug.Log("Player Collision!");
       AB.currentFootsiesRange = footsies.range.Mid;
+      AB.footsiesValsForCurrentRange();
     }
   }
 
@@ -86,9 +88,10 @@ public class acolyteAttackDistanceMid : MonoBehaviour
     }
     isColidingWithSomething = false;
     _col2D = null;
-    if (col2D.gameObject.tag == "PlayerCharacter")
+    if (col2D.gameObject.tag == "PlayerCollisionBox")
     {
       AB.currentFootsiesRange = footsies.range.None;
+      AB.footsiesValsForCurrentRange();
     }
   }
 }

@@ -6342,6 +6342,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
+        type: 3}
+      propertyPath: PIS
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1186461640105926, guid: 17943721003ec0e44bac1eaa1219b4f2, type: 3}
       propertyPath: m_Name
       value: witch (3)
@@ -6408,11 +6413,6 @@ PrefabInstance:
         type: 3}
       propertyPath: infiniteHealth
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114011634407126842, guid: 347ccad12011c2945bc08be236bad5bd,
-        type: 3}
-      propertyPath: PIS
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17943721003ec0e44bac1eaa1219b4f2, type: 3}
@@ -37857,56 +37857,6 @@ PrefabInstance:
       propertyPath: settingsScript
       value: 
       objectReference: {fileID: 139666974}
-    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: kickBlockStunLength
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: punchBlockStunLength
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: sweepBlockStunLength
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: kickAC2BlockStunLength
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: kickAC3BlockStunLength
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: punchAC2BlockStunLength
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: punchAC3BlockStunLength
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: uppercutBlockStunLength
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: jumpingKickBlockStunLength
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b,
-        type: 3}
-      propertyPath: jumpingPunchBlockStunLength
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 114504737153347904, guid: 117785b7cd429d342af78d659adcd96b,
         type: 3}
       propertyPath: deathScreen

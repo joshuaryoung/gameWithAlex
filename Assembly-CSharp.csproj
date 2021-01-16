@@ -43,6 +43,7 @@
      <Compile Include="Assets\Scripts\HitStop.cs" />
      <Compile Include="Assets\Scripts\PlayerInputScript.cs" />
      <Compile Include="Assets\Scripts\acolyteAttackDistanceNear.cs" />
+     <Compile Include="Assets\Scripts\bigboyAttackDistanceMid.cs" />
      <Compile Include="Assets\Scripts\SettingsScript.cs" />
      <Compile Include="Assets\Scripts\witchAIBlockerScript.cs" />
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
@@ -56,18 +57,17 @@
      <Compile Include="Assets\Scripts\UIscript.cs" />
      <Compile Include="Assets\Scripts\BackgroundScroll.cs" />
      <Compile Include="Assets\Scripts\acolyteAttackDistanceFar.cs" />
+     <Compile Include="Assets\Scripts\bigboyAttackDistanceFar.cs" />
      <Compile Include="Assets\Scripts\witchAttackDistanceNear.cs" />
      <Compile Include="Assets\Scripts\acolytePlayerDetection.cs" />
      <Compile Include="Assets\Scripts\Footsies.cs" />
      <Compile Include="Assets\Scripts\acolyteBehavior.cs" />
      <Compile Include="Assets\Scripts\ReloadOnButton.cs" />
      <Compile Include="Assets\Scripts\BigBoyBehavior.cs" />
+     <Compile Include="Assets\Scripts\bigboyAttackDistanceNear.cs" />
      <Compile Include="Assets\Scripts\playerAnimationEvents.cs" />
      <Compile Include="Assets\Scripts\witchAttackDistanceFar.cs" />
      <Compile Include="Assets\CurrentlyVisableObjects.cs" />
-     <Compile Include="Assets\Scripts\bigboyAttackDistanceMid.cs" />
-     <Compile Include="Assets\Scripts\bigboyAttackDistanceFar.cs" />
-     <Compile Include="Assets\Scripts\bigboyAttackDistanceNear.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

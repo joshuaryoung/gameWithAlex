@@ -55,6 +55,7 @@ public class witchAttackDistanceMid : MonoBehaviour
     {
       // Debug.Log("Player Collision!");
       WB.currentFootsiesRange = footsies.range.Mid;
+      WB.footsiesValsForCurrentRange();
     }
   }
 
@@ -66,9 +67,10 @@ public class witchAttackDistanceMid : MonoBehaviour
     }
     isColidingWithSomething = false;
     _col2D = null;
-    if (col2D.gameObject.tag == "PlayerCharacter")
+    if (col2D.gameObject.tag == "PlayerCollisionBox")
     {
       WB.currentFootsiesRange = footsies.range.None;
+      WB.footsiesValsForCurrentRange();
     }
   }
 }
