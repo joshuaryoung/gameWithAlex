@@ -38,9 +38,20 @@ public class acolyteAttackDistanceFar : MonoBehaviour
 
   void OnTriggerEnter2D(Collider2D col2D)
   {
+    if (AB == null) {
+      Debug.LogError("BBB is null!");
+      return;
+    }
+    if (PIS == null) {
+      Debug.LogError("PIS is null!");
+      return;
+    }
     isColidingWithSomething = true;
     _col2D = col2D;
-    if (col2D.gameObject.tag == "PlayerCharacter" && AB.invincibilityCooldownCurrent <= 0 && AB.canAttack && !PIS.isDead)
+    bool isPlayerCharacter = col2D.gameObject.tag == "PlayerCollisionBox";
+    bool isNotInInvincibilityAnim = AB.invincibilityCooldownCurrent <= 0;
+
+    if (isPlayerCharacter && isNotInInvincibilityAnim && AB.canAttack && !PIS.isDead)
     {
       AB.currentFootsiesRange = footsies.range.Far;
     }
@@ -57,7 +68,10 @@ public class acolyteAttackDistanceFar : MonoBehaviour
     }
     isColidingWithSomething = true;
     _col2D = col2D;
-    if (col2D.gameObject.tag == "PlayerCharacter" && AB.invincibilityCooldownCurrent <= 0 && AB.canAttack && !PIS.isDead)
+    bool isPlayerCharacter = col2D.gameObject.tag == "PlayerCollisionBox";
+    bool isNotInInvincibilityAnim = AB.invincibilityCooldownCurrent <= 0;
+
+    if (isPlayerCharacter && isNotInInvincibilityAnim && AB.canAttack && !PIS.isDead)
     {
       // Debug.Log("Player Collision!");
       AB.currentFootsiesRange = footsies.range.Far;

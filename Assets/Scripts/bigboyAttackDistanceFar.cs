@@ -12,12 +12,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class acolyteAttackDistanceMid : MonoBehaviour
+public class bigboyAttackDistanceFar : MonoBehaviour
 {
   public GameObject playerGameObject;
   public GameObject enemyGameObject;
   public Collider2D _col2D;
-  public acolyteBehavior AB;
+  public BigBoyBehavior BBB;
   public PlayerInputScript PIS;
   public Animator anim;
   public bool isColidingWithSomething;
@@ -36,30 +36,9 @@ public class acolyteAttackDistanceMid : MonoBehaviour
     }
   }
 
-  void OnTriggerEnter2D(Collider2D col2D)
-  {
-    if (AB == null) {
-      Debug.LogError("AB is null!");
-      return;
-    }
-    if (PIS == null) {
-      Debug.LogError("PIS is null!");
-      return;
-    }
-    isColidingWithSomething = true;
-    _col2D = col2D;
-    bool isPlayerCharacter = col2D.gameObject.tag == "PlayerCollisionBox";
-    bool isNotInInvincibilityAnim = AB.invincibilityCooldownCurrent <= 0;
-
-    if (isPlayerCharacter && isNotInInvincibilityAnim && AB.canAttack && !PIS.isDead)
-    {
-      AB.currentFootsiesRange = footsies.range.Mid;
-    }
-  }
-
   void OnTriggerStay2D (Collider2D col2D) {
-    if (AB == null) {
-      Debug.LogError("AB is null!");
+    if (BBB == null) {
+      Debug.LogError("BBB is null!");
       return;
     }
     if (PIS == null) {
@@ -68,27 +47,28 @@ public class acolyteAttackDistanceMid : MonoBehaviour
     }
     isColidingWithSomething = true;
     _col2D = col2D;
-    bool isPlayerCharacter = col2D.gameObject.tag == "PlayerCollisionBox";
-    bool isNotInInvincibilityAnim = AB.invincibilityCooldownCurrent <= 0;
 
-    if (isPlayerCharacter && isNotInInvincibilityAnim && AB.canAttack && !PIS.isDead)
+    bool isPlayerCharacter = col2D.gameObject.tag == "PlayerCollisionBox";
+    bool isNotInInvincibilityAnim = BBB.invincibilityCooldownCurrent <= 0;
+
+    if (isPlayerCharacter && isNotInInvincibilityAnim && BBB.canAttack && !PIS.isDead)
     {
       // Debug.Log("Player Collision!");
-      AB.currentFootsiesRange = footsies.range.Mid;
+      BBB.currentFootsiesRange = footsies.range.Far;
     }
   }
 
   void OnTriggerExit2D(Collider2D col2D)
   {
-    if (AB == null) {
-      Debug.LogError("AB is null!");
+    if (BBB == null) {
+      Debug.LogError("BBB is null!");
       return;
     }
     isColidingWithSomething = false;
     _col2D = null;
     if (col2D.gameObject.tag == "PlayerCharacter")
     {
-      AB.currentFootsiesRange = footsies.range.None;
+      BBB.currentFootsiesRange = footsies.range.None;
     }
   }
 }

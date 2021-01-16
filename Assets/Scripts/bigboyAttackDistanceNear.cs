@@ -12,7 +12,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bigboyAttackDistance : MonoBehaviour
+public class bigboyAttackDistanceNear : MonoBehaviour
 {
   public GameObject playerGameObject;
   public GameObject enemyGameObject;
@@ -48,13 +48,13 @@ public class bigboyAttackDistance : MonoBehaviour
     isColidingWithSomething = true;
     _col2D = col2D;
 
-    bool isPlayerCharacter = col2D.gameObject.tag == "PlayerCharacter";
+    bool isPlayerCharacter = col2D.gameObject.tag == "PlayerCollisionBox";
     bool isNotInInvincibilityAnim = BBB.invincibilityCooldownCurrent <= 0;
 
     if (isPlayerCharacter && isNotInInvincibilityAnim && BBB.canAttack && !PIS.isDead)
     {
       // Debug.Log("Player Collision!");
-      BBB.isInFootsiesRange = true;
+      BBB.currentFootsiesRange = footsies.range.Near;
     }
   }
 
@@ -68,7 +68,7 @@ public class bigboyAttackDistance : MonoBehaviour
     _col2D = null;
     if (col2D.gameObject.tag == "PlayerCharacter")
     {
-      BBB.isInFootsiesRange = false;
+      BBB.currentFootsiesRange = footsies.range.None;
     }
   }
 }

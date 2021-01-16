@@ -35,6 +35,8 @@ Transform:
   - {fileID: 4870287289636666}
   - {fileID: 4698233896438564}
   - {fileID: 4294627304714502}
+  - {fileID: 8372451265511259917}
+  - {fileID: 5652713276481537544}
   - {fileID: 4102394978497550}
   - {fileID: 8693768283657740089}
   - {fileID: 8916181005389259164}
@@ -87,24 +89,60 @@ MonoBehaviour:
   blockSparkAnimator: {fileID: 6636422309698406548}
   currentReelLengthCooldown: 0
   infiniteHealth: 0
-  isInFootsiesRange: 0
+  currentFootsiesRange: 0
   isNotInAnimation: 0
   attackDecisionRNG: 0
-  bobAndWeaveRNG: 0
-  bobAndWeaveRNGMin: -70
-  bobAndWeaveRNGMax: 80
-  bobAndWeaveDeadZoneMin: -10
-  bobAndWeaveDeadZoneMax: 20
-  attackDecisionRNGMin: 1
-  attackDecisionRNGMax: 100
-  lightPunchRNGMin: 1
-  lightPunchRNGMax: 6
-  heavyPunchRNGMin: 7
-  heavyPunchRNGMax: 15
-  blockRNGMin: 16
-  blockRNGMax: 17
-  bobAndWeaveRNGDecisionMin: 18
-  bobAndWeaveRNGDecisionMax: 62
+  attackDecisionRNGMin: 0
+  attackDecisionRNGMax: 254
+  lightPunchRNGMin: 0
+  lightPunchNearRNGMin: 0
+  lightPunchMidRNGMin: 0
+  lightPunchFarRNGMin: 0
+  lightPunchRNGMax: 0
+  lightPunchNearRNGMax: 6
+  lightPunchMidRNGMax: 3
+  lightPunchFarRNGMax: 0
+  heavyPunchRNGMin: 0
+  heavyPunchNearRNGMin: 7
+  heavyPunchMidRNGMin: 4
+  heavyPunchFarRNGMin: 1
+  heavyPunchRNGMax: 0
+  heavyPunchNearRNGMax: 7
+  heavyPunchMidRNGMax: 5
+  heavyPunchFarRNGMax: 7
+  blockRNGMin: 0
+  blockNearRNGMin: 8
+  blockMidRNGMin: 6
+  blockFarRNGMin: 8
+  blockRNGMax: 0
+  blockNearRNGMax: 10
+  blockMidRNGMax: 7
+  blockFarRNGMax: 8
+  bobAndWeaveDistanceRNG: 0
+  bobAndWeaveDistanceRNGMin: 0
+  bobAndWeaveDistanceNearRNGMin: -10.87
+  bobAndWeaveDistanceMidRNGMin: -10.8
+  bobAndWeaveDistanceFarRNGMin: -2.66
+  bobAndWeaveDistanceRNGMax: 0
+  bobAndWeaveDistanceNearRNGMax: 0.97
+  bobAndWeaveDistanceMidRNGMax: 10.05
+  bobAndWeaveDistanceFarRNGMax: 10.08
+  bobAndWeaveDeadZoneMin: 0
+  bobAndWeaveDeadZoneNearMin: -4.09
+  bobAndWeaveDeadZoneMidMin: -4.1
+  bobAndWeaveDeadZoneFarMin: -1.08
+  bobAndWeaveDeadZoneMax: 0
+  bobAndWeaveDeadZoneNearMax: 0.93
+  bobAndWeaveDeadZoneMidMax: 6.17
+  bobAndWeaveDeadZoneFarMax: 6.1
+  bobAndWeaveRNGDecisionMin: 0
+  bobAndWeaveRNGDecisionNearMin: 11
+  bobAndWeaveRNGDecisionMidMin: 8
+  bobAndWeaveRNGDecisionFarMin: 9
+  bobAndWeaveRNGDecisionMax: 0
+  bobAndWeaveRNGDecisionNearMax: 18
+  bobAndWeaveRNGDecisionMidMax: 16
+  bobAndWeaveRNGDecisionFarMax: 15
   actualMoveDistance: 0
   audioSrc: {fileID: 0}
   punchSoundEffect: {fileID: 8300000, guid: 60983f774c0f6486693dae581ff31e60, type: 3}
@@ -333,7 +371,7 @@ Transform:
   m_LocalScale: {x: 1.06, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &58312095405789320
 CircleCollider2D:
@@ -363,7 +401,7 @@ GameObject:
   - component: {fileID: 61385600487667074}
   - component: {fileID: 3362592767112760321}
   m_Layer: 2
-  m_Name: attackDistance
+  m_Name: attackDistanceNear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -396,7 +434,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.10131726, y: 0}
+  m_Offset: {x: -0.39, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -407,7 +445,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2026346, y: 1}
+  m_Size: {x: 0.86, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &3362592767112760321
 MonoBehaviour:
@@ -418,14 +456,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1472227797893740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53c29967fd43f8448b02010f0f6787e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a016eb4da6b0ba43a707086171e9c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerGameObject: {fileID: 0}
   enemyGameObject: {fileID: 0}
   _col2D: {fileID: 0}
   BBB: {fileID: 4143573283847474267}
-  PIS: {fileID: 0}
+  PIS: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
   anim: {fileID: 95403900325448564}
   isColidingWithSomething: 0
 --- !u!1 &1616001421199328
@@ -571,7 +609,7 @@ Transform:
   m_LocalScale: {x: 2.0155077, y: 1.45, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2875463223074166286
 BoxCollider2D:
@@ -599,6 +637,83 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.97079545, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1604026890866240492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8372451265511259917}
+  - component: {fileID: 2305592835465599663}
+  - component: {fileID: 6335280945502863728}
+  m_Layer: 2
+  m_Name: attackDistanceMid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8372451265511259917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604026890866240492}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.734, y: 0.422, z: 0}
+  m_LocalScale: {x: 3.37, y: 1.5374997, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4612835406874000}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2305592835465599663
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604026890866240492}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.25, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.14, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &6335280945502863728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604026890866240492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d91c2f0feada93b4d88f674a1f040d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerGameObject: {fileID: 0}
+  enemyGameObject: {fileID: 0}
+  _col2D: {fileID: 0}
+  BBB: {fileID: 4143573283847474267}
+  PIS: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
+  anim: {fileID: 95403900325448564}
+  isColidingWithSomething: 0
 --- !u!1 &2486614690771159612
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,7 +743,7 @@ Transform:
   m_LocalScale: {x: 1.06, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &8186533323480085387
 CircleCollider2D:
@@ -676,7 +791,7 @@ Transform:
   m_LocalScale: {x: 1.2, y: 1.0625, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5005740371937163428
 BoxCollider2D:
@@ -752,7 +867,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &236406617972442454
 SpriteRenderer:
@@ -852,6 +967,83 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitStopDuration: 0.2166
+--- !u!1 &3380781013851548580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5652713276481537544}
+  - component: {fileID: 8381696383933095382}
+  - component: {fileID: 9022340558979930456}
+  m_Layer: 2
+  m_Name: attackDistanceFar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5652713276481537544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3380781013851548580}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.734, y: 0.422, z: 0}
+  m_LocalScale: {x: 3.37, y: 1.5374997, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4612835406874000}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &8381696383933095382
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3380781013851548580}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.05, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.69, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &9022340558979930456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3380781013851548580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 617ec7d98f32dee42a4e531e9550f4a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerGameObject: {fileID: 0}
+  enemyGameObject: {fileID: 0}
+  _col2D: {fileID: 0}
+  BBB: {fileID: 4143573283847474267}
+  PIS: {fileID: 114049324916112444, guid: 117785b7cd429d342af78d659adcd96b, type: 3}
+  anim: {fileID: 95403900325448564}
+  isColidingWithSomething: 0
 --- !u!1 &4683997396453679969
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,7 +1074,7 @@ Transform:
   m_LocalScale: {x: 1.2, y: 1.0625, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &3177635901845321485
 CircleCollider2D:
@@ -956,7 +1148,7 @@ Transform:
   m_LocalScale: {x: 8.129064, y: 1.4399999, z: 0}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2884619901221265368
 BoxCollider2D:
@@ -1047,7 +1239,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 0}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2225684695543472864
 MonoBehaviour:
@@ -1177,7 +1369,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5044346648474157640
 SpriteRenderer:

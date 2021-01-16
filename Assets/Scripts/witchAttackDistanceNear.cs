@@ -48,7 +48,7 @@ public class witchAttackDistanceNear : MonoBehaviour
     isColidingWithSomething = true;
     _col2D = col2D;
 
-    bool isPlayerCharacter = col2D.gameObject.tag == "PlayerCharacter";
+    bool isPlayerCharacter = col2D.gameObject.tag == "PlayerCollisionBox";
     bool isNotInInvincibilityAnim = WB.invincibilityCooldownCurrent <= 0;
 
     if (isPlayerCharacter && isNotInInvincibilityAnim && WB.canAttack && !PIS.isDead)

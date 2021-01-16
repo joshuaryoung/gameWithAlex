@@ -194,18 +194,18 @@ MonoBehaviour:
   lightPunchNearRNGMin: 0
   lightPunchMidRNGMin: 0
   lightPunchFarRNGMin: 0
-  lightPunchRNGMax: 2
+  lightPunchRNGMax: 0
   lightPunchNearRNGMax: 4
-  lightPunchMidRNGMax: 0
-  lightPunchFarRNGMax: 0
-  headbuttPunchRNGMin: 3
-  headbuttPunchNearRNGMin: 5
-  headbuttPunchMidRNGMin: 0
-  headbuttPunchFarRNGMin: 0
-  headbuttPunchRNGMax: 5
-  headbuttPunchNearRNGMax: 5
-  headbuttPunchMidRNGMax: 0
-  headbuttPunchFarRNGMax: 0
+  lightPunchMidRNGMax: 3
+  lightPunchFarRNGMax: 2
+  headbuttRNGMin: 0
+  headbuttNearRNGMin: 5
+  headbuttMidRNGMin: 4
+  headbuttFarRNGMin: 3
+  headbuttRNGMax: 0
+  headbuttNearRNGMax: 5
+  headbuttMidRNGMax: 5
+  headbuttFarRNGMax: 6
   attack3RNGMin: 225
   attack3NearRNGMin: 255
   attack3MidRNGMin: 255
@@ -214,40 +214,40 @@ MonoBehaviour:
   attack3NearRNGMax: 255
   attack3MidRNGMax: 255
   attack3FarRNGMax: 255
-  blockRNGMin: 9
+  blockRNGMin: 0
   blockNearRNGMin: 6
-  blockMidRNGMin: 0
-  blockFarRNGMin: 0
-  blockRNGMax: 11
+  blockMidRNGMin: 6
+  blockFarRNGMin: 7
+  blockRNGMax: 0
   blockNearRNGMax: 9
-  blockMidRNGMax: 0
-  blockFarRNGMax: 0
-  bobAndWeaveRNGDecisionMin: 12
+  blockMidRNGMax: 8
+  blockFarRNGMax: 8
+  bobAndWeaveRNGDecisionMin: 0
   bobAndWeaveNearRNGDecisionMin: 10
-  bobAndWeaveMidRNGDecisionMin: 0
-  bobAndWeaveFarRNGDecisionMin: 0
-  bobAndWeaveRNGDecisionMax: 15
+  bobAndWeaveMidRNGDecisionMin: 9
+  bobAndWeaveFarRNGDecisionMin: 9
+  bobAndWeaveRNGDecisionMax: 0
   bobAndWeaveNearRNGDecisionMax: 13
-  bobAndWeaveMidRNGDecisionMax: 0
-  bobAndWeaveFarRNGDecisionMax: 0
+  bobAndWeaveMidRNGDecisionMax: 10
+  bobAndWeaveFarRNGDecisionMax: 12
   bobAndWeaveDistanceRNG: 0
   bobAndWeaveDistanceRNGMin: 0
-  bobAndWeaveDistanceNearRNGMin: -4.53
-  bobAndWeaveDistanceMidRNGMin: 0
-  bobAndWeaveDistanceFarRNGMin: 0
+  bobAndWeaveDistanceNearRNGMin: -10.13
+  bobAndWeaveDistanceMidRNGMin: -5.12
+  bobAndWeaveDistanceFarRNGMin: -1.5
   bobAndWeaveDistanceRNGMax: 0
   bobAndWeaveDistanceNearRNGMax: 0.98
-  bobAndWeaveDistanceMidRNGMax: 0
-  bobAndWeaveDistanceFarRNGMax: 0
+  bobAndWeaveDistanceMidRNGMax: 5.03
+  bobAndWeaveDistanceFarRNGMax: 10.01
   bobAndWeaveDeadZoneMin: 0
   bobAndWeaveDeadZoneNearMin: -2.05
-  bobAndWeaveDeadZoneMidMin: 0
-  bobAndWeaveDeadZoneFarMin: 0
-  bobAndWeaveDeadZoneMax: 10
+  bobAndWeaveDeadZoneMidMin: -2.04
+  bobAndWeaveDeadZoneFarMin: -0.45
+  bobAndWeaveDeadZoneMax: 0
   bobAndWeaveDeadZoneNearMax: 0.36
   bobAndWeaveDeadZoneMidMax: 0
-  bobAndWeaveDeadZoneFarMax: 0
-  actualMoveDistance: 0
+  bobAndWeaveDeadZoneFarMax: 2.15
+  actualMoveDistance: 2.13
   audioSrc: {fileID: 0}
   punchSoundEffect: {fileID: 8300000, guid: 60983f774c0f6486693dae581ff31e60, type: 3}
   flipCoolDown: 0

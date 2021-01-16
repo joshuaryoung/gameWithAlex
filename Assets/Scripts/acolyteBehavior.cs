@@ -58,14 +58,14 @@ public class acolyteBehavior : MonoBehaviour
   public byte lightPunchNearRNGMax;
   public byte lightPunchMidRNGMax;
   public byte lightPunchFarRNGMax;
-  public byte headbuttPunchRNGMin;
-  public byte headbuttPunchNearRNGMin;
-  public byte headbuttPunchMidRNGMin;
-  public byte headbuttPunchFarRNGMin;
-  public byte headbuttPunchRNGMax;
-  public byte headbuttPunchNearRNGMax;
-  public byte headbuttPunchMidRNGMax;
-  public byte headbuttPunchFarRNGMax;
+  public byte headbuttRNGMin;
+  public byte headbuttNearRNGMin;
+  public byte headbuttMidRNGMin;
+  public byte headbuttFarRNGMin;
+  public byte headbuttRNGMax;
+  public byte headbuttNearRNGMax;
+  public byte headbuttMidRNGMax;
+  public byte headbuttFarRNGMax;
   public byte attack3RNGMin;
   public byte attack3NearRNGMin;
   public byte attack3MidRNGMin;
@@ -188,7 +188,7 @@ public class acolyteBehavior : MonoBehaviour
         audioSrc.enabled = true;
         audioSrc.Play();
       }
-      else if (attackDecisionRNG >= headbuttPunchRNGMin && attackDecisionRNG <= headbuttPunchRNGMax && canAttack)
+      else if (attackDecisionRNG >= headbuttRNGMin && attackDecisionRNG <= headbuttRNGMax && canAttack)
       {
         canAttack = false;
         acolyteAnim.SetBool("isHeadbutting", true);
@@ -288,8 +288,8 @@ public class acolyteBehavior : MonoBehaviour
         case footsies.range.Near:
           lightPunchRNGMin = lightPunchNearRNGMin;
           lightPunchRNGMax = lightPunchNearRNGMax;
-          headbuttPunchRNGMin = headbuttPunchNearRNGMin;
-          headbuttPunchRNGMax = headbuttPunchNearRNGMax;
+          headbuttRNGMin = headbuttNearRNGMin;
+          headbuttRNGMax = headbuttNearRNGMax;
           attack3RNGMin = attack3NearRNGMin;
           attack3RNGMax = attack3NearRNGMax;
           blockRNGMin = blockNearRNGMin;
@@ -305,8 +305,8 @@ public class acolyteBehavior : MonoBehaviour
         case footsies.range.Mid:
           lightPunchRNGMin = lightPunchMidRNGMin;
           lightPunchRNGMax = lightPunchMidRNGMax;
-          headbuttPunchRNGMin = headbuttPunchMidRNGMin;
-          headbuttPunchRNGMax = headbuttPunchMidRNGMax;
+          headbuttRNGMin = headbuttMidRNGMin;
+          headbuttRNGMax = headbuttMidRNGMax;
           attack3RNGMin = attack3MidRNGMin;
           attack3RNGMax = attack3MidRNGMax;
           blockRNGMin = blockMidRNGMin;
@@ -322,8 +322,8 @@ public class acolyteBehavior : MonoBehaviour
         case footsies.range.Far:
           lightPunchRNGMin = lightPunchFarRNGMin;
           lightPunchRNGMax = lightPunchFarRNGMax;
-          headbuttPunchRNGMin = headbuttPunchFarRNGMin;
-          headbuttPunchRNGMax = headbuttPunchFarRNGMax;
+          headbuttRNGMin = headbuttFarRNGMin;
+          headbuttRNGMax = headbuttFarRNGMax;
           attack3RNGMin = attack3FarRNGMin;
           attack3RNGMax = attack3FarRNGMax;
           blockRNGMin = blockFarRNGMin;
