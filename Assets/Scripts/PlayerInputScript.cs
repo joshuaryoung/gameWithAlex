@@ -404,7 +404,7 @@ public class PlayerInputScript : MonoBehaviour
 
         if (canCombo)
         {
-            if ((punchPressed || kickPressed || sweepPressed || uppercutPressed) && isGrounded)
+            if ((punchPressed || kickPressed || sweepPressed || uppercutPressed) && isGrounded && !grabPressed)
             {
                 if (currentAutoComboIndex < 2)
                 {
