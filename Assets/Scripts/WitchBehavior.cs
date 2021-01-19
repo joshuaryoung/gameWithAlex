@@ -528,6 +528,9 @@ public class WitchBehavior : MonoBehaviour
       Debug.LogError("lowerHurtbox is null!");
       return;
     }
+    if (isDead || isDying) {
+      return;
+    }
     /*if (hit.GetComponent<Collider>().tag == "Player") {
 			playerObject.GetComponent<PlayerHealth> ().playerTakeDamage (1);
 		}*/

@@ -62,7 +62,14 @@ public class WitchPlayerDetection : MonoBehaviour {
 			Debug.LogError("AIBlockerScript is null!");
 			return;
 		}
-		playerDetected = col2D.gameObject.layer == LayerMask.NameToLayer("Player");
+		if (WB == null) {
+			Debug.LogError("WB is null!");
+			return;
+		}
+		if (WB.isDying || WB.isDying) {
+			return;
+		}
+		playerDetected = col2D.gameObject.layer == LayerMask.NameToLayer("PlayerHurtbox");
 		if(playerDetected) {
 			currentColLayer = col2D.gameObject.layer;
 			currentCol = col2D;

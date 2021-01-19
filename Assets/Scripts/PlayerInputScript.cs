@@ -370,7 +370,7 @@ public class PlayerInputScript : MonoBehaviour
             anim.SetBool("isBlocking", isBlocking);
             anim.SetBool("isBackDashing", isBackDashing);
             anim.SetBool("isForwardDashing", isForwardDashing);
-            collisionBoxCol2D.gameObject.layer = isForwardDashing ? LayerMask.NameToLayer("OnlyInteractsWithWallsGround") : LayerMask.NameToLayer("Player");
+            collisionBoxCol2D.gameObject.layer = isForwardDashing ? LayerMask.NameToLayer("OnlyInteractsWithWallsGround") : LayerMask.NameToLayer("PlayerHurtbox");
             // anim.SetBool ("isBlockWalking", blockPressed && xVelo != 0 && isGrounded);
 
             anim.SetBool("isCrouching", isCrouching);

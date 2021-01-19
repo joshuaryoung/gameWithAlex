@@ -62,7 +62,14 @@ public class acolytePlayerDetection : MonoBehaviour {
 			Debug.LogError("AIBlockerScript is null!");
 			return;
 		}
-		playerDetected = col2D.gameObject.layer == LayerMask.NameToLayer("Player");
+		if (AB == null) {
+			Debug.LogError("AB is null!");
+			return;
+		}
+		if (AB.isDying || AB.isDying) {
+			return;
+		}
+		playerDetected = col2D.gameObject.layer == LayerMask.NameToLayer("PlayerHurtbox");
 		if(playerDetected) {
 			currentColLayer = col2D.gameObject.layer;
 			currentCol = col2D;
