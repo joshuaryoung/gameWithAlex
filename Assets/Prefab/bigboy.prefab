@@ -63,6 +63,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 1587651397913248, guid: 117785b7cd429d342af78d659adcd96b,
     type: 3}
+  upperCollisionBoxGameObj: {fileID: 1286016325290647954}
+  lowerCollisionBoxGameObj: {fileID: 4683997396453679969}
   startHealth: 18
   currentHealth: 18
   invincibilityCooldownPeriod: 0
@@ -803,7 +805,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.089810014, y: 0.14999998}

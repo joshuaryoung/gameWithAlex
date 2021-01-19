@@ -11,6 +11,8 @@ public class BigBoyBehavior : MonoBehaviour
 
   public GameObject playerObject;
   PlayerInputScript PIS;
+  public GameObject upperCollisionBoxGameObj;
+  public GameObject lowerCollisionBoxGameObj;
   public int startHealth;
   public int currentHealth;
   public float invincibilityCooldownPeriod;
@@ -149,6 +151,14 @@ public class BigBoyBehavior : MonoBehaviour
     if (BBAIBS == null)
     {
         Debug.LogError("BBAIBS script not assigned!");
+        return;
+    }
+    if (upperCollisionBoxGameObj == null) {
+        Debug.LogError("upperCollisionBoxGameObj is null!");
+        return;
+    }
+    if (lowerCollisionBoxGameObj == null) {
+        Debug.LogError("lowerCollisionBoxGameObj is null!");
         return;
     }
     if (isDead || isDying) {
@@ -498,6 +508,8 @@ public class BigBoyBehavior : MonoBehaviour
   public void setDeathVars() {
     isDead = true;
     bigboyAnim.SetBool("isDead", true);
+    upperCollisionBoxGameObj.layer = LayerMask.NameToLayer("OnlyInteractsWithWallsGround");
+    lowerCollisionBoxGameObj.layer = LayerMask.NameToLayer("OnlyInteractsWithWallsGround");
   }
 
   public void setCanAttackFalse()

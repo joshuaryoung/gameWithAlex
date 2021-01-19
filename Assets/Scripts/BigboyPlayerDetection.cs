@@ -62,6 +62,9 @@ public class BigboyPlayerDetection : MonoBehaviour {
 			Debug.LogError("BBAIBS is null!");
 			return;
 		}
+		if (BBB.isDying || BBB.isDying) {
+			return;
+		}
 		playerDetected = col2D.gameObject.layer == LayerMask.NameToLayer("Player");
 		if(playerDetected) {
 			currentColLayer = col2D.gameObject.layer;
