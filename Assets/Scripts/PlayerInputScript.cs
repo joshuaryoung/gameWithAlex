@@ -112,7 +112,9 @@ public class PlayerInputScript : MonoBehaviour
     public bool isAbleToAct;
     public bool canCombo;
     public bool isRunning;
+    public bool isBackRunning;
     public bool isWalking;
+    public bool isBackWalking;
     public bool isCrouching;
     public bool isGrounded;
     public bool isWallClimbing;
@@ -405,9 +407,23 @@ public class PlayerInputScript : MonoBehaviour
             anim.SetBool("isGrabbing", grabPressed);
 
             isWalking = (controllerAxisX != 0 && !runHeld && !blockPressed);
+            if (CVO.isLockedOn) {
+                bool movementIsAwayFromEnemy = controllerAxisX * transform.localScale.x < 0;
+                isBackWalking = isWalking && movementIsAwayFromEnemy; 
+            } else {
+                isBackWalking = false;
+            }
             isRunning = (controllerAxisX != 0 && runHeld && !blockPressed);
+            if (CVO.isLockedOn) {
+                bool movementIsAwayFromEnemy = controllerAxisX * transform.localScale.x < 0;
+                isBackRunning = isRunning && movementIsAwayFromEnemy; 
+            } else {
+                isBackRunning = false;
+            }
             anim.SetBool("isWalking", isWalking);
+            anim.SetBool("isBackWalking", isBackWalking);
             anim.SetBool("isRunning", isRunning);
+            anim.SetBool("isBackRunning", isBackRunning);
             anim.SetBool("isLedgeVaulting", isLedgeVaulting);
 
             if (isLedgeVaulting)
