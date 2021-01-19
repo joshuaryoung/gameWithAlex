@@ -142,7 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4962971689815854}
   - component: {fileID: 58146812505729596}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: sweepHitbox
   m_TagString: PlayerCharacter
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4474038965901940}
   - component: {fileID: 58912666635816498}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: punchHitBox
   m_TagString: PlayerCharacter
   m_Icon: {fileID: 0}
@@ -475,8 +475,8 @@ MonoBehaviour:
   jumpForce: 11.86
   jumpCoolDownCurrent: 0
   jumpCoolDownMax: 0.08
-  upperHurtBox: {fileID: 3725956914877408559}
-  lowerHurtBox: {fileID: 0}
+  upperHurtbox: {fileID: 61047054372075774}
+  lowerHurtbox: {fileID: 4995993718019938176}
   lowerHitBox: {fileID: 3725956914877408559}
   punchHitBox: {fileID: 58912666635816498}
   punchAC2HitBox: {fileID: 58912666635816498}
@@ -498,6 +498,7 @@ MonoBehaviour:
   impactSoundEffect: {fileID: 8300000, guid: c33d06a25edb11445b640a985ec7711f, type: 3}
   blockSoundEffect: {fileID: 8300000, guid: dbe104ed0ce264aaf9745038e89e9243, type: 3}
   audioPlayer: {fileID: 0}
+  collisionBoxCol2D: {fileID: 3725956914877408559}
   punchDamageValue: 1
   punchAC2DamageValue: 1
   punchAC3DamageValue: 2
@@ -591,6 +592,7 @@ MonoBehaviour:
   kickKeyCode: 0
   runKeyCode: 0
   blockKeyCode: 0
+  dashKeyCode: 0
   upKeyCode: 0
   downKeyCode: 0
   leftKeyCode: 0
@@ -809,7 +811,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4798414583198476}
   - component: {fileID: 58122790631109842}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: kickHitBox
   m_TagString: PlayerCharacter
   m_Icon: {fileID: 0}
@@ -856,7 +858,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4537475135567058}
   - component: {fileID: 58866748017980126}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: jumpingKickHitbox
   m_TagString: PlayerCharacter
   m_Icon: {fileID: 0}
@@ -978,7 +980,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4863085518869692}
   - component: {fileID: 58529760823048468}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: uppercutHitBox
   m_TagString: PlayerCharacter
   m_Icon: {fileID: 0}
@@ -1082,7 +1084,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4532972812765570}
   - component: {fileID: 58698200373852838}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: jumpingPunchHitbox
   m_TagString: PlayerCharacter
   m_Icon: {fileID: 0}
@@ -1261,7 +1263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2977819603047490979}
   - component: {fileID: 5421631279037627104}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: throwHitBox
   m_TagString: PlayerCharacter
   m_Icon: {fileID: 0}

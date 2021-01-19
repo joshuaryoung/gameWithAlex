@@ -84,6 +84,9 @@ public class SettingsScript : MonoBehaviour
         case "Block":
           PIS.blockKeyCode = keyCode;
           break;
+        case "Dash":
+          PIS.dashKeyCode = keyCode;
+          break;
         case "Up":
           PIS.upKeyCode = keyCode;
           break;

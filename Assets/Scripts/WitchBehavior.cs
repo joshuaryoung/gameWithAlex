@@ -293,7 +293,7 @@ public class WitchBehavior : MonoBehaviour
       return;
     }
     //hitbox stuff
-    Collider2D[] cols = Physics2D.OverlapBoxAll(hitBox.bounds.center, hitBox.bounds.size, 0f, LayerMask.GetMask("Player"));
+    Collider2D[] cols = Physics2D.OverlapBoxAll(hitBox.bounds.center, hitBox.bounds.size, 0f, LayerMask.GetMask("PlayerHurtbox"));
 
     if (cols.Length > 0)
     {

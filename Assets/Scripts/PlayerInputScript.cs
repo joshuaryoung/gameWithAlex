@@ -10,14 +10,15 @@ public class PlayerInputScript : MonoBehaviour
     public bool isDead;
     public AnimationClip punchAnimationClip;
     public AnimationClip kickAnimationClip;
+    public PlayerHealth PH;
     public float jumpForce = 200.0f;
     //timer to delay another jump
     public float jumpCoolDownCurrent = 0;
     public float jumpCoolDownMax;
     RaycastHit2D hit;
     Rigidbody2D RB2D;
-    public Collider2D upperHurtBox;
-    public Collider2D lowerHurtBox;
+    public Collider2D upperHurtbox;
+    public Collider2D lowerHurtbox;
     public Collider2D lowerHitBox;
     public Collider2D punchHitBox;
     public Collider2D punchAC2HitBox;
@@ -39,6 +40,7 @@ public class PlayerInputScript : MonoBehaviour
     public AudioClip impactSoundEffect;
     public AudioClip blockSoundEffect;
     public AudioSource audioPlayer;
+    public Collider2D collisionBoxCol2D;
     public int punchDamageValue;
     public int punchAC2DamageValue;
     public int punchAC3DamageValue;
@@ -132,6 +134,7 @@ public class PlayerInputScript : MonoBehaviour
     public KeyCode kickKeyCode;
     public KeyCode runKeyCode;
     public KeyCode blockKeyCode;
+    public KeyCode dashKeyCode;
     public KeyCode upKeyCode;
     public KeyCode downKeyCode;
     public KeyCode leftKeyCode;
@@ -169,6 +172,7 @@ public class PlayerInputScript : MonoBehaviour
         downKeyCode = PlayerPrefs.GetString("Down") != "" ? (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Down")) : new KeyCode();
         leftKeyCode = PlayerPrefs.GetString("Left") != "" ? (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left")) : new KeyCode();
         rightKeyCode = PlayerPrefs.GetString("Right") != "" ? (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right")) : new KeyCode();
+        dashKeyCode = PlayerPrefs.GetString("Dash") != "" ? (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Dash")) : new KeyCode();
         jumpReleased = true;
         dashReleased = true;
         if (HS == null) {
@@ -178,6 +182,9 @@ public class PlayerInputScript : MonoBehaviour
             CVO = FindObjectOfType<CurrentlyVisableObjects>();
         }
         hasReleasedWall = true;
+        if (PH == null) {
+            PH = GetComponent<PlayerHealth>();
+        }
     }
 
     // Update is called once per frame
@@ -204,6 +211,26 @@ public class PlayerInputScript : MonoBehaviour
             return;
         }
 
+        if (collisionBoxCol2D == null) {
+            Debug.LogError("collisionBoxCol2D is null!");
+            return;
+        }
+
+        if (lowerHurtbox == null) {
+            Debug.LogError("lowerHurtbox is null!");
+            return;
+        }
+
+        if (upperHurtbox == null) {
+            Debug.LogError("upperHurtbox is null!");
+            return;
+        }
+
+        if (PH == null) {
+            Debug.LogError("PH is null!");
+            return;
+        }
+
         yVelo = RB2D.velocity.y;
         xVelo = RB2D.velocity.x;
 
@@ -216,7 +243,7 @@ public class PlayerInputScript : MonoBehaviour
         uppercutPressed = ((Input.GetAxis("Vertical") < 0 || Input.GetKey(downKeyCode)) && isGrounded && punchPressed && !isWallClimbing);
         blockPressed = Input.GetKey(blockKeyCode);
         if (!dashReleased) {
-            dashReleased = Input.GetKeyUp(blockKeyCode);
+            dashReleased = Input.GetKeyUp(dashKeyCode);
             if (dashReleased) {
                 isForwardDashing = false;
                 isBackDashing = false;
@@ -247,6 +274,8 @@ public class PlayerInputScript : MonoBehaviour
         }
         jumpPressed = Input.GetKeyDown(jumpKeyCode);
         jumpReleased = Input.GetKeyUp(jumpKeyCode);
+        isForwardDashing = isGrounded && dashReleased && Input.GetKey(dashKeyCode) && transform.localScale.x * controllerAxisX > 0;
+        isBackDashing = isGrounded && dashReleased && Input.GetKey(dashKeyCode) && transform.localScale.x * controllerAxisX < 0;
 
         if (CVO.isLockedOn && !isWallClimbing) {
             // Check: is player facing enemy?
@@ -312,7 +341,7 @@ public class PlayerInputScript : MonoBehaviour
         {
             isAbleToAct = true;
             isWallJumping = false;
-            upperHurtBox.offset.Set(upperHurtBox.offset.x, 0.5f);
+            upperHurtbox.offset.Set(upperHurtbox.offset.x, 0.5f);
             wallStickDurationCurrent = wallStickDurationMax;
             RB2D.gravityScale = RBgravityScale;
             attackHasAlreadyHit = false;
@@ -341,6 +370,7 @@ public class PlayerInputScript : MonoBehaviour
             anim.SetBool("isBlocking", isBlocking);
             anim.SetBool("isBackDashing", isBackDashing);
             anim.SetBool("isForwardDashing", isForwardDashing);
+            collisionBoxCol2D.gameObject.layer = isForwardDashing ? LayerMask.NameToLayer("OnlyInteractsWithWallsGround") : LayerMask.NameToLayer("Player");
             // anim.SetBool ("isBlockWalking", blockPressed && xVelo != 0 && isGrounded);
 
             anim.SetBool("isCrouching", isCrouching);
@@ -455,7 +485,16 @@ public class PlayerInputScript : MonoBehaviour
             isWallClimbing = false;
             anim.SetBool("isWallClimbing", false);
             anim.SetBool("isFalling", true);
-        } 
+        }
+        if (isBackDashing && isGrounded) {
+            dashReleased = false;
+            RB2D.velocity = new Vector2(-transform.localScale.x * backDashVelocity, RB2D.velocity.y);
+            return;
+        } else if (isForwardDashing && isGrounded) {
+            dashReleased = false;
+            RB2D.velocity = new Vector2(transform.localScale.x * forwardDashVelocity, RB2D.velocity.y);
+            return;
+        }
         //If direction pushed == direction facing right, then move that way
         if ((isFacingTheDirectionPressed || CVO.isLockedOn) && !blockPressed)
         {
@@ -477,20 +516,6 @@ public class PlayerInputScript : MonoBehaviour
         {
             if (!blockPressed && !CVO.isLockedOn) {
                 flipPlayer();
-            }
-            if (blockPressed && isGrounded)
-            {
-                if (!isFacingTheDirectionPressed && dashReleased) {
-                    isBlocking = false;
-                    isBackDashing = true;
-                    dashReleased = false;
-                    RB2D.velocity = new Vector2(-transform.localScale.x * backDashVelocity, RB2D.velocity.y);
-                } else if (isFacingTheDirectionPressed && dashReleased) {
-                    isBlocking = false;
-                    isForwardDashing = true;
-                    dashReleased = false;
-                    RB2D.velocity = new Vector2(transform.localScale.x * forwardDashVelocity, RB2D.velocity.y);
-                }
             }
         }
 
@@ -672,13 +697,32 @@ public class PlayerInputScript : MonoBehaviour
         attackHasAlreadyHit = false;
     }
 
-    public void resetisForwardDashing() {
+    public void forwardDashExit() {
         isAbleToAct = true;
         isForwardDashing = false;
     }
-    public void resetisBackDashing() {
+    public void backDashExit() {
         isAbleToAct = true;
         isBackDashing = false;
+    }
+
+    public void forwardDashEnter() {
+        isAbleToAct = false;
+        invincibilityEnter();
+    }
+
+    public void backDashEnter() {
+        isAbleToAct = false;
+    }
+
+    public void invincibilityEnter() {
+        lowerHurtbox.gameObject.SetActive(false);
+        upperHurtbox.gameObject.SetActive(false);
+    }
+
+    public void invincibilityExit() {
+        lowerHurtbox.gameObject.SetActive(true);
+        upperHurtbox.gameObject.SetActive(true);
     }
 
     //ground check
