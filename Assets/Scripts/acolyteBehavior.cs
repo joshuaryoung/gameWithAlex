@@ -11,6 +11,8 @@ public class acolyteBehavior : MonoBehaviour
 
   public GameObject playerObject;
   PlayerInputScript PIS;
+  public GameObject upperCollisionBoxGameObj;
+  public GameObject lowerCollisionBoxGameObj;
   public int startHealth;
   public int currentHealth;
   public float invincibilityCooldownPeriod;
@@ -157,6 +159,14 @@ public class acolyteBehavior : MonoBehaviour
     if (CVO == null)
     {
         Debug.LogError("CVO script not assigned!");
+        return;
+    }
+    if (upperCollisionBoxGameObj == null) {
+        Debug.LogError("upperCollisionBoxGameObj is null!");
+        return;
+    }
+    if (lowerCollisionBoxGameObj == null) {
+        Debug.LogError("lowerCollisionBoxGameObj is null!");
         return;
     }
     if (isDead || isDying) {
@@ -524,6 +534,8 @@ public class acolyteBehavior : MonoBehaviour
   public void setDeathVars() {
     isDead = true;
     acolyteAnim.SetBool("isDead", true);
+    upperCollisionBoxGameObj.layer = LayerMask.NameToLayer("OnlyInteractsWithWallsGround");
+    lowerCollisionBoxGameObj.layer = LayerMask.NameToLayer("OnlyInteractsWithWallsGround");
   }
 
   public void resetCanAttack()

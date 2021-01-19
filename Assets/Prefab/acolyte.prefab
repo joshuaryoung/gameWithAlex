@@ -152,6 +152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 1587651397913248, guid: 117785b7cd429d342af78d659adcd96b,
     type: 3}
+  upperCollisionBoxGameObj: {fileID: 1241580195552831487}
+  lowerCollisionBoxGameObj: {fileID: 1837429366009677729}
   startHealth: 10
   currentHealth: 10
   invincibilityCooldownPeriod: 0
