@@ -416,7 +416,7 @@ public class PlayerInputScript : MonoBehaviour
             isRunning = (controllerAxisX != 0 && runHeld && !blockPressed);
             if (CVO.isLockedOn) {
                 bool movementIsAwayFromEnemy = controllerAxisX * transform.localScale.x < 0;
-                isBackRunning = isRunning && movementIsAwayFromEnemy; 
+                isBackRunning = isRunning && movementIsAwayFromEnemy;
             } else {
                 isBackRunning = false;
             }
