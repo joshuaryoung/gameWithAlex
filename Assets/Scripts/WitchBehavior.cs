@@ -459,7 +459,11 @@ public class WitchBehavior : MonoBehaviour
     {
       foreach (AnimatorControllerParameter parameter in witchAnim.parameters)
       {
-        witchAnim.SetBool(parameter.name, false);
+        string paramType = parameter.type.ToString();
+        string boolType = AnimatorControllerParameterType.Bool.ToString();
+        if (paramType == boolType) {
+          witchAnim.SetBool(parameter.name, false);
+        }
       }
       witchAnim.SetBool("isReeling", true);
       witchAnim.Play("reel", 0, 0.0f);
@@ -471,7 +475,11 @@ public class WitchBehavior : MonoBehaviour
     {
       foreach (AnimatorControllerParameter parameter in witchAnim.parameters)
       {
-        witchAnim.SetBool(parameter.name, false);
+        string paramType = parameter.type.ToString();
+        string boolType = AnimatorControllerParameterType.Bool.ToString();
+        if (paramType == boolType) {
+          witchAnim.SetBool(parameter.name, false);
+        }
       }
       isBeingGrabbed = true;
       witchAnim.SetBool("isBeingGrabbed", true);

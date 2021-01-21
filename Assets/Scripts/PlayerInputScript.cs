@@ -612,6 +612,30 @@ public class PlayerInputScript : MonoBehaviour
         }
     }
 
+    void sweepAttack(Collider2D hitBox, int damageValue, float pushbackValue, float reelLength, float blockStunLength, AudioClip hitSoundEffect, AudioClip _blockSoundEffect)
+    {
+        string nameOfPreviousCol = "null";
+        //hitbox stuff
+        Collider2D[] cols = Physics2D.OverlapBoxAll(hitBox.bounds.center, hitBox.bounds.size, 0f, LayerMask.GetMask("EnemyLayer"));
+
+        if (cols.Length > 0)
+        {
+            // canCombo = true;
+            // attackHasAlreadyHit = true;
+            // playSoundEffect(soundEffect);
+            // HS.stop();
+            foreach (Collider2D c in cols)
+            {
+                if (!string.Equals(c.transform.parent.name, nameOfPreviousCol))
+                {
+                    object[] args = { damageValue, transform.localScale.x * pushbackValue, reelLength, blockStunLength, hitSoundEffect, _blockSoundEffect };
+                    c.SendMessageUpwards("enemyGetSweeped", args);
+                }
+                nameOfPreviousCol = c.transform.parent.name;
+            }
+        }
+    }
+
     //method for punching
     void punch()
     {
@@ -683,7 +707,7 @@ public class PlayerInputScript : MonoBehaviour
     {
         if (!attackHasAlreadyHit)
         {
-            attack(sweepHitBox, sweepDamageValue, sweepPushbackValue, 0, sweepBlockStunLength, impactSoundEffect, blockSoundEffect);
+            sweepAttack(sweepHitBox, sweepDamageValue, sweepPushbackValue, 0, sweepBlockStunLength, impactSoundEffect, blockSoundEffect);
         }
     }
 

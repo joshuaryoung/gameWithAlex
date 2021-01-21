@@ -406,7 +406,11 @@ public class BigBoyBehavior : MonoBehaviour
     {
       foreach (AnimatorControllerParameter parameter in bigboyAnim.parameters)
       {
-        bigboyAnim.SetBool(parameter.name, false);
+        string paramType = parameter.type.ToString();
+        string boolType = AnimatorControllerParameterType.Bool.ToString();
+        if (paramType == boolType) {
+          bigboyAnim.SetBool(parameter.name, false);
+        }
       }
       bigboyAnim.SetBool("isReeling", true);
       bigboyAnim.Play("reel", 0, 0.0f);
@@ -483,7 +487,11 @@ public class BigBoyBehavior : MonoBehaviour
     {
       foreach (AnimatorControllerParameter parameter in bigboyAnim.parameters)
       {
-        bigboyAnim.SetBool(parameter.name, false);
+        string paramType = parameter.type.ToString();
+        string boolType = AnimatorControllerParameterType.Bool.ToString();
+        if (paramType == boolType) {
+          bigboyAnim.SetBool(parameter.name, false);
+        }
       }
       isBeingGrabbed = true;
       bigboyAnim.SetBool("isBeingGrabbed", true);
