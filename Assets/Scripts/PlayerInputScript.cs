@@ -112,7 +112,6 @@ public class PlayerInputScript : MonoBehaviour
     public bool isAbleToAct;
     public bool canCombo;
     public bool isRunning;
-    public bool isBackRunning;
     public bool isWalking;
     public bool isBackWalking;
     public bool isCrouching;
@@ -279,14 +278,6 @@ public class PlayerInputScript : MonoBehaviour
         isForwardDashing = isGrounded && dashReleased && Input.GetKey(dashKeyCode) && transform.localScale.x * controllerAxisX > 0;
         isBackDashing = isGrounded && dashReleased && Input.GetKey(dashKeyCode) && transform.localScale.x * controllerAxisX < 0;
 
-        if (CVO.isLockedOn && !isWallClimbing) {
-            // Check: is player facing enemy?
-            bool playerFacingEnemy = (gameObject.transform.localPosition.x - CVO.lockedOnEnemyObj.transform.localPosition.x) * gameObject.transform.localScale.x < 0;
-            if (!playerFacingEnemy) {
-                flipPlayer();
-            }
-        }
-
         if (isWallClimbing)
         {
             isWallJumping = false;
@@ -414,16 +405,17 @@ public class PlayerInputScript : MonoBehaviour
                 isBackWalking = false;
             }
             isRunning = (controllerAxisX != 0 && runHeld && !blockPressed);
-            if (CVO.isLockedOn) {
-                bool movementIsAwayFromEnemy = controllerAxisX * transform.localScale.x < 0;
-                isBackRunning = isRunning && movementIsAwayFromEnemy;
-            } else {
-                isBackRunning = false;
+            if (CVO.isLockedOn && !isWallClimbing) {
+                // Check: is player facing enemy?
+                bool playerFacingEnemy = (gameObject.transform.localPosition.x - CVO.lockedOnEnemyObj.transform.localPosition.x) * gameObject.transform.localScale.x < 0;
+                if (!playerFacingEnemy && !isRunning) {
+                    flipPlayer();
+                }
             }
+
             anim.SetBool("isWalking", isWalking);
             anim.SetBool("isBackWalking", isBackWalking);
             anim.SetBool("isRunning", isRunning);
-            anim.SetBool("isBackRunning", isBackRunning);
             anim.SetBool("isLedgeVaulting", isLedgeVaulting);
 
             if (isLedgeVaulting)
@@ -525,6 +517,9 @@ public class PlayerInputScript : MonoBehaviour
             if (isCrouching && wallJumpMinXAxisCooldownCurrent <= 0)
             {
                 RB2D.velocity = new Vector2(controllerAxisX * crouchVelocity, RB2D.velocity.y);
+            }
+            if (isGrounded && runHeld && !isFacingTheDirectionPressed) {
+                flipPlayer();
             }
 
         }
