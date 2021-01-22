@@ -66,7 +66,7 @@ public class BigboyPlayerDetection : MonoBehaviour {
 			Debug.LogError("BBB is null!");
 			return;
 		}
-		if (BBB.isDying || BBB.isDying) {
+		if (BBB.isDead || BBB.isDying || !BBB.isNotInAnimation) {
 			return;
 		}
 		playerDetected = col2D.gameObject.layer == LayerMask.NameToLayer("PlayerHurtbox");

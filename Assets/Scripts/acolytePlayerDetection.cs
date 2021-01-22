@@ -66,7 +66,7 @@ public class acolytePlayerDetection : MonoBehaviour {
 			Debug.LogError("AB is null!");
 			return;
 		}
-		if (AB.isDying || AB.isDying) {
+		if (AB.isDead || AB.isDying || !AB.isNotInAnimation) {
 			return;
 		}
 		playerDetected = col2D.gameObject.layer == LayerMask.NameToLayer("PlayerHurtbox");
