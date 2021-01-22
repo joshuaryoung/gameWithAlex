@@ -156,6 +156,69 @@ public class PlayerHealth : MonoBehaviour
     }
   }
 
+  public void playerGetGrabbed(object[] args)
+  {
+    int damage = (int)args[0];
+    float pushBackValue = (float)args[1];
+    float attackReelValue = (float)args[2];
+    float attackBlockStunValue = (float)args[3];
+
+    PIS.attackHasAlreadyHit = false;
+
+    pushBack(pushBackValue);
+    if (invincibilityCooldownCurrent <= 0 && (!PIS.isBlocking || !PIS.isGrounded))
+    {
+      audioSrc.clip = impactSoundEffect;
+      audioSrc.Play();
+      if (currentHealth - damage <= 0)
+      {
+        currentHealth = 0;
+        dying();
+      }
+
+      if (currentHealth - damage > 0)
+      {
+        currentReelLengthCooldown = attackReelValue;
+        if (!InfiniteHealth)
+          currentHealth -= damage;
+        invincibilityCooldownCurrent = invincibilityCooldownMax;
+        PIS.isAbleToAct = true;
+        PIS.isForwardDashing = false;
+        PIS.isBackDashing = false;
+        PIS.hasReleasedWall = true;
+        hitSparkAnimator.SetBool("isActive", true);
+        animator.SetBool("isReeling", true);
+        animator.SetBool("isBlockingAnAttack", false);
+        animator.SetBool("isPunching", false);
+        animator.SetBool("isUppercutting", false);
+        animator.SetBool("isKicking", false);
+        animator.SetBool("isGrabbing", false);
+        animator.SetBool("isSweeping", false);
+        animator.SetBool("isBackDashing", false);
+        animator.SetBool("isForwardDashing", false);
+      }
+    }
+    else if (invincibilityCooldownCurrent <= 0 && PIS.isBlocking && PIS.isGrounded)
+    {
+      currentReelLengthCooldown = attackBlockStunValue;
+      audioSrc.clip = blockSoundEffect;
+      audioSrc.Play();
+      blockSparkAnimator.SetBool("isActive", true);
+      animator.SetBool("isReeling", false);
+      animator.SetBool("isBlockingAnAttack", true);
+      animator.SetBool("isPunching", false);
+      animator.SetBool("isUppercutting", false);
+      animator.SetBool("isKicking", false);
+      animator.SetBool("isGrabbing", false);
+      animator.SetBool("isSweeping", false);
+      animator.SetBool("isBackDashing", false);
+      animator.SetBool("isForwardDashing", false);
+      PIS.isForwardDashing = false;
+      PIS.isBackDashing = false;
+      // PIS.isAbleToAct = true;
+    }
+  }
+
   void pushBack(float pushBackValue)
   {
     RB2D.velocity = (new Vector2(RB2D.velocity.x + pushBackValue, RB2D.velocity.y));

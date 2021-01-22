@@ -8,6 +8,7 @@ public class PlayerInputScript : MonoBehaviour
 
     Animator anim;
     public bool isDead;
+    public bool isBeingGrabbed;
     public AnimationClip punchAnimationClip;
     public AnimationClip kickAnimationClip;
     public PlayerHealth PH;
