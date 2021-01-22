@@ -106,6 +106,7 @@ public class WitchBehavior : MonoBehaviour
   public CurrentlyVisableObjects CVO;
   public bool isDead = false;
   public bool isDying = false;
+  public bool isKnockedDown = false;
 
   // Use this for initialization
   
@@ -164,7 +165,7 @@ public class WitchBehavior : MonoBehaviour
     if (isDead || isDying) {
       return;
     }
-    isNotInAnimation = witchAnim.GetBool("isReeling") == false && witchAnim.GetBool("isSlashing") == false && witchAnim.GetBool("isHeavyPunching") == false && witchAnim.GetBool("isBlocking") == false && witchAnim.GetBool("isBlockingAnAttack") == false && !isBeingGrabbed;
+    isNotInAnimation = witchAnim.GetBool("isReeling") == false && witchAnim.GetBool("isSlashing") == false && witchAnim.GetBool("isHeavyPunching") == false && witchAnim.GetBool("isBlocking") == false && witchAnim.GetBool("isBlockingAnAttack") == false && witchAnim.GetBool("isKnockedDown") == false && !isBeingGrabbed;
 
     // Is Visible to camera?
     if (spriteR.isVisible) {
@@ -412,7 +413,7 @@ public class WitchBehavior : MonoBehaviour
     AudioClip hitSoundEffect = (AudioClip)args[4];
     AudioClip blockSoundEffect = (AudioClip)args[5];
 
-    if (currentHealth > 0 && invincibilityCooldownCurrent <= 0)
+    if (currentHealth > 0 && invincibilityCooldownCurrent <= 0 && !isKnockedDown)
     {
       PIS.attackHasAlreadyHit = true;
       if (isBlocking) {
@@ -441,7 +442,7 @@ public class WitchBehavior : MonoBehaviour
   {
     int damage = (int)args[0];
 
-    if (currentHealth > 0 && invincibilityCooldownCurrent <= 0)
+    if (currentHealth > 0 && invincibilityCooldownCurrent <= 0 && !isKnockedDown)
     {
       if (!infiniteHealth)
         currentHealth -= damage;
@@ -449,6 +450,56 @@ public class WitchBehavior : MonoBehaviour
       if (currentHealth <= 0)
         enemyDeath();
     }
+  }
+
+  public void enemyGetSweeped(object[] args)
+  {
+    attackHasAlreadyHit = false;
+    int damage = (int)args[0];
+    float pushBackDistance = (float)args[1];
+    float reelLength = (float)args[2];
+    float blockStunLength = (float)args[3];
+    AudioClip hitSoundEffect = (AudioClip)args[4];
+    AudioClip blockSoundEffect = (AudioClip)args[5];
+
+    if (currentHealth > 0 && invincibilityCooldownCurrent <= 0 && !isKnockedDown)
+    {
+      PIS.attackHasAlreadyHit = true;
+      if (isBlocking) {
+        currentReelLengthCooldown = blockStunLength;
+        blockSparkAnimator.SetBool("isActive", true);
+        witchAnim.SetBool("isBlockingAnAttack", true);
+        pushBack(blockStunLength);
+        audioSrc.clip = blockSoundEffect;
+        audioSrc.enabled = true;
+        audioSrc.Play();
+      } else {
+        if (!infiniteHealth)
+          currentHealth -= damage;
+        hitSparkAnimator.SetBool("isActive", true);
+        audioSrc.clip = hitSoundEffect;
+        audioSrc.Play();
+        knockDownEnter();
+        // reelStateEnter(reelLength);
+        if (currentHealth <= 0)
+          enemyDeath();
+      }
+    }
+  }
+
+  public void knockDownEnter() {
+    setAllBoolAnimParametersToFalse();
+    isKnockedDown = true;
+    witchAnim.SetBool("isKnockedDown", true);
+    upperCollisionBoxGameObj.layer = LayerMask.NameToLayer("OnlyInteractsWithWallsGround");
+    lowerCollisionBoxGameObj.layer = LayerMask.NameToLayer("OnlyInteractsWithWallsGround");
+  }
+
+  public void knockDownExit() {
+    isKnockedDown = false;
+    witchAnim.SetBool("isKnockedDown", false);
+    upperCollisionBoxGameObj.layer = LayerMask.NameToLayer("EnemyLayer");
+    lowerCollisionBoxGameObj.layer = LayerMask.NameToLayer("EnemyLayer");
   }
 
   //for the state that occurs right after receiving damage where acolyte is combo-able
@@ -558,6 +609,17 @@ public class WitchBehavior : MonoBehaviour
         flip();
       } else if (isEnemy && facingOppositeDirections) {
         flip();
+      }
+    }
+  }
+
+  void setAllBoolAnimParametersToFalse() {
+    foreach (AnimatorControllerParameter parameter in witchAnim.parameters)
+    {
+      string paramType = parameter.type.ToString();
+      string boolType = AnimatorControllerParameterType.Bool.ToString();
+      if (paramType == boolType) {
+        witchAnim.SetBool(parameter.name, false);
       }
     }
   }

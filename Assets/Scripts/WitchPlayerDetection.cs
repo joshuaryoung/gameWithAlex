@@ -66,7 +66,7 @@ public class WitchPlayerDetection : MonoBehaviour {
 			Debug.LogError("WB is null!");
 			return;
 		}
-		if (WB.isDying || WB.isDying) {
+		if (WB.isDead || WB.isDying || !WB.isNotInAnimation) {
 			return;
 		}
 		playerDetected = col2D.gameObject.layer == LayerMask.NameToLayer("PlayerHurtbox");

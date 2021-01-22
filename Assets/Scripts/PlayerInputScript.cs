@@ -521,7 +521,6 @@ public class PlayerInputScript : MonoBehaviour
             if (isGrounded && runHeld && !isFacingTheDirectionPressed) {
                 flipPlayer();
             }
-
         }
         else
         {
