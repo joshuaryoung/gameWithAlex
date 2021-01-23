@@ -29,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
   public bool InfiniteHealth;
   public AudioSource audioSrc;
   public AudioClip impactSoundEffect;
+  public AudioClip gettingGrabbedSoundEffect;
   public AudioClip blockSoundEffect;
   public float currentReelLengthCooldown;
 
@@ -95,6 +96,10 @@ public class PlayerHealth : MonoBehaviour
 
   public void playerTakeDamage(object[] args)
   {
+    if (impactSoundEffect == null) {
+      Debug.LogError($"{this.name}: impactSoundEffect is null");
+      return;
+    }
     int damage = (int)args[0];
     float pushBackValue = (float)args[1];
     float attackReelValue = (float)args[2];
@@ -123,16 +128,9 @@ public class PlayerHealth : MonoBehaviour
         PIS.isForwardDashing = false;
         PIS.isBackDashing = false;
         PIS.hasReleasedWall = true;
+        setAllBoolAnimParametersToFalse(animator);
         hitSparkAnimator.SetBool("isActive", true);
         animator.SetBool("isReeling", true);
-        animator.SetBool("isBlockingAnAttack", false);
-        animator.SetBool("isPunching", false);
-        animator.SetBool("isUppercutting", false);
-        animator.SetBool("isKicking", false);
-        animator.SetBool("isGrabbing", false);
-        animator.SetBool("isSweeping", false);
-        animator.SetBool("isBackDashing", false);
-        animator.SetBool("isForwardDashing", false);
       }
     }
     else if (invincibilityCooldownCurrent <= 0 && PIS.isBlocking && PIS.isGrounded)
@@ -141,15 +139,7 @@ public class PlayerHealth : MonoBehaviour
       audioSrc.clip = blockSoundEffect;
       audioSrc.Play();
       blockSparkAnimator.SetBool("isActive", true);
-      animator.SetBool("isReeling", false);
-      animator.SetBool("isBlockingAnAttack", true);
-      animator.SetBool("isPunching", false);
-      animator.SetBool("isUppercutting", false);
-      animator.SetBool("isKicking", false);
-      animator.SetBool("isGrabbing", false);
-      animator.SetBool("isSweeping", false);
-      animator.SetBool("isBackDashing", false);
-      animator.SetBool("isForwardDashing", false);
+      setAllBoolAnimParametersToFalse(animator);
       PIS.isForwardDashing = false;
       PIS.isBackDashing = false;
       // PIS.isAbleToAct = true;
@@ -158,15 +148,15 @@ public class PlayerHealth : MonoBehaviour
 
   public void playerGetGrabbed(object[] args)
   {
+    if (gettingGrabbedSoundEffect == null) {
+      Debug.LogError($"{this.name}: gettingGrabbedSoundEffect is null");
+      return;
+    }
     int damage = (int)args[0];
-    float pushBackValue = (float)args[1];
-    float attackReelValue = (float)args[2];
-    float attackBlockStunValue = (float)args[3];
 
     PIS.attackHasAlreadyHit = false;
 
-    pushBack(pushBackValue);
-    if (invincibilityCooldownCurrent <= 0 && (!PIS.isBlocking || !PIS.isGrounded))
+    if (invincibilityCooldownCurrent <= 0 && PIS.isGrounded)
     {
       audioSrc.clip = impactSoundEffect;
       audioSrc.Play();
@@ -178,7 +168,6 @@ public class PlayerHealth : MonoBehaviour
 
       if (currentHealth - damage > 0)
       {
-        currentReelLengthCooldown = attackReelValue;
         if (!InfiniteHealth)
           currentHealth -= damage;
         invincibilityCooldownCurrent = invincibilityCooldownMax;
@@ -186,36 +175,10 @@ public class PlayerHealth : MonoBehaviour
         PIS.isForwardDashing = false;
         PIS.isBackDashing = false;
         PIS.hasReleasedWall = true;
+        setAllBoolAnimParametersToFalse(animator);
         hitSparkAnimator.SetBool("isActive", true);
         animator.SetBool("isReeling", true);
-        animator.SetBool("isBlockingAnAttack", false);
-        animator.SetBool("isPunching", false);
-        animator.SetBool("isUppercutting", false);
-        animator.SetBool("isKicking", false);
-        animator.SetBool("isGrabbing", false);
-        animator.SetBool("isSweeping", false);
-        animator.SetBool("isBackDashing", false);
-        animator.SetBool("isForwardDashing", false);
       }
-    }
-    else if (invincibilityCooldownCurrent <= 0 && PIS.isBlocking && PIS.isGrounded)
-    {
-      currentReelLengthCooldown = attackBlockStunValue;
-      audioSrc.clip = blockSoundEffect;
-      audioSrc.Play();
-      blockSparkAnimator.SetBool("isActive", true);
-      animator.SetBool("isReeling", false);
-      animator.SetBool("isBlockingAnAttack", true);
-      animator.SetBool("isPunching", false);
-      animator.SetBool("isUppercutting", false);
-      animator.SetBool("isKicking", false);
-      animator.SetBool("isGrabbing", false);
-      animator.SetBool("isSweeping", false);
-      animator.SetBool("isBackDashing", false);
-      animator.SetBool("isForwardDashing", false);
-      PIS.isForwardDashing = false;
-      PIS.isBackDashing = false;
-      // PIS.isAbleToAct = true;
     }
   }
 
@@ -245,5 +208,15 @@ public class PlayerHealth : MonoBehaviour
     deathScreen.enabled = true;
     animator.SetBool("isDead", isDead);
     cf.enabled = !cf.enabled;
+  }
+  void setAllBoolAnimParametersToFalse(Animator anim) {
+    foreach (AnimatorControllerParameter parameter in anim.parameters)
+    {
+      string paramType = parameter.type.ToString();
+      string boolType = AnimatorControllerParameterType.Bool.ToString();
+      if (paramType == boolType) {
+        anim.SetBool(parameter.name, false);
+      }
+    }
   }
 }
