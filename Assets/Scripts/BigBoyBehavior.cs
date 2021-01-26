@@ -23,6 +23,7 @@ public class BigBoyBehavior : MonoBehaviour
   public Color spriteColor;
   public Collider2D punchHitBox;
   public Collider2D heavyPunchHitBox;
+  public Collider2D grabHitBox;
   public int punchDamageValue;
   public float punchPushbackOnHit;
   public float punchPushbackOnBlock;
@@ -33,6 +34,7 @@ public class BigBoyBehavior : MonoBehaviour
   public float heavyPunchPushbackOnBlock;
   public float heavyPunchReelLength;
   public float heavyPunchBlockStunLength;
+  public int grabDamageValue;
   public bool canAttack;
   public bool isBlocking;
   Animator bigboyAnim;
@@ -61,6 +63,14 @@ public class BigBoyBehavior : MonoBehaviour
   public byte heavyPunchNearRNGMax;
   public byte heavyPunchMidRNGMax;
   public byte heavyPunchFarRNGMax;
+  public byte grabRNGMin;
+  public byte grabNearRNGMin;
+  public byte grabMidRNGMin;
+  public byte grabFarRNGMin;
+  public byte grabRNGMax;
+  public byte grabNearRNGMax;
+  public byte grabMidRNGMax;
+  public byte grabFarRNGMax;
   public byte blockRNGMin;
   public byte blockNearRNGMin;
   public byte blockMidRNGMin;
@@ -97,6 +107,7 @@ public class BigBoyBehavior : MonoBehaviour
   public float actualMoveDistance;
   public AudioSource audioSrc;
   public AudioClip punchSoundEffect;
+  public AudioClip grabSoundEffect;
   public float flipCoolDown = 0;
   public float flipCoolDownMax;
   public Collider2D lowerHurtbox;
@@ -127,6 +138,9 @@ public class BigBoyBehavior : MonoBehaviour
       CVO = FindObjectOfType<CurrentlyVisableObjects>();
     }
     canAttack = true;
+    if (playerObject == null) {
+      playerObject = GameObject.FindWithTag("PlayerCharacter");
+    }
   }
 
   // Update is called once per frame
@@ -162,10 +176,18 @@ public class BigBoyBehavior : MonoBehaviour
         Debug.LogError("lowerCollisionBoxGameObj is null!");
         return;
     }
+    if (grabHitBox == null) {
+      Debug.LogError($"{this.name}: grabHitBox is null!");
+      return;
+    }
+    if (grabSoundEffect == null) {
+      Debug.LogError($"{this.name}: grabSoundEffect is null!");
+      return;
+    }
     if (isDead || isDying) {
       return;
     }
-    isNotInAnimation = bigboyAnim.GetBool("isReeling") == false && bigboyAnim.GetBool("isLightPunching") == false && bigboyAnim.GetBool("isHeavyPunching") == false && bigboyAnim.GetBool("isBlocking") == false && bigboyAnim.GetBool("isBlockingAnAttack") == false && bigboyAnim.GetBool("isKnockedDown") == false && !isBeingGrabbed;
+    isNotInAnimation = bigboyAnim.GetBool("isReeling") == false && bigboyAnim.GetBool("isLightPunching") == false && bigboyAnim.GetBool("isHeavyPunching") == false && bigboyAnim.GetBool("isBlocking") == false && bigboyAnim.GetBool("isBlockingAnAttack") == false && bigboyAnim.GetBool("isKnockedDown") == false && bigboyAnim.GetBool("isGrabbing") == false && bigboyAnim.GetBool("isSlamming") == false && !isBeingGrabbed;
 
     // Is Visible to camera?
     if (spriteR.isVisible) {
@@ -196,6 +218,13 @@ public class BigBoyBehavior : MonoBehaviour
         canAttack = false;
         bigboyAnim.SetBool("isHeavyPunching", true);
         audioSrc.clip = punchSoundEffect;
+        audioSrc.enabled = true;
+        audioSrc.Play();
+      }
+      else if (attackDecisionRNG >= grabRNGMin && attackDecisionRNG <= grabRNGMax && canAttack)
+      {
+        bigboyAnim.SetBool("isGrabbing", true);
+        audioSrc.clip = grabSoundEffect;
         audioSrc.enabled = true;
         audioSrc.Play();
       }
@@ -245,6 +274,8 @@ public class BigBoyBehavior : MonoBehaviour
         bigboyAnim.SetBool("isHeavyPunching", false);
         bigboyAnim.SetBool("isBlocking", false);
         bigboyAnim.SetBool("isBlockingAnAttack", false);
+        bigboyAnim.SetBool("isGrabbing", false);
+        bigboyAnim.SetBool("isSlamming", false);
         isBlocking = false;
       }
     }
@@ -315,6 +346,50 @@ public class BigBoyBehavior : MonoBehaviour
         c.SendMessageUpwards("playerTakeDamage", args);
       }
     }
+  }
+
+  public void grab() {
+    if (grabHitBox == null) {
+      Debug.LogError($"{this.name}: grabHitBox is null!");
+      return;
+    }
+
+    if (attackHasAlreadyHit) {
+      return;
+    }
+
+    Collider2D[] cols = Physics2D.OverlapBoxAll(grabHitBox.bounds.center, grabHitBox.bounds.size, 0f, LayerMask.GetMask("PlayerHurtbox"));
+
+    if (cols.Length > 0)
+    {
+      attackHasAlreadyHit = true;
+      bigboyAnim.SetBool("isSlamming", true);
+      cols[0].SendMessageUpwards("playerGetGrabbed");
+    }
+  }
+
+  public void grabEnter() {
+    canAttack = false;
+  }
+
+  public void grabDamage() {
+    if (playerObject == null) {
+      Debug.LogError($"{this.name}: playerObject is null!");
+      return;
+    }
+
+    object[] args = { grabDamageValue };
+    playerObject.SendMessage("playerTakeGrabDamage", args);
+  }
+
+  public void grabExit() {
+    canAttack = true;
+    bigboyAnim.SetBool("isGrabbing", false);
+  }
+
+  public void slamExit() {
+    canAttack = true;
+    bigboyAnim.SetBool("isSlamming", false);
   }
 
   //method for punching
@@ -488,6 +563,8 @@ public class BigBoyBehavior : MonoBehaviour
           lightPunchRNGMax = lightPunchNearRNGMax;
           heavyPunchRNGMin = heavyPunchNearRNGMin;
           heavyPunchRNGMax = heavyPunchNearRNGMax;
+          grabRNGMin = grabNearRNGMin;
+          grabRNGMax = grabNearRNGMax;
           blockRNGMin = blockNearRNGMin;
           blockRNGMax = blockNearRNGMax;
           bobAndWeaveRNGDecisionMin = bobAndWeaveRNGDecisionNearMin;
@@ -503,6 +580,8 @@ public class BigBoyBehavior : MonoBehaviour
           lightPunchRNGMax = lightPunchMidRNGMax;
           heavyPunchRNGMin = heavyPunchMidRNGMin;
           heavyPunchRNGMax = heavyPunchMidRNGMax;
+          grabRNGMin = grabMidRNGMin;
+          grabRNGMax = grabMidRNGMax;
           blockRNGMin = blockMidRNGMin;
           blockRNGMax = blockMidRNGMax;
           bobAndWeaveRNGDecisionMin = bobAndWeaveRNGDecisionMidMin;
@@ -518,6 +597,8 @@ public class BigBoyBehavior : MonoBehaviour
           lightPunchRNGMax = lightPunchFarRNGMax;
           heavyPunchRNGMin = heavyPunchFarRNGMin;
           heavyPunchRNGMax = heavyPunchFarRNGMax;
+          grabRNGMin = grabFarRNGMin;
+          grabRNGMax = grabFarRNGMax;
           blockRNGMin = blockFarRNGMin;
           blockRNGMax = blockFarRNGMax;
           bobAndWeaveRNGDecisionMin = bobAndWeaveRNGDecisionFarMin;
@@ -529,6 +610,7 @@ public class BigBoyBehavior : MonoBehaviour
           break;
 
         default:
+          // canAttack = true;
           break;
     }
   }
@@ -546,7 +628,7 @@ public class BigBoyBehavior : MonoBehaviour
       }
       isBeingGrabbed = true;
       bigboyAnim.SetBool("isBeingGrabbed", true);
-      bigboyAnim.Play("BeingGrabbed", 0, 0.0f);
+      // bigboyAnim.Play("BeingGrabbed", 0, 0.0f);
     }
   }
   public void grabStateExit()

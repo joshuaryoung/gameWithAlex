@@ -45,6 +45,10 @@ public class bigboyAttackDistanceFar : MonoBehaviour
       Debug.LogError("PIS is null!");
       return;
     }
+
+    if (BBB.currentFootsiesRange != footsies.range.None) {
+      return;
+    }
     isColidingWithSomething = true;
     _col2D = col2D;
 

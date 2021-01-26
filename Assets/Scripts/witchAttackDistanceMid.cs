@@ -45,6 +45,10 @@ public class witchAttackDistanceMid : MonoBehaviour
       Debug.LogError("PIS is null!");
       return;
     }
+
+    if (WB.currentFootsiesRange == footsies.range.Near) {
+      return;
+    }
     isColidingWithSomething = true;
     _col2D = col2D;
 

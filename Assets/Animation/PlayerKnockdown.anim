@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BigboyGrab
+  m_Name: PlayerKnockdown
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,11 +20,19 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 74f97cb9f088ca04b87ef86e0f95dd41, type: 3}
-    - time: 0.25
-      value: {fileID: 21300000, guid: f7034b2a6efaf794bb819b9559275c0e, type: 3}
-    - time: 0.93333334
-      value: {fileID: 21300000, guid: 74f97cb9f088ca04b87ef86e0f95dd41, type: 3}
+      value: {fileID: 21300000, guid: 213a083a1710d8f46a2e4b22112c5790, type: 3}
+    - time: 0.16666667
+      value: {fileID: 21300000, guid: 1b47ff7e3666d8041a6990b8d005c692, type: 3}
+    - time: 0.26666668
+      value: {fileID: 21300000, guid: 8a1958f7f1c30b444b17c50c341b7e03, type: 3}
+    - time: 0.78333336
+      value: {fileID: 21300000, guid: 3b25ea5ecd869a14e8b4c358aa4d643e, type: 3}
+    - time: 0.9166667
+      value: {fileID: 21300000, guid: 1b47ff7e3666d8041a6990b8d005c692, type: 3}
+    - time: 1.0333333
+      value: {fileID: 21300000, guid: 213a083a1710d8f46a2e4b22112c5790, type: 3}
+    - time: 1.1
+      value: {fileID: 21300000, guid: 391d14e65ccc57940991454b10c3430e, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,15 +52,19 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 74f97cb9f088ca04b87ef86e0f95dd41, type: 3}
-    - {fileID: 21300000, guid: f7034b2a6efaf794bb819b9559275c0e, type: 3}
-    - {fileID: 21300000, guid: 74f97cb9f088ca04b87ef86e0f95dd41, type: 3}
+    - {fileID: 21300000, guid: 213a083a1710d8f46a2e4b22112c5790, type: 3}
+    - {fileID: 21300000, guid: 1b47ff7e3666d8041a6990b8d005c692, type: 3}
+    - {fileID: 21300000, guid: 8a1958f7f1c30b444b17c50c341b7e03, type: 3}
+    - {fileID: 21300000, guid: 3b25ea5ecd869a14e8b4c358aa4d643e, type: 3}
+    - {fileID: 21300000, guid: 1b47ff7e3666d8041a6990b8d005c692, type: 3}
+    - {fileID: 21300000, guid: 213a083a1710d8f46a2e4b22112c5790, type: 3}
+    - {fileID: 21300000, guid: 391d14e65ccc57940991454b10c3430e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.95
+    m_StopTime: 1.1166667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -73,35 +85,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: grabEnter
+    functionName: knockDownEnter
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.25
-    functionName: grab
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.26666668
-    functionName: grab
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.28333333
-    functionName: grab
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.93333334
-    functionName: grabExit
+  - time: 1.0833334
+    functionName: knockDownExit
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

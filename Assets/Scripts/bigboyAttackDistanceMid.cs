@@ -36,13 +36,17 @@ public class bigboyAttackDistanceMid : MonoBehaviour
     }
   }
 
-  void OnTriggerStay2D (Collider2D col2D) {
+  void OnTriggerEnter2D (Collider2D col2D) {
     if (BBB == null) {
       Debug.LogError("BBB is null!");
       return;
     }
     if (PIS == null) {
       Debug.LogError("PIS is null!");
+      return;
+    }
+
+    if (BBB.currentFootsiesRange == footsies.range.Near) {
       return;
     }
     isColidingWithSomething = true;

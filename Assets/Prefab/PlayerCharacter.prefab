@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 58146812505729596}
   m_Layer: 8
   m_Name: sweepHitbox
-  m_TagString: PlayerCharacter
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 114186483782905038}
   m_Layer: 8
   m_Name: groundCheck
-  m_TagString: PlayerCharacter
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 61047054372075774}
   m_Layer: 16
   m_Name: lowerHurtbox
-  m_TagString: PlayerCharacter
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 58912666635816498}
   m_Layer: 8
   m_Name: punchHitBox
-  m_TagString: PlayerCharacter
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -470,8 +470,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDead: 0
+  isBeingGrabbed: 0
   punchAnimationClip: {fileID: 7400000, guid: 149e301081590af4cb14918cdfd7f88a, type: 2}
   kickAnimationClip: {fileID: 7400000, guid: 67bab586c6682ee4ca01f464cadbb6d1, type: 2}
+  PH: {fileID: 0}
   jumpForce: 11.86
   jumpCoolDownCurrent: 0
   jumpCoolDownMax: 0.08
@@ -571,6 +573,7 @@ MonoBehaviour:
   canCombo: 0
   isRunning: 0
   isWalking: 0
+  isBackWalking: 0
   isCrouching: 0
   isGrounded: 0
   isWallClimbing: 0
@@ -635,7 +638,10 @@ MonoBehaviour:
   InfiniteHealth: 0
   audioSrc: {fileID: 0}
   impactSoundEffect: {fileID: 8300000, guid: c33d06a25edb11445b640a985ec7711f, type: 3}
+  gettingGrabbedSoundEffect: {fileID: 8300000, guid: 45faa29d78cc142fe92f55f4590b6d48,
+    type: 3}
   blockSoundEffect: {fileID: 8300000, guid: dbe104ed0ce264aaf9745038e89e9243, type: 3}
+  slamSoundEffect: {fileID: 8300000, guid: 74148b5bf5df7d7499491954fe507299, type: 3}
   currentReelLengthCooldown: 0
 --- !u!50 &50374711187455098
 Rigidbody2D:
@@ -813,7 +819,7 @@ GameObject:
   - component: {fileID: 58122790631109842}
   m_Layer: 8
   m_Name: kickHitBox
-  m_TagString: PlayerCharacter
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -860,7 +866,7 @@ GameObject:
   - component: {fileID: 58866748017980126}
   m_Layer: 8
   m_Name: jumpingKickHitbox
-  m_TagString: PlayerCharacter
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -908,7 +914,7 @@ GameObject:
   - component: {fileID: 114455353266283012}
   m_Layer: 8
   m_Name: wallContactCheckFront
-  m_TagString: PlayerCharacter
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -982,7 +988,7 @@ GameObject:
   - component: {fileID: 58529760823048468}
   m_Layer: 8
   m_Name: uppercutHitBox
-  m_TagString: PlayerCharacter
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1086,7 +1092,7 @@ GameObject:
   - component: {fileID: 58698200373852838}
   m_Layer: 8
   m_Name: jumpingPunchHitbox
-  m_TagString: PlayerCharacter
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1265,7 +1271,7 @@ GameObject:
   - component: {fileID: 5421631279037627104}
   m_Layer: 8
   m_Name: throwHitBox
-  m_TagString: PlayerCharacter
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1312,7 +1318,7 @@ GameObject:
   - component: {fileID: 4995993718019938176}
   m_Layer: 16
   m_Name: upperHurtbox
-  m_TagString: PlayerCharacter
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

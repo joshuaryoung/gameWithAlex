@@ -36,28 +36,6 @@ public class acolyteAttackDistanceMid : MonoBehaviour
     }
   }
 
-  void OnTriggerEnter2D(Collider2D col2D)
-  {
-    if (AB == null) {
-      Debug.LogError("AB is null!");
-      return;
-    }
-    if (PIS == null) {
-      Debug.LogError("PIS is null!");
-      return;
-    }
-    isColidingWithSomething = true;
-    _col2D = col2D;
-    bool isPlayerCharacter = col2D.gameObject.tag == "PlayerCollisionBox";
-    bool isNotInInvincibilityAnim = AB.invincibilityCooldownCurrent <= 0;
-
-    if (isPlayerCharacter && isNotInInvincibilityAnim && AB.canAttack && !PIS.isDead)
-    {
-      AB.currentFootsiesRange = footsies.range.Mid;
-      AB.footsiesValsForCurrentRange();
-    }
-  }
-
   void OnTriggerStay2D (Collider2D col2D) {
     if (AB == null) {
       Debug.LogError("AB is null!");
@@ -65,6 +43,10 @@ public class acolyteAttackDistanceMid : MonoBehaviour
     }
     if (PIS == null) {
       Debug.LogError("PIS is null!");
+      return;
+    }
+
+    if (AB.currentFootsiesRange == footsies.range.Near) {
       return;
     }
     isColidingWithSomething = true;

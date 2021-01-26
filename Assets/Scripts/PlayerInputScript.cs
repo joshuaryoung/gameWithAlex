@@ -764,6 +764,20 @@ public class PlayerInputScript : MonoBehaviour
         upperHurtbox.gameObject.SetActive(true);
     }
 
+    public void knockDownEnter() {
+        lowerHurtbox.gameObject.SetActive(false);
+        upperHurtbox.gameObject.SetActive(false);
+        isAbleToAct = false;
+        isBeingGrabbed = false;
+    }
+
+    public void knockDownExit() {
+        lowerHurtbox.gameObject.SetActive(true);
+        upperHurtbox.gameObject.SetActive(true);
+        isAbleToAct = true;
+        anim.SetBool("isKnockedDown", false);
+    }
+
     //ground check
     void OnCollisionStay2D(Collision2D col2D)
     {

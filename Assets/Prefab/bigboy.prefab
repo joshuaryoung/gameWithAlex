@@ -39,6 +39,7 @@ Transform:
   - {fileID: 5652713276481537544}
   - {fileID: 4102394978497550}
   - {fileID: 8693768283657740089}
+  - {fileID: 8439769538993433285}
   - {fileID: 8916181005389259164}
   - {fileID: 1678647968353232148}
   - {fileID: 3067158902319179519}
@@ -61,8 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8d4ae41018cc74ab286e0a277f46fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObject: {fileID: 1587651397913248, guid: 117785b7cd429d342af78d659adcd96b,
-    type: 3}
+  playerObject: {fileID: 0}
   upperCollisionBoxGameObj: {fileID: 1286016325290647954}
   lowerCollisionBoxGameObj: {fileID: 4683997396453679969}
   startHealth: 18
@@ -75,6 +75,7 @@ MonoBehaviour:
   spriteColor: {r: 0, g: 0, b: 0, a: 0}
   punchHitBox: {fileID: 58312095405789320}
   heavyPunchHitBox: {fileID: 8186533323480085387}
+  grabHitBox: {fileID: 3880280666703911762}
   punchDamageValue: 2
   punchPushbackOnHit: 4
   punchPushbackOnBlock: 1.29
@@ -85,6 +86,7 @@ MonoBehaviour:
   heavyPunchPushbackOnBlock: 0.96
   heavyPunchReelLength: 0.4333
   heavyPunchBlockStunLength: 0.3333
+  grabDamageValue: 0
   canAttack: 0
   isBlocking: 0
   hitSparkAnimator: {fileID: 3034471355560115620}
@@ -112,13 +114,21 @@ MonoBehaviour:
   heavyPunchNearRNGMax: 7
   heavyPunchMidRNGMax: 5
   heavyPunchFarRNGMax: 7
+  grabRNGMin: 0
+  grabNearRNGMin: 8
+  grabMidRNGMin: 6
+  grabFarRNGMin: 255
+  grabRNGMax: 0
+  grabNearRNGMax: 11
+  grabMidRNGMax: 6
+  grabFarRNGMax: 255
   blockRNGMin: 0
-  blockNearRNGMin: 8
-  blockMidRNGMin: 6
+  blockNearRNGMin: 12
+  blockMidRNGMin: 7
   blockFarRNGMin: 8
   blockRNGMax: 0
-  blockNearRNGMax: 10
-  blockMidRNGMax: 7
+  blockNearRNGMax: 14
+  blockMidRNGMax: 8
   blockFarRNGMax: 8
   bobAndWeaveDistanceRNG: 0
   bobAndWeaveDistanceRNGMin: 0
@@ -138,16 +148,17 @@ MonoBehaviour:
   bobAndWeaveDeadZoneMidMax: 6.17
   bobAndWeaveDeadZoneFarMax: 6.1
   bobAndWeaveRNGDecisionMin: 0
-  bobAndWeaveRNGDecisionNearMin: 11
-  bobAndWeaveRNGDecisionMidMin: 8
+  bobAndWeaveRNGDecisionNearMin: 15
+  bobAndWeaveRNGDecisionMidMin: 9
   bobAndWeaveRNGDecisionFarMin: 9
   bobAndWeaveRNGDecisionMax: 0
-  bobAndWeaveRNGDecisionNearMax: 18
-  bobAndWeaveRNGDecisionMidMax: 16
+  bobAndWeaveRNGDecisionNearMax: 22
+  bobAndWeaveRNGDecisionMidMax: 17
   bobAndWeaveRNGDecisionFarMax: 15
   actualMoveDistance: 0
   audioSrc: {fileID: 0}
   punchSoundEffect: {fileID: 8300000, guid: 60983f774c0f6486693dae581ff31e60, type: 3}
+  grabSoundEffect: {fileID: 8300000, guid: 74148b5bf5df7d7499491954fe507299, type: 3}
   flipCoolDown: 0
   flipCoolDownMax: 0
   lowerHurtbox: {fileID: 523051667151902992}
@@ -157,6 +168,7 @@ MonoBehaviour:
   CVO: {fileID: 0}
   isDead: 0
   isDying: 0
+  isKnockedDown: 0
 --- !u!212 &212857715412243474
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -436,7 +448,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.39, y: 0}
+  m_Offset: {x: -0.17, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -447,7 +459,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.86, y: 1}
+  m_Size: {x: 1.2, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &3362592767112760321
 MonoBehaviour:
@@ -611,7 +623,7 @@ Transform:
   m_LocalScale: {x: 2.0155077, y: 1.45, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2875463223074166286
 BoxCollider2D:
@@ -684,7 +696,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.25, y: 0}
+  m_Offset: {x: -0.05, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -695,7 +707,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.14, y: 1}
+  m_Size: {x: 1.47, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &6335280945502863728
 MonoBehaviour:
@@ -793,7 +805,7 @@ Transform:
   m_LocalScale: {x: 1.2, y: 1.0625, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5005740371937163428
 BoxCollider2D:
@@ -869,7 +881,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &236406617972442454
 SpriteRenderer:
@@ -969,6 +981,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitStopDuration: 0.2166
+--- !u!1 &3328936217817092983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8439769538993433285}
+  - component: {fileID: 3880280666703911762}
+  m_Layer: 12
+  m_Name: grabHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8439769538993433285
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3328936217817092983}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.965, y: 1.73, z: 0}
+  m_LocalScale: {x: 1.06, y: 0, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4612835406874000}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &3880280666703911762
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3328936217817092983}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.57, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.68
 --- !u!1 &3380781013851548580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,7 +1135,7 @@ Transform:
   m_LocalScale: {x: 1.2, y: 1.0625, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &3177635901845321485
 CircleCollider2D:
@@ -1150,7 +1209,7 @@ Transform:
   m_LocalScale: {x: 8.129064, y: 1.4399999, z: 0}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2884619901221265368
 BoxCollider2D:
@@ -1241,7 +1300,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 0}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2225684695543472864
 MonoBehaviour:
@@ -1371,7 +1430,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4612835406874000}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5044346648474157640
 SpriteRenderer:

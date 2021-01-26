@@ -31,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
   public AudioClip impactSoundEffect;
   public AudioClip gettingGrabbedSoundEffect;
   public AudioClip blockSoundEffect;
+  public AudioClip slamSoundEffect;
   public float currentReelLengthCooldown;
 
   // Use this for initialization
@@ -146,13 +147,43 @@ public class PlayerHealth : MonoBehaviour
     }
   }
 
-  public void playerGetGrabbed(object[] args)
+  public void playerTakeGrabDamage(object[] args) {
+    if (slamSoundEffect == null) {
+      Debug.LogError($"{this.name}: slamSoundEffect is null!");
+      return;
+    }
+
+    int damage = (int)args[0];
+
+    audioSrc.clip = slamSoundEffect;
+    audioSrc.Play();
+    if (currentHealth - damage <= 0)
+    {
+      currentHealth = 0;
+      dying();
+    }
+
+    if (currentHealth - damage > 0)
+    {
+      if (!InfiniteHealth)
+        currentHealth -= damage;
+      invincibilityCooldownCurrent = invincibilityCooldownMax;
+      PIS.isForwardDashing = false;
+      PIS.isBackDashing = false;
+      PIS.hasReleasedWall = true;
+      setAllBoolAnimParametersToFalse(animator);
+      animator.SetBool("isBeingGrabbed", false);
+      animator.SetBool("isKnockedDown", true);
+    }
+    
+  }
+
+  public void playerGetGrabbed()
   {
     if (gettingGrabbedSoundEffect == null) {
       Debug.LogError($"{this.name}: gettingGrabbedSoundEffect is null");
       return;
     }
-    int damage = (int)args[0];
 
     PIS.attackHasAlreadyHit = false;
 
