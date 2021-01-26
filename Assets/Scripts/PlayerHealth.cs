@@ -158,27 +158,15 @@ public class PlayerHealth : MonoBehaviour
 
     if (invincibilityCooldownCurrent <= 0 && PIS.isGrounded)
     {
-      audioSrc.clip = impactSoundEffect;
+      audioSrc.clip = gettingGrabbedSoundEffect;
       audioSrc.Play();
-      if (currentHealth - damage <= 0)
-      {
-        currentHealth = 0;
-        dying();
-      }
-
-      if (currentHealth - damage > 0)
-      {
-        if (!InfiniteHealth)
-          currentHealth -= damage;
-        invincibilityCooldownCurrent = invincibilityCooldownMax;
-        PIS.isAbleToAct = true;
-        PIS.isForwardDashing = false;
-        PIS.isBackDashing = false;
-        PIS.hasReleasedWall = true;
-        setAllBoolAnimParametersToFalse(animator);
-        hitSparkAnimator.SetBool("isActive", true);
-        animator.SetBool("isReeling", true);
-      }
+      PIS.isBeingGrabbed = true;
+      PIS.isAbleToAct = false;
+      PIS.isForwardDashing = false;
+      PIS.isBackDashing = false;
+      PIS.hasReleasedWall = true;
+      setAllBoolAnimParametersToFalse(animator);
+      animator.SetBool("isBeingGrabbed", true);
     }
   }
 
