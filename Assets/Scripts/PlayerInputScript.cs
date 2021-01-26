@@ -192,10 +192,6 @@ public class PlayerInputScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDead)
-        {
-            return;
-        }
 
         if (settingsScript == null)
         {
@@ -205,11 +201,6 @@ public class PlayerInputScript : MonoBehaviour
         if (CVO == null)
         {
             Debug.LogError("CVO script not assigned!");
-            return;
-        }
-
-        if (settingsScript.gamePaused)
-        {
             return;
         }
 
@@ -230,6 +221,19 @@ public class PlayerInputScript : MonoBehaviour
 
         if (PH == null) {
             Debug.LogError("PH is null!");
+            return;
+        }
+        if (isDead)
+        {
+            return;
+        }
+
+        if (isBeingGrabbed) {
+            return;
+        }
+
+        if (settingsScript.gamePaused)
+        {
             return;
         }
 
