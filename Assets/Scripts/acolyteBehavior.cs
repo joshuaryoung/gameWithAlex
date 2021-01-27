@@ -467,17 +467,34 @@ public class acolyteBehavior : MonoBehaviour
       }
     }
   }
-  public void enemyGetGrabbed(object[] args)
+
+  public void enemyTakeGrabAttackDamage(object[] args)
   {
+    attackHasAlreadyHit = false;
     int damage = (int)args[0];
+    AudioClip hitSoundEffect = (AudioClip)args[1];
+    AudioClip blockSoundEffect = (AudioClip)args[2];
 
     if (currentHealth > 0 && invincibilityCooldownCurrent <= 0 && !isKnockedDown)
     {
+      PIS.attackHasAlreadyHit = true;
       if (!infiniteHealth)
         currentHealth -= damage;
-      grabStateEnter();
-      if (currentHealth <= 0)
+      hitSparkAnimator.SetBool("isActive", true);
+      audioSrc.clip = hitSoundEffect;
+      // audioSrc.enabled = true;
+      audioSrc.Play();
+      if (currentHealth <= 0) {
+        PIS.grabAttackStateExit();
         enemyDeath();
+      }
+    }
+  }
+  public void enemyGetGrabbed()
+  {
+    if (currentHealth > 0 && invincibilityCooldownCurrent <= 0 && !isKnockedDown)
+    {
+      grabStateEnter();
     }
   }
 
@@ -542,16 +559,6 @@ public class acolyteBehavior : MonoBehaviour
       acolyteAnim.Play("reel", 0, 0.0f);
     }
   }
-  public void grabStateEnter()
-  {
-    if (invincibilityCooldownCurrent <= 0)
-    {
-      setAllBoolAnimParametersToFalse();
-      isBeingGrabbed = true;
-      acolyteAnim.SetBool("isBeingGrabbed", true);
-      acolyteAnim.Play("BeingGrabbed", 0, 0.0f);
-    }
-  }
 
   public void reelStateExit()
   {
@@ -560,6 +567,13 @@ public class acolyteBehavior : MonoBehaviour
     acolyteAnim.SetBool("isBlockingAnAttack", false);
     isBlocking = false;
     invincibilityCooldownCurrent = invincibilityCooldownPeriod;
+  }
+  public void grabStateEnter()
+  {
+      setAllBoolAnimParametersToFalse();
+      isBeingGrabbed = true;
+      canAttack = false;
+      acolyteAnim.SetBool("isBeingGrabbed", true);
   }
   public void grabStateExit()
   {

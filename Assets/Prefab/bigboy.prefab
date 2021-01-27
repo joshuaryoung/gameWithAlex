@@ -490,7 +490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4698233896438564}
   - component: {fileID: 523051667151902992}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: lowerHurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -547,7 +547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4870287289636666}
   - component: {fileID: 332646516601572585}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: upperHurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

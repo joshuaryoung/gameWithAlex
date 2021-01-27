@@ -9,6 +9,7 @@ public class PlayerInputScript : MonoBehaviour
     Animator anim;
     public bool isDead;
     public bool isBeingGrabbed;
+    public bool isInGrabAttackState;
     public AnimationClip punchAnimationClip;
     public AnimationClip kickAnimationClip;
     public PlayerHealth PH;
@@ -31,6 +32,7 @@ public class PlayerInputScript : MonoBehaviour
     public Collider2D jumpingKickHitBox;
     public Collider2D sweepHitBox;
     public Collider2D uppercutHitBox;
+    public Collider2D grabAttackStatePunchHitBox;
     public Collider2D throwHitBox;
     public AudioClip punchSoundEffect;
     public AudioClip punchAC2SoundEffect;
@@ -81,7 +83,7 @@ public class PlayerInputScript : MonoBehaviour
     public float uppercutReelLength;
     public float uppercutBlockStunLength;
     public float uppercutPushbackValue;
-    public int throwDamageValue;
+    public int grabAttackStatePunchDamageValue;
     public float walkVelocity;
     public float runVelocity;
     public float crouchVelocity;
@@ -131,6 +133,7 @@ public class PlayerInputScript : MonoBehaviour
     public float groundCollisionOffset;
     public bool attackHasAlreadyHit;    //has an attack already registered damage?
     public int currentAutoComboIndex = 0;
+    public int currentGrabAttackIndex = 0;
     public KeyCode jumpKeyCode;
     public KeyCode punchKeyCode;
     public KeyCode kickKeyCode;
@@ -347,7 +350,7 @@ public class PlayerInputScript : MonoBehaviour
 
         if (isAbleToAct)
         {
-            if (controllerAxisX != 0)
+            if (controllerAxisX != 0 && !isInGrabAttackState)
             {
                 movePlayer();
             }
@@ -357,13 +360,15 @@ public class PlayerInputScript : MonoBehaviour
             attackHasAlreadyHit = false;
             currentAutoComboIndex = 0;
 
-            //Check to see if X Axis was pressed
             anim.SetInteger("currentAutoComboIndex", currentAutoComboIndex);
 
             if ((isGrounded || isWallClimbing) && jumpCoolDownCurrent <= 0)
             {
-                if (jumpPressed && !blockPressed)
+                if (jumpPressed && !blockPressed && !isInGrabAttackState)
                     jump();
+                if (isInGrabAttackState && jumpPressed) {
+                    grabAttackStateExit();
+                }
             }
             anim.SetBool("isBlocking", isBlocking);
             anim.SetBool("isBackDashing", isBackDashing);
@@ -373,43 +378,19 @@ public class PlayerInputScript : MonoBehaviour
 
             anim.SetBool("isCrouching", isCrouching);
             anim.SetBool("isPunching", (punchPressed && !uppercutPressed && !grabPressed));
-            if (punchPressed && !uppercutPressed && !grabPressed && isGrounded)
-            {
-                anim.Play("Punch", 0, 0.0f);
-                playSoundEffect(punchSoundEffect);
-            }
-            if (!isGrounded && !isWallClimbing && punchPressed && !blockPressed) {
-                playSoundEffect(punchSoundEffect);
-            }
-            if (!isGrounded && !isWallClimbing && kickPressed && !blockPressed) {
-                playSoundEffect(kickSoundEffect);
-            }
-            if (uppercutPressed && !grabPressed && isGrounded)
-            {
-                anim.Play("Uppercut", 0, 0.0f);
-                playSoundEffect(punchSoundEffect);
-            }
             anim.SetBool("isKicking", (kickPressed && !sweepPressed && !grabPressed));
-            if (kickPressed && !sweepPressed && !grabPressed && isGrounded)
-            {
-                anim.Play("Kick", 0, 0.0f);
-                playSoundEffect(kickSoundEffect);
-            }
             anim.SetBool("isSweeping", sweepPressed);
-            if (sweepPressed && isGrounded && !blockPressed) {
-                playSoundEffect(kickSoundEffect);
-            }
             anim.SetBool("isUppercutting", uppercutPressed);
             anim.SetBool("isGrabbing", grabPressed);
 
-            isWalking = (controllerAxisX != 0 && !runHeld && !blockPressed);
+            isWalking = (controllerAxisX != 0 && !runHeld && !blockPressed && !isInGrabAttackState);
             if (CVO.isLockedOn) {
                 bool movementIsAwayFromEnemy = controllerAxisX * transform.localScale.x < 0;
                 isBackWalking = isWalking && movementIsAwayFromEnemy; 
             } else {
                 isBackWalking = false;
             }
-            isRunning = (controllerAxisX != 0 && runHeld && !blockPressed);
+            isRunning = (controllerAxisX != 0 && runHeld && !blockPressed && !isInGrabAttackState);
             if (CVO.isLockedOn && !isWallClimbing) {
                 // Check: is player facing enemy?
                 bool playerFacingEnemy = (gameObject.transform.localPosition.x - CVO.lockedOnEnemyObj.transform.localPosition.x) * gameObject.transform.localScale.x < 0;
@@ -574,7 +555,7 @@ public class PlayerInputScript : MonoBehaviour
     {
         string nameOfPreviousCol = "null";
         //hitbox stuff
-        Collider2D[] cols = Physics2D.OverlapBoxAll(hitBox.bounds.center, hitBox.bounds.size, 0f, LayerMask.GetMask("EnemyLayer"));
+        Collider2D[] cols = Physics2D.OverlapBoxAll(hitBox.bounds.center, hitBox.bounds.size, 0f, LayerMask.GetMask("EnemyHurtbox"));
 
         if (cols.Length > 0)
         {
@@ -594,10 +575,10 @@ public class PlayerInputScript : MonoBehaviour
         }
     }
 
-    void grabAttack(Collider2D hitBox, int damageValue, AudioClip soundEffect)
+    void grabHitCheck(Collider2D hitBox, AudioClip soundEffect)
     {
         //hitbox stuff
-        Collider2D[] cols = Physics2D.OverlapCircleAll(hitBox.bounds.center, hitBox.bounds.extents.x, LayerMask.GetMask("EnemyLayer"));
+        Collider2D[] cols = Physics2D.OverlapCircleAll(hitBox.bounds.center, hitBox.bounds.extents.x, LayerMask.GetMask("EnemyHurtbox"));
 
         if (cols.Length > 0)
         {
@@ -611,8 +592,22 @@ public class PlayerInputScript : MonoBehaviour
             }
             attackHasAlreadyHit = true;
             playSoundEffect(soundEffect);
-            object[] args = { damageValue };
-            cols[0].SendMessageUpwards("enemyGetGrabbed", args);
+            closestCol.SendMessageUpwards("enemyGetGrabbed");
+            anim.SetBool("isInGrabAttackState", true);
+            isInGrabAttackState = true;
+        }
+    }
+
+    void grabAttack(Collider2D hitBox, int damageValue, AudioClip hitSoundEffect, AudioClip _blockSoundEffect)
+    {
+        //hitbox stuff
+        Collider2D[] cols = Physics2D.OverlapBoxAll(hitBox.bounds.center, hitBox.bounds.size, 0f, LayerMask.GetMask("EnemyHurtbox"));
+
+        if (cols.Length > 0)
+        {
+            currentGrabAttackIndex++;
+            object[] args = { damageValue, hitSoundEffect, _blockSoundEffect };
+            cols[0].SendMessageUpwards("enemyTakeGrabAttackDamage", args);
         }
     }
 
@@ -620,7 +615,7 @@ public class PlayerInputScript : MonoBehaviour
     {
         string nameOfPreviousCol = "null";
         //hitbox stuff
-        Collider2D[] cols = Physics2D.OverlapBoxAll(hitBox.bounds.center, hitBox.bounds.size, 0f, LayerMask.GetMask("EnemyLayer"));
+        Collider2D[] cols = Physics2D.OverlapBoxAll(hitBox.bounds.center, hitBox.bounds.size, 0f, LayerMask.GetMask("EnemyHurtbox"));
 
         if (cols.Length > 0)
         {
@@ -717,9 +712,25 @@ public class PlayerInputScript : MonoBehaviour
 
     void uppercut()
     {
+        if (uppercutHitBox == null) {
+            Debug.Log($"{this.name}: uppercutHitBox is null!");
+            return;
+        }
         if (!attackHasAlreadyHit)
         {
             attack(uppercutHitBox, uppercutDamageValue, uppercutPushbackValue, uppercutReelLength, uppercutBlockStunLength, impactSoundEffect, blockSoundEffect);
+        }
+    }
+
+    void grabAttackStatePunch()
+    {
+        if (grabAttackStatePunchHitBox == null) {
+            Debug.LogError($"{this.name}: grabAttackStatePunchHitBox is null!");
+            return;
+        }
+        if (!attackHasAlreadyHit)
+        {
+            grabAttack(grabAttackStatePunchHitBox, grabAttackStatePunchDamageValue, impactSoundEffect, blockSoundEffect);
         }
     }
 
@@ -727,13 +738,67 @@ public class PlayerInputScript : MonoBehaviour
     {
         if (!attackHasAlreadyHit)
         {
-            grabAttack(throwHitBox, throwDamageValue, impactSoundEffect);
+            grabHitCheck(throwHitBox, impactSoundEffect);
         }
     }
 
     void resetAttackHasAlreadyHit()
     {
         attackHasAlreadyHit = false;
+    }
+
+    public void punchEnter() {
+        isAbleToAct = false;
+        canCombo = true;
+        playSoundEffect(punchSoundEffect);
+    }
+
+    public void punchExit() {
+        isAbleToAct = true;
+        canCombo = false;
+        attackHasAlreadyHit = false;
+    }
+
+    public void punchAC3Enter() {
+        playSoundEffect(punchSoundEffect);
+    }
+
+    public void jumpingPunchEnter() {
+        isAbleToAct = false;
+        playSoundEffect(punchSoundEffect);
+    }
+
+    public void uppercutEnter() {
+        isAbleToAct = false;
+        canCombo = true;
+        playSoundEffect(punchSoundEffect);
+    }
+
+    public void kickEnter() {
+        isAbleToAct = false;
+        canCombo = true;
+        playSoundEffect(kickSoundEffect);
+    }
+
+    public void kickExit() {
+        isAbleToAct = true;
+        canCombo = false;
+        attackHasAlreadyHit = false;
+    }
+
+    public void kickACEnter() {
+        playSoundEffect(kickSoundEffect);
+    }
+
+    public void jumpingKickEnter() {
+        isAbleToAct = false;
+        playSoundEffect(kickSoundEffect);
+    }
+
+    public void sweepEnter() {
+        isAbleToAct = false;
+        canCombo = true;
+        playSoundEffect(kickSoundEffect);
     }
 
     public void forwardDashExit() {
@@ -776,6 +841,36 @@ public class PlayerInputScript : MonoBehaviour
         upperHurtbox.gameObject.SetActive(true);
         isAbleToAct = true;
         anim.SetBool("isKnockedDown", false);
+    }
+
+    public void grabAttackStateEnter() {
+        isAbleToAct = true;
+    }
+
+    public void grabAttackStateExit() {
+        isInGrabAttackState = false;
+        isAbleToAct = true;
+        currentGrabAttackIndex = 0;
+        anim.SetBool("isInGrabAttackState", false);
+    }
+
+    public void grabAttackPunchEnter() {
+        isAbleToAct = false;
+        canCombo = false;
+        playSoundEffect(punchSoundEffect);
+    }
+
+    public void grabAttackPunchExit() {
+        isAbleToAct = true;
+    }
+
+    public void grabAttackKickEnter() {
+        isAbleToAct = false;
+        playSoundEffect(kickSoundEffect);
+    }
+
+    public void grabAttackKickExit() {
+        isAbleToAct = true;
     }
 
     //ground check

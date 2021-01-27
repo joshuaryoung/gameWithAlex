@@ -261,6 +261,7 @@ MonoBehaviour:
   CVO: {fileID: 0}
   isDead: 0
   isDying: 0
+  isKnockedDown: 0
 --- !u!212 &212857715412243474
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -582,7 +583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4698233896438564}
   - component: {fileID: 8835459544498847602}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: lowerHurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,7 +640,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4870287289636666}
   - component: {fileID: 2572331913283320860}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: upperHurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

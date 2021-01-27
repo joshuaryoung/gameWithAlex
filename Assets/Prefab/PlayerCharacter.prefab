@@ -32,7 +32,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4087151271183574}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &999187270
 Animator:
@@ -209,7 +209,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4087151271183574}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61834156698541538
 BoxCollider2D:
@@ -279,7 +279,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4087151271183574}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61047054372075774
 BoxCollider2D:
@@ -396,6 +396,7 @@ Transform:
   - {fileID: 2977819603047490979}
   - {fileID: 4532972812765570}
   - {fileID: 4537475135567058}
+  - {fileID: 8460176498210860703}
   - {fileID: 4751736123284400}
   - {fileID: 4926400179535926}
   - {fileID: 4983380794242572}
@@ -471,6 +472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDead: 0
   isBeingGrabbed: 0
+  isInGrabAttackState: 0
   punchAnimationClip: {fileID: 7400000, guid: 149e301081590af4cb14918cdfd7f88a, type: 2}
   kickAnimationClip: {fileID: 7400000, guid: 67bab586c6682ee4ca01f464cadbb6d1, type: 2}
   PH: {fileID: 0}
@@ -490,6 +492,7 @@ MonoBehaviour:
   jumpingKickHitBox: {fileID: 58866748017980126}
   sweepHitBox: {fileID: 58146812505729596}
   uppercutHitBox: {fileID: 58529760823048468}
+  grabAttackStatePunchHitBox: {fileID: 673544627543807567}
   throwHitBox: {fileID: 5421631279037627104}
   punchSoundEffect: {fileID: 8300000, guid: 60983f774c0f6486693dae581ff31e60, type: 3}
   punchAC2SoundEffect: {fileID: 0}
@@ -540,7 +543,7 @@ MonoBehaviour:
   uppercutReelLength: 0.3333
   uppercutBlockStunLength: 0.97
   uppercutPushbackValue: 4
-  throwDamageValue: 0
+  grabAttackStatePunchDamageValue: 0
   walkVelocity: 7
   runVelocity: 12
   crouchVelocity: 3.5
@@ -590,6 +593,7 @@ MonoBehaviour:
   groundCollisionOffset: 0
   attackHasAlreadyHit: 0
   currentAutoComboIndex: 0
+  currentGrabAttackIndex: 0
   jumpKeyCode: 0
   punchKeyCode: 0
   kickKeyCode: 0
@@ -931,7 +935,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4087151271183574}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61803459405475406
 BoxCollider2D:
@@ -1052,7 +1056,7 @@ Transform:
   m_LocalScale: {x: 1, y: 2.3275, z: 1}
   m_Children: []
   m_Father: {fileID: 4087151271183574}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3725956914877408559
 BoxCollider2D:
@@ -1159,7 +1163,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4087151271183574}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8831438579535511990
 Animator:
@@ -1306,6 +1310,53 @@ CircleCollider2D:
   m_Offset: {x: -1, y: 0.46}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!1 &7056324183385070008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8460176498210860703}
+  - component: {fileID: 673544627543807567}
+  m_Layer: 8
+  m_Name: grabAttackStatePunchHitBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8460176498210860703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7056324183385070008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.907, y: 0.425, z: 0}
+  m_LocalScale: {x: 0.74106675, y: 0.8083315, z: 0.65171593}
+  m_Children: []
+  m_Father: {fileID: 4087151271183574}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &673544627543807567
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7056324183385070008}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &8739900958573432134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,7 +1386,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4087151271183574}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &4995993718019938176
 BoxCollider2D:

@@ -129,6 +129,7 @@ public class PlayerHealth : MonoBehaviour
         PIS.isForwardDashing = false;
         PIS.isBackDashing = false;
         PIS.hasReleasedWall = true;
+        PIS.currentGrabAttackIndex = 0;
         setAllBoolAnimParametersToFalse(animator);
         hitSparkAnimator.SetBool("isActive", true);
         animator.SetBool("isReeling", true);
@@ -171,6 +172,7 @@ public class PlayerHealth : MonoBehaviour
       PIS.isForwardDashing = false;
       PIS.isBackDashing = false;
       PIS.hasReleasedWall = true;
+      PIS.currentGrabAttackIndex = 0;
       setAllBoolAnimParametersToFalse(animator);
       animator.SetBool("isBeingGrabbed", false);
       animator.SetBool("isKnockedDown", true);

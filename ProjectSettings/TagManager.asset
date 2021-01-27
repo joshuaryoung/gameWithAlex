@@ -14,7 +14,7 @@ TagManager:
   - Water
   - UI
   - OnlyInteractsWithWallsGround
-  - 
+  - EnemyHurtbox
   - Player
   - GroundLayer
   - EnemyLayer
