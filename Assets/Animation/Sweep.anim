@@ -142,7 +142,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: setCanActFalse
+    functionName: sweepEnter
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -156,14 +156,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.5
-    functionName: resetAttackHasAlreadyHit
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.5
-    functionName: setCanActTrue
+    functionName: kickExit
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

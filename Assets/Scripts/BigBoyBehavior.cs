@@ -15,6 +15,7 @@ public class BigBoyBehavior : MonoBehaviour
   public GameObject lowerCollisionBoxGameObj;
   public int startHealth;
   public int currentHealth;
+  public int throwDamage;
   public float invincibilityCooldownPeriod;
   public float invincibilityCooldownCurrent;
   public int invincibilityCooldownFlash = 0;
@@ -44,6 +45,8 @@ public class BigBoyBehavior : MonoBehaviour
   public bool infiniteHealth;
   public footsies.range currentFootsiesRange;
   public bool isNotInAnimation;
+  public bool isGrounded;
+  public bool wasGroundedLastFrame;
   public int attackDecisionRNG;
   public byte attackDecisionRNGMin;
   public byte attackDecisionRNGMax;
@@ -108,11 +111,13 @@ public class BigBoyBehavior : MonoBehaviour
   public AudioSource audioSrc;
   public AudioClip punchSoundEffect;
   public AudioClip grabSoundEffect;
+  public AudioClip thudSoundEffect;
   public float flipCoolDown = 0;
   public float flipCoolDownMax;
   public Collider2D lowerHurtbox;
   public BigBoyAIBlockerScript BBAIBS;
   public bool isBeingGrabbed = false;
+  public bool isBeingThrown = false;
   public bool attackHasAlreadyHit = false;
   public CurrentlyVisableObjects CVO;
   public bool isDead = false;
@@ -187,7 +192,7 @@ public class BigBoyBehavior : MonoBehaviour
     if (isDead || isDying) {
       return;
     }
-    isNotInAnimation = bigboyAnim.GetBool("isReeling") == false && bigboyAnim.GetBool("isLightPunching") == false && bigboyAnim.GetBool("isHeavyPunching") == false && bigboyAnim.GetBool("isBlocking") == false && bigboyAnim.GetBool("isBlockingAnAttack") == false && bigboyAnim.GetBool("isKnockedDown") == false && bigboyAnim.GetBool("isGrabbing") == false && bigboyAnim.GetBool("isSlamming") == false && !isBeingGrabbed;
+    isNotInAnimation = bigboyAnim.GetBool("isReeling") == false && bigboyAnim.GetBool("isLightPunching") == false && bigboyAnim.GetBool("isHeavyPunching") == false && bigboyAnim.GetBool("isBlocking") == false && bigboyAnim.GetBool("isBlockingAnAttack") == false && bigboyAnim.GetBool("isKnockedDown") == false && bigboyAnim.GetBool("isBeingThrown") == false && bigboyAnim.GetBool("isGrabbing") == false && bigboyAnim.GetBool("isSlamming") == false && !isBeingGrabbed;
 
     // Is Visible to camera?
     if (spriteR.isVisible) {
@@ -306,6 +311,11 @@ public class BigBoyBehavior : MonoBehaviour
     if (flipCoolDown > 0) {
       flipCoolDown -= Time.deltaTime;
     }
+
+    if (!wasGroundedLastFrame && isGrounded && isBeingThrown) {
+      throwStateExit();
+    }
+    wasGroundedLastFrame = isGrounded;
   }
 
   void disableIsPunching()
@@ -460,17 +470,47 @@ public class BigBoyBehavior : MonoBehaviour
       }
     }
   }
-  public void enemyGetGrabbed(object[] args)
+
+  public void enemyTakeGrabAttackDamage(object[] args)
   {
+    attackHasAlreadyHit = false;
     int damage = (int)args[0];
+    AudioClip hitSoundEffect = (AudioClip)args[1];
 
     if (currentHealth > 0 && invincibilityCooldownCurrent <= 0 && !isKnockedDown)
     {
+      PIS.attackHasAlreadyHit = true;
       if (!infiniteHealth)
         currentHealth -= damage;
-      grabStateEnter();
-      if (currentHealth <= 0)
+      hitSparkAnimator.SetBool("isActive", true);
+      audioSrc.clip = hitSoundEffect;
+      // audioSrc.enabled = true;
+      audioSrc.Play();
+      if (currentHealth <= 0) {
+        PIS.grabAttackStateExit();
         enemyDeath();
+      }
+    }
+  }
+  public void enemyGetGrabbed()
+  {
+    if (currentHealth > 0 && invincibilityCooldownCurrent <= 0 && !isKnockedDown)
+    {
+      grabStateEnter();
+    }
+  }
+  public void enemyGetThrown(object[] args)
+  {
+    if (args.Length < 2) {
+      Debug.LogError($"{this.name}: args.Length is less than 2!");
+      return;
+    }
+
+    throwDamage = (int)args[0];
+    Vector2 throwForce = (Vector2)args[1];
+    if (currentHealth > 0 && invincibilityCooldownCurrent <= 0 && !isKnockedDown)
+    {
+      throwStateEnter(throwForce);
     }
   }
 
@@ -520,6 +560,7 @@ public class BigBoyBehavior : MonoBehaviour
   public void knockDownExit() {
     isKnockedDown = false;
     bigboyAnim.SetBool("isKnockedDown", false);
+    canAttack = true;
     upperCollisionBoxGameObj.layer = LayerMask.NameToLayer("EnemyLayer");
     lowerCollisionBoxGameObj.layer = LayerMask.NameToLayer("EnemyLayer");
   }
@@ -616,19 +657,53 @@ public class BigBoyBehavior : MonoBehaviour
   }
   public void grabStateEnter()
   {
-    if (invincibilityCooldownCurrent <= 0)
-    {
-      foreach (AnimatorControllerParameter parameter in bigboyAnim.parameters)
-      {
-        string paramType = parameter.type.ToString();
-        string boolType = AnimatorControllerParameterType.Bool.ToString();
-        if (paramType == boolType) {
-          bigboyAnim.SetBool(parameter.name, false);
-        }
-      }
+      setAllBoolAnimParametersToFalse();
+      isBlocking = false;
       isBeingGrabbed = true;
+      canAttack = false;
       bigboyAnim.SetBool("isBeingGrabbed", true);
-      // bigboyAnim.Play("BeingGrabbed", 0, 0.0f);
+  }
+  public void throwStateEnter(Vector2 throwForce)
+  {
+      setAllBoolAnimParametersToFalse();
+      bigboyAnim.SetBool("isBeingThrown", true);
+      isBeingGrabbed = false;
+      isBeingThrown = true;
+      canAttack = false;
+      applyThrowForce(throwForce);
+  }
+  public void throwStateExit()
+  {
+    isBeingThrown = false;
+    applyThrowDamage();
+
+    if (!isDead && !isDying) {
+      knockDownEnter();
+    }
+  }
+
+  void applyThrowForce(Vector2 throwForce) {
+    upperCollisionBoxGameObj.layer = LayerMask.NameToLayer("InteractsWithEverythingButPlayer");
+    lowerCollisionBoxGameObj.layer = LayerMask.NameToLayer("InteractsWithEverythingButPlayer");
+    RB2D.AddForce(new Vector2(throwForce.x * transform.localScale.x, throwForce.y), ForceMode2D.Impulse);
+  }
+
+  void applyThrowDamage() {
+    if (thudSoundEffect == null) {
+      Debug.LogError($"{this.name}: thudSoundEffect is null!");
+      return;
+    }
+    if (currentHealth > 0 && invincibilityCooldownCurrent <= 0 && !isKnockedDown)
+    {
+      if (!infiniteHealth)
+        currentHealth -= throwDamage;
+      hitSparkAnimator.SetBool("isActive", true);
+      audioSrc.clip = thudSoundEffect;
+      // audioSrc.enabled = true;
+      audioSrc.Play();
+      if (currentHealth <= 0) {
+        enemyDeath();
+      }
     }
   }
   public void grabStateExit()
@@ -674,7 +749,7 @@ public class BigBoyBehavior : MonoBehaviour
     /*if (hit.GetComponent<Collider>().tag == "Player") {
 			playerObject.GetComponent<PlayerHealth> ().playerTakeDamage (1);
 		}*/
-    isNotInAnimation = bigboyAnim.GetBool("isHeavyPunching") == false && bigboyAnim.GetBool("isLightPunching") == false && bigboyAnim.GetBool("isReeling") == false;
+    isNotInAnimation = bigboyAnim.GetBool("isReeling") == false && bigboyAnim.GetBool("isLightPunching") == false && bigboyAnim.GetBool("isHeavyPunching") == false && bigboyAnim.GetBool("isBlocking") == false && bigboyAnim.GetBool("isBlockingAnAttack") == false && bigboyAnim.GetBool("isKnockedDown") == false && bigboyAnim.GetBool("isBeingThrown") == false && bigboyAnim.GetBool("isGrabbing") == false && bigboyAnim.GetBool("isSlamming") == false && !isBeingGrabbed;
     float collisionTop = col2D.transform.position.y + col2D.collider.bounds.extents.y;
     float characterBottom = transform.position.y - lowerHurtbox.bounds.extents.y;
     bool isWall = col2D.gameObject.layer == LayerMask.NameToLayer("Wall");

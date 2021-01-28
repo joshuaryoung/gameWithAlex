@@ -32,7 +32,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4087151271183574}
-  m_RootOrder: 10
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &999187270
 Animator:
@@ -209,7 +209,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4087151271183574}
-  m_RootOrder: 9
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61834156698541538
 BoxCollider2D:
@@ -279,7 +279,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4087151271183574}
-  m_RootOrder: 12
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61047054372075774
 BoxCollider2D:
@@ -396,6 +396,9 @@ Transform:
   - {fileID: 2977819603047490979}
   - {fileID: 4532972812765570}
   - {fileID: 4537475135567058}
+  - {fileID: 8460176498210860703}
+  - {fileID: 6274335966115977970}
+  - {fileID: 2629934336344747360}
   - {fileID: 4751736123284400}
   - {fileID: 4926400179535926}
   - {fileID: 4983380794242572}
@@ -470,7 +473,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDead: 0
+  isAbleToAct: 0
+  canCombo: 0
   isBeingGrabbed: 0
+  isInGrabAttackState: 0
+  isForwardDashing: 0
+  isBackDashing: 0
+  runHeld: 0
+  jumpPressed: 0
+  jumpReleased: 0
+  dashReleased: 0
+  punchPressed: 0
+  kickPressed: 0
+  blockPressed: 0
+  isBlocking: 0
+  isGrabbing: 0
+  sweepPressed: 0
+  uppercutPressed: 0
+  grabPressed: 0
+  lockOnPressed: 0
+  isRunning: 0
+  isWalking: 0
+  isBackWalking: 0
+  isCrouching: 0
+  isGrounded: 0
+  isWallClimbing: 0
+  isWallSliding: 0
+  isWallJumping: 0
+  hasReleasedWall: 0
+  isLedgeVaulting: 0
+  wasGroundedPreviousFrame: 0
+  freeFallAvailable: 0
+  attackHasAlreadyHit: 0
+  dpadLeftPressed: 0
+  dpadRightPressed: 0
   punchAnimationClip: {fileID: 7400000, guid: 149e301081590af4cb14918cdfd7f88a, type: 2}
   kickAnimationClip: {fileID: 7400000, guid: 67bab586c6682ee4ca01f464cadbb6d1, type: 2}
   PH: {fileID: 0}
@@ -490,6 +526,9 @@ MonoBehaviour:
   jumpingKickHitBox: {fileID: 58866748017980126}
   sweepHitBox: {fileID: 58146812505729596}
   uppercutHitBox: {fileID: 58529760823048468}
+  grabAttackStatePunchHitBox: {fileID: 673544627543807567}
+  grabAttackStateKickHitBox: {fileID: 7530017273762292365}
+  grabAttackStateThrowHitBox: {fileID: 5874925425989763450}
   throwHitBox: {fileID: 5421631279037627104}
   punchSoundEffect: {fileID: 8300000, guid: 60983f774c0f6486693dae581ff31e60, type: 3}
   punchAC2SoundEffect: {fileID: 0}
@@ -499,6 +538,7 @@ MonoBehaviour:
   kickAC3SoundEffect: {fileID: 0}
   impactSoundEffect: {fileID: 8300000, guid: c33d06a25edb11445b640a985ec7711f, type: 3}
   blockSoundEffect: {fileID: 8300000, guid: dbe104ed0ce264aaf9745038e89e9243, type: 3}
+  throwSoundEffect: {fileID: 8300000, guid: 45faa29d78cc142fe92f55f4590b6d48, type: 3}
   audioPlayer: {fileID: 0}
   collisionBoxCol2D: {fileID: 3725956914877408559}
   punchDamageValue: 1
@@ -517,6 +557,7 @@ MonoBehaviour:
   jumpingPunchReelLength: 0.8
   jumpingPunchBlockStunLength: 0.8
   jumpingPunchPushbackValue: 4
+  grabAttackStateThrowForce: {x: 200, y: 100}
   kickDamageValue: 1
   kickAC2DamageValue: 1
   kickAC3DamageValue: 1
@@ -540,14 +581,14 @@ MonoBehaviour:
   uppercutReelLength: 0.3333
   uppercutBlockStunLength: 0.97
   uppercutPushbackValue: 4
-  throwDamageValue: 0
+  grabAttackStatePunchDamageValue: 2
+  grabAttackStateKickDamageValue: 3
+  grabAttackStateThrowDamageValue: 3
   walkVelocity: 7
   runVelocity: 12
   crouchVelocity: 3.5
   backDashVelocity: 24.34
   forwardDashVelocity: 25.75
-  isForwardDashing: 0
-  isBackDashing: 0
   wallJumpVelocity: 8.02
   wallStickDurationCurrent: 24
   wallStickDurationMax: 0.88
@@ -556,40 +597,13 @@ MonoBehaviour:
   yVelo: 0
   RBgravityScale: 3
   controllerAxisX: 0
-  runHeld: 0
-  jumpPressed: 0
-  jumpReleased: 0
-  dashReleased: 0
-  punchPressed: 0
-  kickPressed: 0
-  blockPressed: 0
-  isBlocking: 0
-  isGrabbing: 0
-  sweepPressed: 0
-  uppercutPressed: 0
-  grabPressed: 0
-  lockOnPressed: 0
-  isAbleToAct: 0
-  canCombo: 0
-  isRunning: 0
-  isWalking: 0
-  isBackWalking: 0
-  isCrouching: 0
-  isGrounded: 0
-  isWallClimbing: 0
-  isWallSliding: 0
-  isWallJumping: 0
-  hasReleasedWall: 0
-  isLedgeVaulting: 0
   wallJumpMinXAxisCooldownMax: 0.18
   wallJumpMinXAxisCooldownCurrent: 0
-  wasGroundedPreviousFrame: 1
   groundedCoolDown: 0.2
   localScaleX: 1
-  freeFallAvailable: 0
   groundCollisionOffset: 0
-  attackHasAlreadyHit: 0
   currentAutoComboIndex: 0
+  currentGrabAttackIndex: 0
   jumpKeyCode: 0
   punchKeyCode: 0
   kickKeyCode: 0
@@ -601,8 +615,6 @@ MonoBehaviour:
   leftKeyCode: 0
   rightKeyCode: 0
   lockOnKeyCode: 0
-  dpadLeftPressed: 0
-  dpadRightPressed: 0
   settingsScript: {fileID: 0}
   HS: {fileID: 0}
   CVO: {fileID: 0}
@@ -931,7 +943,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4087151271183574}
-  m_RootOrder: 8
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61803459405475406
 BoxCollider2D:
@@ -1052,7 +1064,7 @@ Transform:
   m_LocalScale: {x: 1, y: 2.3275, z: 1}
   m_Children: []
   m_Father: {fileID: 4087151271183574}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3725956914877408559
 BoxCollider2D:
@@ -1159,7 +1171,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4087151271183574}
-  m_RootOrder: 13
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8831438579535511990
 Animator:
@@ -1306,6 +1318,147 @@ CircleCollider2D:
   m_Offset: {x: -1, y: 0.46}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!1 &4668752417603524031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6274335966115977970}
+  - component: {fileID: 7530017273762292365}
+  m_Layer: 8
+  m_Name: grabAttackStateKickHitBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6274335966115977970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4668752417603524031}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.907, y: 0.425, z: 0}
+  m_LocalScale: {x: 0.74106675, y: 0.8083315, z: 0.65171593}
+  m_Children: []
+  m_Father: {fileID: 4087151271183574}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &7530017273762292365
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4668752417603524031}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!1 &7056324183385070008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8460176498210860703}
+  - component: {fileID: 673544627543807567}
+  m_Layer: 8
+  m_Name: grabAttackStatePunchHitBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8460176498210860703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7056324183385070008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.907, y: 0.425, z: 0}
+  m_LocalScale: {x: 0.74106675, y: 0.8083315, z: 0.65171593}
+  m_Children: []
+  m_Father: {fileID: 4087151271183574}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &673544627543807567
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7056324183385070008}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!1 &8727022921725310315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2629934336344747360}
+  - component: {fileID: 5874925425989763450}
+  m_Layer: 8
+  m_Name: grabAttackStateThrowHitBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2629934336344747360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8727022921725310315}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.907, y: 0.425, z: 0}
+  m_LocalScale: {x: 0.74106675, y: 0.8083315, z: 0.65171593}
+  m_Children: []
+  m_Father: {fileID: 4087151271183574}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &5874925425989763450
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8727022921725310315}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &8739900958573432134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,7 +1488,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4087151271183574}
-  m_RootOrder: 11
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &4995993718019938176
 BoxCollider2D:

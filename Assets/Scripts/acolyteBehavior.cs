@@ -15,6 +15,7 @@ public class acolyteBehavior : MonoBehaviour
   public GameObject lowerCollisionBoxGameObj;
   public int startHealth;
   public int currentHealth;
+  public int throwDamage;
   public float invincibilityCooldownPeriod;
   public float invincibilityCooldownCurrent;
   public int invincibilityCooldownFlash = 0;
@@ -49,6 +50,8 @@ public class acolyteBehavior : MonoBehaviour
   public bool infiniteHealth;
   public footsies.range currentFootsiesRange;
   public bool isNotInAnimation;
+  public bool isGrounded;
+  public bool wasGroundedLastFrame;
   public int attackDecisionRNG;
   public byte attackDecisionRNGMin;
   public byte attackDecisionRNGMax;
@@ -112,11 +115,13 @@ public class acolyteBehavior : MonoBehaviour
   public float actualMoveDistance;
   public AudioSource audioSrc;
   public AudioClip punchSoundEffect;
+  public AudioClip thudSoundEffect;
   public float flipCoolDown = 0;
   public float flipCoolDownMax;
   public Collider2D lowerHurtbox;
   public AIBlockerScript AIBS;
   public bool isBeingGrabbed = false;
+  public bool isBeingThrown = false;
   public bool attackHasAlreadyHit = false;
   public CurrentlyVisableObjects CVO;
   public bool isDead = false;
@@ -145,6 +150,7 @@ public class acolyteBehavior : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    // TODO: Groundcheck stuff (so that we can apply throw damage when enemy colides with either 1) a wall or 2) the ground
     if (lowerHurtbox == null) {
       Debug.LogError("lowerHurtbox is null!");
       return;
@@ -173,7 +179,7 @@ public class acolyteBehavior : MonoBehaviour
     if (isDead || isDying) {
       return;
     }
-    isNotInAnimation = acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeadbutting") == false && acolyteAnim.GetBool("isBlocking") == false && acolyteAnim.GetBool("isBlockingAnAttack") == false && acolyteAnim.GetBool("isKnockedDown") == false && !isBeingGrabbed;
+    isNotInAnimation = acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeadbutting") == false && acolyteAnim.GetBool("isBlocking") == false && acolyteAnim.GetBool("isBlockingAnAttack") == false && acolyteAnim.GetBool("isKnockedDown") == false && acolyteAnim.GetBool("isBeingThrown") == false && !isBeingGrabbed;
 
     // Is Visible to camera?
     if (spriteR.isVisible) {
@@ -291,6 +297,11 @@ public class acolyteBehavior : MonoBehaviour
     if (flipCoolDown > 0) {
       flipCoolDown -= Time.deltaTime;
     }
+
+    if (!wasGroundedLastFrame && isGrounded && isBeingThrown) {
+      throwStateExit();
+    }
+    wasGroundedLastFrame = isGrounded;
   }
 
   public void footsiesValsForCurrentRange() {
@@ -467,17 +478,47 @@ public class acolyteBehavior : MonoBehaviour
       }
     }
   }
-  public void enemyGetGrabbed(object[] args)
+
+  public void enemyTakeGrabAttackDamage(object[] args)
   {
+    attackHasAlreadyHit = false;
     int damage = (int)args[0];
+    AudioClip hitSoundEffect = (AudioClip)args[1];
 
     if (currentHealth > 0 && invincibilityCooldownCurrent <= 0 && !isKnockedDown)
     {
+      PIS.attackHasAlreadyHit = true;
       if (!infiniteHealth)
         currentHealth -= damage;
-      grabStateEnter();
-      if (currentHealth <= 0)
+      hitSparkAnimator.SetBool("isActive", true);
+      audioSrc.clip = hitSoundEffect;
+      // audioSrc.enabled = true;
+      audioSrc.Play();
+      if (currentHealth <= 0) {
+        PIS.grabAttackStateExit();
         enemyDeath();
+      }
+    }
+  }
+  public void enemyGetGrabbed()
+  {
+    if (currentHealth > 0 && invincibilityCooldownCurrent <= 0 && !isKnockedDown)
+    {
+      grabStateEnter();
+    }
+  }
+  public void enemyGetThrown(object[] args)
+  {
+    if (args.Length < 2) {
+      Debug.LogError($"{this.name}: args.Length is less than 2!");
+      return;
+    }
+
+    throwDamage = (int)args[0];
+    Vector2 throwForce = (Vector2)args[1];
+    if (currentHealth > 0 && invincibilityCooldownCurrent <= 0 && !isKnockedDown)
+    {
+      throwStateEnter(throwForce);
     }
   }
 
@@ -542,16 +583,6 @@ public class acolyteBehavior : MonoBehaviour
       acolyteAnim.Play("reel", 0, 0.0f);
     }
   }
-  public void grabStateEnter()
-  {
-    if (invincibilityCooldownCurrent <= 0)
-    {
-      setAllBoolAnimParametersToFalse();
-      isBeingGrabbed = true;
-      acolyteAnim.SetBool("isBeingGrabbed", true);
-      acolyteAnim.Play("BeingGrabbed", 0, 0.0f);
-    }
-  }
 
   public void reelStateExit()
   {
@@ -560,6 +591,57 @@ public class acolyteBehavior : MonoBehaviour
     acolyteAnim.SetBool("isBlockingAnAttack", false);
     isBlocking = false;
     invincibilityCooldownCurrent = invincibilityCooldownPeriod;
+  }
+  public void grabStateEnter()
+  {
+      setAllBoolAnimParametersToFalse();
+      isBlocking = false;
+      isBeingGrabbed = true;
+      canAttack = false;
+      acolyteAnim.SetBool("isBeingGrabbed", true);
+  }
+  public void throwStateEnter(Vector2 throwForce)
+  {
+      setAllBoolAnimParametersToFalse();
+      acolyteAnim.SetBool("isBeingThrown", true);
+      isBeingGrabbed = false;
+      isBeingThrown = true;
+      canAttack = false;
+      applyThrowForce(throwForce);
+  }
+  public void throwStateExit()
+  {
+    isBeingThrown = false;
+    applyThrowDamage();
+
+    if (!isDead && !isDying) {
+      knockDownEnter();
+    }
+  }
+
+  void applyThrowForce(Vector2 throwForce) {
+    upperCollisionBoxGameObj.layer = LayerMask.NameToLayer("InteractsWithEverythingButPlayer");
+    lowerCollisionBoxGameObj.layer = LayerMask.NameToLayer("InteractsWithEverythingButPlayer");
+    RB2D.AddForce(new Vector2(throwForce.x * transform.localScale.x, throwForce.y), ForceMode2D.Impulse);
+  }
+
+  void applyThrowDamage() {
+    if (thudSoundEffect == null) {
+      Debug.LogError($"{this.name}: thudSoundEffect is null!");
+      return;
+    }
+    if (currentHealth > 0 && invincibilityCooldownCurrent <= 0 && !isKnockedDown)
+    {
+      if (!infiniteHealth)
+        currentHealth -= throwDamage;
+      hitSparkAnimator.SetBool("isActive", true);
+      audioSrc.clip = thudSoundEffect;
+      // audioSrc.enabled = true;
+      audioSrc.Play();
+      if (currentHealth <= 0) {
+        enemyDeath();
+      }
+    }
   }
   public void grabStateExit()
   {
