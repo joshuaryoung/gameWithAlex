@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\playerAnimationEvents.cs" />
      <Compile Include="Assets\Scripts\witchAttackDistanceFar.cs" />
      <Compile Include="Assets\CurrentlyVisableObjects.cs" />
+     <Compile Include="Assets\Scripts\bigboyGroundCheck.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
