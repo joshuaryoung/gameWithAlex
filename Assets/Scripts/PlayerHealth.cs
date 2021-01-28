@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
   public Animator hitSparkAnimator;
   public GameObject blockSparkObject;
   public Animator blockSparkAnimator;
-  public Animator animator;
+  public Animator anim;
   private cameraFollow cf;
   private PlayerInputScript PIS;
   public Rigidbody2D RB2D;
@@ -51,11 +51,11 @@ public class PlayerHealth : MonoBehaviour
     }
     if (hitSparkObject)
     {
-      animator = GetComponent<Animator>();
+      anim = GetComponent<Animator>();
     }
     if (blockSparkObject)
     {
-      animator = GetComponent<Animator>();
+      anim = GetComponent<Animator>();
     }
   }
 
@@ -74,8 +74,8 @@ public class PlayerHealth : MonoBehaviour
       currentReelLengthCooldown -= Time.deltaTime;
       if (currentReelLengthCooldown <= 0)
       {
-        animator.SetBool("isReeling", false);
-        animator.SetBool("isBlockingAnAttack", false);
+        anim.SetBool("isReeling", false);
+        anim.SetBool("isBlockingAnAttack", false);
         PIS.isAbleToAct = true;
       }
     }
@@ -107,6 +107,9 @@ public class PlayerHealth : MonoBehaviour
     float attackBlockStunValue = (float)args[3];
 
     PIS.attackHasAlreadyHit = false;
+    PIS.isInGrabAttackState = false;
+    
+    PIS.isBeingGrabbed = false;
 
     pushBack(pushBackValue);
     if (invincibilityCooldownCurrent <= 0 && (!PIS.isBlocking || !PIS.isGrounded))
@@ -130,9 +133,9 @@ public class PlayerHealth : MonoBehaviour
         PIS.isBackDashing = false;
         PIS.hasReleasedWall = true;
         PIS.currentGrabAttackIndex = 0;
-        setAllBoolAnimParametersToFalse(animator);
+        setAllBoolAnimParametersToFalse(anim);
         hitSparkAnimator.SetBool("isActive", true);
-        animator.SetBool("isReeling", true);
+        anim.SetBool("isReeling", true);
       }
     }
     else if (invincibilityCooldownCurrent <= 0 && PIS.isBlocking && PIS.isGrounded)
@@ -141,7 +144,7 @@ public class PlayerHealth : MonoBehaviour
       audioSrc.clip = blockSoundEffect;
       audioSrc.Play();
       blockSparkAnimator.SetBool("isActive", true);
-      setAllBoolAnimParametersToFalse(animator);
+      setAllBoolAnimParametersToFalse(anim);
       PIS.isForwardDashing = false;
       PIS.isBackDashing = false;
       // PIS.isAbleToAct = true;
@@ -173,9 +176,9 @@ public class PlayerHealth : MonoBehaviour
       PIS.isBackDashing = false;
       PIS.hasReleasedWall = true;
       PIS.currentGrabAttackIndex = 0;
-      setAllBoolAnimParametersToFalse(animator);
-      animator.SetBool("isBeingGrabbed", false);
-      animator.SetBool("isKnockedDown", true);
+      setAllBoolAnimParametersToFalse(anim);
+      anim.SetBool("isBeingGrabbed", false);
+      anim.SetBool("isKnockedDown", true);
     }
     
   }
@@ -198,8 +201,8 @@ public class PlayerHealth : MonoBehaviour
       PIS.isForwardDashing = false;
       PIS.isBackDashing = false;
       PIS.hasReleasedWall = true;
-      setAllBoolAnimParametersToFalse(animator);
-      animator.SetBool("isBeingGrabbed", true);
+      setAllBoolAnimParametersToFalse(anim);
+      anim.SetBool("isBeingGrabbed", true);
     }
   }
 
@@ -212,7 +215,7 @@ public class PlayerHealth : MonoBehaviour
   {
     PIS.isDead = true;
     isDying = true;
-    animator.SetBool("isDying", isDying);
+    anim.SetBool("isDying", isDying);
 
   }
   void death()
@@ -222,21 +225,21 @@ public class PlayerHealth : MonoBehaviour
       return;
     }
     isDying = false;
-    animator.SetBool("isDying", isDying);
+    anim.SetBool("isDying", isDying);
     RB2D.simulated = false;
 
     isDead = true;
     deathScreen.enabled = true;
-    animator.SetBool("isDead", isDead);
+    anim.SetBool("isDead", isDead);
     cf.enabled = !cf.enabled;
   }
-  void setAllBoolAnimParametersToFalse(Animator anim) {
-    foreach (AnimatorControllerParameter parameter in anim.parameters)
+  void setAllBoolAnimParametersToFalse(Animator _anim) {
+    foreach (AnimatorControllerParameter parameter in _anim.parameters)
     {
       string paramType = parameter.type.ToString();
       string boolType = AnimatorControllerParameterType.Bool.ToString();
       if (paramType == boolType) {
-        anim.SetBool(parameter.name, false);
+        _anim.SetBool(parameter.name, false);
       }
     }
   }
