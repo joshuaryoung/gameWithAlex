@@ -15,6 +15,7 @@ public class acolyteBehavior : MonoBehaviour
   public GameObject lowerCollisionBoxGameObj;
   public int startHealth;
   public int currentHealth;
+  public int throwDamage;
   public float invincibilityCooldownPeriod;
   public float invincibilityCooldownCurrent;
   public int invincibilityCooldownFlash = 0;
@@ -145,6 +146,7 @@ public class acolyteBehavior : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    // TODO: Groundcheck stuff (so that we can apply throw damage when enemy colides with either 1) a wall or 2) the ground
     if (lowerHurtbox == null) {
       Debug.LogError("lowerHurtbox is null!");
       return;
@@ -173,7 +175,7 @@ public class acolyteBehavior : MonoBehaviour
     if (isDead || isDying) {
       return;
     }
-    isNotInAnimation = acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeadbutting") == false && acolyteAnim.GetBool("isBlocking") == false && acolyteAnim.GetBool("isBlockingAnAttack") == false && acolyteAnim.GetBool("isKnockedDown") == false && !isBeingGrabbed;
+    isNotInAnimation = acolyteAnim.GetBool("isReeling") == false && acolyteAnim.GetBool("isLightPunching") == false && acolyteAnim.GetBool("isHeadbutting") == false && acolyteAnim.GetBool("isBlocking") == false && acolyteAnim.GetBool("isBlockingAnAttack") == false && acolyteAnim.GetBool("isKnockedDown") == false && acolyteAnim.GetBool("isBeingThrown") == false && !isBeingGrabbed;
 
     // Is Visible to camera?
     if (spriteR.isVisible) {
@@ -473,7 +475,6 @@ public class acolyteBehavior : MonoBehaviour
     attackHasAlreadyHit = false;
     int damage = (int)args[0];
     AudioClip hitSoundEffect = (AudioClip)args[1];
-    AudioClip blockSoundEffect = (AudioClip)args[2];
 
     if (currentHealth > 0 && invincibilityCooldownCurrent <= 0 && !isKnockedDown)
     {
@@ -495,6 +496,20 @@ public class acolyteBehavior : MonoBehaviour
     if (currentHealth > 0 && invincibilityCooldownCurrent <= 0 && !isKnockedDown)
     {
       grabStateEnter();
+    }
+  }
+  public void enemyGetThrown(object[] args)
+  {
+    if (args.Length < 2) {
+      Debug.LogError($"{this.name}: args.Length is less than 2!");
+      return;
+    }
+
+    throwDamage = (int)args[0];
+    Vector2 throwForce = (Vector2)args[1];
+    if (currentHealth > 0 && invincibilityCooldownCurrent <= 0 && !isKnockedDown)
+    {
+      throwStateEnter(throwForce);
     }
   }
 
@@ -571,9 +586,28 @@ public class acolyteBehavior : MonoBehaviour
   public void grabStateEnter()
   {
       setAllBoolAnimParametersToFalse();
+      isBlocking = false;
       isBeingGrabbed = true;
       canAttack = false;
       acolyteAnim.SetBool("isBeingGrabbed", true);
+  }
+  public void throwStateEnter(Vector2 throwForce)
+  {
+      setAllBoolAnimParametersToFalse();
+      acolyteAnim.SetBool("isBeingThrown", true);
+      isBeingGrabbed = false;
+      canAttack = false;
+      applyThrowForce(throwForce);
+  }
+  public void throwStateExit()
+  {
+    knockDownEnter();
+  }
+
+  void applyThrowForce(Vector2 throwForce) {
+    upperCollisionBoxGameObj.layer = LayerMask.NameToLayer("InteractsWithEverythingButPlayer");
+    lowerCollisionBoxGameObj.layer = LayerMask.NameToLayer("InteractsWithEverythingButPlayer");
+    RB2D.AddForce(new Vector2(throwForce.x * transform.localScale.x, throwForce.y), ForceMode2D.Impulse);
   }
   public void grabStateExit()
   {
