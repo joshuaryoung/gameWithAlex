@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\acolytePlayerDetection.cs" />
      <Compile Include="Assets\Scripts\Footsies.cs" />
      <Compile Include="Assets\Scripts\acolyteBehavior.cs" />
+     <Compile Include="Assets\Scripts\acolyteGroundCheck.cs" />
      <Compile Include="Assets\Scripts\ReloadOnButton.cs" />
      <Compile Include="Assets\Scripts\BigBoyBehavior.cs" />
      <Compile Include="Assets\Scripts\bigboyAttackDistanceNear.cs" />

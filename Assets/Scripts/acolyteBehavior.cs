@@ -50,6 +50,8 @@ public class acolyteBehavior : MonoBehaviour
   public bool infiniteHealth;
   public footsies.range currentFootsiesRange;
   public bool isNotInAnimation;
+  public bool isGrounded;
+  public bool wasGroundedLastFrame;
   public int attackDecisionRNG;
   public byte attackDecisionRNGMin;
   public byte attackDecisionRNGMax;
@@ -113,11 +115,13 @@ public class acolyteBehavior : MonoBehaviour
   public float actualMoveDistance;
   public AudioSource audioSrc;
   public AudioClip punchSoundEffect;
+  public AudioClip thudSoundEffect;
   public float flipCoolDown = 0;
   public float flipCoolDownMax;
   public Collider2D lowerHurtbox;
   public AIBlockerScript AIBS;
   public bool isBeingGrabbed = false;
+  public bool isBeingThrown = false;
   public bool attackHasAlreadyHit = false;
   public CurrentlyVisableObjects CVO;
   public bool isDead = false;
@@ -293,6 +297,11 @@ public class acolyteBehavior : MonoBehaviour
     if (flipCoolDown > 0) {
       flipCoolDown -= Time.deltaTime;
     }
+
+    if (!wasGroundedLastFrame && isGrounded && isBeingThrown) {
+      throwStateExit();
+    }
+    wasGroundedLastFrame = isGrounded;
   }
 
   public void footsiesValsForCurrentRange() {
@@ -596,18 +605,43 @@ public class acolyteBehavior : MonoBehaviour
       setAllBoolAnimParametersToFalse();
       acolyteAnim.SetBool("isBeingThrown", true);
       isBeingGrabbed = false;
+      isBeingThrown = true;
       canAttack = false;
       applyThrowForce(throwForce);
   }
   public void throwStateExit()
   {
-    knockDownEnter();
+    isBeingThrown = false;
+    applyThrowDamage();
+
+    if (!isDead && !isDying) {
+      knockDownEnter();
+    }
   }
 
   void applyThrowForce(Vector2 throwForce) {
     upperCollisionBoxGameObj.layer = LayerMask.NameToLayer("InteractsWithEverythingButPlayer");
     lowerCollisionBoxGameObj.layer = LayerMask.NameToLayer("InteractsWithEverythingButPlayer");
     RB2D.AddForce(new Vector2(throwForce.x * transform.localScale.x, throwForce.y), ForceMode2D.Impulse);
+  }
+
+  void applyThrowDamage() {
+    if (thudSoundEffect == null) {
+      Debug.LogError($"{this.name}: thudSoundEffect is null!");
+      return;
+    }
+    if (currentHealth > 0 && invincibilityCooldownCurrent <= 0 && !isKnockedDown)
+    {
+      if (!infiniteHealth)
+        currentHealth -= throwDamage;
+      hitSparkAnimator.SetBool("isActive", true);
+      audioSrc.clip = thudSoundEffect;
+      // audioSrc.enabled = true;
+      audioSrc.Play();
+      if (currentHealth <= 0) {
+        enemyDeath();
+      }
+    }
   }
   public void grabStateExit()
   {

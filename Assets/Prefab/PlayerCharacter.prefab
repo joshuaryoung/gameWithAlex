@@ -583,7 +583,7 @@ MonoBehaviour:
   uppercutPushbackValue: 4
   grabAttackStatePunchDamageValue: 2
   grabAttackStateKickDamageValue: 3
-  grabAttackStateThrowDamageValue: 0
+  grabAttackStateThrowDamageValue: 3
   walkVelocity: 7
   runVelocity: 12
   crouchVelocity: 3.5
