@@ -42,6 +42,7 @@ public class PlayerInputScript : MonoBehaviour
     public bool attackHasAlreadyHit;  
     public bool dpadLeftPressed;
     public bool dpadRightPressed;
+    public GameObject currentlyGrabbedEnemy = null;
     public AnimationClip punchAnimationClip;
     public AnimationClip kickAnimationClip;
     public PlayerHealth PH;
@@ -562,6 +563,7 @@ public class PlayerInputScript : MonoBehaviour
     void attack(Collider2D hitBox, int damageValue, float pushbackValue, float reelLength, float blockStunLength, AudioClip hitSoundEffect, AudioClip _blockSoundEffect)
     {
         string nameOfPreviousCol = "null";
+        canCombo = true;
         //hitbox stuff
         Collider2D[] cols = Physics2D.OverlapBoxAll(hitBox.bounds.center, hitBox.bounds.size, 0f, LayerMask.GetMask("EnemyHurtbox"));
 
@@ -598,9 +600,14 @@ public class PlayerInputScript : MonoBehaviour
                     closestCol = el;
                 }
             }
+            currentlyGrabbedEnemy = closestCol.transform.parent.gameObject;
+            if (currentlyGrabbedEnemy.GetComponent<Animator>().GetBool("isDying")) {
+                currentlyGrabbedEnemy = null;
+                return;
+            }
             attackHasAlreadyHit = true;
             playSoundEffect(soundEffect);
-            closestCol.SendMessageUpwards("enemyGetGrabbed");
+            currentlyGrabbedEnemy.SendMessage("enemyGetGrabbed");
             anim.SetBool("isInGrabAttackState", true);
             isInGrabAttackState = true;
         }
@@ -608,14 +615,11 @@ public class PlayerInputScript : MonoBehaviour
 
     void grabAttack(Collider2D hitBox, int damageValue, AudioClip hitSoundEffect)
     {
-        //hitbox stuff
-        Collider2D[] cols = Physics2D.OverlapBoxAll(hitBox.bounds.center, hitBox.bounds.size, 0f, LayerMask.GetMask("EnemyHurtbox"));
-
-        if (cols.Length > 0)
+        if (currentlyGrabbedEnemy != null)
         {
             currentGrabAttackIndex++;
             object[] args = { damageValue, hitSoundEffect };
-            cols[0].SendMessageUpwards("enemyTakeGrabAttackDamage", args);
+            currentlyGrabbedEnemy.SendMessageUpwards("enemyTakeGrabAttackDamage", args);
         }
     }
 
@@ -635,6 +639,7 @@ public class PlayerInputScript : MonoBehaviour
     void sweepAttack(Collider2D hitBox, int damageValue, float pushbackValue, float reelLength, float blockStunLength, AudioClip hitSoundEffect, AudioClip _blockSoundEffect)
     {
         string nameOfPreviousCol = "null";
+        canCombo = true;
         //hitbox stuff
         Collider2D[] cols = Physics2D.OverlapBoxAll(hitBox.bounds.center, hitBox.bounds.size, 0f, LayerMask.GetMask("EnemyHurtbox"));
 
@@ -793,8 +798,8 @@ public class PlayerInputScript : MonoBehaviour
     }
 
     public void punchEnter() {
+        attackHasAlreadyHit = false;
         isAbleToAct = false;
-        canCombo = true;
         playSoundEffect(punchSoundEffect);
     }
 
@@ -805,23 +810,25 @@ public class PlayerInputScript : MonoBehaviour
     }
 
     public void punchAC3Enter() {
+        attackHasAlreadyHit = false;
         playSoundEffect(punchSoundEffect);
     }
 
     public void jumpingPunchEnter() {
+        attackHasAlreadyHit = false;
         isAbleToAct = false;
         playSoundEffect(punchSoundEffect);
     }
 
     public void uppercutEnter() {
+        attackHasAlreadyHit = false;
         isAbleToAct = false;
-        canCombo = true;
         playSoundEffect(punchSoundEffect);
     }
 
     public void kickEnter() {
+        attackHasAlreadyHit = false;
         isAbleToAct = false;
-        canCombo = true;
         playSoundEffect(kickSoundEffect);
     }
 
@@ -832,17 +839,19 @@ public class PlayerInputScript : MonoBehaviour
     }
 
     public void kickACEnter() {
+        attackHasAlreadyHit = false;
         playSoundEffect(kickSoundEffect);
     }
 
     public void jumpingKickEnter() {
+        attackHasAlreadyHit = false;
         isAbleToAct = false;
         playSoundEffect(kickSoundEffect);
     }
 
     public void sweepEnter() {
+        attackHasAlreadyHit = false;
         isAbleToAct = false;
-        canCombo = true;
         playSoundEffect(kickSoundEffect);
     }
 
@@ -897,6 +906,8 @@ public class PlayerInputScript : MonoBehaviour
         isAbleToAct = true;
         currentGrabAttackIndex = 0;
         anim.SetBool("isInGrabAttackState", false);
+        currentlyGrabbedEnemy.SendMessage("grabStateExit");
+        currentlyGrabbedEnemy = null;
     }
 
     public void grabAttackPunchEnter() {
