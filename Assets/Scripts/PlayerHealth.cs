@@ -112,7 +112,7 @@ public class PlayerHealth : MonoBehaviour
     PIS.isBeingGrabbed = false;
 
     pushBack(pushBackValue);
-    if (invincibilityCooldownCurrent <= 0 && (!PIS.isBlocking || !PIS.isGrounded))
+    if (invincibilityCooldownCurrent <= 0 && (!PIS.isBlocking || !PIS.isGrounded || PIS.isInGrabAttackState))
     {
       audioSrc.clip = impactSoundEffect;
       audioSrc.Play();
@@ -136,6 +136,9 @@ public class PlayerHealth : MonoBehaviour
         setAllBoolAnimParametersToFalse(anim);
         hitSparkAnimator.SetBool("isActive", true);
         anim.SetBool("isReeling", true);
+        if (PIS.currentlyGrabbedEnemy != null) {
+          PIS.grabAttackStateExit();
+        }
       }
     }
     else if (invincibilityCooldownCurrent <= 0 && PIS.isBlocking && PIS.isGrounded)
