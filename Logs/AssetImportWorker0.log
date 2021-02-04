@@ -15,11 +15,11 @@ C:/Users/nailp/Documents/UnityProjects/stupidthing/gameWithAlex
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-1857
+5848
 Successfully changed project path to: C:/Users/nailp/Documents/UnityProjects/stupidthing/gameWithAlex
 C:/Users/nailp/Documents/UnityProjects/stupidthing/gameWithAlex
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 23.33 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 21.04 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.1f1 (270dd8c3da1c)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/Resources/UnitySubsystems
@@ -35,425 +35,240 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56224
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56528
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001237 seconds.
+Registered in 0.001229 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 26.66 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 23.56 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.926 seconds
+- Completed reload, in  0.882 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.000578 seconds.
+Registered in 0.000524 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.684 seconds
+- Completed reload, in  0.664 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
-Refreshing native plugins compatible for Editor in 0.24 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 57.3 MB.
+System memory in use before: 57.4 MB.
 System memory in use after: 57.4 MB.
 
 Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1582.
-Total: 1.703100 ms (FindLiveObjects: 0.106700 ms CreateObjectMapping: 0.029300 ms MarkObjects: 1.528500 ms  DeleteObjects: 0.037900 ms)
+Total: 1.611200 ms (FindLiveObjects: 0.109600 ms CreateObjectMapping: 0.031200 ms MarkObjects: 1.426400 ms  DeleteObjects: 0.043200 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Prefab/Wall.prefab
-  artifactKey: Guid(8411a9ae29a3b604b8a5f2748572bdb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/Wall.prefab using Guid(8411a9ae29a3b604b8a5f2748572bdb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '309ded01d42cc41fd85244a96aee9fa5') in 0.074330 seconds
-  Import took 0.075993 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000211 seconds.
-  path: Assets/Prefab/hitSpark.prefab
-  artifactKey: Guid(02fba77039efa5b489e139fafae6dda4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/hitSpark.prefab using Guid(02fba77039efa5b489e139fafae6dda4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a7a6f590baba774140253997adc0f29') in 0.013354 seconds
-  Import took 0.015191 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000116 seconds.
-  path: Assets/Prefab/Ground.prefab
-  artifactKey: Guid(af1a9b38c83ca834c8dee91ea1a51b6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/Ground.prefab using Guid(af1a9b38c83ca834c8dee91ea1a51b6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43c01e1bce83f34670969bf5f5904487') in 0.006299 seconds
-  Import took 0.007889 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000111 seconds.
-  path: Assets/Prefab/PlayerCharacter.prefab
-  artifactKey: Guid(117785b7cd429d342af78d659adcd96b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/PlayerCharacter.prefab using Guid(117785b7cd429d342af78d659adcd96b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b72bae6529caff99384ed03d6a621625') in 0.024653 seconds
-  Import took 0.026846 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000251 seconds.
-  path: Assets/Prefab/Wall (1).prefab
-  artifactKey: Guid(543fd865874af6a40912b3a9aaed47ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/Wall (1).prefab using Guid(543fd865874af6a40912b3a9aaed47ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb4d54973ab03a07400b223ff7be6d77') in 0.006175 seconds
-  Import took 0.008009 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000113 seconds.
-  path: Assets/Prefab/acolyte.prefab
-  artifactKey: Guid(216a602d06062234b9e3fa84990e3137) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/acolyte.prefab using Guid(216a602d06062234b9e3fa84990e3137) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a88fd2488f869f3dee98dc1196512447') in 0.022642 seconds
-  Import took 0.024791 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000116 seconds.
   path: Assets/Prefab/witch.prefab
   artifactKey: Guid(17943721003ec0e44bac1eaa1219b4f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/witch.prefab using Guid(17943721003ec0e44bac1eaa1219b4f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e99a1d6626ab4c02d3c3866fa7bffd6') in 0.017950 seconds
-  Import took 0.020054 seconds .
+Start importing Assets/Prefab/witch.prefab using Guid(17943721003ec0e44bac1eaa1219b4f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0bd8bb8562f525fca6be387a42eb5de') in 0.096947 seconds
+  Import took 0.099017 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 39.951793 seconds.
-  path: Assets/Art/Acolyte/Acolyte_Trip/0513.png
-  artifactKey: Guid(6f0e5502f16e9974680ebe031c57d369) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Acolyte/Acolyte_Trip/0513.png using Guid(6f0e5502f16e9974680ebe031c57d369) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26b4a981da0237efd577a6793ba72bdd') in 0.027996 seconds
-  Import took 0.029988 seconds .
+  Time since last request: 3286.076914 seconds.
+  path: Assets/Art/Witch/WitchPunch/0179.png
+  artifactKey: Guid(be95e6011bc62b842937feb5308a9472) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchPunch/0179.png using Guid(be95e6011bc62b842937feb5308a9472) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87de614e6c1dfd16044f8bed6a94e2e7') in 0.064607 seconds
+  Import took 0.066571 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000108 seconds.
-  path: Assets/Art/Acolyte/Acolyte_Trip/0514.png
-  artifactKey: Guid(a1840c111bd91ee4387da284e33f28e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Acolyte/Acolyte_Trip/0514.png using Guid(a1840c111bd91ee4387da284e33f28e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23d37edda16261c797122a0970c839ff') in 0.008316 seconds
-  Import took 0.009916 seconds .
+  Time since last request: 0.000163 seconds.
+  path: Assets/Art/Witch/WitchPunch/0183.png
+  artifactKey: Guid(04379b5127810104aae5502b901f1552) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchPunch/0183.png using Guid(04379b5127810104aae5502b901f1552) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff9335c79755b0623a63f07168b2e706') in 0.011733 seconds
+  Import took 0.013444 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.044429 seconds.
-  path: Assets/Art/Acolyte/Acolyte_Trip/0515.png
-  artifactKey: Guid(d533d3c92a3bc954d86e595fe991a74a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Acolyte/Acolyte_Trip/0515.png using Guid(d533d3c92a3bc954d86e595fe991a74a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d685b78e46f81587ebe94ec1324239d') in 0.011608 seconds
-  Import took 0.013546 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 27.974031 seconds.
-  path: Assets/Art/Acolyte/Acolyte_Trip/0516.png
-  artifactKey: Guid(2364e25003da88b4ba02db8a6ff0e084) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Acolyte/Acolyte_Trip/0516.png using Guid(2364e25003da88b4ba02db8a6ff0e084) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '508735f3f1d986bbe1d6c749e8eb0a8f') in 0.008614 seconds
-  Import took 0.010488 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.090754 seconds.
-  path: Assets/Art/Acolyte/Acolyte_Trip/0517.png
-  artifactKey: Guid(1321b790a85f44a458403607ea6b3f35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Acolyte/Acolyte_Trip/0517.png using Guid(1321b790a85f44a458403607ea6b3f35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ec3170a2dc8f220ade0f522c49d633d') in 0.008699 seconds
-  Import took 0.010557 seconds .
-
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 0.64 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 40.5 MB.
-System memory in use after: 40.6 MB.
-
-Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1592.
-Total: 1.945100 ms (FindLiveObjects: 0.114000 ms CreateObjectMapping: 0.030300 ms MarkObjects: 1.786500 ms  DeleteObjects: 0.013300 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 132.236933 seconds.
-  path: Assets/Art/bigboy/Bigboy_death/0065.png
-  artifactKey: Guid(e66ce8bd01ef68849ab4b7361cbe9370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/bigboy/Bigboy_death/0065.png using Guid(e66ce8bd01ef68849ab4b7361cbe9370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fce6c27d2100508d4f05ccaeadfa3fa5') in 0.030489 seconds
-  Import took 0.032170 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000183 seconds.
-  path: Assets/Art/bigboy/Bigboy_death/0100.png
-  artifactKey: Guid(edfda819827fea54f9d90939b4a7e157) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/bigboy/Bigboy_death/0100.png using Guid(edfda819827fea54f9d90939b4a7e157) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b702d64f7b36419fe7abcea69e7d790') in 0.014480 seconds
-  Import took 0.016324 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000228 seconds.
-  path: Assets/Art/bigboy/Bigboy_death/0088.png
-  artifactKey: Guid(052dc51edb3a4b34186b57fc9863baa3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/bigboy/Bigboy_death/0088.png using Guid(052dc51edb3a4b34186b57fc9863baa3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0debb9e1b13f2e69d0589e7b110fa8a1') in 0.011780 seconds
-  Import took 0.013489 seconds .
+  Time since last request: 0.000162 seconds.
+  path: Assets/Art/Witch/WitchPunch/0181.png
+  artifactKey: Guid(ab14a988e4e03f64e85ae330ed8da79c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchPunch/0181.png using Guid(ab14a988e4e03f64e85ae330ed8da79c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f6fff8626b3137f7b125408541846ca') in 0.011269 seconds
+  Import took 0.013561 seconds .
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000187 seconds.
-  path: Assets/Art/bigboy/Bigboy_death/0075.png
-  artifactKey: Guid(fa37c3437df2dde47a12f169e64c58dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/bigboy/Bigboy_death/0075.png using Guid(fa37c3437df2dde47a12f169e64c58dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19d05e9ef0bd56eafaf153f68696f6f0') in 0.023981 seconds
-  Import took 0.025674 seconds .
+  path: Assets/Art/Witch/WitchPunch/0180.png
+  artifactKey: Guid(52dfbfff9f066e541aaa80b02319dd91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchPunch/0180.png using Guid(52dfbfff9f066e541aaa80b02319dd91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c51faeb66a11f8a865f14fcea5794160') in 0.016069 seconds
+  Import took 0.018010 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000158 seconds.
-  path: Assets/Art/bigboy/Bigboy_death/0093.png
-  artifactKey: Guid(fdfd87f045a36ec41812102bac1078f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/bigboy/Bigboy_death/0093.png using Guid(fdfd87f045a36ec41812102bac1078f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc2b3d9e4f3b98c4d2253429567f450c') in 0.009158 seconds
-  Import took 0.011209 seconds .
+  Time since last request: 0.000195 seconds.
+  path: Assets/Art/Witch/WitchPunch/0182.png
+  artifactKey: Guid(7788232b33de5b14f9a4f295a8c211b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchPunch/0182.png using Guid(7788232b33de5b14f9a4f295a8c211b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a57099f022ae26983d12b28f58824c78') in 0.010428 seconds
+  Import took 0.012410 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000203 seconds.
-  path: Assets/Art/bigboy/Bigboy_death/0083.png
-  artifactKey: Guid(1fd5ecf37c7e5e14c8f146ea9ef2f2b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/bigboy/Bigboy_death/0083.png using Guid(1fd5ecf37c7e5e14c8f146ea9ef2f2b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cce22c6c751752c9db38aca588fee69a') in 0.006611 seconds
-  Import took 0.008398 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000608 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.660 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1136 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 60.7 MB.
-System memory in use after: 60.8 MB.
-
-Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1594.
-Total: 1.175200 ms (FindLiveObjects: 0.119700 ms CreateObjectMapping: 0.024500 ms MarkObjects: 0.998600 ms  DeleteObjects: 0.031500 ms)
+  Time since last request: 0.000184 seconds.
+  path: Assets/Art/Witch/WitchPunch/0184.png
+  artifactKey: Guid(f5e1c7cba6fd3ca478351cf20e400e7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchPunch/0184.png using Guid(f5e1c7cba6fd3ca478351cf20e400e7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '540bb0ec6bba5cc1f46266c7e2e18845') in 0.011357 seconds
+  Import took 0.013064 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 120.049070 seconds.
-  path: Assets/Prefab/bigboy.prefab
-  artifactKey: Guid(347ccad12011c2945bc08be236bad5bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/bigboy.prefab using Guid(347ccad12011c2945bc08be236bad5bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06fce47d75107511bcbb174ee26b8f27') in 0.067760 seconds
-  Import took 0.069928 seconds .
+  Time since last request: 1.346192 seconds.
+  path: Assets/Art/Witch/WitchGetUp/1056.png
+  artifactKey: Guid(b471b1f031732bd4d835323dda516830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchGetUp/1056.png using Guid(b471b1f031732bd4d835323dda516830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed3e61b8899509bb22c5fb624f00f862') in 0.008466 seconds
+  Import took 0.010041 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 92.629637 seconds.
-  path: Assets/Art/bigboy/BigBoy_Trip/0808.png
-  artifactKey: Guid(cd9284512e2fe7e4686d78936e6dd817) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/bigboy/BigBoy_Trip/0808.png using Guid(cd9284512e2fe7e4686d78936e6dd817) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7b9cd23cca6695439d410db8a4b69e2') in 0.021032 seconds
-  Import took 0.023143 seconds .
+  Time since last request: 0.000221 seconds.
+  path: Assets/Art/Witch/WitchGetUp/1064.png
+  artifactKey: Guid(ff70c71ea32144c41a8e29d0627682b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchGetUp/1064.png using Guid(ff70c71ea32144c41a8e29d0627682b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b7bdec65393124fb11751d0162299eb') in 0.011763 seconds
+  Import took 0.013555 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 19.731407 seconds.
-  path: Assets/Art/bigboy/BigBoy_Trip/0808.png
-  artifactKey: Guid(cd9284512e2fe7e4686d78936e6dd817) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/bigboy/BigBoy_Trip/0808.png using Guid(cd9284512e2fe7e4686d78936e6dd817) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d23921084a23de1d9e9b0af297656d4') in 0.010789 seconds
-  Import took 0.012663 seconds .
+  Time since last request: 0.000178 seconds.
+  path: Assets/Art/Witch/WitchGetUp/1060.png
+  artifactKey: Guid(a94e83fda8cf9e94e8023b5d91401209) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchGetUp/1060.png using Guid(a94e83fda8cf9e94e8023b5d91401209) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9700d85f390a08243f04ca2884814015') in 0.008118 seconds
+  Import took 0.009822 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 119.132322 seconds.
-  path: Assets/Art/Witch/WitchDeath/0205.png
-  artifactKey: Guid(cc6108a7aeffefc4e84035ca782fbc6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchDeath/0205.png using Guid(cc6108a7aeffefc4e84035ca782fbc6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74ab46b102cf1087588b0b659e2ac94f') in 0.029344 seconds
-  Import took 0.031020 seconds .
+  Time since last request: 0.000114 seconds.
+  path: Assets/Art/Witch/WitchGetUp/1058.png
+  artifactKey: Guid(b10be6f57c88f494390ed60b8713aaa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchGetUp/1058.png using Guid(b10be6f57c88f494390ed60b8713aaa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b3695245b6bed2be57d67070d5652e2') in 0.013906 seconds
+  Import took 0.015626 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.072170 seconds.
-  path: Assets/Art/Witch/WitchDeath/0206.png
-  artifactKey: Guid(22bb62b9a5a5b7f4fb57a1479dabc762) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchDeath/0206.png using Guid(22bb62b9a5a5b7f4fb57a1479dabc762) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd326e459a26e5babb976dec2093f8f67') in 0.008828 seconds
-  Import took 0.010522 seconds .
+  Time since last request: 0.557091 seconds.
+  path: Assets/Art/Witch/WitchGetUp/1050.png
+  artifactKey: Guid(042f7b04d39520d458f9bbab5fc40438) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchGetUp/1050.png using Guid(042f7b04d39520d458f9bbab5fc40438) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b418a9b4a70062596c80e7950c6bbc5') in 0.009051 seconds
+  Import took 0.010824 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.005026 seconds.
-  path: Assets/Art/Witch/WitchDeath/0206.png
-  artifactKey: Guid(22bb62b9a5a5b7f4fb57a1479dabc762) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchDeath/0206.png using Guid(22bb62b9a5a5b7f4fb57a1479dabc762) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd326e459a26e5babb976dec2093f8f67') in 0.010332 seconds
-  Import took 0.012017 seconds .
+  Time since last request: 9.035169 seconds.
+  path: Assets/Art/Witch/WitchPunch/0176.png
+  artifactKey: Guid(dc1c7145d8fb76541942f91239fd4bd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchPunch/0176.png using Guid(dc1c7145d8fb76541942f91239fd4bd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6077348d8d484e6bd183f75c61022a8c') in 0.030747 seconds
+  Import took 0.032887 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.043503 seconds.
-  path: Assets/Art/Witch/WitchDeath/0207.png
-  artifactKey: Guid(5ed1bb50b2c902e48969d9ec2a25e710) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchDeath/0207.png using Guid(5ed1bb50b2c902e48969d9ec2a25e710) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3c607595f12c5f169f49521b0e89363') in 0.009366 seconds
-  Import took 0.010980 seconds .
+  Time since last request: 7.608174 seconds.
+  path: Assets/Art/Witch/WitchGetUp/1050.png
+  artifactKey: Guid(042f7b04d39520d458f9bbab5fc40438) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchGetUp/1050.png using Guid(042f7b04d39520d458f9bbab5fc40438) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e71d98c8519cb1ac885cfbf2f6ba384') in 0.009397 seconds
+  Import took 0.011106 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.060795 seconds.
-  path: Assets/Art/Witch/WitchDeath/0208.png
-  artifactKey: Guid(27cf10a356de44f40a847a1eb39aac17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchDeath/0208.png using Guid(27cf10a356de44f40a847a1eb39aac17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78041f3896ab5e800dd52c98ce3bcbe2') in 0.028737 seconds
-  Import took 0.030572 seconds .
+  Time since last request: 0.000150 seconds.
+  path: Assets/Art/Witch/WitchGetUp/1056.png
+  artifactKey: Guid(b471b1f031732bd4d835323dda516830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchGetUp/1056.png using Guid(b471b1f031732bd4d835323dda516830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31270d6551e89701309c6c24e2b45b09') in 0.010571 seconds
+  Import took 0.012034 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.004219 seconds.
-  path: Assets/Art/Witch/WitchDeath/0208.png
-  artifactKey: Guid(27cf10a356de44f40a847a1eb39aac17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchDeath/0208.png using Guid(27cf10a356de44f40a847a1eb39aac17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78041f3896ab5e800dd52c98ce3bcbe2') in 0.010848 seconds
-  Import took 0.012758 seconds .
+  Time since last request: 0.000150 seconds.
+  path: Assets/Art/Witch/WitchGetUp/1064.png
+  artifactKey: Guid(ff70c71ea32144c41a8e29d0627682b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchGetUp/1064.png using Guid(ff70c71ea32144c41a8e29d0627682b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '972bc9f011aa0d5c6a343e7598dc40d4') in 0.007421 seconds
+  Import took 0.008928 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.043105 seconds.
-  path: Assets/Art/Witch/WitchDeath/0210.png
-  artifactKey: Guid(c1bd6d05dbdad4343a1fa02abc29996f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchDeath/0210.png using Guid(c1bd6d05dbdad4343a1fa02abc29996f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f1ef78e40ef541c15904868a25d1261') in 0.019054 seconds
-  Import took 0.020744 seconds .
+  Time since last request: 0.000139 seconds.
+  path: Assets/Art/Witch/WitchGetUp/1060.png
+  artifactKey: Guid(a94e83fda8cf9e94e8023b5d91401209) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchGetUp/1060.png using Guid(a94e83fda8cf9e94e8023b5d91401209) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37a5e90a51c5075aea9bff1cc3655da3') in 0.014825 seconds
+  Import took 0.016306 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.481963 seconds.
-  path: Assets/Art/Witch/WitchDeath/0213.png
-  artifactKey: Guid(6faf6f2b9e7e04841b162f56849c9dd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchDeath/0213.png using Guid(6faf6f2b9e7e04841b162f56849c9dd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a62a2f3e19b4cf8fa9452b2b6791f029') in 0.009509 seconds
-  Import took 0.011565 seconds .
+  Time since last request: 0.000125 seconds.
+  path: Assets/Art/Witch/WitchGetUp/1058.png
+  artifactKey: Guid(b10be6f57c88f494390ed60b8713aaa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchGetUp/1058.png using Guid(b10be6f57c88f494390ed60b8713aaa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8423d8eec0d8b77bd79c7533b1ff248') in 0.009926 seconds
+  Import took 0.011609 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.671682 seconds.
-  path: Assets/Art/Witch/WitchDeath/0220.png
-  artifactKey: Guid(2f7c91343d584444aa977cf99d018dc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchDeath/0220.png using Guid(2f7c91343d584444aa977cf99d018dc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '614a4be0e5ca835b3611f0b2680521a6') in 0.019546 seconds
-  Import took 0.021427 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000884 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.658 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1136 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 60.9 MB.
-System memory in use after: 61.0 MB.
-
-Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1597.
-Total: 1.280000 ms (FindLiveObjects: 0.130600 ms CreateObjectMapping: 0.034400 ms MarkObjects: 1.102900 ms  DeleteObjects: 0.011400 ms)
+  Time since last request: 12.553517 seconds.
+  path: Assets/Art/Witch/WitchGetUp/1040.png
+  artifactKey: Guid(bd908b90f9acccb4a913a2622d88311c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchGetUp/1040.png using Guid(bd908b90f9acccb4a913a2622d88311c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '754995a6983ae42458742d2e8b493da0') in 0.009626 seconds
+  Import took 0.011805 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 258.257065 seconds.
-  path: Assets/Art/bigboy/Bigboy_death/0024.png
-  artifactKey: Guid(18fbcbcabfe1e114e91425b741cb1897) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/bigboy/Bigboy_death/0024.png using Guid(18fbcbcabfe1e114e91425b741cb1897) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0fe5ed507ea5a453785dda35c9574a0') in 0.066951 seconds
-  Import took 0.068668 seconds .
+  Time since last request: 3.699595 seconds.
+  path: Assets/Art/Witch/WitchGetUp/1040.png
+  artifactKey: Guid(bd908b90f9acccb4a913a2622d88311c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchGetUp/1040.png using Guid(bd908b90f9acccb4a913a2622d88311c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aafce5e7252b44ca1c453bcf2348184b') in 0.011758 seconds
+  Import took 0.013536 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000264 seconds.
-  path: Assets/Art/bigboy/Bigboy_death/0026.png
-  artifactKey: Guid(16216a93d10f71142879ff8c45bbf12e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/bigboy/Bigboy_death/0026.png using Guid(16216a93d10f71142879ff8c45bbf12e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7852fda64f503d1d46a5372c9d9ecf0b') in 0.010791 seconds
-  Import took 0.012569 seconds .
+  Time since last request: 0.000121 seconds.
+  path: Assets/Art/Witch/WitchGetUp/1056.png
+  artifactKey: Guid(b471b1f031732bd4d835323dda516830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchGetUp/1056.png using Guid(b471b1f031732bd4d835323dda516830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c758d2fd2d608a691ec517fbb0c4537') in 0.014343 seconds
+  Import took 0.015928 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000144 seconds.
-  path: Assets/Art/bigboy/Bigboy_death/0033.png
-  artifactKey: Guid(00802acc726500e41a0bb0547d1d6e2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/bigboy/Bigboy_death/0033.png using Guid(00802acc726500e41a0bb0547d1d6e2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08f3cd0a0d1d69895ddb985f5abcdd94') in 0.013290 seconds
-  Import took 0.014904 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000165 seconds.
-  path: Assets/Art/bigboy/Bigboy_death/0031.png
-  artifactKey: Guid(2900a2149479be84dbdd9430d06c220a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/bigboy/Bigboy_death/0031.png using Guid(2900a2149479be84dbdd9430d06c220a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efb8630e59d909fd577f652386395c31') in 0.012005 seconds
-  Import took 0.013557 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000188 seconds.
-  path: Assets/Art/bigboy/Bigboy_death/0038.png
-  artifactKey: Guid(1a28613d27a76744d8242e1a18641529) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/bigboy/Bigboy_death/0038.png using Guid(1a28613d27a76744d8242e1a18641529) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08af7bec0757c1f599a19d8a10c67dd7') in 0.014075 seconds
-  Import took 0.015604 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000164 seconds.
-  path: Assets/Art/bigboy/Bigboy_death/0028.png
-  artifactKey: Guid(ee81c9c6698fb6d439c91d426b10c55c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/bigboy/Bigboy_death/0028.png using Guid(ee81c9c6698fb6d439c91d426b10c55c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fd4f120c6833c34ce61a3bf102f063f') in 0.011905 seconds
-  Import took 0.013490 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.152729 seconds.
-  path: Assets/Art/bigboy/Bigboy_death/0042.png
-  artifactKey: Guid(55e8419c6f9fdae44ae04a9f97361e37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/bigboy/Bigboy_death/0042.png using Guid(55e8419c6f9fdae44ae04a9f97361e37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35a2c32a0a6f5d79ac800111e302db3a') in 0.010437 seconds
-  Import took 0.012189 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.044685 seconds.
-  path: Assets/Art/bigboy/Bigboy_death/0044.png
-  artifactKey: Guid(91cda88bd8fa3af4a9e8e52b255cc6ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/bigboy/Bigboy_death/0044.png using Guid(91cda88bd8fa3af4a9e8e52b255cc6ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f43c5a6357e1124eb3276574b98e102') in 0.010906 seconds
+  Time since last request: 0.000111 seconds.
+  path: Assets/Art/Witch/WitchGetUp/1050.png
+  artifactKey: Guid(042f7b04d39520d458f9bbab5fc40438) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchGetUp/1050.png using Guid(042f7b04d39520d458f9bbab5fc40438) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c998b3979169c2e13f6d3d53dbdc9779') in 0.011010 seconds
   Import took 0.012708 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.478553 seconds.
-  path: Assets/Art/bigboy/Bigboy_death/0023.png
-  artifactKey: Guid(8b2cc07852886f84c9e87d9a0cc7be46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/bigboy/Bigboy_death/0023.png using Guid(8b2cc07852886f84c9e87d9a0cc7be46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '068403104e22e65730cfa3c0daf836f4') in 0.028075 seconds
-  Import took 0.029719 seconds .
+  Time since last request: 0.000180 seconds.
+  path: Assets/Art/Witch/WitchGetUp/1064.png
+  artifactKey: Guid(ff70c71ea32144c41a8e29d0627682b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchGetUp/1064.png using Guid(ff70c71ea32144c41a8e29d0627682b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f03d9df8baa4f25df5b03d37e3ded8e6') in 0.008837 seconds
+  Import took 0.011002 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.579083 seconds.
-  path: Assets/Art/bigboy/Bigboy_death/0022.png
-  artifactKey: Guid(7266073cda55301419ba560a7a1d1272) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/bigboy/Bigboy_death/0022.png using Guid(7266073cda55301419ba560a7a1d1272) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0a8fa12cccfd4e74220d18e94edfb60') in 0.020292 seconds
-  Import took 0.022364 seconds .
+  Time since last request: 0.000129 seconds.
+  path: Assets/Art/Witch/WitchGetUp/1060.png
+  artifactKey: Guid(a94e83fda8cf9e94e8023b5d91401209) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchGetUp/1060.png using Guid(a94e83fda8cf9e94e8023b5d91401209) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7d70932d773772cf5de6590991dc3e2') in 0.010401 seconds
+  Import took 0.012100 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.010783 seconds.
-  path: Assets/Art/bigboy/Bigboy_death/0020.png
-  artifactKey: Guid(b90c88a048e44a94abede59b89e14f17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/bigboy/Bigboy_death/0020.png using Guid(b90c88a048e44a94abede59b89e14f17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c71f1d46cdb36eb0b2d6520c3ff6848') in 0.010660 seconds
-  Import took 0.012668 seconds .
+  Time since last request: 0.000125 seconds.
+  path: Assets/Art/Witch/WitchGetUp/1058.png
+  artifactKey: Guid(b10be6f57c88f494390ed60b8713aaa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Witch/WitchGetUp/1058.png using Guid(b10be6f57c88f494390ed60b8713aaa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b9ce6619a36d0d2f777dafac470cf64') in 0.009069 seconds
+  Import took 0.010663 seconds .
 
