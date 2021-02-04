@@ -272,3 +272,19 @@ Received Import Request.
 Start importing Assets/Art/Witch/WitchGetUp/1058.png using Guid(b10be6f57c88f494390ed60b8713aaa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b9ce6619a36d0d2f777dafac470cf64') in 0.009069 seconds
   Import took 0.010663 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 491.701711 seconds.
+  path: Assets/Art/134371-xbox-one-controller-unity-windows-macos.jpg
+  artifactKey: Guid(fa5903635f325f740b783eae4d6fd313) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/134371-xbox-one-controller-unity-windows-macos.jpg using Guid(fa5903635f325f740b783eae4d6fd313) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81daf2c1899d5375fa0f288b5845e187') in 0.035977 seconds
+  Import took 0.038190 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 68.490982 seconds.
+  path: Assets/Art/BAK_PlayerCharacterPunch.png
+  artifactKey: Guid(bbc58b666268fa14b863f251d6f849ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/BAK_PlayerCharacterPunch.png using Guid(bbc58b666268fa14b863f251d6f849ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c18bfb92c9806dd07d305470c20c915b') in 0.014058 seconds
+  Import took 0.016142 seconds .
+
