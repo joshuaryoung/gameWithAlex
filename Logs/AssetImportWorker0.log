@@ -15,11 +15,11 @@ C:/Users/nailp/Documents/UnityProjects/stupidthing/gameWithAlex
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-5848
+11150
 Successfully changed project path to: C:/Users/nailp/Documents/UnityProjects/stupidthing/gameWithAlex
 C:/Users/nailp/Documents/UnityProjects/stupidthing/gameWithAlex
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 21.04 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 21.30 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.1f1 (270dd8c3da1c)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/Resources/UnitySubsystems
@@ -35,22 +35,22 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56528
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56596
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001229 seconds.
+Registered in 0.001240 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 23.56 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 21.74 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.882 seconds
+- Completed reload, in  0.860 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.000524 seconds.
+Registered in 0.000505 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
@@ -59,232 +59,472 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.664 seconds
+- Completed reload, in  0.654 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
-Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.24 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 57.4 MB.
 System memory in use after: 57.4 MB.
 
 Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1582.
-Total: 1.611200 ms (FindLiveObjects: 0.109600 ms CreateObjectMapping: 0.031200 ms MarkObjects: 1.426400 ms  DeleteObjects: 0.043200 ms)
+Total: 2.035600 ms (FindLiveObjects: 0.104500 ms CreateObjectMapping: 0.031300 ms MarkObjects: 1.810100 ms  DeleteObjects: 0.088600 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Prefab/witch.prefab
-  artifactKey: Guid(17943721003ec0e44bac1eaa1219b4f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/witch.prefab using Guid(17943721003ec0e44bac1eaa1219b4f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0bd8bb8562f525fca6be387a42eb5de') in 0.096947 seconds
-  Import took 0.099017 seconds .
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/0988.png
+  artifactKey: Guid(7953b300956307441b50146fb2a64de6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/0988.png using Guid(7953b300956307441b50146fb2a64de6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95b495a54f11e81709e8150b93fe317f') in 0.075163 seconds
+  Import took 0.076816 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 3286.076914 seconds.
-  path: Assets/Art/Witch/WitchPunch/0179.png
-  artifactKey: Guid(be95e6011bc62b842937feb5308a9472) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchPunch/0179.png using Guid(be95e6011bc62b842937feb5308a9472) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87de614e6c1dfd16044f8bed6a94e2e7') in 0.064607 seconds
-  Import took 0.066571 seconds .
+  Time since last request: 0.000427 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/0980.png
+  artifactKey: Guid(aacc6fda44b694946bbc753c8307fdb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/0980.png using Guid(aacc6fda44b694946bbc753c8307fdb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad4cd7676fd8c76e0a221d8e184a7c51') in 0.006997 seconds
+  Import took 0.008497 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000163 seconds.
-  path: Assets/Art/Witch/WitchPunch/0183.png
-  artifactKey: Guid(04379b5127810104aae5502b901f1552) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchPunch/0183.png using Guid(04379b5127810104aae5502b901f1552) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff9335c79755b0623a63f07168b2e706') in 0.011733 seconds
-  Import took 0.013444 seconds .
+  Time since last request: 0.000169 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/1000.png
+  artifactKey: Guid(d32bd106f8edf484b8f72425c128259e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/1000.png using Guid(d32bd106f8edf484b8f72425c128259e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '498887ca29f9e535a93014bb7760ed45') in 0.006848 seconds
+  Import took 0.008354 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000162 seconds.
-  path: Assets/Art/Witch/WitchPunch/0181.png
-  artifactKey: Guid(ab14a988e4e03f64e85ae330ed8da79c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchPunch/0181.png using Guid(ab14a988e4e03f64e85ae330ed8da79c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f6fff8626b3137f7b125408541846ca') in 0.011269 seconds
-  Import took 0.013561 seconds .
+  Time since last request: 0.000211 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/0986.png
+  artifactKey: Guid(99b1b815ae5c7e04d9eeac66d4f17053) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/0986.png using Guid(99b1b815ae5c7e04d9eeac66d4f17053) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8dddac5a3f78a4d56539b811b00e4a2c') in 0.007186 seconds
+  Import took 0.008723 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000187 seconds.
-  path: Assets/Art/Witch/WitchPunch/0180.png
-  artifactKey: Guid(52dfbfff9f066e541aaa80b02319dd91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchPunch/0180.png using Guid(52dfbfff9f066e541aaa80b02319dd91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c51faeb66a11f8a865f14fcea5794160') in 0.016069 seconds
-  Import took 0.018010 seconds .
+  Time since last request: 0.000230 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/1016.png
+  artifactKey: Guid(1db9e5e694e194f489e2861f3b9616bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/1016.png using Guid(1db9e5e694e194f489e2861f3b9616bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '901218e9a6b5122871163eeb79da87d3') in 0.008542 seconds
+  Import took 0.010070 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/0995.png
+  artifactKey: Guid(8ecdbaf347d575f47a092f71e2bc0547) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/0995.png using Guid(8ecdbaf347d575f47a092f71e2bc0547) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1e439eaa12a89933ac127a42b2db4d1') in 0.009998 seconds
+  Import took 0.011883 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.426750 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/0969.png
+  artifactKey: Guid(21e31ddcbf0d1854281ca99cee6d8b45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/0969.png using Guid(21e31ddcbf0d1854281ca99cee6d8b45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c08e5f8c0514ef3ad228549ee511b88') in 0.009091 seconds
+  Import took 0.010725 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.579275 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/0980.png
+  artifactKey: Guid(aacc6fda44b694946bbc753c8307fdb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/0980.png using Guid(aacc6fda44b694946bbc753c8307fdb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea47d40ce41265c17734de8d7e4e23da') in 0.016148 seconds
+  Import took 0.017847 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000166 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/0988.png
+  artifactKey: Guid(7953b300956307441b50146fb2a64de6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/0988.png using Guid(7953b300956307441b50146fb2a64de6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9b56a95cf6331aeb85690236b28e5b5') in 0.008389 seconds
+  Import took 0.010318 seconds .
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000195 seconds.
-  path: Assets/Art/Witch/WitchPunch/0182.png
-  artifactKey: Guid(7788232b33de5b14f9a4f295a8c211b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchPunch/0182.png using Guid(7788232b33de5b14f9a4f295a8c211b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a57099f022ae26983d12b28f58824c78') in 0.010428 seconds
-  Import took 0.012410 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000184 seconds.
-  path: Assets/Art/Witch/WitchPunch/0184.png
-  artifactKey: Guid(f5e1c7cba6fd3ca478351cf20e400e7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchPunch/0184.png using Guid(f5e1c7cba6fd3ca478351cf20e400e7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '540bb0ec6bba5cc1f46266c7e2e18845') in 0.011357 seconds
-  Import took 0.013064 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.346192 seconds.
-  path: Assets/Art/Witch/WitchGetUp/1056.png
-  artifactKey: Guid(b471b1f031732bd4d835323dda516830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchGetUp/1056.png using Guid(b471b1f031732bd4d835323dda516830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed3e61b8899509bb22c5fb624f00f862') in 0.008466 seconds
-  Import took 0.010041 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000221 seconds.
-  path: Assets/Art/Witch/WitchGetUp/1064.png
-  artifactKey: Guid(ff70c71ea32144c41a8e29d0627682b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchGetUp/1064.png using Guid(ff70c71ea32144c41a8e29d0627682b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b7bdec65393124fb11751d0162299eb') in 0.011763 seconds
-  Import took 0.013555 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000178 seconds.
-  path: Assets/Art/Witch/WitchGetUp/1060.png
-  artifactKey: Guid(a94e83fda8cf9e94e8023b5d91401209) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchGetUp/1060.png using Guid(a94e83fda8cf9e94e8023b5d91401209) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9700d85f390a08243f04ca2884814015') in 0.008118 seconds
-  Import took 0.009822 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000114 seconds.
-  path: Assets/Art/Witch/WitchGetUp/1058.png
-  artifactKey: Guid(b10be6f57c88f494390ed60b8713aaa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchGetUp/1058.png using Guid(b10be6f57c88f494390ed60b8713aaa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b3695245b6bed2be57d67070d5652e2') in 0.013906 seconds
-  Import took 0.015626 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.557091 seconds.
-  path: Assets/Art/Witch/WitchGetUp/1050.png
-  artifactKey: Guid(042f7b04d39520d458f9bbab5fc40438) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchGetUp/1050.png using Guid(042f7b04d39520d458f9bbab5fc40438) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b418a9b4a70062596c80e7950c6bbc5') in 0.009051 seconds
-  Import took 0.010824 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.035169 seconds.
-  path: Assets/Art/Witch/WitchPunch/0176.png
-  artifactKey: Guid(dc1c7145d8fb76541942f91239fd4bd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchPunch/0176.png using Guid(dc1c7145d8fb76541942f91239fd4bd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6077348d8d484e6bd183f75c61022a8c') in 0.030747 seconds
-  Import took 0.032887 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.608174 seconds.
-  path: Assets/Art/Witch/WitchGetUp/1050.png
-  artifactKey: Guid(042f7b04d39520d458f9bbab5fc40438) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchGetUp/1050.png using Guid(042f7b04d39520d458f9bbab5fc40438) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e71d98c8519cb1ac885cfbf2f6ba384') in 0.009397 seconds
-  Import took 0.011106 seconds .
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/1000.png
+  artifactKey: Guid(d32bd106f8edf484b8f72425c128259e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/1000.png using Guid(d32bd106f8edf484b8f72425c128259e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e4950c764c14c485ff946e2331b636c') in 0.009937 seconds
+  Import took 0.011529 seconds .
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000150 seconds.
-  path: Assets/Art/Witch/WitchGetUp/1056.png
-  artifactKey: Guid(b471b1f031732bd4d835323dda516830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchGetUp/1056.png using Guid(b471b1f031732bd4d835323dda516830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31270d6551e89701309c6c24e2b45b09') in 0.010571 seconds
-  Import took 0.012034 seconds .
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/0986.png
+  artifactKey: Guid(99b1b815ae5c7e04d9eeac66d4f17053) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/0986.png using Guid(99b1b815ae5c7e04d9eeac66d4f17053) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84ca07a9bd2b40482530abcfe879099c') in 0.013858 seconds
+  Import took 0.015488 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000150 seconds.
-  path: Assets/Art/Witch/WitchGetUp/1064.png
-  artifactKey: Guid(ff70c71ea32144c41a8e29d0627682b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchGetUp/1064.png using Guid(ff70c71ea32144c41a8e29d0627682b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '972bc9f011aa0d5c6a343e7598dc40d4') in 0.007421 seconds
-  Import took 0.008928 seconds .
+  Time since last request: 0.000277 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/0969.png
+  artifactKey: Guid(21e31ddcbf0d1854281ca99cee6d8b45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/0969.png using Guid(21e31ddcbf0d1854281ca99cee6d8b45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2165ea7e306a8af44d7ca8059572b9c9') in 0.009982 seconds
+  Import took 0.011493 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000139 seconds.
-  path: Assets/Art/Witch/WitchGetUp/1060.png
-  artifactKey: Guid(a94e83fda8cf9e94e8023b5d91401209) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchGetUp/1060.png using Guid(a94e83fda8cf9e94e8023b5d91401209) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37a5e90a51c5075aea9bff1cc3655da3') in 0.014825 seconds
-  Import took 0.016306 seconds .
+  Time since last request: 0.000193 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/1016.png
+  artifactKey: Guid(1db9e5e694e194f489e2861f3b9616bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/1016.png using Guid(1db9e5e694e194f489e2861f3b9616bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f855f6a064d91c685c526309a5d3cb8') in 0.015175 seconds
+  Import took 0.016809 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000125 seconds.
-  path: Assets/Art/Witch/WitchGetUp/1058.png
-  artifactKey: Guid(b10be6f57c88f494390ed60b8713aaa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchGetUp/1058.png using Guid(b10be6f57c88f494390ed60b8713aaa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8423d8eec0d8b77bd79c7533b1ff248') in 0.009926 seconds
-  Import took 0.011609 seconds .
+  Time since last request: 0.000148 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/0995.png
+  artifactKey: Guid(8ecdbaf347d575f47a092f71e2bc0547) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/0995.png using Guid(8ecdbaf347d575f47a092f71e2bc0547) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a060adca620251a1b6a3c8b4e789d59b') in 0.007630 seconds
+  Import took 0.009394 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 12.553517 seconds.
-  path: Assets/Art/Witch/WitchGetUp/1040.png
-  artifactKey: Guid(bd908b90f9acccb4a913a2622d88311c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchGetUp/1040.png using Guid(bd908b90f9acccb4a913a2622d88311c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '754995a6983ae42458742d2e8b493da0') in 0.009626 seconds
-  Import took 0.011805 seconds .
+  Time since last request: 20.708077 seconds.
+  path: Assets/Art/bigboy/Bigboy_HPunch/0035.png
+  artifactKey: Guid(edca3cefecd232542bb0fbb5d1cb516d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_HPunch/0035.png using Guid(edca3cefecd232542bb0fbb5d1cb516d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f0e6096970a21b2cdf62ab0f81fc7cd') in 0.019732 seconds
+  Import took 0.021349 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 3.699595 seconds.
-  path: Assets/Art/Witch/WitchGetUp/1040.png
-  artifactKey: Guid(bd908b90f9acccb4a913a2622d88311c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchGetUp/1040.png using Guid(bd908b90f9acccb4a913a2622d88311c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aafce5e7252b44ca1c453bcf2348184b') in 0.011758 seconds
-  Import took 0.013536 seconds .
+  Time since last request: 0.000249 seconds.
+  path: Assets/Art/bigboy/Bigboy_HPunch/0049.png
+  artifactKey: Guid(c475a2c5c777a274d929d129c3f0ad92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_HPunch/0049.png using Guid(c475a2c5c777a274d929d129c3f0ad92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37c3a2ed9c420f66b11fab3bc88ba10b') in 0.010340 seconds
+  Import took 0.012062 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000121 seconds.
-  path: Assets/Art/Witch/WitchGetUp/1056.png
-  artifactKey: Guid(b471b1f031732bd4d835323dda516830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchGetUp/1056.png using Guid(b471b1f031732bd4d835323dda516830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c758d2fd2d608a691ec517fbb0c4537') in 0.014343 seconds
-  Import took 0.015928 seconds .
+  Time since last request: 0.000195 seconds.
+  path: Assets/Art/bigboy/Bigboy_HPunch/0043.png
+  artifactKey: Guid(45f121d48a5e2284a891e6d4349b835e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_HPunch/0043.png using Guid(45f121d48a5e2284a891e6d4349b835e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b47677f2bc87965c695f6979eaf953f') in 0.017294 seconds
+  Import took 0.019025 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000111 seconds.
-  path: Assets/Art/Witch/WitchGetUp/1050.png
-  artifactKey: Guid(042f7b04d39520d458f9bbab5fc40438) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchGetUp/1050.png using Guid(042f7b04d39520d458f9bbab5fc40438) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c998b3979169c2e13f6d3d53dbdc9779') in 0.011010 seconds
-  Import took 0.012708 seconds .
+  Time since last request: 0.000273 seconds.
+  path: Assets/Art/bigboy/Bigboy_HPunch/0040.png
+  artifactKey: Guid(b2c495c3d7639c541aba2ab79e0dacbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_HPunch/0040.png using Guid(b2c495c3d7639c541aba2ab79e0dacbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ccde1458a079b6335f94bea0c794f6bf') in 0.018347 seconds
+  Import took 0.020003 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000180 seconds.
-  path: Assets/Art/Witch/WitchGetUp/1064.png
-  artifactKey: Guid(ff70c71ea32144c41a8e29d0627682b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchGetUp/1064.png using Guid(ff70c71ea32144c41a8e29d0627682b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f03d9df8baa4f25df5b03d37e3ded8e6') in 0.008837 seconds
-  Import took 0.011002 seconds .
+  Time since last request: 0.000257 seconds.
+  path: Assets/Art/bigboy/Bigboy_HPunch/0046.png
+  artifactKey: Guid(7495ec62cc6e0df48bf97eb6c8a97c9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_HPunch/0046.png using Guid(7495ec62cc6e0df48bf97eb6c8a97c9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2f28f07936152a8d59b1c5b87aeaf2f') in 0.015723 seconds
+  Import took 0.017369 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000129 seconds.
-  path: Assets/Art/Witch/WitchGetUp/1060.png
-  artifactKey: Guid(a94e83fda8cf9e94e8023b5d91401209) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchGetUp/1060.png using Guid(a94e83fda8cf9e94e8023b5d91401209) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7d70932d773772cf5de6590991dc3e2') in 0.010401 seconds
-  Import took 0.012100 seconds .
+  Time since last request: 0.000140 seconds.
+  path: Assets/Art/bigboy/Bigboy_HPunch/0037.png
+  artifactKey: Guid(3fe4fa7607adeca41be3111ba9c9f34a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_HPunch/0037.png using Guid(3fe4fa7607adeca41be3111ba9c9f34a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67f21c5b88f0a11eccf1eb24424e6022') in 0.016261 seconds
+  Import took 0.017817 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000125 seconds.
-  path: Assets/Art/Witch/WitchGetUp/1058.png
-  artifactKey: Guid(b10be6f57c88f494390ed60b8713aaa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Witch/WitchGetUp/1058.png using Guid(b10be6f57c88f494390ed60b8713aaa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b9ce6619a36d0d2f777dafac470cf64') in 0.009069 seconds
-  Import took 0.010663 seconds .
+  Time since last request: 0.902029 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/0973.png
+  artifactKey: Guid(cb3a8802da20aa24fbbbc865d5020285) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/0973.png using Guid(cb3a8802da20aa24fbbbc865d5020285) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0e7a62cacf20bf688682022c5721ad9') in 0.008143 seconds
+  Import took 0.009823 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 491.701711 seconds.
-  path: Assets/Art/134371-xbox-one-controller-unity-windows-macos.jpg
-  artifactKey: Guid(fa5903635f325f740b783eae4d6fd313) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/134371-xbox-one-controller-unity-windows-macos.jpg using Guid(fa5903635f325f740b783eae4d6fd313) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81daf2c1899d5375fa0f288b5845e187') in 0.035977 seconds
-  Import took 0.038190 seconds .
+  Time since last request: 33.650778 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/1018.png
+  artifactKey: Guid(f294a92131ea0904980463c966b3644c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/1018.png using Guid(f294a92131ea0904980463c966b3644c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b672cc98a93d25e660d79c79d0e94bb9') in 0.008748 seconds
+  Import took 0.010587 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 68.490982 seconds.
-  path: Assets/Art/BAK_PlayerCharacterPunch.png
-  artifactKey: Guid(bbc58b666268fa14b863f251d6f849ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/BAK_PlayerCharacterPunch.png using Guid(bbc58b666268fa14b863f251d6f849ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c18bfb92c9806dd07d305470c20c915b') in 0.014058 seconds
-  Import took 0.016142 seconds .
+  Time since last request: 0.454985 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/1020.png
+  artifactKey: Guid(26ed13f572c2c4b4ea574d3c3bb65586) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/1020.png using Guid(26ed13f572c2c4b4ea574d3c3bb65586) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb9c657e0d3714f2f5c4bb891214c494') in 0.008657 seconds
+  Import took 0.010335 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 0.626730 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/1025.png
+  artifactKey: Guid(4724bc720713b6f45b6a38d29106340e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/1025.png using Guid(4724bc720713b6f45b6a38d29106340e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4a9b45759dbef212b0b5e198835ba32') in 0.007895 seconds
+  Import took 0.009716 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.627508 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/1030.png
+  artifactKey: Guid(75d087d68ae57094d8fcb7422b9b2ab6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/1030.png using Guid(75d087d68ae57094d8fcb7422b9b2ab6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ceef096796bf6eefe89eb3012f2d2e3') in 0.012583 seconds
+  Import took 0.014441 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.426687 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/1034.png
+  artifactKey: Guid(b0676ecb7bc34bf43a34bc61270f332a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/1034.png using Guid(b0676ecb7bc34bf43a34bc61270f332a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '387385f601c38b7051f83ddc8a763646') in 0.013817 seconds
+  Import took 0.015766 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 199.703569 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/1039.png
+  artifactKey: Guid(e65744b872090ca478f3c46f5b11f969) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/1039.png using Guid(e65744b872090ca478f3c46f5b11f969) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31a4f06791bb715bb92bec9e4b5eda27') in 0.009374 seconds
+  Import took 0.011319 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.416684 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/1045.png
+  artifactKey: Guid(59591b4ca484b104bb755c34964ee00f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/1045.png using Guid(59591b4ca484b104bb755c34964ee00f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0462f603f92682b3c48dfa340052d33d') in 0.008192 seconds
+  Import took 0.009934 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.215148 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/1050.png
+  artifactKey: Guid(dd1da3f362128b641af732d0f090eb72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/1050.png using Guid(dd1da3f362128b641af732d0f090eb72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a9d8e4ee240db85c66efb11130eccf6') in 0.009371 seconds
+  Import took 0.011163 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.588776 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/1053.png
+  artifactKey: Guid(b62cfe1c562026949b677ea4a179a325) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/1053.png using Guid(b62cfe1c562026949b677ea4a179a325) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77020cb46b27d928ccb0bf70474ca685') in 0.012658 seconds
+  Import took 0.014597 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.225049 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/1054.png
+  artifactKey: Guid(bafa3c4fa82cd214bb85588438484be6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/1054.png using Guid(bafa3c4fa82cd214bb85588438484be6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b26d8b162efc27325793cb1adcd2be7d') in 0.008053 seconds
+  Import took 0.009812 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.433013 seconds.
+  path: Assets/Art/bigboy/BigBoy_GrabThrow/1061.png
+  artifactKey: Guid(c990f44445eb1a849980d5a8d33eddc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/BigBoy_GrabThrow/1061.png using Guid(c990f44445eb1a849980d5a8d33eddc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5840ce13b7b328644870ad62605cd0c2') in 0.008565 seconds
+  Import took 0.010416 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 117.402304 seconds.
+  path: Assets/Art/bigboy/Bigboy_HPunch/0030.png
+  artifactKey: Guid(29dc0d0a43bdec241b2ca8f7be77f279) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_HPunch/0030.png using Guid(29dc0d0a43bdec241b2ca8f7be77f279) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8062b49172342be0b585777861587ba') in 0.069093 seconds
+  Import took 0.070712 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/Art/bigboy/Bigboy_HPunch/0033.png
+  artifactKey: Guid(975b97095be51cd42a8615d49e0e71ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_HPunch/0033.png using Guid(975b97095be51cd42a8615d49e0e71ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c271b4e852a11477f017425e0149308') in 0.010236 seconds
+  Import took 0.011647 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.109859 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0035.png
+  artifactKey: Guid(3563db122cb85034bb10c4c2c102713b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0035.png using Guid(3563db122cb85034bb10c4c2c102713b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebca50a601614f0121eb318bdc5863df') in 0.027390 seconds
+  Import took 0.029204 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000159 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0039.png
+  artifactKey: Guid(f3202e03618b15f46bdb2f2f4ff1d7d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0039.png using Guid(f3202e03618b15f46bdb2f2f4ff1d7d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af19d2b65801e57fb7072936ee7e501c') in 0.008980 seconds
+  Import took 0.010419 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000215 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0040.png
+  artifactKey: Guid(fa3e1bd1e35dce04ebcd286daceb5cd8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0040.png using Guid(fa3e1bd1e35dce04ebcd286daceb5cd8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5854b903191f5595d6b99d6c4b67fcc') in 0.013535 seconds
+  Import took 0.015208 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000167 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0036.png
+  artifactKey: Guid(ebc346596f5182f489be5bc0fc77f77a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0036.png using Guid(ebc346596f5182f489be5bc0fc77f77a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c7b04478c5d3325719f7b11dbea8360') in 0.010087 seconds
+  Import took 0.011567 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000109 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0037.png
+  artifactKey: Guid(e6aee2685c121dd49a277a9426eaf0f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0037.png using Guid(e6aee2685c121dd49a277a9426eaf0f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ee15b0af12ddae0ad5a687700d38ead') in 0.012893 seconds
+  Import took 0.014406 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000152 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0038.png
+  artifactKey: Guid(d6d86e36c8c54e54ca25a30d565a70e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0038.png using Guid(d6d86e36c8c54e54ca25a30d565a70e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'adc406ecdf2012bdfc51e68e45418209') in 0.015227 seconds
+  Import took 0.016937 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.448004 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0044.png
+  artifactKey: Guid(0b7f6b392aa1795468a6a30917e4d359) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0044.png using Guid(0b7f6b392aa1795468a6a30917e4d359) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4971dd6a3d9f32ae21e6f6a61539aec') in 0.008699 seconds
+  Import took 0.010519 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.049626 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0047.png
+  artifactKey: Guid(fbc72535641dde544bfc7da1b50c847f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0047.png using Guid(fbc72535641dde544bfc7da1b50c847f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d4f1300a4c25e6ad5e271a50d469583') in 0.008046 seconds
+  Import took 0.009669 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.237523 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0051.png
+  artifactKey: Guid(03dbe476d8807fc4782cde9e6542c6d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0051.png using Guid(03dbe476d8807fc4782cde9e6542c6d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7f649e090f9351519d4231f8f7a5339') in 0.023863 seconds
+  Import took 0.025814 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000157 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0054.png
+  artifactKey: Guid(649653dfb7f59214d8eb6eb996a1e4ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0054.png using Guid(649653dfb7f59214d8eb6eb996a1e4ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf12da10950c74303b2a891990f30a03') in 0.008325 seconds
+  Import took 0.009870 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.256603 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0056.png
+  artifactKey: Guid(236f088820b8c59439dc4eb9b3f04863) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0056.png using Guid(236f088820b8c59439dc4eb9b3f04863) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c077210d1f5eff7cf6b203a7d96f93a1') in 0.010472 seconds
+  Import took 0.012143 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003853 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0056.png
+  artifactKey: Guid(236f088820b8c59439dc4eb9b3f04863) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0056.png using Guid(236f088820b8c59439dc4eb9b3f04863) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c077210d1f5eff7cf6b203a7d96f93a1') in 0.009124 seconds
+  Import took 0.010798 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.036326 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0058.png
+  artifactKey: Guid(2be3cae6e00518f4b8adb32dc79256c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0058.png using Guid(2be3cae6e00518f4b8adb32dc79256c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '579cc8c69e6a43a708dd8554fedb9f3d') in 0.009931 seconds
+  Import took 0.011644 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000350 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0060.png
+  artifactKey: Guid(b7388ffe4eae8894bb40245e38758344) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0060.png using Guid(b7388ffe4eae8894bb40245e38758344) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4ffa2d416a765045ea11942c374ba83') in 0.007330 seconds
+  Import took 0.008990 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.237820 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0069.png
+  artifactKey: Guid(164bd8f2d7cca4d4397463ba018f701f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0069.png using Guid(164bd8f2d7cca4d4397463ba018f701f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ff3a22933eef128c3e2083f8168b169') in 0.021396 seconds
+  Import took 0.023566 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017333 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0075.png
+  artifactKey: Guid(f23ec67790f922d4da7ec0c251fc76ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0075.png using Guid(f23ec67790f922d4da7ec0c251fc76ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7d3a1e2b8723e2025ac023906d20954') in 0.014883 seconds
+  Import took 0.016564 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.023873 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0080.png
+  artifactKey: Guid(e4a8184190519e64580d9ec0f2e8924a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0080.png using Guid(e4a8184190519e64580d9ec0f2e8924a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9580317f2dcbb2543262a738b3322530') in 0.016416 seconds
+  Import took 0.018520 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.216801 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0090.png
+  artifactKey: Guid(ef6e5a2bf8fac7948b0370e2e256e246) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0090.png using Guid(ef6e5a2bf8fac7948b0370e2e256e246) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c31a8114ae2c1f2ceca8bf193adbbb3f') in 0.031764 seconds
+  Import took 0.033575 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0100.png
+  artifactKey: Guid(801e83a36a09d7d42854b7df1567f249) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0100.png using Guid(801e83a36a09d7d42854b7df1567f249) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b574e19c2f8ab39bfdc3b1e2d07221cb') in 0.012596 seconds
+  Import took 0.014172 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000212 seconds.
+  path: Assets/Art/bigboy/Bigboy_LPunch/0090.png
+  artifactKey: Guid(ef6e5a2bf8fac7948b0370e2e256e246) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/bigboy/Bigboy_LPunch/0090.png using Guid(ef6e5a2bf8fac7948b0370e2e256e246) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c31a8114ae2c1f2ceca8bf193adbbb3f') in 0.011344 seconds
+  Import took 0.012978 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000540 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.630 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1136 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 60.4 MB.
+System memory in use after: 60.5 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1590.
+Total: 1.452100 ms (FindLiveObjects: 0.125600 ms CreateObjectMapping: 0.032400 ms MarkObjects: 1.283100 ms  DeleteObjects: 0.010400 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
