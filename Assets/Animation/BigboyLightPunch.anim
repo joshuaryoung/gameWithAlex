@@ -831,7 +831,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: setCanAttackFalse
+    functionName: punchEnter
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -844,22 +844,8 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.5833333
-    functionName: resetCanAttack
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.6
-    functionName: resetAttackHasAlreadyHit
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 0.6166667
-    functionName: disableIsPunching
+    functionName: punchExit
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
