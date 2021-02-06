@@ -324,6 +324,16 @@ public class BigBoyBehavior : MonoBehaviour
     bigboyAnim.SetBool("isHeavyPunching", false);
   }
 
+  public void punchEnter() {
+    canAttack = false;
+    attackHasAlreadyHit = false;
+  }
+
+  public void punchExit() {
+    canAttack = true;
+    attackHasAlreadyHit = false;
+  }
+
   void resetAttackHasAlreadyHit() {
     attackHasAlreadyHit = false;
   }
@@ -393,11 +403,13 @@ public class BigBoyBehavior : MonoBehaviour
   }
 
   public void grabExit() {
+    attackHasAlreadyHit = false;
     canAttack = true;
     bigboyAnim.SetBool("isGrabbing", false);
   }
 
   public void slamExit() {
+    attackHasAlreadyHit = false;
     canAttack = true;
     bigboyAnim.SetBool("isSlamming", false);
   }
