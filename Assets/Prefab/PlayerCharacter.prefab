@@ -507,6 +507,7 @@ MonoBehaviour:
   attackHasAlreadyHit: 0
   dpadLeftPressed: 0
   dpadRightPressed: 0
+  currentlyGrabbedEnemy: {fileID: 0}
   punchAnimationClip: {fileID: 7400000, guid: 149e301081590af4cb14918cdfd7f88a, type: 2}
   kickAnimationClip: {fileID: 7400000, guid: 67bab586c6682ee4ca01f464cadbb6d1, type: 2}
   PH: {fileID: 0}
@@ -645,7 +646,7 @@ MonoBehaviour:
   hitSparkAnimator: {fileID: 999187270}
   blockSparkObject: {fileID: 4079147941637204015}
   blockSparkAnimator: {fileID: 8831438579535511990}
-  animator: {fileID: 0}
+  anim: {fileID: 0}
   RB2D: {fileID: 0}
   InfiniteHealth: 0
   audioSrc: {fileID: 0}
