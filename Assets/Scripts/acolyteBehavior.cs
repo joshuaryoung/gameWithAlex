@@ -559,8 +559,11 @@ public class acolyteBehavior : MonoBehaviour
 
   public void knockDownEnter() {
     setAllBoolAnimParametersToFalse();
-    isKnockedDown = true;
     acolyteAnim.SetBool("isKnockedDown", true);
+  }
+
+  public void knockDownInvincibilityEnter() {
+    isKnockedDown = true;
     upperCollisionBoxGameObj.layer = LayerMask.NameToLayer("OnlyInteractsWithWallsGround");
     lowerCollisionBoxGameObj.layer = LayerMask.NameToLayer("OnlyInteractsWithWallsGround");
   }

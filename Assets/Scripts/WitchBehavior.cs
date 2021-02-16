@@ -529,8 +529,11 @@ public class WitchBehavior : MonoBehaviour
 
   public void knockDownEnter() {
     setAllBoolAnimParametersToFalse();
-    isKnockedDown = true;
     witchAnim.SetBool("isKnockedDown", true);
+  }
+
+  public void knockDownInvincibilityEnter() {
+    isKnockedDown = true;
     upperCollisionBoxGameObj.layer = LayerMask.NameToLayer("OnlyInteractsWithWallsGround");
     lowerCollisionBoxGameObj.layer = LayerMask.NameToLayer("OnlyInteractsWithWallsGround");
   }

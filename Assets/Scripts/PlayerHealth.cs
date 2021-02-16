@@ -175,15 +175,18 @@ public class PlayerHealth : MonoBehaviour
       if (!InfiniteHealth)
         currentHealth -= damage;
       invincibilityCooldownCurrent = invincibilityCooldownMax;
-      PIS.isForwardDashing = false;
-      PIS.isBackDashing = false;
-      PIS.hasReleasedWall = true;
-      PIS.currentGrabAttackIndex = 0;
-      setAllBoolAnimParametersToFalse(anim);
-      anim.SetBool("isBeingGrabbed", false);
-      anim.SetBool("isKnockedDown", true);
+      playerGrabStateExit();
     }
-    
+  }
+
+  public void playerGrabStateExit() {
+    PIS.isForwardDashing = false;
+    PIS.isBackDashing = false;
+    PIS.hasReleasedWall = true;
+    PIS.currentGrabAttackIndex = 0;
+    setAllBoolAnimParametersToFalse(anim);
+    anim.SetBool("isBeingGrabbed", false);
+    anim.SetBool("isKnockedDown", true);
   }
 
   public void playerGetGrabbed()

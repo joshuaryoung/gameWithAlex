@@ -151,34 +151,38 @@ public class BigBoyBehavior : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    if (PIS == null) {
+      Debug.LogError($"{this.name}: PIS is null!");
+      return;
+    }
     if (lowerHurtbox == null) {
-      Debug.LogError("lowerHurtbox is null!");
+      Debug.LogError($"{this.name}: lowerHurtbox is null!");
       return;
     }
     if (hitSparkAnimator == null) {
-      Debug.LogError("hitSparkAnimator is null!");
+      Debug.LogError($"{this.name}: hitSparkAnimator is null!");
       return;
     }
     if (blockSparkAnimator == null) {
-      Debug.LogError("blockSparkAnimator is null!");
+      Debug.LogError($"{this.name}: blockSparkAnimator is null!");
       return;
     }
     if (CVO == null)
     {
-        Debug.LogError("CVO script not assigned!");
+        Debug.LogError($"{this.name}: CVO script not assigned!");
         return;
     }
     if (BBAIBS == null)
     {
-        Debug.LogError("BBAIBS script not assigned!");
+        Debug.LogError($"{this.name}: BBAIBS script not assigned!");
         return;
     }
     if (upperCollisionBoxGameObj == null) {
-        Debug.LogError("upperCollisionBoxGameObj is null!");
+        Debug.LogError($"{this.name}: upperCollisionBoxGameObj is null!");
         return;
     }
     if (lowerCollisionBoxGameObj == null) {
-        Debug.LogError("lowerCollisionBoxGameObj is null!");
+        Debug.LogError($"{this.name}: lowerCollisionBoxGameObj is null!");
         return;
     }
     if (grabHitBox == null) {
@@ -384,7 +388,7 @@ public class BigBoyBehavior : MonoBehaviour
     {
       attackHasAlreadyHit = true;
       bigboyAnim.SetBool("isSlamming", true);
-      cols[0].SendMessageUpwards("playerGetGrabbed");
+      cols[0].SendMessageUpwards("playerGetGrabbed", bigboyAnim);
     }
   }
 
@@ -563,8 +567,11 @@ public class BigBoyBehavior : MonoBehaviour
 
   public void knockDownEnter() {
     setAllBoolAnimParametersToFalse();
-    isKnockedDown = true;
     bigboyAnim.SetBool("isKnockedDown", true);
+  }
+
+  public void knockDownInvincibilityEnter() {
+    isKnockedDown = true;
     upperCollisionBoxGameObj.layer = LayerMask.NameToLayer("OnlyInteractsWithWallsGround");
     lowerCollisionBoxGameObj.layer = LayerMask.NameToLayer("OnlyInteractsWithWallsGround");
   }
