@@ -7,7 +7,7 @@ AnimationClip:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Kick
-  serializedVersion: 6
+  serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -598,6 +598,7 @@ AnimationClip:
       typeID: 58
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
     - serializedVersion: 2
       path: 2340030406
       attribute: 4197328169
@@ -605,6 +606,7 @@ AnimationClip:
       typeID: 61
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
     - serializedVersion: 2
       path: 2340030406
       attribute: 413499720
@@ -612,6 +614,7 @@ AnimationClip:
       typeID: 61
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
     - serializedVersion: 2
       path: 2340030406
       attribute: 1872933342
@@ -619,6 +622,7 @@ AnimationClip:
       typeID: 61
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
     - serializedVersion: 2
       path: 2974376567
       attribute: 413499720
@@ -626,6 +630,7 @@ AnimationClip:
       typeID: 58
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
     - serializedVersion: 2
       path: 2974376567
       attribute: 1872933342
@@ -633,6 +638,7 @@ AnimationClip:
       typeID: 58
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
     - serializedVersion: 2
       path: 0
       attribute: 0
@@ -640,6 +646,7 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+      isIntCurve: 0
     - serializedVersion: 2
       path: 2340030406
       attribute: 2368279999
@@ -647,6 +654,7 @@ AnimationClip:
       typeID: 61
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
     - serializedVersion: 2
       path: 2974376567
       attribute: 1984117138
@@ -654,6 +662,7 @@ AnimationClip:
       typeID: 58
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
     pptrCurveMapping:
     - {fileID: 21300000, guid: 543036b44a48459449734746aaf92ea5, type: 3}
     - {fileID: 21300000, guid: 9960d19384cd665479a9634c414a4b72, type: 3}
