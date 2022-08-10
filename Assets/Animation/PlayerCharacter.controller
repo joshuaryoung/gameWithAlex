@@ -3293,6 +3293,15 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: isBackWalking
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isSweeping
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isUppercutting
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isBlocking
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8801788127086838709}
   m_Solo: 0
