@@ -290,8 +290,8 @@ public class PlayerInputScript : MonoBehaviour
         }
         jumpPressed = Input.GetKeyDown(jumpKeyCode);
         jumpReleased = Input.GetKeyUp(jumpKeyCode);
-        isForwardDashing = isGrounded && dashReleased && Input.GetKey(dashKeyCode) && transform.localScale.x * controllerAxisX > 0;
-        isBackDashing = isGrounded && dashReleased && Input.GetKey(dashKeyCode) && transform.localScale.x * controllerAxisX < 0;
+        isForwardDashing = isGrounded && !jumpPressed && dashReleased && Input.GetKey(dashKeyCode) && transform.localScale.x * controllerAxisX > 0;
+        isBackDashing = isGrounded && !jumpPressed && dashReleased && Input.GetKey(dashKeyCode) && transform.localScale.x * controllerAxisX < 0;
 
         if (isWallClimbing)
         {
